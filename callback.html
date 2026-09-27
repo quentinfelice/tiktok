@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Studia · Connected</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <a class="brand" href="./"><span class="plate"></span><b>studia</b></a>
+      <h1 id="title">Connecting…</h1>
+      <p id="msg" class="muted"></p>
+      <div id="box" hidden>
+        <div class="code" id="code"></div>
+        <button id="copy" type="button">Copy code</button>
+      </div>
+    </main>
+    <script>
+      // Static page: nothing is sent anywhere. It only shows the one-time code TikTok returned,
+      // so the operator can paste it into their Studia session within a few minutes.
+      const q = new URLSearchParams(location.search);
+      const $ = (id) => document.getElementById(id);
+      if (q.get('error')) {
+        $('title').textContent = 'Connection cancelled';
+        $('msg').textContent = q.get('error_description') || q.get('error');
+      } else if (q.get('code')) {
+        $('title').textContent = 'TikTok connected';
+        $('msg').textContent =
+          'Copy this one-time code and paste it into your Studia session now. It expires in a few minutes.';
+        $('code').textContent = q.get('code');
+        $('box').hidden = false;
+        $('copy').onclick = () =>
+          navigator.clipboard.writeText(q.get('code')).then(
+            () => ($('copy').textContent = 'Copied'),
+            () => ($('copy').textContent = 'Select the code and copy it'),
+          );
+      } else {
+        $('title').textContent = 'Nothing to show';
+        $('msg').textContent = 'Open this page from the "Log in with TikTok" link.';
+      }
+    </script>
+  </body>
+</html>
