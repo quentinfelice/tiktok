@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-30T16:24:31.211Z",
+  "fetchedAt": "2026-09-30T16:34:40.940Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -25,6 +25,19 @@
     "view_count"
   ],
   "posts": [
+    {
+      "specId": "0930-1",
+      "tiktokId": "7691366253151227168",
+      "createTime": "2026-09-30T16:29:21.000Z",
+      "createTimeUnix": 1790785761,
+      "title": "Your brain stays on guard in a new bed. In a 35-person Brown University study, a network in the left half of the brain slept lighter on night one and woke people faster to odd sounds. By night two, the difference was gone. #sleepscience #firstnighteffect #travel #brain #fallingasleep",
+      "views": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7691366253151227168?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "matchedBy": "description_prefix"
+    },
     {
       "specId": null,
       "tiktokId": "7690895342648233238",

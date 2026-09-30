@@ -65,6 +65,28 @@
       "logId": "202609301624242DAF37F55689B2550779",
       "updatedAt": "2026-09-30T16:24:30.649Z",
       "lastCheckedAt": "2026-09-30T16:24:30.649Z"
+    },
+    {
+      "createdAt": "2026-09-30T16:34:34.561Z",
+      "specId": "0930-1-musictest",
+      "date": "2026-09-30",
+      "publishId": "p_inbox_url~v2.7691367263882577942",
+      "title": "Music test: same slides as 0930-1, delete this draft.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20260930163434F8618B72C15C72CFB14A",
+      "updatedAt": "2026-09-30T16:34:40.324Z",
+      "lastCheckedAt": "2026-09-30T16:34:40.324Z"
     }
   ]
 }
