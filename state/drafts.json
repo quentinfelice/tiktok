@@ -87,6 +87,24 @@
       "logId": "20260930163434F8618B72C15C72CFB14A",
       "updatedAt": "2026-09-30T16:34:40.324Z",
       "lastCheckedAt": "2026-09-30T16:34:40.324Z"
+    },
+    {
+      "createdAt": "2026-09-30T18:12:45.424Z",
+      "specId": "0930-V1",
+      "date": "2026-09-30",
+      "publishId": "v_inbox_url~v2.7691392655477164054",
+      "kind": "video",
+      "title": "Why do your worries feel bigger after midnight?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-V1/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "2026093018124510130BCBD20B30215BCD",
+      "updatedAt": "2026-09-30T18:13:28.727Z",
+      "lastCheckedAt": "2026-09-30T18:13:28.727Z"
     }
   ]
 }
