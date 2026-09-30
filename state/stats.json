@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-30T16:37:18.653Z",
+  "fetchedAt": "2026-09-30T16:45:50.740Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -31,7 +31,7 @@
       "createTime": "2026-09-30T16:29:21.000Z",
       "createTimeUnix": 1790785761,
       "title": "Your brain stays on guard in a new bed. In a 35-person Brown University study, a network in the left half of the brain slept lighter on night one and woke people faster to odd sounds. By night two, the difference was gone. #sleepscience #firstnighteffect #travel #brain #fallingasleep",
-      "views": 11,
+      "views": 67,
       "likes": 0,
       "comments": 0,
       "shares": 0,
