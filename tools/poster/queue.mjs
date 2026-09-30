@@ -70,7 +70,7 @@ export async function runQueue({
   if (dryRun) {
     for (const it of selected)
       log(
-        `[dry-run] ${it.id}: ${JSON.stringify(buildInitPayload(it, it.images, { mode, privacyLevel: level }))}`,
+        `[dry-run] ${it.id}: ${JSON.stringify(buildInitPayload(it, it.images, { mode, privacyLevel: level, draftAutoMusic: Boolean(it.autoMusicTest) }))}`,
       );
     return { created: [], skipped, pending, dryRun: true };
   }
@@ -84,7 +84,11 @@ export async function runQueue({
       );
     }
     for (const it of selected) {
-      const payload = buildInitPayload(it, it.images, { mode, privacyLevel: level });
+      const payload = buildInitPayload(it, it.images, {
+        mode,
+        privacyLevel: level,
+        draftAutoMusic: Boolean(it.autoMusicTest),
+      });
       if (creator) assertCreatorAllows(creator, { privacyLevel: level, photoCount: it.images.length });
       log(
         `${it.id}: ${mode === 'direct' ? 'publishing' : 'creating draft with'} ${it.images.length} photo(s)…`,

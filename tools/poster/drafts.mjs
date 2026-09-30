@@ -47,7 +47,11 @@ export function buildDescription(post) {
  * mode `direct` -> DIRECT_POST with privacy_level, auto_add_music and the disclosure fields TikTok requires
  * (comments on, no branded content by default). Direct posts need the app audit to be publicly visible.
  */
-export function buildInitPayload(post, urls, { privacyLevel, mode = 'draft', autoAddMusic = true } = {}) {
+export function buildInitPayload(
+  post,
+  urls,
+  { privacyLevel, mode = 'draft', autoAddMusic = true, draftAutoMusic = false } = {},
+) {
   if (!Array.isArray(urls) || urls.length < 1) throw new Error(`${post.id}: no photo URLs`);
   if (urls.length > MAX_PHOTOS)
     throw new Error(`${post.id}: ${urls.length} photos exceed the limit of ${MAX_PHOTOS}`);
@@ -65,8 +69,10 @@ export function buildInitPayload(post, urls, { privacyLevel, mode = 'draft', aut
       brand_content_toggle: false,
       brand_organic_toggle: false,
     });
-  } else if (privacyLevel) {
-    post_info.privacy_level = privacyLevel;
+  } else {
+    if (privacyLevel) post_info.privacy_level = privacyLevel;
+    // Experiment only (queue item flag autoMusicTest): does TikTok honour auto_add_music for inbox drafts?
+    if (draftAutoMusic) post_info.auto_add_music = true;
   }
   return {
     post_info,
