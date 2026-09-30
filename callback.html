@@ -22,6 +22,14 @@
       // so the operator can paste it into their Studia session within a few minutes.
       const q = new URLSearchParams(location.search);
       const $ = (id) => document.getElementById(id);
+      // Login started from the Studia web app in this same tab: hand the result back to the app.
+      try {
+        if (sessionStorage.getItem('studia_oauth_state') && (q.get('code') || q.get('error'))) {
+          location.replace('app.html' + location.search);
+        }
+      } catch {
+        /* no session storage: fall through to the manual code display */
+      }
       if (q.get('error')) {
         $('title').textContent = 'Connection cancelled';
         $('msg').textContent = q.get('error_description') || q.get('error');

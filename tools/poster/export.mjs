@@ -50,6 +50,16 @@ export function buildManifestItem(post, urls, { date }) {
   };
 }
 
+/** queue/index.json: the dates that have a manifest, so the static web app can list them. */
+export function writeQueueIndex(paths) {
+  const dates = readdirSync(paths.queueDir)
+    .map((f) => /^(\d{4}-\d{2}-\d{2})\.json$/.exec(f)?.[1])
+    .filter(Boolean)
+    .sort();
+  writeJson(join(paths.queueDir, 'index.json'), { dates });
+  return dates;
+}
+
 /** Writes queue/<date>.json, replacing items with the same id and keeping the others. */
 export function writeManifest(paths, date, items) {
   const file = join(paths.queueDir, `${date}.json`);
@@ -58,6 +68,7 @@ export function writeManifest(paths, date, items) {
   for (const it of items) byId.set(it.id, it);
   const manifest = { date, items: [...byId.values()].sort((a, b) => a.id.localeCompare(b.id)) };
   writeJson(file, manifest);
+  writeQueueIndex(paths);
   return { file, manifest };
 }
 

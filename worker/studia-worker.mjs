@@ -1,0 +1,313 @@
+// Studia API: a tiny Cloudflare Worker that keeps the TikTok client secret off the website.
+// Paste this single file into a Worker (Cloudflare dashboard > Workers & Pages > Create > Edit code).
+//
+// Secrets (Settings > Variables and Secrets, type "Secret"): TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET,
+// SESSION_KEY (random, 32+ characters). Optional plain variables: POST_MODE (draft | direct, default draft),
+// SCOPES (default user.info.basic,video.upload,video.list), ALLOWED_ORIGIN (default https://quentinfelice.github.io).
+//
+// The browser never sees a TikTok token: after login the Worker returns an AES-GCM sealed session that only this
+// Worker can open. Only the fixed TikTok endpoints below are reachable; this is not an open proxy.
+
+const PUBLIC_BASE = 'https://quentinfelice.github.io/tiktok/';
+const REDIRECT_URI = `${PUBLIC_BASE}callback.html`;
+const TT = {
+  authorize: 'https://www.tiktok.com/v2/auth/authorize/',
+  token: 'https://open.tiktokapis.com/v2/oauth/token/',
+  creator: 'https://open.tiktokapis.com/v2/post/publish/creator_info/query/',
+  init: 'https://open.tiktokapis.com/v2/post/publish/content/init/',
+  status: 'https://open.tiktokapis.com/v2/post/publish/status/fetch/',
+  videos: 'https://open.tiktokapis.com/v2/video/list/',
+};
+const VIDEO_FIELDS = 'id,create_time,title,video_description,view_count,like_count,comment_count,share_count';
+const PRIVACY_LEVELS = ['PUBLIC_TO_EVERYONE', 'MUTUAL_FOLLOW_FRIENDS', 'FOLLOWER_OF_CREATOR', 'SELF_ONLY'];
+const TITLE_MAX = 90;
+const DESCRIPTION_MAX = 4000;
+const MAX_PHOTOS = 35;
+const REFRESH_MARGIN_MS = 60_000;
+
+class HttpError extends Error {
+  constructor(status, code, message) {
+    super(message ?? code);
+    this.status = status;
+    this.code = code;
+  }
+}
+
+const enc = new TextEncoder();
+const b64u = {
+  enc: (bytes) =>
+    btoa(String.fromCharCode(...new Uint8Array(bytes)))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, ''),
+  dec: (s) => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0)),
+};
+
+async function aesKey(env) {
+  if (!env.SESSION_KEY || env.SESSION_KEY.length < 32)
+    throw new HttpError(500, 'server_not_configured', 'SESSION_KEY missing or too short');
+  const hash = await crypto.subtle.digest('SHA-256', enc.encode(env.SESSION_KEY));
+  return crypto.subtle.importKey('raw', hash, 'AES-GCM', false, ['encrypt', 'decrypt']);
+}
+
+export async function seal(obj, env) {
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = await crypto.subtle.encrypt(
+    { name: 'AES-GCM', iv },
+    await aesKey(env),
+    enc.encode(JSON.stringify(obj)),
+  );
+  return `${b64u.enc(iv)}.${b64u.enc(ct)}`;
+}
+
+export async function unseal(token, env) {
+  try {
+    const [iv, ct] = String(token).split('.');
+    const pt = await crypto.subtle.decrypt(
+      { name: 'AES-GCM', iv: b64u.dec(iv) },
+      await aesKey(env),
+      b64u.dec(ct),
+    );
+    return JSON.parse(new TextDecoder().decode(pt));
+  } catch (err) {
+    if (err instanceof HttpError) throw err;
+    throw new HttpError(401, 'session_invalid', 'Log in again');
+  }
+}
+
+const settings = (env) => ({
+  mode: (env.POST_MODE || 'draft').toLowerCase() === 'direct' ? 'direct' : 'draft',
+  scopes: env.SCOPES || 'user.info.basic,video.upload,video.list',
+  origin: env.ALLOWED_ORIGIN || 'https://quentinfelice.github.io',
+});
+
+function requireCredentials(env) {
+  if (!env.TIKTOK_CLIENT_KEY || !env.TIKTOK_CLIENT_SECRET)
+    throw new HttpError(500, 'server_not_configured', 'TikTok credentials are not set on the server');
+}
+
+async function tokenRequest(fields, env) {
+  requireCredentials(env);
+  const res = await fetch(TT.token, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Cache-Control': 'no-cache' },
+    body: new URLSearchParams({
+      client_key: env.TIKTOK_CLIENT_KEY,
+      client_secret: env.TIKTOK_CLIENT_SECRET,
+      ...fields,
+    }).toString(),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || !json.access_token)
+    throw new HttpError(
+      400,
+      json.error || 'token_error',
+      json.error_description || 'TikTok refused the login',
+    );
+  const now = Date.now();
+  return {
+    a: json.access_token,
+    r: json.refresh_token,
+    e: now + Number(json.expires_in ?? 0) * 1000,
+    re: now + Number(json.refresh_expires_in ?? 0) * 1000,
+    o: json.open_id,
+    s: json.scope,
+  };
+}
+
+/** Opens the session from the Authorization header; refreshes it when the access token is about to expire. */
+async function openSession(request, env) {
+  const auth = request.headers.get('Authorization') || '';
+  if (!auth.startsWith('Bearer ')) throw new HttpError(401, 'not_logged_in', 'Log in with TikTok first');
+  let session = await unseal(auth.slice(7), env);
+  let refreshed = null;
+  if (session.e - Date.now() < REFRESH_MARGIN_MS) {
+    if (!session.r || session.re < Date.now()) throw new HttpError(401, 'session_expired', 'Log in again');
+    const next = await tokenRequest({ grant_type: 'refresh_token', refresh_token: session.r }, env);
+    session = { ...next, o: next.o || session.o };
+    refreshed = await seal(session, env);
+  }
+  return { session, refreshed };
+}
+
+async function tiktok(url, session, body) {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${session.a}`, 'Content-Type': 'application/json; charset=UTF-8' },
+    body: JSON.stringify(body ?? {}),
+  });
+  const json = await res.json().catch(() => null);
+  const err = json?.error ?? {};
+  if (!json || !res.ok || (err.code && err.code !== 'ok'))
+    throw new HttpError(
+      res.ok ? 400 : 502,
+      err.code || `http_${res.status}`,
+      err.message || 'TikTok request failed',
+    );
+  return json.data ?? {};
+}
+
+const creatorInfo = async (session) => {
+  const d = await tiktok(TT.creator, session, {});
+  return {
+    nickname: d.creator_nickname ?? null,
+    username: d.creator_username ?? null,
+    avatarUrl: d.creator_avatar_url ?? null,
+    privacyLevelOptions: d.privacy_level_options ?? [],
+    commentDisabled: Boolean(d.comment_disabled),
+    maxPhotoCount: d.max_photo_count ?? null,
+  };
+};
+
+const utf16 = (s) => String(s ?? '').length;
+
+/** Validates the browser's post request and builds the exact TikTok content/init body. */
+export function buildPost(input, creator, mode) {
+  const images = input?.images;
+  if (!Array.isArray(images) || images.length < 1 || images.length > MAX_PHOTOS)
+    throw new HttpError(400, 'bad_images', `Between 1 and ${MAX_PHOTOS} images are required`);
+  for (const u of images)
+    if (typeof u !== 'string' || !u.startsWith(PUBLIC_BASE) || !/\.(jpe?g|webp)$/i.test(u))
+      throw new HttpError(400, 'bad_images', 'Images must be JPEG or WebP files on the verified Studia site');
+  if (creator.maxPhotoCount && images.length > creator.maxPhotoCount)
+    throw new HttpError(
+      400,
+      'too_many_photos',
+      `This account accepts at most ${creator.maxPhotoCount} photos`,
+    );
+  const title = String(input.title ?? '').trim();
+  const description = String(input.description ?? '').trim();
+  if (!title || utf16(title) > TITLE_MAX)
+    throw new HttpError(400, 'bad_title', `Title is required, ${TITLE_MAX} characters at most`);
+  if (utf16(description) > DESCRIPTION_MAX)
+    throw new HttpError(400, 'bad_description', `Description is ${DESCRIPTION_MAX} characters at most`);
+  const source_info = { source: 'PULL_FROM_URL', photo_cover_index: 0, photo_images: images };
+  if (mode === 'draft')
+    return { post_info: { title, description }, source_info, post_mode: 'MEDIA_UPLOAD', media_type: 'PHOTO' };
+
+  const privacy = input.privacyLevel;
+  if (!PRIVACY_LEVELS.includes(privacy))
+    throw new HttpError(400, 'privacy_required', 'Choose who can view this post');
+  if (!creator.privacyLevelOptions.includes(privacy))
+    throw new HttpError(400, 'privacy_not_allowed', 'This visibility is not available for your account');
+  const brandContent = Boolean(input.brandContent);
+  const brandOrganic = Boolean(input.brandOrganic);
+  if (brandContent && privacy === 'SELF_ONLY')
+    throw new HttpError(400, 'branded_private', 'Branded content visibility cannot be set to private');
+  return {
+    post_info: {
+      title,
+      description,
+      privacy_level: privacy,
+      disable_comment: creator.commentDisabled || Boolean(input.disableComment),
+      auto_add_music: true,
+      brand_content_toggle: brandContent,
+      brand_organic_toggle: brandOrganic,
+    },
+    source_info,
+    post_mode: 'DIRECT_POST',
+    media_type: 'PHOTO',
+  };
+}
+
+async function route(request, env, cfg) {
+  const { pathname } = new URL(request.url);
+  const method = request.method;
+  if (method === 'GET' && pathname === '/health')
+    return { body: { ok: true, mode: cfg.mode, scopes: cfg.scopes } };
+
+  if (method === 'GET' && pathname === '/auth/url') {
+    requireCredentials(env);
+    const state = b64u.enc(crypto.getRandomValues(new Uint8Array(16)));
+    const url = new URL(TT.authorize);
+    url.searchParams.set('client_key', env.TIKTOK_CLIENT_KEY);
+    url.searchParams.set('scope', cfg.scopes);
+    url.searchParams.set('response_type', 'code');
+    url.searchParams.set('redirect_uri', REDIRECT_URI);
+    url.searchParams.set('state', state);
+    return { body: { url: url.toString(), state, mode: cfg.mode } };
+  }
+
+  if (method === 'POST' && pathname === '/auth/exchange') {
+    const { code } = await request.json().catch(() => ({}));
+    if (typeof code !== 'string' || code.length < 8 || code.length > 2048)
+      throw new HttpError(400, 'bad_code', 'Missing authorization code');
+    const session = await tokenRequest(
+      { grant_type: 'authorization_code', code: decodeURIComponent(code), redirect_uri: REDIRECT_URI },
+      env,
+    );
+    return { body: { session: await seal(session, env), scope: session.s ?? null, mode: cfg.mode } };
+  }
+
+  if (method === 'POST' && pathname.startsWith('/api/')) {
+    const { session, refreshed } = await openSession(request, env);
+    let body;
+    if (pathname === '/api/creator') {
+      body = { creator: await creatorInfo(session), mode: cfg.mode };
+    } else if (pathname === '/api/post') {
+      const input = await request.json().catch(() => null);
+      const creator = await creatorInfo(session);
+      const payload = buildPost(input, creator, cfg.mode);
+      const d = await tiktok(TT.init, session, payload);
+      if (!d.publish_id) throw new HttpError(502, 'no_publish_id', 'TikTok did not return a publish id');
+      body = { publishId: d.publish_id, mode: cfg.mode };
+    } else if (pathname === '/api/status') {
+      const { publishId } = (await request.json().catch(() => ({}))) ?? {};
+      if (typeof publishId !== 'string' || !/^[\w.~-]{4,200}$/.test(publishId))
+        throw new HttpError(400, 'bad_publish_id');
+      const d = await tiktok(TT.status, session, { publish_id: publishId });
+      body = {
+        status: d.status ?? null,
+        failReason: d.fail_reason ?? null,
+        publicPostIds: d.publicaly_available_post_id ?? [],
+      };
+    } else if (pathname === '/api/videos') {
+      const d = await tiktok(`${TT.videos}?fields=${VIDEO_FIELDS}`, session, { max_count: 20 });
+      body = {
+        videos: (d.videos ?? []).map((v) => ({
+          id: v.id,
+          createTime: v.create_time ?? null,
+          title: v.title ?? '',
+          description: v.video_description ?? '',
+          views: v.view_count ?? null,
+          likes: v.like_count ?? null,
+          comments: v.comment_count ?? null,
+          shares: v.share_count ?? null,
+        })),
+      };
+    } else {
+      throw new HttpError(404, 'not_found');
+    }
+    return { body, refreshed };
+  }
+  throw new HttpError(404, 'not_found');
+}
+
+export default {
+  async fetch(request, env) {
+    const cfg = settings(env);
+    const origin = request.headers.get('Origin');
+    const cors = {
+      'Access-Control-Allow-Origin': cfg.origin,
+      'Access-Control-Allow-Headers': 'Authorization, Content-Type',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Max-Age': '86400',
+      Vary: 'Origin',
+    };
+    const reply = (body, status = 200) =>
+      new Response(JSON.stringify(body), {
+        status,
+        headers: { ...cors, 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+      });
+    if (origin && origin !== cfg.origin) return reply({ error: { code: 'origin_not_allowed' } }, 403);
+    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
+    try {
+      const { body, refreshed } = await route(request, env, cfg);
+      return reply(refreshed ? { ...body, session: refreshed } : body);
+    } catch (err) {
+      if (err instanceof HttpError)
+        return reply({ error: { code: err.code, message: err.message } }, err.status);
+      return reply({ error: { code: 'internal_error', message: 'Unexpected error' } }, 500);
+    }
+  },
+};

@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Studia · Post a slideshow</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      main {
+        max-width: 760px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .bar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .who {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+      .who img {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--panel);
+        object-fit: cover;
+      }
+      .who b {
+        display: block;
+        line-height: 1.2;
+      }
+      .ghost {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--line);
+        margin: 0;
+      }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .tabs button {
+        margin: 0;
+        background: var(--panel);
+        color: var(--muted);
+        border: 1px solid var(--line);
+      }
+      .tabs button[aria-selected='true'] {
+        background: #e3e5e8;
+        color: #0a0a0a;
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 12px;
+      }
+      .pick {
+        width: 100%;
+        text-align: left;
+        display: block;
+        margin: 0 0 12px;
+        background: var(--panel);
+        color: var(--text);
+        border: 1px solid var(--line);
+        font-weight: 400;
+      }
+      .pick[aria-pressed='true'] {
+        border-color: #c9ccd0;
+      }
+      .pick strong {
+        display: block;
+      }
+      .strip {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        padding: 8px 0;
+      }
+      .strip img {
+        height: 176px;
+        width: 99px;
+        object-fit: cover;
+        border-radius: 8px;
+        flex: none;
+        background: #000;
+      }
+      .pick .strip img {
+        height: 80px;
+        width: 45px;
+      }
+      label {
+        display: block;
+        font-weight: 700;
+        margin: 16px 0 6px;
+      }
+      input[type='text'],
+      textarea,
+      select {
+        width: 100%;
+        background: #0f0f0f;
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 10px 12px;
+        font: inherit;
+      }
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 12px 0;
+      }
+      .row input {
+        margin-top: 6px;
+      }
+      .row label {
+        margin: 0;
+        font-weight: 400;
+      }
+      .row .hint {
+        display: block;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .switch {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 18px 0 6px;
+      }
+      .switch label {
+        margin: 0;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 6px 0;
+      }
+      .warn {
+        color: #ffb86b;
+        font-size: 14px;
+        margin: 6px 0;
+      }
+      .err {
+        color: #ff8a8a;
+      }
+      #post {
+        width: 100%;
+        padding: 14px;
+        font-size: 17px;
+        margin-top: 14px;
+      }
+      #post:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      .status {
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        margin-top: 12px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px 6px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      th {
+        color: var(--muted);
+        font-weight: 600;
+      }
+      td.n {
+        text-align: right;
+        white-space: nowrap;
+      }
+      @media (max-width: 520px) {
+        .strip img {
+          height: 150px;
+          width: 84px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="brand" href="./"><span class="plate"></span><b>studia</b></a>
+
+      <p id="banner" class="warn" role="alert" hidden></p>
+
+      <section id="view-login">
+        <h1>Post an illustrated slideshow to TikTok</h1>
+        <p>
+          Studia sends illustrated photo slideshows to your own TikTok account. You review each slideshow,
+          choose who can see it, and confirm before anything is posted.
+        </p>
+        <h2>What Studia uses</h2>
+        <ul>
+          <li>
+            <b>Your profile name and avatar</b> (user.info.basic), only to show which account is connected.
+          </li>
+          <li><b>Photo posting</b>, to send a slideshow you selected to your account.</li>
+          <li>
+            <b>Your public posts and their counts</b> (video.list), to show you how your slideshows perform.
+          </li>
+        </ul>
+        <button id="login" type="button">Log in with TikTok</button>
+        <p class="note">
+          Studia never posts on its own. You can disconnect it at any time from the app permissions in your
+          TikTok settings.
+        </p>
+      </section>
+
+      <section id="view-app" hidden>
+        <div class="bar">
+          <div class="who">
+            <img id="avatar" alt="" />
+            <div>
+              <b id="nick">…</b>
+              <span class="muted" id="handle"></span>
+            </div>
+          </div>
+          <button id="logout" class="ghost" type="button">Log out</button>
+        </div>
+        <div class="tabs" role="tablist">
+          <button id="tab-post" role="tab" aria-selected="true" type="button">Post a slideshow</button>
+          <button id="tab-stats" role="tab" aria-selected="false" type="button">My posts</button>
+        </div>
+
+        <div id="panel-post">
+          <h2 style="margin-top: 0">Choose a slideshow</h2>
+          <div id="slideshows"><p class="muted">Loading…</p></div>
+
+          <form id="composer" hidden autocomplete="off">
+            <h2>Preview</h2>
+            <div class="strip" id="preview" aria-label="The exact photos that will be posted"></div>
+
+            <label for="title">Title <span class="muted" id="title-count"></span></label>
+            <input id="title" type="text" maxlength="90" required />
+            <label for="description">Description</label>
+            <textarea id="description" maxlength="4000"></textarea>
+
+            <div id="direct-opts" hidden>
+              <label for="privacy">Who can view this post</label>
+              <select id="privacy">
+                <option value="" selected disabled>Select who can view this post</option>
+              </select>
+              <p id="privacy-note" class="note" hidden></p>
+
+              <div class="row">
+                <input id="allow-comments" type="checkbox" />
+                <label for="allow-comments">Allow comments</label>
+              </div>
+              <p id="comments-note" class="note" hidden>Comments are turned off in your TikTok settings.</p>
+
+              <div class="switch">
+                <input id="disclose" type="checkbox" role="switch" />
+                <label for="disclose">Disclose post content</label>
+              </div>
+              <p class="note">
+                Turn on to disclose that this post promotes goods or services in exchange for something of
+                value. Your post could promote yourself, a third party, or both.
+              </p>
+              <div id="disclose-opts" hidden>
+                <div class="row">
+                  <input id="brand-organic" type="checkbox" />
+                  <label for="brand-organic"
+                    >Your brand<span class="hint"
+                      >You are promoting yourself or your own business.</span
+                    ></label
+                  >
+                </div>
+                <div class="row">
+                  <input id="brand-content" type="checkbox" />
+                  <label for="brand-content"
+                    >Branded content<span class="hint"
+                      >You are promoting another brand or a third party.</span
+                    ></label
+                  >
+                </div>
+                <p id="disclose-note" class="warn" role="status"></p>
+              </div>
+            </div>
+
+            <p id="draft-note" class="note" hidden>
+              This sends the slideshow to your TikTok inbox as a draft. You choose the sound and who can view
+              it in the TikTok app.
+            </p>
+
+            <p id="consent" class="note"></p>
+            <button id="post" type="submit" disabled>Post to TikTok</button>
+            <p class="note" id="processing">
+              It may take a few minutes for your post to appear on your profile after you confirm.
+            </p>
+            <div id="progress" class="status" role="status" hidden></div>
+          </form>
+        </div>
+
+        <div id="panel-stats" hidden>
+          <h2 style="margin-top: 0">Your recent posts</h2>
+          <div id="stats"></div>
+          <button id="reload" class="ghost" type="button">Refresh</button>
+        </div>
+      </section>
+
+      <nav>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="./">Home</a>
+      </nav>
+    </main>
+
+    <script src="app-config.js"></script>
+    <script>
+      'use strict';
+      const $ = (id) => document.getElementById(id);
+      const API = String(window.STUDIA_API || '').replace(/\/$/, '');
+      const SESSION = 'studia_session';
+      const OAUTH_STATE = 'studia_oauth_state';
+      const MUSIC_URL = 'https://www.tiktok.com/legal/page/global/music-usage-confirmation/en';
+      const BRAND_URL = 'https://www.tiktok.com/legal/page/global/bc-policy/en';
+      const DISCLOSE_MISSING =
+        'You need to indicate if your content promotes yourself, a third party, or both.';
+      const PRIVACY_LABEL = {
+        PUBLIC_TO_EVERYONE: 'Everyone',
+        MUTUAL_FOLLOW_FRIENDS: 'Friends',
+        FOLLOWER_OF_CREATOR: 'Followers',
+        SELF_ONLY: 'Only me',
+      };
+      const state = { mode: 'draft', creator: null, item: null, busy: false };
+
+      const el = (tag, props = {}, kids = []) => {
+        const node = Object.assign(document.createElement(tag), props);
+        for (const k of [].concat(kids)) node.append(k);
+        return node;
+      };
+      const say = (msg) => {
+        $('banner').textContent = msg || '';
+        $('banner').hidden = !msg;
+      };
+      const store = {
+        get: (k) => {
+          try {
+            return sessionStorage.getItem(k);
+          } catch {
+            return null;
+          }
+        },
+        set: (k, v) => {
+          try {
+            sessionStorage.setItem(k, v);
+          } catch {
+            /* private mode */
+          }
+        },
+        del: (k) => {
+          try {
+            sessionStorage.removeItem(k);
+          } catch {
+            /* private mode */
+          }
+        },
+      };
+
+      async function api(path, { method = 'POST', body } = {}) {
+        if (!API)
+          throw Object.assign(new Error('Studia is not connected to its server yet.'), {
+            code: 'not_configured',
+          });
+        const headers = { 'Content-Type': 'application/json' };
+        const session = store.get(SESSION);
+        if (session) headers.Authorization = `Bearer ${session}`;
+        const res = await fetch(API + path, {
+          method,
+          headers,
+          body: body === undefined ? undefined : JSON.stringify(body),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (json.session) store.set(SESSION, json.session);
+        if (!res.ok) {
+          if (res.status === 401) showLogin('Your session ended. Log in with TikTok again.');
+          throw Object.assign(new Error(json.error?.message || 'The request failed.'), {
+            code: json.error?.code,
+          });
+        }
+        return json;
+      }
+
+      function showLogin(msg) {
+        store.del(SESSION);
+        $('view-app').hidden = true;
+        $('view-login').hidden = false;
+        say(msg || '');
+      }
+
+      // ---- login -----------------------------------------------------------------------------------------
+      $('login').onclick = async () => {
+        say('');
+        try {
+          const { url, state: s } = await api('/auth/url', { method: 'GET' });
+          store.set(OAUTH_STATE, s);
+          location.href = url;
+        } catch (err) {
+          say(err.message);
+        }
+      };
+      $('logout').onclick = () => showLogin('You are logged out.');
+
+      async function finishLogin(q) {
+        history.replaceState(null, '', location.pathname);
+        const expected = store.get(OAUTH_STATE);
+        store.del(OAUTH_STATE);
+        if (q.get('error')) return say(q.get('error_description') || 'TikTok login was cancelled.');
+        if (!expected || q.get('state') !== expected)
+          return say('The login could not be verified. Please try again.');
+        try {
+          const { session } = await api('/auth/exchange', { body: { code: q.get('code') } });
+          store.set(SESSION, session);
+        } catch (err) {
+          say(err.message);
+        }
+      }
+
+      // ---- account -----------------------------------------------------------------------------------------
+      async function openApp() {
+        const { creator, mode } = await api('/api/creator');
+        state.creator = creator;
+        state.mode = mode;
+        $('avatar').src = creator.avatarUrl || '';
+        $('nick').textContent = creator.nickname || 'TikTok account';
+        $('handle').textContent = creator.username ? `@${creator.username}` : '';
+        $('view-login').hidden = true;
+        $('view-app').hidden = false;
+        $('direct-opts').hidden = mode !== 'direct';
+        $('draft-note').hidden = mode === 'direct';
+        $('post').textContent = mode === 'direct' ? 'Post to TikTok' : 'Send to TikTok drafts';
+        fillPrivacy();
+        $('allow-comments').disabled = creator.commentDisabled;
+        $('comments-note').hidden = !creator.commentDisabled;
+        await loadSlideshows();
+      }
+
+      function fillPrivacy() {
+        const sel = $('privacy');
+        while (sel.options.length > 1) sel.remove(1);
+        for (const level of state.creator.privacyLevelOptions)
+          sel.append(new Option(PRIVACY_LABEL[level] || level, level));
+        sel.value = ''; // no default: the creator must choose
+      }
+
+      // ---- slideshows ---------------------------------------------------------------------------------------
+      async function getJson(path) {
+        const res = await fetch(path, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+        return res.json();
+      }
+      async function loadSlideshows() {
+        const box = $('slideshows');
+        box.replaceChildren();
+        try {
+          const { dates } = await getJson('queue/index.json');
+          const items = [];
+          for (const d of [...dates].sort().reverse().slice(0, 3)) {
+            const m = await getJson(`queue/${d}.json`);
+            for (const it of m.items) items.push({ ...it, date: d });
+          }
+          if (!items.length)
+            return box.append(el('p', { className: 'muted', textContent: 'No slideshow is ready yet.' }));
+          for (const it of items) {
+            const b = el('button', { type: 'button', className: 'pick' }, [
+              el('strong', { textContent: it.title || it.id }),
+              el('span', {
+                className: 'muted',
+                textContent: `${it.id} · ${it.date} · ${it.images.length} photos`,
+              }),
+              el(
+                'div',
+                { className: 'strip' },
+                it.images.slice(0, 4).map((u) => el('img', { src: u, alt: '' })),
+              ),
+            ]);
+            b.setAttribute('aria-pressed', 'false');
+            b.onclick = () => choose(it, b);
+            box.append(b);
+          }
+        } catch {
+          box.append(
+            el('p', { className: 'muted', textContent: 'Slideshows could not be loaded. Try again later.' }),
+          );
+        }
+      }
+
+      function choose(item, button) {
+        state.item = item;
+        for (const b of document.querySelectorAll('.pick'))
+          b.setAttribute('aria-pressed', String(b === button));
+        $('composer').hidden = false;
+        $('preview').replaceChildren(
+          ...item.images.map((u, i) => el('img', { src: u, alt: `Photo ${i + 1}` })),
+        );
+        $('title').value = item.title || '';
+        $('description').value = item.description || '';
+        $('progress').hidden = true;
+        $('privacy').value = '';
+        $('allow-comments').checked = false;
+        $('disclose').checked = false;
+        $('brand-organic').checked = false;
+        $('brand-content').checked = false;
+        refresh();
+        $('composer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // ---- form rules (TikTok Content Sharing Guidelines) ---------------------------------------------------------
+      function refresh() {
+        const direct = state.mode === 'direct';
+        $('title-count').textContent = `${$('title').value.length}/90`;
+        let ok = state.item && $('title').value.trim() && !state.busy;
+        const disclose = $('disclose').checked;
+        $('disclose-opts').hidden = !disclose;
+        const organic = disclose && $('brand-organic').checked;
+        const branded = disclose && $('brand-content').checked;
+        if (!disclose) {
+          $('brand-organic').checked = false;
+          $('brand-content').checked = false;
+        }
+        const privacy = $('privacy').value;
+        let disclosureMessage = '';
+        if (disclose && !organic && !branded) {
+          disclosureMessage = DISCLOSE_MISSING;
+          ok = false;
+        } else if (branded) {
+          disclosureMessage = "Your photo will be labeled 'Paid partnership'.";
+        } else if (organic) {
+          disclosureMessage = "Your photo will be labeled 'Promotional content'.";
+        }
+        $('disclose-note').textContent = disclosureMessage;
+        $('disclose-note').className = disclose && !organic && !branded ? 'warn' : 'note';
+        const selfOnly = [...$('privacy').options].find((o) => o.value === 'SELF_ONLY');
+        if (selfOnly) selfOnly.disabled = branded;
+        if (branded && privacy === 'SELF_ONLY') $('privacy').value = '';
+        $('privacy-note').hidden = !branded;
+        $('privacy-note').textContent = 'Branded content visibility cannot be set to private.';
+        if (direct && !$('privacy').value) ok = false;
+        $('post').disabled = !ok;
+        $('post').title = disclose && !organic && !branded ? DISCLOSE_MISSING : '';
+        // consent line (Music Usage Confirmation, plus the Branded Content Policy when branded)
+        const consent = $('consent');
+        consent.replaceChildren();
+        const link = (href, text) =>
+          el('a', { href, target: '_blank', rel: 'noopener noreferrer', textContent: text });
+        if (branded)
+          consent.append(
+            "By posting, you agree to TikTok's ",
+            link(BRAND_URL, 'Branded Content Policy'),
+            ' and ',
+            link(MUSIC_URL, 'Music Usage Confirmation'),
+            '.',
+          );
+        else
+          consent.append(
+            "By posting, you agree to TikTok's ",
+            link(MUSIC_URL, 'Music Usage Confirmation'),
+            '.',
+          );
+      }
+      for (const id of ['title', 'privacy', 'disclose', 'brand-organic', 'brand-content'])
+        $(id).addEventListener('input', refresh);
+      $('description').addEventListener('input', refresh);
+
+      // ---- posting ---------------------------------------------------------------------------------------------
+      const STATUS_TEXT = {
+        PROCESSING_UPLOAD: 'TikTok is receiving your photos…',
+        PROCESSING_DOWNLOAD: 'TikTok is downloading your photos…',
+        SEND_TO_USER_INBOX:
+          'Sent to your TikTok inbox. Open the notification in the TikTok app to add a sound and post.',
+        PUBLISH_COMPLETE: 'Posted. It may take a few minutes to appear on your profile.',
+      };
+      const POLL_MS = Number(window.STUDIA_POLL_MS) || 4000;
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      const show = (msg, bad) => {
+        $('progress').hidden = false;
+        $('progress').className = bad ? 'status err' : 'status';
+        $('progress').textContent = msg;
+      };
+
+      $('composer').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if ($('post').disabled) return;
+        state.busy = true;
+        refresh();
+        show('Sending to TikTok…');
+        try {
+          const direct = state.mode === 'direct';
+          const body = {
+            images: state.item.images,
+            title: $('title').value.trim(),
+            description: $('description').value.trim(),
+          };
+          if (direct)
+            Object.assign(body, {
+              privacyLevel: $('privacy').value,
+              disableComment: !$('allow-comments').checked,
+              brandOrganic: $('disclose').checked && $('brand-organic').checked,
+              brandContent: $('disclose').checked && $('brand-content').checked,
+            });
+          const { publishId } = await api('/api/post', { body });
+          let last = '';
+          for (let i = 0; i < 45; i++) {
+            const st = await api('/api/status', { body: { publishId } });
+            last = st.status || '';
+            if (st.status === 'FAILED')
+              return show(
+                `TikTok could not post this slideshow${st.failReason ? ` (${st.failReason})` : ''}.`,
+                true,
+              );
+            show(STATUS_TEXT[last] || `TikTok status: ${last || 'waiting'}…`);
+            if (last === 'PUBLISH_COMPLETE' || last === 'SEND_TO_USER_INBOX') return;
+            await sleep(POLL_MS);
+          }
+          show('TikTok is still processing. Check your profile in a few minutes.');
+        } catch (err) {
+          show(err.message, true);
+        } finally {
+          state.busy = false;
+          refresh();
+        }
+      });
+
+      // ---- stats -----------------------------------------------------------------------------------------------
+      async function loadStats() {
+        const box = $('stats');
+        box.replaceChildren(el('p', { className: 'muted', textContent: 'Loading…' }));
+        try {
+          const { videos } = await api('/api/videos');
+          if (!videos.length)
+            return box.replaceChildren(el('p', { className: 'muted', textContent: 'No public posts yet.' }));
+          const head = el(
+            'tr',
+            {},
+            ['Post', 'Views', 'Likes', 'Comments', 'Shares'].map((h) => el('th', { textContent: h })),
+          );
+          const n = (v) => (v == null ? '–' : String(v));
+          const rows = videos.map((v) =>
+            el('tr', {}, [
+              el('td', {}, [
+                el('div', { textContent: (v.title || v.description || v.id).slice(0, 90) }),
+                el('div', {
+                  className: 'muted',
+                  textContent: v.createTime ? new Date(v.createTime * 1000).toISOString().slice(0, 10) : '',
+                }),
+              ]),
+              ...[v.views, v.likes, v.comments, v.shares].map((x) =>
+                el('td', { className: 'n', textContent: n(x) }),
+              ),
+            ]),
+          );
+          box.replaceChildren(el('table', {}, [el('thead', {}, [head]), el('tbody', {}, rows)]));
+        } catch (err) {
+          box.replaceChildren(el('p', { className: 'err', textContent: err.message }));
+        }
+      }
+      $('reload').onclick = loadStats;
+      const tab = (which) => {
+        $('panel-post').hidden = which !== 'post';
+        $('panel-stats').hidden = which !== 'stats';
+        $('tab-post').setAttribute('aria-selected', String(which === 'post'));
+        $('tab-stats').setAttribute('aria-selected', String(which === 'stats'));
+        if (which === 'stats') loadStats();
+      };
+      $('tab-post').onclick = () => tab('post');
+      $('tab-stats').onclick = () => tab('stats');
+
+      // ---- start -----------------------------------------------------------------------------------------------
+      (async () => {
+        if (!API) {
+          $('login').disabled = true;
+          return say('Studia is not connected to its server yet.');
+        }
+        const q = new URLSearchParams(location.search);
+        if (q.get('code') || q.get('error')) await finishLogin(q);
+        if (store.get(SESSION)) {
+          try {
+            await openApp();
+          } catch (err) {
+            if (err.code !== 'session_invalid' && err.code !== 'not_logged_in') say(err.message);
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
