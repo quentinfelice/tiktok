@@ -1,0 +1,56 @@
+# Studia publisher: turns queued slideshows into TikTok photo drafts and refreshes stats.
+name: publish
+
+on:
+  push:
+    branches: [main]
+    paths: ['queue/**']
+  schedule:
+    - cron: '20 6,12,18 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: studia-tiktok
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+      TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+      STUDIA_TOKEN_KEY: ${{ secrets.STUDIA_TOKEN_KEY }}
+      STUDIA_SITE_REPO: ${{ github.workspace }}
+      STUDIA_STATE_DIR: ${{ github.workspace }}/state
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Doctor
+        run: node tools/poster/cli.mjs doctor
+      - name: Preconditions
+        id: pre
+        run: |
+          ok=true
+          for v in TIKTOK_CLIENT_KEY TIKTOK_CLIENT_SECRET STUDIA_TOKEN_KEY; do
+            [ -n "${!v}" ] || { echo "Missing repository secret: $v"; ok=false; }
+          done
+          [ -f state/token.enc ] || { echo "state/token.enc missing: run the connect workflow first"; ok=false; }
+          echo "ok=$ok" >> "$GITHUB_OUTPUT"
+          [ "$ok" = true ] || echo "Not connected yet; the queue waits in queue/ until the connect workflow has run."
+      - name: Queue → TikTok drafts, then stats
+        if: steps.pre.outputs.ok == 'true'
+        run: node tools/poster/cli.mjs queue
+      - name: Commit state
+        if: steps.pre.outputs.ok == 'true'
+        run: |
+          git config user.name "Studia Bot"
+          git config user.email "studia-bot@users.noreply.github.com"
+          git add state
+          git diff --cached --quiet || git commit -m "publish: drafts and stats $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase -q origin main
+          git push origin HEAD:main

@@ -1,0 +1,70 @@
+# One-time TikTok connection for Studia (run twice: mode "url", then mode "exchange" with the code).
+name: connect
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'url = print the TikTok consent link · exchange = trade the one-time code for tokens'
+        required: true
+        type: choice
+        options: [url, exchange]
+      code:
+        description: 'One-time code shown on callback.html (exchange mode only, valid a few minutes)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: studia-tiktok
+  cancel-in-progress: false
+
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    env:
+      TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+      TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+      STUDIA_TOKEN_KEY: ${{ secrets.STUDIA_TOKEN_KEY }}
+      STUDIA_SITE_REPO: ${{ github.workspace }}
+      STUDIA_STATE_DIR: ${{ github.workspace }}/state
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check repository secrets (names only)
+        run: |
+          missing=""
+          for v in TIKTOK_CLIENT_KEY TIKTOK_CLIENT_SECRET STUDIA_TOKEN_KEY; do
+            [ -n "${!v}" ] || missing="$missing $v"
+          done
+          if [ -n "$missing" ]; then
+            echo "Missing repository secret(s):$missing (Settings → Secrets and variables → Actions)"
+            exit 1
+          fi
+      - name: Print the TikTok consent URL
+        if: inputs.mode == 'url'
+        run: |
+          echo "Open the URL below as the account owner, approve, then copy the code from callback.html"
+          echo "and run this workflow again with mode=exchange."
+          node tools/poster/cli.mjs authorize-url --no-pkce
+      - name: Exchange the code for tokens
+        if: inputs.mode == 'exchange'
+        env:
+          CODE: ${{ inputs.code }}
+        run: |
+          [ -n "$CODE" ] || { echo "Input 'code' is required in exchange mode"; exit 1; }
+          echo "::add-mask::$CODE"
+          node tools/poster/cli.mjs exchange "$CODE"
+      - name: Commit the encrypted token file
+        if: inputs.mode == 'exchange'
+        run: |
+          git config user.name "Studia Bot"
+          git config user.email "studia-bot@users.noreply.github.com"
+          git add state/token.enc
+          git diff --cached --quiet || git commit -m "connect: store encrypted TikTok tokens"
+          git pull --rebase -q origin main
+          git push origin HEAD:main
