@@ -3,14 +3,16 @@
 
 import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { defaultLog, defaultPaths, readJson } from './config.mjs';
+import { defaultLog, defaultPaths, postMode, privacyLevel, readJson } from './config.mjs';
 import { getAccessToken } from './auth.mjs';
 import {
   PENDING_SHARE_CAP,
+  assertCreatorAllows,
   buildInitPayload,
   initDraft,
   loadDrafts,
   pollStatus,
+  queryCreatorInfo,
   saveDrafts,
   upsertDraft,
 } from './drafts.mjs';
@@ -56,22 +58,37 @@ export async function runQueue({
   now = Date.now,
   stats = true,
 } = {}) {
+  const mode = postMode(env);
+  const level = mode === 'direct' ? privacyLevel(env) : undefined;
   const manifests = loadQueue(paths);
   const state = loadDrafts(paths);
   const { selected, skipped, pending } = selectQueueItems(manifests, state.drafts, { now: now() });
   log(
-    `Queue: ${manifests.length} manifest(s), ${selected.length} to create, ${skipped.length} waiting (cap ${PENDING_SHARE_CAP}, ${pending} pending).`,
+    `Queue (${mode}${level ? `, ${level}` : ''}): ${manifests.length} manifest(s), ${selected.length} to create, ${skipped.length} waiting (cap ${PENDING_SHARE_CAP}, ${pending} pending).`,
   );
   const results = [];
   if (dryRun) {
-    for (const it of selected) log(`[dry-run] ${it.id}: ${JSON.stringify(buildInitPayload(it, it.images))}`);
+    for (const it of selected)
+      log(
+        `[dry-run] ${it.id}: ${JSON.stringify(buildInitPayload(it, it.images, { mode, privacyLevel: level }))}`,
+      );
     return { created: [], skipped, pending, dryRun: true };
   }
   if (selected.length) {
     const token = accessToken ?? (await getAccessToken({ env, paths, fetch, log }));
+    let creator = null;
+    if (mode === 'direct') {
+      creator = await queryCreatorInfo({ accessToken: token, fetch });
+      log(
+        `Creator ${creator.nickname ?? '?'}: privacy options ${creator.privacyLevelOptions.join(', ') || '(none reported)'}`,
+      );
+    }
     for (const it of selected) {
-      const payload = buildInitPayload(it, it.images);
-      log(`${it.id}: creating draft with ${it.images.length} photo(s)…`);
+      const payload = buildInitPayload(it, it.images, { mode, privacyLevel: level });
+      if (creator) assertCreatorAllows(creator, { privacyLevel: level, photoCount: it.images.length });
+      log(
+        `${it.id}: ${mode === 'direct' ? 'publishing' : 'creating draft with'} ${it.images.length} photo(s)…`,
+      );
       let record;
       try {
         const { publishId, logId } = await initDraft(payload, { accessToken: token, fetch });
@@ -81,6 +98,7 @@ export async function runQueue({
           publishId,
           title: payload.post_info.title,
           urls: it.images,
+          mode,
           status: 'INIT',
           failReason: null,
           publicPostIds: [],

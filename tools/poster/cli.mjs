@@ -17,6 +17,8 @@ import {
   defaultLog,
   defaultPaths,
   loadConfig,
+  postMode,
+  privacyLevel,
   redact,
   todayBrussels,
   tokenLocation,
@@ -125,6 +127,11 @@ export async function doctor({
     report.env[name] = Boolean(env[name]);
     log(`  ${name.padEnd(26)} ${report.env[name] ? 'set' : 'not set'}`);
   }
+  const mode = postMode(env);
+  log(
+    `Post mode: ${mode}${mode === 'direct' ? ` (${privacyLevel(env)}, auto_add_music)` : ' (inbox drafts; set STUDIA_POST_MODE=direct after TikTok audits the app)'}`,
+  );
+  report.postMode = mode;
   report.token = tokenSummary(readTokenCache(paths));
   log(
     `Token store ${tokenLocation(paths)}: ${report.token.cached ? `present (access ${report.token.accessExpiresInS}s, refresh ${report.token.refreshExpiresInS}s, scope ${report.token.scope})` : 'absent'}`,

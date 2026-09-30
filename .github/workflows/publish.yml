@@ -25,6 +25,11 @@ jobs:
       STUDIA_TOKEN_KEY: ${{ secrets.STUDIA_TOKEN_KEY }}
       STUDIA_SITE_REPO: ${{ github.workspace }}
       STUDIA_STATE_DIR: ${{ github.workspace }}/state
+      # Repository variables (Settings → Secrets and variables → Actions → Variables):
+      # STUDIA_POST_MODE = draft (inbox drafts, default) | direct (publishes; only useful after TikTok's app audit)
+      # STUDIA_PRIVACY_LEVEL = PUBLIC_TO_EVERYONE (default) | MUTUAL_FOLLOW_FRIENDS | FOLLOWER_OF_CREATOR | SELF_ONLY
+      STUDIA_POST_MODE: ${{ vars.STUDIA_POST_MODE || 'draft' }}
+      STUDIA_PRIVACY_LEVEL: ${{ vars.STUDIA_PRIVACY_LEVEL || 'PUBLIC_TO_EVERYONE' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

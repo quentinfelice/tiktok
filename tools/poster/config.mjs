@@ -19,6 +19,7 @@ export const ENDPOINTS = Object.freeze({
   authorize: 'https://www.tiktok.com/v2/auth/authorize/',
   oauthToken: 'https://open.tiktokapis.com/v2/oauth/token/',
   contentInit: 'https://open.tiktokapis.com/v2/post/publish/content/init/',
+  creatorInfo: 'https://open.tiktokapis.com/v2/post/publish/creator_info/query/',
   statusFetch: 'https://open.tiktokapis.com/v2/post/publish/status/fetch/',
   videoList: 'https://open.tiktokapis.com/v2/video/list/',
 });
@@ -31,7 +32,35 @@ export const ENV_NAMES = Object.freeze([
   'TIKTOK_REFRESH_TOKEN',
   'GITHUB_TOKEN',
   'STUDIA_TOKEN_KEY',
+  'STUDIA_POST_MODE',
+  'STUDIA_PRIVACY_LEVEL',
 ]);
+
+/**
+ * How posts reach TikTok. `draft` (default): MEDIA_UPLOAD to the owner's inbox; the owner adds a sound and posts.
+ * `direct`: DIRECT_POST with auto_add_music, no owner action. Direct posts of an unaudited app are restricted to
+ * private viewing by TikTok, so `direct` is only useful once the app has passed TikTok's audit.
+ */
+export function postMode(env = process.env) {
+  const mode = (env.STUDIA_POST_MODE || 'draft').toLowerCase();
+  if (!['draft', 'direct'].includes(mode))
+    throw new Error(`STUDIA_POST_MODE must be draft or direct, got "${mode}"`);
+  return mode;
+}
+
+export const PRIVACY_LEVELS = Object.freeze([
+  'PUBLIC_TO_EVERYONE',
+  'MUTUAL_FOLLOW_FRIENDS',
+  'FOLLOWER_OF_CREATOR',
+  'SELF_ONLY',
+]);
+
+export function privacyLevel(env = process.env) {
+  const level = env.STUDIA_PRIVACY_LEVEL || 'PUBLIC_TO_EVERYONE';
+  if (!PRIVACY_LEVELS.includes(level))
+    throw new Error(`STUDIA_PRIVACY_LEVEL must be one of ${PRIVACY_LEVELS.join(', ')}`);
+  return level;
+}
 
 /**
  * File locations. Overrides: STUDIA_SITE_REPO (public site clone; default ../tiktok next to this repo),

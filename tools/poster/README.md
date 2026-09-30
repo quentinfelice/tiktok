@@ -22,4 +22,10 @@ Do not edit here; edit the source in the studio repo.
 
 Prerequisites in the TikTok portal: URL prefix `https://quentinfelice.github.io/tiktok/` verified; Sandbox with Login Kit, Content Posting API (Direct Post off), Display API; scopes `user.info.basic,video.upload,video.list`; redirect URI `https://quentinfelice.github.io/tiktok/callback.html`; the owner's account as target user.
 
+## Switching to fully automatic publishing (after TikTok's app audit)
+
+Settings → Secrets and variables → Actions → **Variables** → `STUDIA_POST_MODE` = `direct`. From then on `publish` posts directly
+(`DIRECT_POST`, `auto_add_music`, comments on, privacy from `STUDIA_PRIVACY_LEVEL`, default public). Before the audit,
+TikTok restricts direct posts of the app to private viewing, so keep `draft` until the audit passes.
+
 Secrets never appear in logs (`::add-mask::` plus the module's own redaction). Tokens are only ever stored encrypted.

@@ -41,8 +41,13 @@ export function buildDescription(post) {
   return utf16Truncate(text, DESCRIPTION_MAX);
 }
 
-/** Exact request body of /v2/post/publish/content/init/ for a photo draft. */
-export function buildInitPayload(post, urls, { privacyLevel } = {}) {
+/**
+ * Exact request body of /v2/post/publish/content/init/ for a photo post.
+ * mode `draft` -> MEDIA_UPLOAD (inbox draft; the owner adds a sound and posts).
+ * mode `direct` -> DIRECT_POST with privacy_level, auto_add_music and the disclosure fields TikTok requires
+ * (comments on, no branded content by default). Direct posts need the app audit to be publicly visible.
+ */
+export function buildInitPayload(post, urls, { privacyLevel, mode = 'draft', autoAddMusic = true } = {}) {
   if (!Array.isArray(urls) || urls.length < 1) throw new Error(`${post.id}: no photo URLs`);
   if (urls.length > MAX_PHOTOS)
     throw new Error(`${post.id}: ${urls.length} photos exceed the limit of ${MAX_PHOTOS}`);
@@ -51,14 +56,51 @@ export function buildInitPayload(post, urls, { privacyLevel } = {}) {
       throw new Error(`${post.id}: ${u} is outside the verified prefix ${PUBLIC_BASE}`);
   }
   const post_info = { title: buildTitle(post), description: buildDescription(post) };
-  // privacy_level belongs to DIRECT_POST; the owner chooses visibility in the app for MEDIA_UPLOAD drafts.
-  if (privacyLevel) post_info.privacy_level = privacyLevel;
+  if (mode === 'direct') {
+    if (!privacyLevel) throw new Error(`${post.id}: direct posting needs a privacy_level`);
+    Object.assign(post_info, {
+      privacy_level: privacyLevel,
+      disable_comment: false,
+      auto_add_music: Boolean(autoAddMusic),
+      brand_content_toggle: false,
+      brand_organic_toggle: false,
+    });
+  } else if (privacyLevel) {
+    post_info.privacy_level = privacyLevel;
+  }
   return {
     post_info,
     source_info: { source: 'PULL_FROM_URL', photo_cover_index: 0, photo_images: urls },
-    post_mode: 'MEDIA_UPLOAD',
+    post_mode: mode === 'direct' ? 'DIRECT_POST' : 'MEDIA_UPLOAD',
     media_type: 'PHOTO',
   };
+}
+
+/**
+ * POST /v2/post/publish/creator_info/query/ — required before a direct post: tells which privacy levels the
+ * creator may use, whether posting is allowed right now, and the photo limit.
+ */
+export async function queryCreatorInfo({ accessToken, fetch = globalThis.fetch }) {
+  const { data } = await tiktokPost(ENDPOINTS.creatorInfo, {}, { accessToken, fetch });
+  return {
+    nickname: data.creator_nickname ?? null,
+    privacyLevelOptions: data.privacy_level_options ?? [],
+    commentDisabled: Boolean(data.comment_disabled),
+    maxPhotoCount: data.max_photo_count ?? null,
+  };
+}
+
+/** Throws when the creator cannot be posted to with the requested settings (per the Content Sharing Guidelines). */
+export function assertCreatorAllows(info, { privacyLevel, photoCount }) {
+  if (info.privacyLevelOptions.length && !info.privacyLevelOptions.includes(privacyLevel)) {
+    throw new Error(
+      `privacy_level ${privacyLevel} not offered for this creator (allowed: ${info.privacyLevelOptions.join(', ')})`,
+    );
+  }
+  if (info.maxPhotoCount && photoCount > info.maxPhotoCount) {
+    throw new Error(`${photoCount} photos exceed the creator's limit of ${info.maxPhotoCount}`);
+  }
+  return true;
 }
 
 export class TikTokApiError extends Error {
