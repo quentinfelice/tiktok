@@ -30,29 +30,6 @@
       "exportedAt": "2026-09-30T12:02:45.341Z"
     },
     {
-      "id": "0930-1-musictest",
-      "date": "2026-09-30",
-      "series": "Before you fall asleep",
-      "variant": null,
-      "hypothesis": "auto_add_music honoured by MEDIA_UPLOAD drafts?",
-      "caption": "Music test: same slides as 0930-1, delete this draft.",
-      "hashtags": [],
-      "title": "Music test: same slides as 0930-1, delete this draft.",
-      "description": "Music test: same slides as 0930-1, delete this draft.",
-      "images": [
-        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/01.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/02.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/03.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/04.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/05.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-09-30/0930-1/06.jpg"
-      ],
-      "coverIndex": 0,
-      "slides": 6,
-      "exportedAt": "2026-09-30T12:02:45.341Z",
-      "autoMusicTest": true
-    },
-    {
       "id": "0930-2",
       "date": "2026-09-30",
       "series": "3 a.m. brain",
