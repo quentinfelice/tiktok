@@ -1,0 +1,283 @@
+// Studia Poster: send slideshows to the owner's TikTok inbox as photo drafts (Content Posting API).
+// POST /v2/post/publish/content/init/ with post_mode MEDIA_UPLOAD + media_type PHOTO + source PULL_FROM_URL,
+// then poll /v2/post/publish/status/fetch/. Studia never publishes directly.
+
+import { ENDPOINTS, PUBLIC_BASE, defaultLog, defaultPaths, readJson, writeJson } from './config.mjs';
+import { getAccessToken } from './auth.mjs';
+import { loadDay, mediaTargets, publishMedia, selectPosts, slidePngs } from './media.mjs';
+
+/** Limits from the photo post reference (UTF-16 code units). */
+export const TITLE_MAX = 90;
+export const DESCRIPTION_MAX = 4000;
+export const MAX_PHOTOS = 35;
+/** TikTok caps API uploads the creator has not yet handled at 5 per rolling 24 h (spam_risk_too_many_pending_share). */
+export const PENDING_SHARE_CAP = 5;
+/** status/fetch: 30 requests per minute per user access token. */
+export const TERMINAL_STATUSES = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE', 'FAILED']);
+
+/** Cuts to `max` UTF-16 units without splitting a surrogate pair; adds an ellipsis when cut. */
+export function utf16Truncate(text, max) {
+  const s = String(text ?? '');
+  if (s.length <= max) return s;
+  let cut = s.slice(0, max - 1);
+  const last = cut.charCodeAt(cut.length - 1);
+  if (last >= 0xd800 && last <= 0xdbff) cut = cut.slice(0, -1);
+  return `${cut}…`;
+}
+
+/** Title: first line of the caption, highlight markers removed. */
+export function buildTitle(post) {
+  const first = String(post.caption ?? '')
+    .split('\n')[0]
+    .replace(/\*\*/g, '')
+    .trim();
+  return utf16Truncate(first || post.id, TITLE_MAX);
+}
+
+/** Description: caption + blank line + hashtags (the department convention). */
+export function buildDescription(post) {
+  const tags = (post.hashtags ?? []).join(' ');
+  const text = tags ? `${post.caption ?? ''}\n\n${tags}` : String(post.caption ?? '');
+  return utf16Truncate(text, DESCRIPTION_MAX);
+}
+
+/** Exact request body of /v2/post/publish/content/init/ for a photo draft. */
+export function buildInitPayload(post, urls, { privacyLevel } = {}) {
+  if (!Array.isArray(urls) || urls.length < 1) throw new Error(`${post.id}: no photo URLs`);
+  if (urls.length > MAX_PHOTOS)
+    throw new Error(`${post.id}: ${urls.length} photos exceed the limit of ${MAX_PHOTOS}`);
+  for (const u of urls) {
+    if (!u.startsWith(PUBLIC_BASE))
+      throw new Error(`${post.id}: ${u} is outside the verified prefix ${PUBLIC_BASE}`);
+  }
+  const post_info = { title: buildTitle(post), description: buildDescription(post) };
+  // privacy_level belongs to DIRECT_POST; the owner chooses visibility in the app for MEDIA_UPLOAD drafts.
+  if (privacyLevel) post_info.privacy_level = privacyLevel;
+  return {
+    post_info,
+    source_info: { source: 'PULL_FROM_URL', photo_cover_index: 0, photo_images: urls },
+    post_mode: 'MEDIA_UPLOAD',
+    media_type: 'PHOTO',
+  };
+}
+
+export class TikTokApiError extends Error {
+  constructor(message, { code, logId, httpStatus } = {}) {
+    super(message);
+    this.name = 'TikTokApiError';
+    this.code = code;
+    this.logId = logId;
+    this.httpStatus = httpStatus;
+  }
+}
+
+/** POST JSON with the bearer token; resolves the `data` object or throws TikTokApiError when error.code != "ok". */
+export async function tiktokPost(url, body, { accessToken, fetch = globalThis.fetch }) {
+  if (!accessToken) throw new Error('No access token');
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json; charset=UTF-8' },
+    body: JSON.stringify(body),
+  });
+  const text = await res.text();
+  let json;
+  try {
+    json = JSON.parse(text);
+  } catch {
+    throw new TikTokApiError(`TikTok returned HTTP ${res.status} with a non-JSON body`, {
+      httpStatus: res.status,
+    });
+  }
+  const error = json.error ?? {};
+  if (!res.ok || (error.code && error.code !== 'ok')) {
+    throw new TikTokApiError(
+      `TikTok error ${error.code ?? `http_${res.status}`}: ${error.message ?? ''}${error.log_id ? ` [log_id ${error.log_id}]` : ''}`,
+      { code: error.code, logId: error.log_id, httpStatus: res.status },
+    );
+  }
+  return { data: json.data ?? {}, logId: error.log_id };
+}
+
+export async function initDraft(payload, options) {
+  const { data, logId } = await tiktokPost(ENDPOINTS.contentInit, payload, options);
+  if (!data.publish_id) throw new TikTokApiError('content/init answered without publish_id', { logId });
+  return { publishId: data.publish_id, logId };
+}
+
+export async function fetchStatus(publishId, options) {
+  const { data } = await tiktokPost(ENDPOINTS.statusFetch, { publish_id: publishId }, options);
+  return {
+    status: data.status,
+    failReason: data.fail_reason ?? null,
+    publicPostIds: data.publicaly_available_post_id ?? [],
+    uploadedBytes: data.uploaded_bytes ?? null,
+  };
+}
+
+/** Polls until SEND_TO_USER_INBOX / PUBLISH_COMPLETE / FAILED or the timeout; returns the last status. */
+export async function pollStatus(
+  publishId,
+  {
+    accessToken,
+    fetch = globalThis.fetch,
+    sleep = defaultSleep,
+    timeoutMs = 3 * 60 * 1000,
+    intervalMs = 5000,
+    log = defaultLog,
+    now = Date.now,
+  },
+) {
+  const started = now();
+  for (;;) {
+    const last = await fetchStatus(publishId, { accessToken, fetch });
+    log(`  ${publishId}: ${last.status}${last.failReason ? ` (${last.failReason})` : ''}`);
+    if (TERMINAL_STATUSES.has(last.status)) return { ...last, timedOut: false };
+    if (now() - started >= timeoutMs) return { ...last, timedOut: true };
+    await sleep(intervalMs);
+  }
+}
+
+function defaultSleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+// ---------------------------------------------------------------------------------------------
+// state/drafts.json
+
+export function loadDrafts(paths = defaultPaths()) {
+  return readJson(paths.draftsFile, { drafts: [] });
+}
+
+export function saveDrafts(paths, state) {
+  writeJson(paths.draftsFile, state);
+}
+
+/** Inserts or updates by publishId. */
+export function upsertDraft(state, record) {
+  const i = state.drafts.findIndex((d) => d.publishId === record.publishId);
+  const now = new Date().toISOString();
+  if (i === -1) state.drafts.push({ createdAt: now, ...record, updatedAt: now });
+  else state.drafts[i] = { ...state.drafts[i], ...record, updatedAt: now };
+  return state;
+}
+
+/**
+ * Sends each post of the day (or one id) as a draft. With `dryRun`, prints the payloads and calls nothing.
+ * `media`: [{ id, urls }] to reuse; otherwise publishMedia() runs first (unless dryRun, where URLs are derived).
+ */
+export async function runDrafts({
+  date,
+  id,
+  dryRun = false,
+  wait = true,
+  env = process.env,
+  paths = defaultPaths(env),
+  fetch = globalThis.fetch,
+  log = defaultLog,
+  accessToken,
+  media,
+  sleep,
+  privacyLevel,
+} = {}) {
+  const day = loadDay(date, paths);
+  const posts = selectPosts(day, id);
+  if (posts.length > PENDING_SHARE_CAP) {
+    log.warn(
+      `${posts.length} posts exceed TikTok's cap of ${PENDING_SHARE_CAP} pending API uploads per 24 h; use --id to split.`,
+    );
+  }
+  let mediaByPost = media ? new Map(media.map((m) => [m.id, m])) : null;
+  if (!mediaByPost) {
+    if (dryRun) {
+      mediaByPost = new Map(
+        posts.map((post) => {
+          const { pngs } = slidePngs(date, post, paths);
+          return [
+            post.id,
+            { id: post.id, urls: mediaTargets(date, post.id, pngs.length, paths.siteRepo).urls },
+          ];
+        }),
+      );
+    } else {
+      const published = await publishMedia({ date, id, env, paths, wait, fetch, log });
+      mediaByPost = new Map(published.map((m) => [m.id, m]));
+    }
+  }
+  const payloads = posts.map((post) => ({
+    post,
+    payload: buildInitPayload(post, mediaByPost.get(post.id).urls, { privacyLevel }),
+  }));
+  if (dryRun) {
+    for (const { post, payload } of payloads)
+      log(`[dry-run] ${post.id} -> POST ${ENDPOINTS.contentInit}\n${JSON.stringify(payload, null, 2)}`);
+    return payloads.map(({ post, payload }) => ({ specId: post.id, payload, dryRun: true }));
+  }
+  const token = accessToken ?? (await getAccessToken({ env, paths, fetch, log }));
+  const state = loadDrafts(paths);
+  const results = [];
+  for (const { post, payload } of payloads) {
+    log(`${post.id}: sending ${payload.source_info.photo_images.length} photo(s) as a draft…`);
+    const { publishId, logId } = await initDraft(payload, { accessToken: token, fetch });
+    const record = {
+      specId: post.id,
+      date,
+      publishId,
+      title: payload.post_info.title,
+      urls: payload.source_info.photo_images,
+      status: 'INIT',
+      failReason: null,
+      publicPostIds: [],
+      logId: logId ?? null,
+    };
+    upsertDraft(state, record);
+    saveDrafts(paths, state);
+    const status = await pollStatus(publishId, { accessToken: token, fetch, log, sleep });
+    Object.assign(record, {
+      status: status.status,
+      failReason: status.failReason,
+      publicPostIds: status.publicPostIds,
+      lastCheckedAt: new Date().toISOString(),
+    });
+    upsertDraft(state, record);
+    saveDrafts(paths, state);
+    results.push({ ...record, timedOut: status.timedOut });
+    log(
+      `${post.id}: ${status.status}${status.timedOut ? ' (still processing; run `drafts --check` later)' : ''}`,
+    );
+  }
+  return results;
+}
+
+/** Re-polls every recorded draft that is not terminal yet and updates drafts.json. */
+export async function checkDrafts({
+  env = process.env,
+  paths = defaultPaths(env),
+  fetch = globalThis.fetch,
+  log = defaultLog,
+  accessToken,
+} = {}) {
+  const state = loadDrafts(paths);
+  const open = state.drafts.filter(
+    (d) => !TERMINAL_STATUSES.has(d.status) || d.status === 'SEND_TO_USER_INBOX',
+  );
+  if (!open.length) {
+    log('No drafts to check.');
+    return [];
+  }
+  const token = accessToken ?? (await getAccessToken({ env, paths, fetch, log }));
+  const results = [];
+  for (const d of open) {
+    const s = await fetchStatus(d.publishId, { accessToken: token, fetch });
+    upsertDraft(state, {
+      publishId: d.publishId,
+      status: s.status,
+      failReason: s.failReason,
+      publicPostIds: s.publicPostIds,
+      lastCheckedAt: new Date().toISOString(),
+    });
+    log(`${d.specId} ${d.publishId}: ${s.status}${s.failReason ? ` (${s.failReason})` : ''}`);
+    results.push({ specId: d.specId, publishId: d.publishId, ...s });
+  }
+  saveDrafts(paths, state);
+  return results;
+}
