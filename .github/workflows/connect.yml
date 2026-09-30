@@ -48,9 +48,12 @@ jobs:
       - name: Print the TikTok consent URL
         if: inputs.mode == 'url'
         run: |
+          set -o pipefail
           echo "Open the URL below as the account owner, approve, then copy the code from callback.html"
           echo "and run this workflow again with mode=exchange."
-          node tools/poster/cli.mjs authorize-url --no-pkce
+          echo "GitHub hides the Client key (it is a secret): replace YOUR_CLIENT_KEY in the URL by the Client key"
+          echo "of the Studia app (TikTok developer portal > Manage apps > Studia > Credentials)."
+          node tools/poster/cli.mjs authorize-url --no-pkce 2>&1 | sed -E 's/client_key=[^&]*/client_key=YOUR_CLIENT_KEY/'
       - name: Exchange the code for tokens
         if: inputs.mode == 'exchange'
         env:
