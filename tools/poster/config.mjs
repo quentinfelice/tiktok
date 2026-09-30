@@ -19,6 +19,7 @@ export const ENDPOINTS = Object.freeze({
   authorize: 'https://www.tiktok.com/v2/auth/authorize/',
   oauthToken: 'https://open.tiktokapis.com/v2/oauth/token/',
   contentInit: 'https://open.tiktokapis.com/v2/post/publish/content/init/',
+  videoInboxInit: 'https://open.tiktokapis.com/v2/post/publish/inbox/video/init/',
   creatorInfo: 'https://open.tiktokapis.com/v2/post/publish/creator_info/query/',
   statusFetch: 'https://open.tiktokapis.com/v2/post/publish/status/fetch/',
   videoList: 'https://open.tiktokapis.com/v2/video/list/',
@@ -216,6 +217,6 @@ export function assertDate(date) {
 }
 
 export function assertId(id) {
-  if (!/^\d{4}-\d+$/.test(id || '')) throw new Error(`--id must look like MMDD-N, got "${id}"`);
+  if (!/^\d{4}-V?\d+$/.test(id || '')) throw new Error(`--id must look like MMDD-N or MMDD-VN, got "${id}"`);
   return id;
 }

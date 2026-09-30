@@ -27,7 +27,7 @@ import { authorizeUrl, exchangeCode, readTokenCache, refresh, tokenSummary } fro
 import { checkSiteRepo, publishMedia } from './media.mjs';
 import { checkDrafts, runDrafts } from './drafts.mjs';
 import { runStats } from './stats.mjs';
-import { exportDay, pullStats } from './export.mjs';
+import { exportDay, exportVideos, pullStats } from './export.mjs';
 import { runQueue } from './queue.mjs';
 
 const USAGE = `Studia Poster — TikTok drafts and stats for the slideshow department
@@ -43,13 +43,14 @@ Commands
   drafts --check       Re-poll the recorded drafts that are not final yet
   stats                Read the account's public post metrics into poster/state/stats.json
   export               Studio side: JPEGs + queue/<date>.json + runtime copy pushed to the public repo (no TikTok call)
+  export --videos      Same for the rendered animated videos of days/<date>/videos.json
   queue                Actions side: create the drafts for queued items not created yet (max 5 pending), then stats
   pull-stats           Studio side: git pull the public repo and copy state/stats.json + drafts.json back
   doctor               Egress, credentials, token store and repo checks (names only, never values)
 
 Options
   --date YYYY-MM-DD    Day to process (default: today, Europe/Brussels)
-  --id MMDD-N          One slideshow only (default: the whole day)
+  --id MMDD-N          One slideshow only (default: the whole day); videos are MMDD-VN
   --dry-run            Print payloads / planned git actions, call nothing
   --no-wait            Do not wait until the media URLs answer 200
   --prune <days>       With media: delete media/<date> folders older than <days> in the site repo
@@ -68,6 +69,7 @@ function parse(argv) {
       'no-wait': { type: 'boolean', default: false },
       prune: { type: 'string' },
       'no-pkce': { type: 'boolean', default: false },
+      videos: { type: 'boolean', default: false },
       check: { type: 'boolean', default: false },
       pages: { type: 'string' },
       help: { type: 'boolean', short: 'h', default: false },
@@ -228,7 +230,8 @@ export async function main(argv = process.argv.slice(2), { env = process.env, lo
       return 0;
     }
     case 'export': {
-      const { manifest, pushed } = await exportDay({ date, id, env, paths, dryRun, log });
+      const run = values.videos ? exportVideos : exportDay;
+      const { manifest, pushed } = await run({ date, id, env, paths, dryRun, log });
       log(`export ${date}: ${manifest.items.length} item(s)${pushed ? ', pushed to the public repo' : ''}.`);
       return 0;
     }

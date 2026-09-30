@@ -9,7 +9,9 @@ import {
   PENDING_SHARE_CAP,
   assertCreatorAllows,
   buildInitPayload,
+  buildVideoInitPayload,
   initDraft,
+  initVideoDraft,
   loadDrafts,
   pollStatus,
   queryCreatorInfo,
@@ -46,6 +48,15 @@ export function selectQueueItems(manifests, drafts, { max = PENDING_SHARE_CAP, n
   return { selected: candidates.slice(0, room), skipped: candidates.slice(room), pending };
 }
 
+const isVideo = (it) => it.kind === 'video';
+
+/** The request body for one queue item: a photo post, or a video sent to the inbox. */
+export function payloadFor(it, { mode, level }) {
+  return isVideo(it)
+    ? buildVideoInitPayload(it)
+    : buildInitPayload(it, it.images, { mode, privacyLevel: level });
+}
+
 /** Creates the drafts for the selected items and records them; then updates stats.json. */
 export async function runQueue({
   env = process.env,
@@ -68,10 +79,7 @@ export async function runQueue({
   );
   const results = [];
   if (dryRun) {
-    for (const it of selected)
-      log(
-        `[dry-run] ${it.id}: ${JSON.stringify(buildInitPayload(it, it.images, { mode, privacyLevel: level }))}`,
-      );
+    for (const it of selected) log(`[dry-run] ${it.id}: ${JSON.stringify(payloadFor(it, { mode, level }))}`);
     return { created: [], skipped, pending, dryRun: true };
   }
   if (selected.length) {
@@ -84,20 +92,37 @@ export async function runQueue({
       );
     }
     for (const it of selected) {
-      const payload = buildInitPayload(it, it.images, { mode, privacyLevel: level });
-      if (creator) assertCreatorAllows(creator, { privacyLevel: level, photoCount: it.images.length });
+      if (isVideo(it) && mode === 'direct') {
+        log.warn(`${it.id}: video Direct Post is not supported yet; it stays in the queue.`);
+        continue;
+      }
+      let payload;
+      try {
+        payload = payloadFor(it, { mode, level });
+      } catch (err) {
+        log.error(`${it.id}: ${err.message}`);
+        continue;
+      }
+      if (creator && !isVideo(it))
+        assertCreatorAllows(creator, { privacyLevel: level, photoCount: it.images.length });
       log(
-        `${it.id}: ${mode === 'direct' ? 'publishing' : 'creating draft with'} ${it.images.length} photo(s)…`,
+        isVideo(it)
+          ? `${it.id}: sending the video to the inbox as a draft…`
+          : `${it.id}: ${mode === 'direct' ? 'publishing' : 'creating draft with'} ${it.images.length} photo(s)…`,
       );
       let record;
       try {
-        const { publishId, logId } = await initDraft(payload, { accessToken: token, fetch });
+        const { publishId, logId } = await (isVideo(it) ? initVideoDraft : initDraft)(payload, {
+          accessToken: token,
+          fetch,
+        });
         record = {
           specId: it.id,
           date: it.date,
           publishId,
-          title: payload.post_info.title,
-          urls: it.images,
+          kind: isVideo(it) ? 'video' : 'photos',
+          title: isVideo(it) ? it.title : payload.post_info.title,
+          urls: isVideo(it) ? [it.video] : it.images,
           mode,
           status: 'INIT',
           failReason: null,

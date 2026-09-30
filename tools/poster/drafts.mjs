@@ -77,6 +77,18 @@ export function buildInitPayload(post, urls, { privacyLevel, mode = 'draft', aut
 }
 
 /**
+ * Body of /v2/post/publish/inbox/video/init/: a video sent to the owner's inbox as a draft, pulled from the verified
+ * URL prefix. The inbox flow takes no post_info: the owner sets the caption and sound in TikTok.
+ */
+export function buildVideoInitPayload(item) {
+  const url = item.video;
+  if (typeof url !== 'string' || !url.startsWith(PUBLIC_BASE))
+    throw new Error(`${item.id}: video URL is outside the verified prefix ${PUBLIC_BASE}`);
+  if (!/\.(mp4|mov|webm)$/i.test(url)) throw new Error(`${item.id}: video must be an MP4, MOV or WebM file`);
+  return { source_info: { source: 'PULL_FROM_URL', video_url: url } };
+}
+
+/**
  * POST /v2/post/publish/creator_info/query/ — required before a direct post: tells which privacy levels the
  * creator may use, whether posting is allowed right now, and the photo limit.
  */
@@ -143,6 +155,12 @@ export async function tiktokPost(url, body, { accessToken, fetch = globalThis.fe
 export async function initDraft(payload, options) {
   const { data, logId } = await tiktokPost(ENDPOINTS.contentInit, payload, options);
   if (!data.publish_id) throw new TikTokApiError('content/init answered without publish_id', { logId });
+  return { publishId: data.publish_id, logId };
+}
+
+export async function initVideoDraft(payload, options) {
+  const { data, logId } = await tiktokPost(ENDPOINTS.videoInboxInit, payload, options);
+  if (!data.publish_id) throw new TikTokApiError('inbox/video/init answered without publish_id', { logId });
   return { publishId: data.publish_id, logId };
 }
 

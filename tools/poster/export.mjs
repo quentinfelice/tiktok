@@ -3,7 +3,7 @@
 // <site>/tools/poster/, one commit, one push. No TikTok call happens here (this container cannot reach TikTok).
 // pull-stats: git pull the site repo and copy state/stats.json + state/drafts.json back for the Analyst.
 
-import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   POSTER_DIR,
@@ -22,6 +22,7 @@ import {
   git,
   loadDay,
   mediaTargets,
+  publicUrl,
   selectPosts,
   slidePngs,
 } from './media.mjs';
@@ -48,6 +49,38 @@ export function buildManifestItem(post, urls, { date }) {
     slides: urls.length,
     exportedAt: new Date().toISOString(),
   };
+}
+
+/** Queue item for an animated video: the file is pulled by TikTok from the verified prefix, the caption is for the owner. */
+export function buildVideoManifestItem(video, url, { date, seconds = null, bytes = null }) {
+  return {
+    id: video.id,
+    date,
+    kind: 'video',
+    series: video.series ?? null,
+    variant: video.variant ?? null,
+    hypothesis: video.hypothesis ?? null,
+    derivedFrom: video.derivedFrom ?? null,
+    caption: video.caption ?? '',
+    hashtags: video.hashtags ?? [],
+    title: buildTitle(video),
+    description: buildDescription(video),
+    video: url,
+    images: [],
+    slides: 0,
+    seconds,
+    bytes,
+    exportedAt: new Date().toISOString(),
+  };
+}
+
+/** The rendered file of a video (out/<date>/<id>/video.mp4 or .webm). */
+export function renderedVideoFile(date, id, paths) {
+  for (const ext of ['mp4', 'mov', 'webm']) {
+    const f = join(paths.outDir, date, id, `video.${ext}`);
+    if (existsSync(f)) return { file: f, ext };
+  }
+  return null;
 }
 
 /** queue/index.json: the dates that have a manifest, so the static web app can list them. */
@@ -126,6 +159,62 @@ export async function exportDay({
     siteRepo: paths.siteRepo,
     pathspecs: ['media', 'queue', 'tools'],
     message: `export ${date}: ${items.map((i) => i.id).join(', ')}`,
+    githubToken: config.githubToken,
+    env,
+    log,
+  });
+  return { manifest, ...result };
+}
+
+/** Same hand-off as exportDay, for the animated videos of days/<date>/videos.json. */
+export async function exportVideos({
+  date,
+  id,
+  env = process.env,
+  paths = defaultPaths(env),
+  dryRun = false,
+  log = defaultLog,
+} = {}) {
+  assertDate(date);
+  const config = loadConfig(env);
+  const spec = readJson(join(paths.daysDir, date, 'videos.json'), null);
+  if (!spec) throw new Error(`No ${join(paths.daysDir, date, 'videos.json')}`);
+  const videos = (spec.videos ?? []).filter((v) => !id || v.id === id);
+  if (!videos.length) throw new Error(id ? `No video ${id} on ${date}` : `No videos on ${date}`);
+  const items = [];
+  const copies = [];
+  for (const v of videos) {
+    if (v.factCheck?.status !== 'PASS') throw new Error(`${v.id}: fact-check is not PASS`);
+    const rendered = renderedVideoFile(date, v.id, paths);
+    if (!rendered) throw new Error(`${v.id}: no rendered video; run video/render-video.mjs first`);
+    const size = statSync(rendered.file).size;
+    if (size > 50 * 1024 * 1024)
+      throw new Error(`${v.id}: ${Math.round(size / 1048576)} MB is over the 50 MB limit`);
+    const name = `video.${rendered.ext}`;
+    const seconds = (v.scenes ?? []).reduce((a, s) => a + s.dur, 0) || null;
+    copies.push({ from: rendered.file, to: join(paths.siteRepo, 'media', date, v.id, name) });
+    items.push(buildVideoManifestItem(v, publicUrl(date, v.id, name), { date, seconds, bytes: size }));
+  }
+  if (dryRun) {
+    log(
+      `[dry-run] would copy ${copies.length} video(s) and write ${paths.queueDir}/${date}.json with ${items.length} item(s)`,
+    );
+    for (const it of items)
+      log(`  ${it.id}: ${it.video} (${Math.round(it.bytes / 1024)} KB, ${it.seconds}s)`);
+    return { manifest: { date, items }, pushed: false };
+  }
+  checkSiteRepo(paths.siteRepo);
+  for (const c of copies) {
+    mkdirSync(join(c.to, '..'), { recursive: true });
+    copyFileSync(c.from, c.to);
+  }
+  const { file, manifest } = writeManifest(paths, date, items);
+  log(`Queue manifest: ${file} (${manifest.items.length} item(s) for ${date}).`);
+  copyRuntime(paths, { log });
+  const result = commitAndPush({
+    siteRepo: paths.siteRepo,
+    pathspecs: ['media', 'queue', 'tools'],
+    message: `export ${date}: ${items.map((i) => i.id).join(', ')} (video)`,
     githubToken: config.githubToken,
     env,
     log,
