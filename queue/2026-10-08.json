@@ -2,6 +2,62 @@
   "date": "2026-10-08",
   "items": [
     {
+      "id": "1008-1",
+      "date": "2026-10-08",
+      "series": "3 a.m. brain",
+      "variant": "control",
+      "hypothesis": "Control for today's hook-type test: a statement hook (55 characters), 6 slides, payoff on slide 2, split scene, night theme. Baseline watched-full % against 1008-2 (question hook). The topics differ (blind dreams vs pre-sleep media) but share one family: what shapes the content of dreams.",
+      "caption": "Born blind, they still dream. Just with fewer pictures.\nIn a 2014 study (11 blind from birth, 14 late blind, 25 sighted), the blind-from-birth reported fewer visual and more sound, touch, taste and smell impressions, and more nightmares (about 25% of dreams vs about 6%). Why is a hypothesis.",
+      "hashtags": [
+        "#sleepscience",
+        "#dreams",
+        "#brain",
+        "#psychology",
+        "#didyouknow"
+      ],
+      "title": "Born blind, they still dream. Just with fewer pictures.",
+      "description": "Born blind, they still dream. Just with fewer pictures.\nIn a 2014 study (11 blind from birth, 14 late blind, 25 sighted), the blind-from-birth reported fewer visual and more sound, touch, taste and smell impressions, and more nightmares (about 25% of dreams vs about 6%). Why is a hypothesis.\n\n#sleepscience #dreams #brain #psychology #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-01T20:31:59.219Z"
+    },
+    {
+      "id": "1008-2",
+      "date": "2026-10-08",
+      "series": "3 a.m. brain",
+      "variant": "variant",
+      "hypothesis": "Variant vs 1008-1 (control): the only change is hook type, a question addressed to the viewer ('Does a scary film before bed change your dreams?', 48 characters) instead of a statement (55 characters). Same series, split scene, night theme, 6 slides, payoff on slide 2, caption structure. Expected: higher watched-full % than the control. Topics differ but share the family: what shapes dream content.",
+      "caption": "Does a scary film before bed change your dreams?\nIn a 2016 survey of 1,287 people (ages 10 to 60, in Turkey), those who reported violent media within 90 minutes of bed were about 13 times more likely to report a violent dream that night. It is a link, not proof of cause.",
+      "hashtags": [
+        "#sleepscience",
+        "#dreams",
+        "#horror",
+        "#psychology",
+        "#october"
+      ],
+      "title": "Does a scary film before bed change your dreams?",
+      "description": "Does a scary film before bed change your dreams?\nIn a 2016 survey of 1,287 people (ages 10 to 60, in Turkey), those who reported violent media within 90 minutes of bed were about 13 times more likely to report a violent dream that night. It is a link, not proof of cause.\n\n#sleepscience #dreams #horror #psychology #october",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-2/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-2/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-2/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-2/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-2/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-2/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-01T20:31:59.219Z"
+    },
+    {
       "id": "1008-V1",
       "date": "2026-10-08",
       "kind": "video",
