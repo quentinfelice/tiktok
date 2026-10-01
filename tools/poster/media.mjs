@@ -176,8 +176,20 @@ export function commitAndPush({
     log('Media unchanged in the site repo; nothing to commit.');
   }
   if (dryRun) return { committed, pushed: false };
+  // The publish workflow commits state/ to the same branch, so a push can find main moved on: rebase this commit
+  // (media/, queue/, tools/ only) on it once and push again.
+  const pushOnce = (pushEnv) => {
+    try {
+      git(['push', '-q', 'origin', 'main'], { cwd: siteRepo, env: pushEnv });
+    } catch (err) {
+      if (!/fetch first|non-fast-forward/.test(String(err.stderr || err.message))) throw err;
+      log.warn('The public repo moved on (a publish run committed); rebasing on it and pushing again.');
+      git(['pull', '-q', '--rebase', 'origin', 'main'], { cwd: siteRepo, env: pushEnv });
+      git(['push', '-q', 'origin', 'main'], { cwd: siteRepo, env: pushEnv });
+    }
+  };
   try {
-    git(['push', '-q', 'origin', 'main'], { cwd: siteRepo, env });
+    pushOnce(env);
   } catch (err) {
     if (!githubToken) {
       throw new Error(
@@ -186,7 +198,7 @@ export function commitAndPush({
       );
     }
     log.warn('git push failed with the local credentials; retrying with GITHUB_TOKEN.');
-    git(['push', '-q', 'origin', 'main'], { cwd: siteRepo, env: tokenGitEnv(githubToken, env) });
+    pushOnce(tokenGitEnv(githubToken, env));
   }
   log('Pushed main to origin.');
   return { committed, pushed: true };

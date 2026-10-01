@@ -2,6 +2,62 @@
   "date": "2026-10-02",
   "items": [
     {
+      "id": "1002-1",
+      "date": "2026-10-02",
+      "series": "Dream science",
+      "variant": "control",
+      "hypothesis": "Control for today's hook-type test: statement hook ('You can dream outside REM sleep too', 35 characters), 6 slides, payoff on slide 2, split scene, night theme. Baseline watched-full % against 1002-2 (question hook). Topics differ but share the dream-science lane.",
+      "caption": "You can dream outside REM sleep too.\nIn a 2017 sleep-lab study using high-density EEG, people woken from REM and from non-REM sleep reported dreams, and activity in a back-of-brain hot zone tracked whether they dreamed. One lab, so treat it as a strong clue, not the last word.",
+      "hashtags": [
+        "#dreams",
+        "#sleepscience",
+        "#neuroscience",
+        "#brain",
+        "#didyouknow"
+      ],
+      "title": "You can dream outside REM sleep too.",
+      "description": "You can dream outside REM sleep too.\nIn a 2017 sleep-lab study using high-density EEG, people woken from REM and from non-REM sleep reported dreams, and activity in a back-of-brain hot zone tracked whether they dreamed. One lab, so treat it as a strong clue, not the last word.\n\n#dreams #sleepscience #neuroscience #brain #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-01T20:31:28.523Z"
+    },
+    {
+      "id": "1002-2",
+      "date": "2026-10-02",
+      "series": "Dream science",
+      "variant": "variant",
+      "hypothesis": "Variant vs 1002-1 (control): the only change is hook type, a question ('Can a brain scan guess what you dream?', 38 characters) instead of a statement (35). Same series, split scene, night theme, 6 slides, payoff on slide 2, caption structure. Expected: higher watched-full % and average watch time than the control.",
+      "caption": "Can a brain scan guess what you dream?\nIn a 2013 Science study from Kyoto, a model trained on scans of people looking at pictures picked object categories in sleep-onset imagery from three volunteers, right about 60% of the time on average (chance 50%). Categories, not films.",
+      "hashtags": [
+        "#dreams",
+        "#sleepscience",
+        "#neuroscience",
+        "#brain",
+        "#didyouknow"
+      ],
+      "title": "Can a brain scan guess what you dream?",
+      "description": "Can a brain scan guess what you dream?\nIn a 2013 Science study from Kyoto, a model trained on scans of people looking at pictures picked object categories in sleep-onset imagery from three volunteers, right about 60% of the time on average (chance 50%). Categories, not films.\n\n#dreams #sleepscience #neuroscience #brain #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-2/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-2/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-2/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-2/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-2/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-2/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-01T20:31:28.524Z"
+    },
+    {
       "id": "1002-V1",
       "date": "2026-10-02",
       "kind": "video",
