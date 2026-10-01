@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-08",
+  "items": [
+    {
+      "id": "1008-V1",
+      "date": "2026-10-08",
+      "kind": "video",
+      "series": "Sleep zoo",
+      "variant": "control",
+      "hypothesis": "Hook-type pool, question (unpaired, default recipe with animal opener): the 3-word question is expected to give the best 3-s hold of the Sleep zoo videos (highest average watch).",
+      "derivedFrom": null,
+      "caption": "Do octopuses dream?\nIn lab studies, octopuses have a quiet sleep plus short bouts of \"active sleep\" in which skin patterns change fast and brain activity resembles waking (Nature, 2023; an earlier iScience 2021 study saw the same two states). Whether that is dreaming is still unknown; replaying the day is one idea.",
+      "hashtags": [
+        "#worldoctopusday",
+        "#octopus",
+        "#animalfacts",
+        "#sleepscience",
+        "#dreams"
+      ],
+      "title": "Do octopuses dream?",
+      "description": "Do octopuses dream?\nIn lab studies, octopuses have a quiet sleep plus short bouts of \"active sleep\" in which skin patterns change fast and brain activity resembles waking (Nature, 2023; an earlier iScience 2021 study saw the same two states). Whether that is dreaming is still unknown; replaying the day is one idea.\n\n#worldoctopusday #octopus #animalfacts #sleepscience #dreams",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 26,
+      "bytes": 2991230,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

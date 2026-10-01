@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-18",
+  "items": [
+    {
+      "id": "1018-V1",
+      "date": "2026-10-18",
+      "kind": "video",
+      "series": "Myth vs reality",
+      "variant": "variant",
+      "hypothesis": "Short-length pool (15 s, plain payoff, unpaired): expected the highest watched-full % of the sprint and the lowest average watch seconds.",
+      "derivedFrom": null,
+      "caption": "Do you swallow spiders in your sleep?\nA spider expert at the Burke Museum (University of Washington) says no such case is on formal record in scientific or medical literature, and a sleeping person's vibrations tend to keep spiders away. That is an expert's view, not a study.",
+      "hashtags": [
+        "#spiders",
+        "#spookyseason",
+        "#mythbusting",
+        "#sleep",
+        "#halloween"
+      ],
+      "title": "Do you swallow spiders in your sleep?",
+      "description": "Do you swallow spiders in your sleep?\nA spider expert at the Burke Museum (University of Washington) says no such case is on formal record in scientific or medical literature, and a sleeping person's vibrations tend to keep spiders away. That is an expert's view, not a study.\n\n#spiders #spookyseason #mythbusting #sleep #halloween",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 15,
+      "bytes": 1710958,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

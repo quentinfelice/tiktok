@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-03",
+  "items": [
+    {
+      "id": "1003-V1",
+      "date": "2026-10-03",
+      "kind": "video",
+      "series": "Two skies",
+      "variant": "variant",
+      "hypothesis": "Short-length pool (15 s vs the 20-26 s default, unpaired): expected higher watched-full % and lower average watch seconds than the mid videos.",
+      "derivedFrom": null,
+      "caption": "You're taller in the morning.\nIn a 1984 study of 8 men, height peaked at about 7:30 on waking and was about 2 cm (1.1 %) lower by midnight. The discs between the spine bones lose volume after a day upright and regain it when you lie down: lab studies simulated a night with about 6 hours of lying down. The amount varies by person.",
+      "hashtags": [
+        "#didyouknow",
+        "#bodyfacts",
+        "#sleepscience",
+        "#science",
+        "#morning"
+      ],
+      "title": "You're taller in the morning.",
+      "description": "You're taller in the morning.\nIn a 1984 study of 8 men, height peaked at about 7:30 on waking and was about 2 cm (1.1 %) lower by midnight. The discs between the spine bones lose volume after a day upright and regain it when you lie down: lab studies simulated a night with about 6 hours of lying down. The amount varies by person.\n\n#didyouknow #bodyfacts #sleepscience #science #morning",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-03/1003-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 15,
+      "bytes": 2164102,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

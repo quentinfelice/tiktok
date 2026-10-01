@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-02",
+  "items": [
+    {
+      "id": "1002-V1",
+      "date": "2026-10-02",
+      "kind": "video",
+      "series": "Dream science",
+      "variant": "control",
+      "hypothesis": "P1 control, variable = hook type (personal question vs V20-09's sourced number): expected the higher average watch time and an equal or higher watched-full %.",
+      "derivedFrom": null,
+      "caption": "Teeth falling out in your dreams?\nIn one study of 210 students, teeth dreams were not linked to psychological distress or general sleep problems, but they did go with tension in the teeth, gums or jaws on waking. Linked, not proven: the authors' idea is that sensations from the mouth can feed into dreams.",
+      "hashtags": [
+        "#dreammeaning",
+        "#teethfallingout",
+        "#dreams",
+        "#sleepscience",
+        "#psychology"
+      ],
+      "title": "Teeth falling out in your dreams?",
+      "description": "Teeth falling out in your dreams?\nIn one study of 210 students, teeth dreams were not linked to psychological distress or general sleep problems, but they did go with tension in the teeth, gums or jaws on waking. Linked, not proven: the authors' idea is that sensations from the mouth can feed into dreams.\n\n#dreammeaning #teethfallingout #dreams #sleepscience #psychology",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-02/1002-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 24,
+      "bytes": 2536212,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

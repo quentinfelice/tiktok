@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-12",
+  "items": [
+    {
+      "id": "1012-V1",
+      "date": "2026-10-12",
+      "kind": "video",
+      "series": "Two skies",
+      "variant": "variant",
+      "hypothesis": "Ending: plain payoff, sleep-gate scene and no quiz (unpaired): expected slightly lower watched-full % than quiz videos; average watch near the POV pool.",
+      "derivedFrom": null,
+      "caption": "POV: tired at 9, awake at 11.\nSleep researchers describe a stretch in the hours before your usual bedtime, the \"forbidden zone\", when the body clock pushes alertness up; later a \"sleep gate\" opens (Lavie, 1986; Monterastelli et al., 2023). The times shown are an example and differ from person to person.",
+      "hashtags": [
+        "#sleepscience",
+        "#nightowl",
+        "#circadianrhythm",
+        "#bodyclock",
+        "#pov"
+      ],
+      "title": "POV: tired at 9, awake at 11.",
+      "description": "POV: tired at 9, awake at 11.\nSleep researchers describe a stretch in the hours before your usual bedtime, the \"forbidden zone\", when the body clock pushes alertness up; later a \"sleep gate\" opens (Lavie, 1986; Monterastelli et al., 2023). The times shown are an example and differ from person to person.\n\n#sleepscience #nightowl #circadianrhythm #bodyclock #pov",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-12/1012-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 21,
+      "bytes": 2280724,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

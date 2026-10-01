@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-04",
+  "items": [
+    {
+      "id": "1004-V1",
+      "date": "2026-10-04",
+      "kind": "video",
+      "series": "Sleep zoo",
+      "variant": "control",
+      "hypothesis": "P4 control, variable = opener (seal sticker at frame 0 vs V20-11's blob): expected the higher average watch time and watched-full %.",
+      "derivedFrom": null,
+      "caption": "Elephant seals nap while sinking.\nBrain sensors on wild seals showed short naps on deep dives, and movement data from many tagged seals put their sleep at about 2 hours a day at sea on average, vs about 10 hours a day on land (Science, 2023). In REM sleep some turned upside down as they drifted down. One idea from the researchers: deep water may be safer from predators.",
+      "hashtags": [
+        "#worldanimalday",
+        "#elephantseal",
+        "#animalfacts",
+        "#sleepscience",
+        "#ocean"
+      ],
+      "title": "Elephant seals nap while sinking.",
+      "description": "Elephant seals nap while sinking.\nBrain sensors on wild seals showed short naps on deep dives, and movement data from many tagged seals put their sleep at about 2 hours a day at sea on average, vs about 10 hours a day on land (Science, 2023). In REM sleep some turned upside down as they drifted down. One idea from the researchers: deep water may be safer from predators.\n\n#worldanimalday #elephantseal #animalfacts #sleepscience #ocean",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-04/1004-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 22.5,
+      "bytes": 2363630,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

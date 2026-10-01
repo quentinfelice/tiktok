@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-20",
+  "items": [
+    {
+      "id": "1020-V1",
+      "date": "2026-10-20",
+      "kind": "video",
+      "series": "Sleep zoo",
+      "variant": "variant",
+      "hypothesis": "Short-length pool (17 s, unpaired): expected higher watched-full % and lower average watch seconds than the mid Sleep zoo videos.",
+      "derivedFrom": null,
+      "caption": "Wild sloths slept 9.6 hours, not 16.\nIn a small 2008 study, 3 wild three-toed sloths in Panama wearing brain-activity (EEG) recorders slept about 9.6 hours a day, over 6 hours less than previously reported for sloths in captivity (about 16). Happy International Sloth Day.",
+      "hashtags": [
+        "#internationalslothday",
+        "#sloth",
+        "#animalfacts",
+        "#sleepscience",
+        "#rainforest"
+      ],
+      "title": "Wild sloths slept 9.6 hours, not 16.",
+      "description": "Wild sloths slept 9.6 hours, not 16.\nIn a small 2008 study, 3 wild three-toed sloths in Panama wearing brain-activity (EEG) recorders slept about 9.6 hours a day, over 6 hours less than previously reported for sloths in captivity (about 16). Happy International Sloth Day.\n\n#internationalslothday #sloth #animalfacts #sleepscience #rainforest",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 17,
+      "bytes": 1711018,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

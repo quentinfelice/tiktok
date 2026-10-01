@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-13",
+  "items": [
+    {
+      "id": "1013-V1",
+      "date": "2026-10-13",
+      "kind": "video",
+      "series": "Two skies",
+      "variant": "control",
+      "hypothesis": "P3 control, variable = ending (surprise-wake quiz in the final third vs V20-06's plain payoff): expected higher watched-full % and higher average watch time.",
+      "derivedFrom": null,
+      "caption": "POV: you wake right before the alarm.\nIn a small 1999 study (15 people, in a lab), those told they would be woken at 6 a.m. showed a rise in the hormone ACTH about an hour earlier; those who expected 9 a.m. and were woken at 6 did not. It measured hormones, not why you wake early: one small study.",
+      "hashtags": [
+        "#alarm",
+        "#bodyclock",
+        "#sleepscience",
+        "#morning",
+        "#pov"
+      ],
+      "title": "POV: you wake right before the alarm.",
+      "description": "POV: you wake right before the alarm.\nIn a small 1999 study (15 people, in a lab), those told they would be woken at 6 a.m. showed a rise in the hormone ACTH about an hour earlier; those who expected 9 a.m. and were woken at 6 did not. It measured hormones, not why you wake early: one small study.\n\n#alarm #bodyclock #sleepscience #morning #pov",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-13/1013-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 24.5,
+      "bytes": 2507638,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

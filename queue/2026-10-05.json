@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-05",
+  "items": [
+    {
+      "id": "1005-V1",
+      "date": "2026-10-05",
+      "kind": "video",
+      "series": "Two skies",
+      "variant": "variant",
+      "hypothesis": "P2 variant, variable = length (30.5 s vs V20-19's 22 s): expected lower watched-full % but higher average watch seconds; it wins only if average watch rises while watched-full stays >= 5 %.",
+      "derivedFrom": null,
+      "caption": "Astronauts see 16 sunrises a day.\nThe space station circles Earth about every 90 minutes, so the crew passes about 16 sunrises and sunsets a day. Crews keep a 24-hour schedule with about 8.5 hours set aside for sleep, but NASA reports that astronauts average only about 6 to 6.5 hours of sleep a night.",
+      "hashtags": [
+        "#worldspaceweek",
+        "#astronaut",
+        "#space",
+        "#sleepscience",
+        "#bodyclock"
+      ],
+      "title": "Astronauts see 16 sunrises a day.",
+      "description": "Astronauts see 16 sunrises a day.\nThe space station circles Earth about every 90 minutes, so the crew passes about 16 sunrises and sunsets a day. Crews keep a 24-hour schedule with about 8.5 hours set aside for sleep, but NASA reports that astronauts average only about 6 to 6.5 hours of sleep a night.\n\n#worldspaceweek #astronaut #space #sleepscience #bodyclock",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 30.5,
+      "bytes": 3048365,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

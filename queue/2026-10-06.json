@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-06",
+  "items": [
+    {
+      "id": "1006-V1",
+      "date": "2026-10-06",
+      "kind": "video",
+      "series": "Two skies",
+      "variant": "variant",
+      "hypothesis": "P3 variant, variable = ending (plain payoff vs V20-13's quiz): expected lower watched-full % and lower average watch time, because no question is held into the final third.",
+      "derivedFrom": null,
+      "caption": "POV: it's your third snooze.\nIn one small lab study of 31 regular snoozers, 30 minutes of snoozing cost about 6 minutes of sleep and did not make morning test scores worse (no worse, or slightly better). In a mostly Swedish survey of 1,732 people, 69% said they snooze or set several alarms at least sometimes. Habitual snoozers only, so a clue, not a rule.",
+      "hashtags": [
+        "#snooze",
+        "#morningroutine",
+        "#sleepscience",
+        "#pov",
+        "#sleep"
+      ],
+      "title": "POV: it's your third snooze.",
+      "description": "POV: it's your third snooze.\nIn one small lab study of 31 regular snoozers, 30 minutes of snoozing cost about 6 minutes of sleep and did not make morning test scores worse (no worse, or slightly better). In a mostly Swedish survey of 1,732 people, 69% said they snooze or set several alarms at least sometimes. Habitual snoozers only, so a clue, not a rule.\n\n#snooze #morningroutine #sleepscience #pov #sleep",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 24.5,
+      "bytes": 2621933,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}

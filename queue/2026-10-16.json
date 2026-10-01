@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-16",
+  "items": [
+    {
+      "id": "1016-V1",
+      "date": "2026-10-16",
+      "kind": "video",
+      "series": "Myth vs reality",
+      "variant": "control",
+      "hypothesis": "P5 control, variable = hook type (personal question vs V20-14's number; replicates P1): expected the higher average watch time and an equal or higher watched-full %.",
+      "derivedFrom": null,
+      "caption": "What do you say in your sleep?\nIn a 2017 sleep-lab study of 232 adults, most of them people with sleep disorders, \"no\" was the most common word and about 1 in 10 clauses (9.7%) contained swearing. Only 15 of the 232 were healthy sleepers, so yours may differ.",
+      "hashtags": [
+        "#sleeptalking",
+        "#spookyseason",
+        "#sleepscience",
+        "#sleep",
+        "#psychology"
+      ],
+      "title": "What do you say in your sleep?",
+      "description": "What do you say in your sleep?\nIn a 2017 sleep-lab study of 232 adults, most of them people with sleep disorders, \"no\" was the most common word and about 1 in 10 clauses (9.7%) contained swearing. Only 15 of the 232 were healthy sleepers, so yours may differ.\n\n#sleeptalking #spookyseason #sleepscience #sleep #psychology",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-16/1016-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": 24.5,
+      "bytes": 2272560,
+      "exportedAt": "2026-10-01T06:34:11.065Z"
+    }
+  ]
+}
