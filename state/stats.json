@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-30T22:21:03.033Z",
+  "fetchedAt": "2026-10-01T05:09:28.741Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -11,11 +11,13 @@
     "view_count",
     "like_count",
     "comment_count",
-    "share_count"
+    "share_count",
+    "duration"
   ],
   "fieldsReturned": [
     "comment_count",
     "create_time",
+    "duration",
     "id",
     "like_count",
     "share_count",
@@ -26,16 +28,17 @@
   ],
   "posts": [
     {
-      "specId": "0930-2",
+      "specId": "0930-V1",
       "tiktokId": "7691394018978188577",
       "createTime": "2026-09-30T18:17:03.000Z",
       "createTimeUnix": 1790792223,
       "title": "Why do your worries feel bigger after midnight? One sleep researcher says 3 to 4 a.m. is a body-clock turning point when we're at our lowest ebb and alone in the dark. A 2022 hypothesis says night tilts mood negative. Brief wake-ups are normal. #3amthoughts #sleepscience #psychology #overthinking ",
-      "views": 267,
+      "views": 269,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7691394018978188577?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 31,
       "matchedBy": "description_prefix"
     },
     {
@@ -49,6 +52,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7691366253151227168?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
       "matchedBy": "description_prefix"
     },
     {
@@ -62,6 +66,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7690895342648233238?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
       "matchedBy": null
     },
     {
@@ -75,6 +80,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7690638269649964291?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
       "matchedBy": null
     },
     {
@@ -83,11 +89,12 @@
       "createTime": "2026-09-27T12:35:50.000Z",
       "createTimeUnix": 1790512550,
       "title": "You dream every REM cycle, but the sleeping brain is bad at saving new memories. People who wake briefly more often tend to remember more. #dreams #dreamscience #sleepscience #remsleep #nightthoughts",
-      "views": 1374,
+      "views": 1376,
       "likes": 6,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7690192810577841430?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
       "matchedBy": null
     },
     {
@@ -101,6 +108,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7689961948837858582?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
       "matchedBy": null
     },
     {
@@ -114,6 +122,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7649376340432506145?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 10,
       "matchedBy": null
     },
     {
@@ -127,6 +136,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7626365158209703190?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -140,6 +150,7 @@
       "comments": 1,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7625990352842853655?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -153,6 +164,7 @@
       "comments": 0,
       "shares": 1,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7623083755707698455?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -166,6 +178,7 @@
       "comments": 1,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7622958058276130070?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -179,6 +192,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7621857030650957078?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -192,6 +206,7 @@
       "comments": 1,
       "shares": 1,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7621482295416982806?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -205,6 +220,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7621208068168142102?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -218,6 +234,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7616309932895472919?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -231,6 +248,7 @@
       "comments": 0,
       "shares": 1,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7614219458890059030?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -244,6 +262,7 @@
       "comments": 1,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7614107793238412566?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -257,6 +276,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7614214510324321538?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -270,6 +290,7 @@
       "comments": 1,
       "shares": 2,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7614088077329419542?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     },
     {
@@ -283,6 +304,7 @@
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7613723812827303200?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 8,
       "matchedBy": null
     }
   ]
