@@ -24,10 +24,10 @@ import {
   tokenLocation,
 } from './config.mjs';
 import { authorizeUrl, exchangeCode, readTokenCache, refresh, tokenSummary } from './auth.mjs';
-import { checkSiteRepo, publishMedia } from './media.mjs';
+import { checkSiteRepo, commitAndPush, publishMedia } from './media.mjs';
 import { checkDrafts, runDrafts } from './drafts.mjs';
 import { runStats } from './stats.mjs';
-import { exportDay, exportVideos, pullStats } from './export.mjs';
+import { exportDay, exportVideos, pullStats, withdrawItem } from './export.mjs';
 import { runQueue } from './queue.mjs';
 
 const USAGE = `Studia Poster — TikTok drafts and stats for the slideshow department
@@ -45,6 +45,8 @@ Commands
   export               Studio side: JPEGs + queue/<date>.json + runtime copy pushed to the public repo (no TikTok call)
   export --videos      Same for the rendered animated videos of days/<date>/videos.json
                        (--until YYYY-MM-DD: every date up to that day, one commit; each releases on its date)
+  withdraw             Studio side: take --id out of queue/<date>.json before release (dropped on the review
+                       desk), mark it withdrawn in days/<date>/videos.json, push. Refused once its draft exists
   queue                Actions side: create the drafts for queued items not created yet (max 5 pending), then stats
   pull-stats           Studio side: git pull the public repo and copy state/stats.json + drafts.json back
   doctor               Egress, credentials, token store and repo checks (names only, never values)
@@ -236,6 +238,28 @@ export async function main(argv = process.argv.slice(2), { env = process.env, lo
       const until = values.until ? assertDate(values.until) : undefined;
       const { manifest, pushed } = await run({ date, until, id, env, paths, dryRun, log });
       log(`export ${date}: ${manifest.items.length} item(s)${pushed ? ', pushed to the public repo' : ''}.`);
+      return 0;
+    }
+    case 'withdraw': {
+      if (!id) throw new Error('withdraw needs --id');
+      if (values.until) throw new Error('withdraw takes one --date, not --until');
+      const r = withdrawItem(paths, date, id, { dryRun });
+      if (r.sent) {
+        log.warn(`${id}: its draft was already sent to TikTok; nothing withdrawn (delete it in the inbox).`);
+        return 1;
+      }
+      log(
+        `${dryRun ? '[dry-run] ' : ''}${id}: ${r.removed ? 'removed from the queue' : 'not in the queue'}${r.marked ? ', marked withdrawn' : ''}.`,
+      );
+      if (r.removed && !dryRun)
+        commitAndPush({
+          siteRepo: paths.siteRepo,
+          pathspecs: ['queue'],
+          message: `withdraw ${date}: ${id}`,
+          githubToken: loadConfig(env).githubToken,
+          env,
+          log,
+        });
       return 0;
     }
     case 'queue': {

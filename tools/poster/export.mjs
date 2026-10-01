@@ -105,6 +105,35 @@ export function writeManifest(paths, date, items) {
   return { file, manifest };
 }
 
+/**
+ * Takes a not-yet-sent item out of queue/<date>.json (the owner dropped it on the review desk) and marks the video
+ * "withdrawn" in days/<date>/videos.json so a later export skips it. An item whose draft was already created (it is
+ * in the site's state/drafts.json) cannot be withdrawn: { sent: true } and nothing changes.
+ */
+export function withdrawItem(
+  paths,
+  date,
+  id,
+  { reason = 'dropped on the review desk', at = new Date(), dryRun = false } = {},
+) {
+  assertDate(date);
+  const file = join(paths.queueDir, `${date}.json`);
+  const manifest = readJson(file, { date, items: [] });
+  const drafts = readJson(join(paths.siteRepo ?? '', 'state', 'drafts.json'), { drafts: [] }).drafts ?? [];
+  if (drafts.some((d) => d.specId === id)) return { sent: true, removed: false, marked: false };
+  const items = manifest.items.filter((it) => it.id !== id);
+  const removed = items.length !== manifest.items.length;
+  if (removed && !dryRun) writeJson(file, { ...manifest, items });
+  const specFile = join(paths.daysDir, date, 'videos.json');
+  const spec = readJson(specFile, null);
+  const v = spec?.videos?.find((x) => x.id === id);
+  if (v && !dryRun) {
+    v.withdrawn = { reason, at: at.toISOString() };
+    writeJson(specFile, spec);
+  }
+  return { sent: false, removed, marked: Boolean(v) };
+}
+
 export function copyRuntime(paths, { dryRun = false, log = defaultLog } = {}) {
   const files = runtimeFiles();
   if (!dryRun) {
@@ -200,7 +229,7 @@ export async function exportVideos({
   for (const d of dates) {
     const spec = readJson(join(paths.daysDir, d, 'videos.json'), null);
     if (!spec) continue;
-    const vids = (spec.videos ?? []).filter((v) => !id || v.id === id);
+    const vids = (spec.videos ?? []).filter((v) => (!id || v.id === id) && !v.withdrawn);
     if (vids.length) byDate.set(d, vids);
   }
   if (!byDate.size)
