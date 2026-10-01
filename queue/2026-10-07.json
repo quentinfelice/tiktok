@@ -2,6 +2,62 @@
   "date": "2026-10-07",
   "items": [
     {
+      "id": "1007-1",
+      "date": "2026-10-07",
+      "series": "Body clock",
+      "variant": "control",
+      "hypothesis": "Control for today's scene test: split scene, night theme, 6 slides, statement hook (58 characters), payoff on slide 2, same caption structure. Baseline watched-full % against 1007-2 (aurora scene). Topics differ (nap memory vs camping and the body clock) but share one family: everyday sleep and the brain.",
+      "caption": "Even a nap of about six minutes helped recall in one study.\nIn a 2008 Journal of Sleep Research experiment, volunteers who napped, even about 6 minutes on average, recalled more of a 30-word list an hour later than those who stayed awake. Longer naps did better still.",
+      "hashtags": [
+        "#sleepscience",
+        "#nap",
+        "#memory",
+        "#sleepfacts",
+        "#didyouknow"
+      ],
+      "title": "Even a nap of about six minutes helped recall in one study.",
+      "description": "Even a nap of about six minutes helped recall in one study.\nIn a 2008 Journal of Sleep Research experiment, volunteers who napped, even about 6 minutes on average, recalled more of a 30-word list an hour later than those who stayed awake. Longer naps did better still.\n\n#sleepscience #nap #memory #sleepfacts #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-01T20:31:50.855Z"
+    },
+    {
+      "id": "1007-2",
+      "date": "2026-10-07",
+      "series": "Body clock",
+      "variant": "variant",
+      "hypothesis": "Variant vs 1007-1 (control): the only change is the scene, aurora instead of the control's split sky. Same night theme, series, 6 slides, hook type (statement, 51 characters), payoff on slide 2, caption structure. Expected: higher watched-full % than the split-scene control.",
+      "caption": "A week of camping moved body clocks about two hours.\nIn a 2013 University of Colorado Boulder study, 8 volunteers camped a week in summer with only natural light, and their melatonin rhythm moved about two hours earlier. Small study, summer only.",
+      "hashtags": [
+        "#sleepscience",
+        "#camping",
+        "#melatonin",
+        "#bodyclock",
+        "#circadianrhythm"
+      ],
+      "title": "A week of camping moved body clocks about two hours.",
+      "description": "A week of camping moved body clocks about two hours.\nIn a 2013 University of Colorado Boulder study, 8 volunteers camped a week in summer with only natural light, and their melatonin rhythm moved about two hours earlier. Small study, summer only.\n\n#sleepscience #camping #melatonin #bodyclock #circadianrhythm",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-2/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-2/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-2/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-2/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-2/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-2/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-01T20:31:50.856Z"
+    },
+    {
       "id": "1007-V1",
       "date": "2026-10-07",
       "kind": "video",
