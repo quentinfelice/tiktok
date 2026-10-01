@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-01",
+  "items": [
+    {
+      "id": "1001-1",
+      "date": "2026-10-01",
+      "series": "3 a.m. brain",
+      "variant": "control",
+      "hypothesis": "Control for today's hook-length test: a normal hook of 52 characters (statement type), 6 slides, payoff on slide 2, split scene, night theme, same caption structure. Baseline watched-full % against 1001-2 (short hook, 32 characters). The two topics differ (smell vs sound while asleep) but share one family: what the sleeping brain lets through.",
+      "caption": "Asleep, your nose is a poor alarm. Your ears aren't.\nIn a small 2004 Brown University lab study (6 young adults), peppermint got no response in deeper sleep and harsh pyridine only some, while a tone got a response on at least 75% of trials. Smoke itself wasn't tested.",
+      "hashtags": [
+        "#sleepscience",
+        "#sleepfacts",
+        "#brain",
+        "#psychology",
+        "#didyouknow"
+      ],
+      "title": "Asleep, your nose is a poor alarm. Your ears aren't.",
+      "description": "Asleep, your nose is a poor alarm. Your ears aren't.\nIn a small 2004 Brown University lab study (6 young adults), peppermint got no response in deeper sleep and harsh pyridine only some, while a tone got a response on at least 75% of trials. Smoke itself wasn't tested.\n\n#sleepscience #sleepfacts #brain #psychology #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-01T05:09:14.928Z"
+    },
+    {
+      "id": "1001-2",
+      "date": "2026-10-01",
+      "series": "3 a.m. brain",
+      "variant": "variant",
+      "hypothesis": "Variant vs 1001-1 (control): the only change is hook length, a short hook of 32 characters ('Some brains make better earplugs') instead of the control's 52 ('Asleep, your nose is a poor alarm. Your ears aren't.'). Same hook type (statement), series, split scene, night theme, 6 slides, payoff on slide 2, caption structure. Same topic family: what the sleeping brain lets through. Expected: higher watched-full % and average watch time than the control.",
+      "caption": "Some brains make better earplugs.\nIn a 2010 lab study of 12 volunteers, those who made more sleep spindles on a quiet night were harder to rouse with noise on later noisy nights. The thalamus may act as a sound gate. Still a hypothesis.",
+      "hashtags": [
+        "#sleepscience",
+        "#sleepfacts",
+        "#brain",
+        "#neuroscience",
+        "#didyouknow"
+      ],
+      "title": "Some brains make better earplugs.",
+      "description": "Some brains make better earplugs.\nIn a 2010 lab study of 12 volunteers, those who made more sleep spindles on a quiet night were harder to rouse with noise on later noisy nights. The thalamus may act as a sound gate. Still a hypothesis.\n\n#sleepscience #sleepfacts #brain #neuroscience #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-2/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-2/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-2/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-2/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-2/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-01/1001-2/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-01T05:09:14.928Z"
+    }
+  ]
+}
