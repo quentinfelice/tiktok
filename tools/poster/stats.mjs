@@ -18,6 +18,7 @@ export const VIDEO_FIELDS = Object.freeze([
   'like_count',
   'comment_count',
   'share_count',
+  'duration',
 ]);
 export const MAX_COUNT = 20; // page size cap of /v2/video/list/
 
@@ -55,14 +56,29 @@ export function normalizeLine(text) {
     .trim();
 }
 
-/** Index of every spec post: { id, date, firstLine }. */
+/** Every caption line worth matching: normalised, hashtag-only lines dropped. */
+export function captionLines(text) {
+  return String(text ?? '')
+    .split('\n')
+    .map((l) => normalizeLine(l))
+    .filter((l) => l && !l.startsWith('#'));
+}
+
+/** Index of every spec post and video: { id, date, firstLine, lines }. */
 export function loadSpecIndex(paths = defaultPaths()) {
   if (!existsSync(paths.daysDir)) return [];
   const out = [];
   for (const date of readdirSync(paths.daysDir).sort()) {
     const day = readJson(join(paths.daysDir, date, 'slideshows.json'), null);
-    for (const post of day?.slideshows ?? [])
-      out.push({ id: post.id, date, firstLine: normalizeLine(post.caption) });
+    const vids = readJson(join(paths.daysDir, date, 'videos.json'), null);
+    for (const post of [...(day?.slideshows ?? []), ...(vids?.videos ?? [])])
+      out.push({
+        id: post.id,
+        date,
+        kind: post.scenes ? 'video' : 'photos',
+        firstLine: normalizeLine(post.caption),
+        lines: captionLines(post.caption),
+      });
   }
   return out;
 }
@@ -75,7 +91,13 @@ export function loadQueueIndex(paths = defaultPaths()) {
     if (!/^\d{4}-\d{2}-\d{2}\.json$/.test(f)) continue;
     const m = readJson(join(paths.queueDir, f), null);
     for (const it of m?.items ?? [])
-      out.push({ id: it.id, date: m.date, firstLine: normalizeLine(it.caption) });
+      out.push({
+        id: it.id,
+        date: m.date,
+        kind: it.kind === 'video' ? 'video' : 'photos',
+        firstLine: normalizeLine(it.caption),
+        lines: captionLines(it.caption),
+      });
   }
   return out;
 }
@@ -86,10 +108,14 @@ const MIN_PREFIX = 20;
  * Matches TikTok posts to spec ids: first through drafts.json publish records (publicaly_available_post_id),
  * then by the first line of the description. Returns posts sorted by create_time descending.
  */
-export function matchVideos(videos, { drafts = [], specs = [] } = {}) {
+export function matchVideos(videos, { drafts = [], specs: allSpecs = [] } = {}) {
   const byPostId = new Map();
   for (const d of drafts) for (const pid of d.publicPostIds ?? []) byPostId.set(String(pid), d.specId);
   const posts = videos.map((v) => {
+    // A video post has a duration; a photo post has none. When a slideshow and a video share a caption, prefer the
+    // spec of the same kind.
+    const kind = Number(v.duration) > 0 ? 'video' : 'photos';
+    const specs = [...allSpecs].sort((a, b) => (b.kind === kind) - (a.kind === kind));
     let specId = byPostId.get(String(v.id)) ?? null;
     let matchedBy = specId ? 'publish_record' : null;
     if (!specId) {
@@ -101,6 +127,20 @@ export function matchVideos(videos, { drafts = [], specs = [] } = {}) {
       if (hit) {
         specId = hit.id;
         matchedBy = 'description_prefix';
+      } else {
+        // Posted by hand: TikTok's title or description may start with any caption line, sometimes cut short.
+        const texts = [v.video_description, v.title].map((t) => normalizeLine(t)).filter(Boolean);
+        const byLine = specs.find((s) =>
+          (s.lines ?? []).some(
+            (l) =>
+              l.length >= MIN_PREFIX &&
+              texts.some((t) => t === l || t.startsWith(l) || (t.length >= MIN_PREFIX && l.startsWith(t))),
+          ),
+        );
+        if (byLine) {
+          specId = byLine.id;
+          matchedBy = 'caption_line';
+        }
       }
     }
     return {
@@ -114,6 +154,7 @@ export function matchVideos(videos, { drafts = [], specs = [] } = {}) {
       comments: numberOrNull(v.comment_count),
       shares: numberOrNull(v.share_count),
       shareUrl: v.share_url ?? null,
+      duration: numberOrNull(v.duration),
       matchedBy,
     };
   });

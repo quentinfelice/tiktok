@@ -166,9 +166,27 @@ export async function exportDay({
   return { manifest, ...result };
 }
 
-/** Same hand-off as exportDay, for the animated videos of days/<date>/videos.json. */
+/** Every YYYY-MM-DD from `from` to `until` inclusive (UTC calendar arithmetic, no time zone involved). */
+export function datesBetween(from, until) {
+  assertDate(from);
+  assertDate(until);
+  const out = [];
+  for (
+    let d = new Date(`${from}T00:00:00Z`);
+    d <= new Date(`${until}T00:00:00Z`);
+    d.setUTCDate(d.getUTCDate() + 1)
+  )
+    out.push(d.toISOString().slice(0, 10));
+  return out;
+}
+
+/**
+ * Same hand-off as exportDay, for the animated videos of days/<date>/videos.json. With `until`, every date from `date`
+ * to `until` that has a videos.json is exported in one commit; the queue releases each on its own date.
+ */
 export async function exportVideos({
   date,
+  until,
   id,
   env = process.env,
   paths = defaultPaths(env),
@@ -177,24 +195,34 @@ export async function exportVideos({
 } = {}) {
   assertDate(date);
   const config = loadConfig(env);
-  const spec = readJson(join(paths.daysDir, date, 'videos.json'), null);
-  if (!spec) throw new Error(`No ${join(paths.daysDir, date, 'videos.json')}`);
-  const videos = (spec.videos ?? []).filter((v) => !id || v.id === id);
-  if (!videos.length) throw new Error(id ? `No video ${id} on ${date}` : `No videos on ${date}`);
+  const dates = until ? datesBetween(date, until) : [date];
+  const byDate = new Map();
+  for (const d of dates) {
+    const spec = readJson(join(paths.daysDir, d, 'videos.json'), null);
+    if (!spec) continue;
+    const vids = (spec.videos ?? []).filter((v) => !id || v.id === id);
+    if (vids.length) byDate.set(d, vids);
+  }
+  if (!byDate.size)
+    throw new Error(
+      id ? `No video ${id} in ${dates[0]}..${dates.at(-1)}` : `No videos in ${dates[0]}..${dates.at(-1)}`,
+    );
   const items = [];
   const copies = [];
-  for (const v of videos) {
-    if (v.factCheck?.status !== 'PASS') throw new Error(`${v.id}: fact-check is not PASS`);
-    const rendered = renderedVideoFile(date, v.id, paths);
-    if (!rendered) throw new Error(`${v.id}: no rendered video; run video/render-video.mjs first`);
-    const size = statSync(rendered.file).size;
-    if (size > 50 * 1024 * 1024)
-      throw new Error(`${v.id}: ${Math.round(size / 1048576)} MB is over the 50 MB limit`);
-    const name = `video.${rendered.ext}`;
-    const seconds = (v.scenes ?? []).reduce((a, s) => a + s.dur, 0) || null;
-    copies.push({ from: rendered.file, to: join(paths.siteRepo, 'media', date, v.id, name) });
-    items.push(buildVideoManifestItem(v, publicUrl(date, v.id, name), { date, seconds, bytes: size }));
-  }
+  for (const [d, videos] of byDate)
+    for (const v of videos) {
+      const date = d;
+      if (v.factCheck?.status !== 'PASS') throw new Error(`${v.id}: fact-check is not PASS`);
+      const rendered = renderedVideoFile(date, v.id, paths);
+      if (!rendered) throw new Error(`${v.id}: no rendered video; run video/render-video.mjs first`);
+      const size = statSync(rendered.file).size;
+      if (size > 50 * 1024 * 1024)
+        throw new Error(`${v.id}: ${Math.round(size / 1048576)} MB is over the 50 MB limit`);
+      const name = `video.${rendered.ext}`;
+      const seconds = (v.scenes ?? []).reduce((a, s) => a + s.dur, 0) || null;
+      copies.push({ from: rendered.file, to: join(paths.siteRepo, 'media', date, v.id, name) });
+      items.push(buildVideoManifestItem(v, publicUrl(date, v.id, name), { date, seconds, bytes: size }));
+    }
   if (dryRun) {
     log(
       `[dry-run] would copy ${copies.length} video(s) and write ${paths.queueDir}/${date}.json with ${items.length} item(s)`,
@@ -208,18 +236,27 @@ export async function exportVideos({
     mkdirSync(join(c.to, '..'), { recursive: true });
     copyFileSync(c.from, c.to);
   }
-  const { file, manifest } = writeManifest(paths, date, items);
-  log(`Queue manifest: ${file} (${manifest.items.length} item(s) for ${date}).`);
+  let manifest = null;
+  for (const d of byDate.keys()) {
+    const res = writeManifest(
+      paths,
+      d,
+      items.filter((it) => it.date === d),
+    );
+    manifest = res.manifest;
+    log(`Queue manifest: ${res.file} (${res.manifest.items.length} item(s) for ${d}).`);
+  }
   copyRuntime(paths, { log });
+  const span = byDate.size > 1 ? `${[...byDate.keys()][0]}..${[...byDate.keys()].at(-1)}` : date;
   const result = commitAndPush({
     siteRepo: paths.siteRepo,
     pathspecs: ['media', 'queue', 'tools'],
-    message: `export ${date}: ${items.map((i) => i.id).join(', ')} (video)`,
+    message: `export ${span}: ${items.map((i) => i.id).join(', ')} (video)`,
     githubToken: config.githubToken,
     env,
     log,
   });
-  return { manifest, ...result };
+  return { manifest: byDate.size > 1 ? { date: span, items } : manifest, ...result };
 }
 
 /** git pull the site repo, then copy its state/*.json next to the poster for the Analyst step. */

@@ -44,6 +44,7 @@ Commands
   stats                Read the account's public post metrics into poster/state/stats.json
   export               Studio side: JPEGs + queue/<date>.json + runtime copy pushed to the public repo (no TikTok call)
   export --videos      Same for the rendered animated videos of days/<date>/videos.json
+                       (--until YYYY-MM-DD: every date up to that day, one commit; each releases on its date)
   queue                Actions side: create the drafts for queued items not created yet (max 5 pending), then stats
   pull-stats           Studio side: git pull the public repo and copy state/stats.json + drafts.json back
   doctor               Egress, credentials, token store and repo checks (names only, never values)
@@ -70,6 +71,7 @@ function parse(argv) {
       prune: { type: 'string' },
       'no-pkce': { type: 'boolean', default: false },
       videos: { type: 'boolean', default: false },
+      until: { type: 'string' },
       check: { type: 'boolean', default: false },
       pages: { type: 'string' },
       help: { type: 'boolean', short: 'h', default: false },
@@ -231,13 +233,16 @@ export async function main(argv = process.argv.slice(2), { env = process.env, lo
     }
     case 'export': {
       const run = values.videos ? exportVideos : exportDay;
-      const { manifest, pushed } = await run({ date, id, env, paths, dryRun, log });
+      const until = values.until ? assertDate(values.until) : undefined;
+      const { manifest, pushed } = await run({ date, until, id, env, paths, dryRun, log });
       log(`export ${date}: ${manifest.items.length} item(s)${pushed ? ', pushed to the public repo' : ''}.`);
       return 0;
     }
     case 'queue': {
-      const { created, skipped, pending } = await runQueue({ env, paths, log, dryRun });
-      log(`queue: ${created.length} created, ${skipped.length} waiting, ${pending} pending before this run.`);
+      const { created, skipped, pending, scheduled } = await runQueue({ env, paths, log, dryRun });
+      log(
+        `queue: ${created.length} created, ${skipped.length} waiting, ${pending} pending before this run, ${scheduled.length} scheduled.`,
+      );
       return 0;
     }
     case 'pull-stats': {

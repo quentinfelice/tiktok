@@ -3,7 +3,7 @@
 
 import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { defaultLog, defaultPaths, postMode, privacyLevel, readJson } from './config.mjs';
+import { defaultLog, defaultPaths, postMode, privacyLevel, readJson, todayBrussels } from './config.mjs';
 import { getAccessToken } from './auth.mjs';
 import {
   PENDING_SHARE_CAP,
@@ -35,17 +35,26 @@ export function loadQueue(paths = defaultPaths()) {
 }
 
 /**
- * Items to create now: not yet in drafts.json (by specId), oldest first, capped by what TikTok still allows.
- * Returns { selected, skipped, pending }.
+ * Items to create now: not yet in drafts.json (by specId), released (manifest date ≤ today in Europe/Brussels), oldest
+ * first, capped by what TikTok still allows. Items of later dates wait: that is how a stock of pre-built videos is
+ * released one day at a time. Returns { selected, skipped, pending, scheduled }.
  */
-export function selectQueueItems(manifests, drafts, { max = PENDING_SHARE_CAP, now = Date.now() } = {}) {
+export function selectQueueItems(
+  manifests,
+  drafts,
+  { max = PENDING_SHARE_CAP, now = Date.now(), today = todayBrussels(new Date(now)) } = {},
+) {
   const done = new Set(drafts.map((d) => d.specId));
   const pending = drafts.filter(
     (d) => PENDING_STATUSES.has(d.status) && now - new Date(d.createdAt).getTime() < PENDING_WINDOW_MS,
   ).length;
   const room = Math.max(0, max - pending);
-  const candidates = manifests.flatMap((m) => (m.items ?? []).filter((it) => !done.has(it.id)));
-  return { selected: candidates.slice(0, room), skipped: candidates.slice(room), pending };
+  const open = manifests.flatMap((m) =>
+    (m.items ?? []).filter((it) => !done.has(it.id)).map((it) => ({ ...it, date: it.date ?? m.date })),
+  );
+  const candidates = open.filter((it) => !it.date || it.date <= today);
+  const scheduled = open.filter((it) => it.date && it.date > today);
+  return { selected: candidates.slice(0, room), skipped: candidates.slice(room), pending, scheduled };
 }
 
 const isVideo = (it) => it.kind === 'video';
@@ -73,14 +82,14 @@ export async function runQueue({
   const level = mode === 'direct' ? privacyLevel(env) : undefined;
   const manifests = loadQueue(paths);
   const state = loadDrafts(paths);
-  const { selected, skipped, pending } = selectQueueItems(manifests, state.drafts, { now: now() });
+  const { selected, skipped, pending, scheduled } = selectQueueItems(manifests, state.drafts, { now: now() });
   log(
-    `Queue (${mode}${level ? `, ${level}` : ''}): ${manifests.length} manifest(s), ${selected.length} to create, ${skipped.length} waiting (cap ${PENDING_SHARE_CAP}, ${pending} pending).`,
+    `Queue (${mode}${level ? `, ${level}` : ''}): ${manifests.length} manifest(s), ${selected.length} to create, ${skipped.length} waiting (cap ${PENDING_SHARE_CAP}, ${pending} pending), ${scheduled.length} scheduled for later dates.`,
   );
   const results = [];
   if (dryRun) {
     for (const it of selected) log(`[dry-run] ${it.id}: ${JSON.stringify(payloadFor(it, { mode, level }))}`);
-    return { created: [], skipped, pending, dryRun: true };
+    return { created: [], skipped, pending, scheduled, dryRun: true };
   }
   if (selected.length) {
     const token = accessToken ?? (await getAccessToken({ env, paths, fetch, log }));
@@ -159,5 +168,5 @@ export async function runQueue({
       log.warn(`stats skipped: ${err.message}`);
     }
   }
-  return { created: results, skipped, pending };
+  return { created: results, skipped, pending, scheduled };
 }
