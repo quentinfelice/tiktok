@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-01T06:34:53.922Z",
+  "fetchedAt": "2026-10-01T13:26:30.553Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,6 +28,20 @@
   ],
   "posts": [
     {
+      "specId": "0930-2",
+      "tiktokId": "7691612249735138593",
+      "createTime": "2026-10-01T08:23:58.000Z",
+      "createTimeUnix": 1790843038,
+      "title": "Why do your worries feel bigger after midnight? One sleep researcher says 3 to 4 a.m. is a body-clock turning point when we're at our lowest ebb and alone in the dark. A 2022 hypothesis says night tilts mood negative. Brief wake-ups are normal. #3amthoughts #sleepscience #psychology #overthinking #brain",
+      "views": 260,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7691612249735138593?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
+    {
       "specId": "0930-V1",
       "tiktokId": "7691394018978188577",
       "createTime": "2026-09-30T18:17:03.000Z",
@@ -47,7 +61,7 @@
       "createTime": "2026-09-30T16:29:21.000Z",
       "createTimeUnix": 1790785761,
       "title": "Your brain stays on guard in a new bed. In a 35-person Brown University study, a network in the left half of the brain slept lighter on night one and woke people faster to odd sounds. By night two, the difference was gone. #sleepscience #firstnighteffect #travel #brain #fallingasleep",
-      "views": 254,
+      "views": 255,
       "likes": 1,
       "comments": 0,
       "shares": 0,
