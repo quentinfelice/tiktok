@@ -325,6 +325,13 @@
               It may take a few minutes for your post to appear on your profile after you confirm.
             </p>
             <div id="progress" class="status" role="status" hidden></div>
+            <div id="caption-help" hidden>
+              <p class="note">
+                TikTok does not let an app attach a caption to a video draft. Your caption was copied: paste
+                it in the TikTok app when you open the draft.
+              </p>
+              <button id="copy-caption" class="ghost" type="button">Copy the caption again</button>
+            </div>
           </form>
         </div>
 
@@ -642,11 +649,26 @@
         $('progress').textContent = msg;
       };
 
+      $('copy-caption').addEventListener('click', async () => {
+        const text = $('title').value.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          $('copy-caption').textContent = 'Copied';
+        } catch {
+          $('title').select();
+          $('copy-caption').textContent = 'Select the caption above and copy it';
+        }
+      });
+
       $('composer').addEventListener('submit', async (e) => {
         e.preventDefault();
         if ($('post').disabled) return;
         state.busy = true;
         refresh();
+        $('caption-help').hidden = true;
+        const isVideoDraft = state.mode !== 'direct' && state.item.kind === 'video';
+        // Inside the click, so the browser still allows it; a failure only means the button below is needed.
+        if (isVideoDraft) navigator.clipboard?.writeText($('title').value.trim()).catch(() => {});
         show('Sending to TikTok…');
         try {
           const direct = state.mode === 'direct';
@@ -676,7 +698,10 @@
                 true,
               );
             show(STATUS_TEXT[last] || `TikTok status: ${last || 'waiting'}…`);
-            if (last === 'PUBLISH_COMPLETE' || last === 'SEND_TO_USER_INBOX') return;
+            if (last === 'PUBLISH_COMPLETE' || last === 'SEND_TO_USER_INBOX') {
+              $('caption-help').hidden = !isVideoDraft;
+              return;
+            }
             await sleep(POLL_MS);
           }
           show('TikTok is still processing. Check your profile in a few minutes.');
