@@ -491,11 +491,22 @@
         box.replaceChildren();
         try {
           const { dates } = await getJson('queue/index.json');
+          // Released days first (newest first), then the next two scheduled days; "today" is Europe/Brussels.
+          const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Brussels' });
+          const sorted = [...dates].sort();
+          const pick = [
+            ...sorted
+              .filter((d) => d <= today)
+              .reverse()
+              .slice(0, 3),
+            ...sorted.filter((d) => d > today).slice(0, 2),
+          ];
           const items = [];
-          for (const d of [...dates].sort().reverse().slice(0, 3)) {
+          for (const d of pick) {
             const m = await getJson(`queue/${d}.json`);
             for (const it of m.items)
-              if (it.kind === 'video' ? it.video : it.images?.length) items.push({ ...it, date: d });
+              if (it.kind === 'video' ? it.video : it.images?.length)
+                items.push({ ...it, date: d, upcoming: d > today });
           }
           if (!items.length)
             return box.append(el('p', { className: 'muted', textContent: 'Nothing is ready yet.' }));
@@ -505,9 +516,10 @@
               el('span', {
                 className: 'muted',
                 textContent:
-                  it.kind === 'video'
+                  (it.kind === 'video'
                     ? `${it.id} · ${it.date} · video${it.seconds ? ` · ${Math.round(it.seconds)} s` : ''}`
-                    : `${it.id} · ${it.date} · ${it.images.length} photos`,
+                    : `${it.id} · ${it.date} · ${it.images.length} photos`) +
+                  (it.upcoming ? ' · scheduled' : ''),
               }),
               ...(it.kind === 'video'
                 ? []
