@@ -328,8 +328,16 @@ async function route(request, env, cfg) {
   throw new HttpError(404, 'not_found');
 }
 
+/** Secrets pasted into a dashboard often carry a stray space or newline: trim every text value. */
+export function cleanEnv(env) {
+  return Object.fromEntries(
+    Object.entries(env ?? {}).map(([k, v]) => [k, typeof v === 'string' ? v.trim() : v]),
+  );
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, rawEnv) {
+    const env = cleanEnv(rawEnv);
     const cfg = settings(env);
     const origin = request.headers.get('Origin');
     const cors = {
