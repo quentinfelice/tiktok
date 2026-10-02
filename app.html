@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="referrer" content="no-referrer" />
-    <title>Studia · Post a slideshow</title>
+    <title>Studia · Post to TikTok</title>
     <link rel="stylesheet" href="style.css" />
     <style>
       main {
@@ -93,6 +93,12 @@
         object-fit: cover;
         border-radius: 8px;
         flex: none;
+        background: #000;
+      }
+      .strip video {
+        height: 360px;
+        max-width: 100%;
+        border-radius: 8px;
         background: #000;
       }
       .pick .strip img {
@@ -211,17 +217,19 @@
       <p id="banner" class="warn" role="alert" hidden></p>
 
       <section id="view-login">
-        <h1>Post an illustrated slideshow to TikTok</h1>
+        <h1>Post an illustrated slideshow or video to TikTok</h1>
         <p>
-          Studia sends illustrated photo slideshows to your own TikTok account. You review each slideshow,
-          choose who can see it, and confirm before anything is posted.
+          Studia sends illustrated photo slideshows and short animated videos to your own TikTok account. You
+          review each post, choose who can see it, and confirm before anything is posted.
         </p>
         <h2>What Studia uses</h2>
         <ul>
           <li>
             <b>Your profile name and avatar</b> (user.info.basic), only to show which account is connected.
           </li>
-          <li><b>Photo posting</b>, to send a slideshow you selected to your account.</li>
+          <li>
+            <b>Photo and video posting</b>, to send a slideshow or a video you selected to your account.
+          </li>
           <li>
             <b>Your public posts and their counts</b> (video.list), to show you how your slideshows perform.
           </li>
@@ -245,17 +253,19 @@
           <button id="logout" class="ghost" type="button">Log out</button>
         </div>
         <div class="tabs" role="tablist">
-          <button id="tab-post" role="tab" aria-selected="true" type="button">Post a slideshow</button>
+          <button id="tab-post" role="tab" aria-selected="true" type="button">
+            Post a slideshow or video
+          </button>
           <button id="tab-stats" role="tab" aria-selected="false" type="button">My posts</button>
         </div>
 
         <div id="panel-post">
-          <h2 style="margin-top: 0">Choose a slideshow</h2>
+          <h2 style="margin-top: 0">Choose a slideshow or video</h2>
           <div id="slideshows"><p class="muted">Loading…</p></div>
 
           <form id="composer" hidden autocomplete="off">
             <h2>Preview</h2>
-            <div class="strip" id="preview" aria-label="The exact photos that will be posted"></div>
+            <div class="strip" id="preview" aria-label="The exact photos or video that will be posted"></div>
 
             <label for="title">Title <span class="muted" id="title-count"></span></label>
             <input id="title" type="text" maxlength="90" required />
@@ -305,8 +315,8 @@
             </div>
 
             <p id="draft-note" class="note" hidden>
-              This sends the slideshow to your TikTok inbox as a draft. You choose the sound and who can view
-              it in the TikTok app.
+              This sends the post to your TikTok inbox as a draft. You choose the sound and who can view it in
+              the TikTok app.
             </p>
 
             <p id="consent" class="note"></p>
@@ -484,22 +494,30 @@
           const items = [];
           for (const d of [...dates].sort().reverse().slice(0, 3)) {
             const m = await getJson(`queue/${d}.json`);
-            for (const it of m.items) items.push({ ...it, date: d });
+            for (const it of m.items)
+              if (it.kind === 'video' ? it.video : it.images?.length) items.push({ ...it, date: d });
           }
           if (!items.length)
-            return box.append(el('p', { className: 'muted', textContent: 'No slideshow is ready yet.' }));
+            return box.append(el('p', { className: 'muted', textContent: 'Nothing is ready yet.' }));
           for (const it of items) {
             const b = el('button', { type: 'button', className: 'pick' }, [
               el('strong', { textContent: it.title || it.id }),
               el('span', {
                 className: 'muted',
-                textContent: `${it.id} · ${it.date} · ${it.images.length} photos`,
+                textContent:
+                  it.kind === 'video'
+                    ? `${it.id} · ${it.date} · video${it.seconds ? ` · ${Math.round(it.seconds)} s` : ''}`
+                    : `${it.id} · ${it.date} · ${it.images.length} photos`,
               }),
-              el(
-                'div',
-                { className: 'strip' },
-                it.images.slice(0, 4).map((u) => el('img', { src: u, alt: '' })),
-              ),
+              ...(it.kind === 'video'
+                ? []
+                : [
+                    el(
+                      'div',
+                      { className: 'strip' },
+                      it.images.slice(0, 4).map((u) => el('img', { src: u, alt: '' })),
+                    ),
+                  ]),
             ]);
             b.setAttribute('aria-pressed', 'false');
             b.onclick = () => choose(it, b);
@@ -507,7 +525,7 @@
           }
         } catch {
           box.append(
-            el('p', { className: 'muted', textContent: 'Slideshows could not be loaded. Try again later.' }),
+            el('p', { className: 'muted', textContent: 'The list could not be loaded. Try again later.' }),
           );
         }
       }
@@ -517,11 +535,18 @@
         for (const b of document.querySelectorAll('.pick'))
           b.setAttribute('aria-pressed', String(b === button));
         $('composer').hidden = false;
+        const isVideo = item.kind === 'video';
         $('preview').replaceChildren(
-          ...item.images.map((u, i) => el('img', { src: u, alt: `Photo ${i + 1}` })),
+          ...(isVideo
+            ? [el('video', { src: item.video, controls: true, playsInline: true, preload: 'metadata' })]
+            : item.images.map((u, i) => el('img', { src: u, alt: `Photo ${i + 1}` }))),
         );
-        $('title').value = item.title || '';
-        $('description').value = item.description || '';
+        // A video has one text, its caption (TikTok's "title"): shown in the first field, up to 2,200 characters.
+        $('title').maxLength = isVideo ? 2200 : 90;
+        $('title').previousElementSibling.firstChild.textContent = isVideo ? 'Caption ' : 'Title ';
+        $('description').hidden = $('description').previousElementSibling.hidden = isVideo;
+        $('title').value = isVideo ? item.description || item.title || '' : item.title || '';
+        $('description').value = isVideo ? '' : item.description || '';
         $('progress').hidden = true;
         $('privacy').value = '';
         $('allow-comments').checked = false;
@@ -535,7 +560,7 @@
       // ---- form rules (TikTok Content Sharing Guidelines) ---------------------------------------------------------
       function refresh() {
         const direct = state.mode === 'direct';
-        $('title-count').textContent = `${$('title').value.length}/90`;
+        $('title-count').textContent = `${$('title').value.length}/${$('title').maxLength}`;
         let ok = state.item && $('title').value.trim() && !state.busy;
         const disclose = $('disclose').checked;
         $('disclose-opts').hidden = !disclose;
@@ -551,9 +576,9 @@
           disclosureMessage = DISCLOSE_MISSING;
           ok = false;
         } else if (branded) {
-          disclosureMessage = "Your photo will be labeled 'Paid partnership'.";
+          disclosureMessage = "Your post will be labeled 'Paid partnership'.";
         } else if (organic) {
-          disclosureMessage = "Your photo will be labeled 'Promotional content'.";
+          disclosureMessage = "Your post will be labeled 'Promotional content'.";
         }
         $('disclose-note').textContent = disclosureMessage;
         $('disclose-note').className = disclose && !organic && !branded ? 'warn' : 'note';
@@ -591,8 +616,8 @@
 
       // ---- posting ---------------------------------------------------------------------------------------------
       const STATUS_TEXT = {
-        PROCESSING_UPLOAD: 'TikTok is receiving your photos…',
-        PROCESSING_DOWNLOAD: 'TikTok is downloading your photos…',
+        PROCESSING_UPLOAD: 'TikTok is receiving your post…',
+        PROCESSING_DOWNLOAD: 'TikTok is downloading your post…',
         SEND_TO_USER_INBOX:
           'Sent to your TikTok inbox. Open the notification in the TikTok app to add a sound and post.',
         PUBLISH_COMPLETE: 'Posted. It may take a few minutes to appear on your profile.',
@@ -613,11 +638,14 @@
         show('Sending to TikTok…');
         try {
           const direct = state.mode === 'direct';
-          const body = {
-            images: state.item.images,
-            title: $('title').value.trim(),
-            description: $('description').value.trim(),
-          };
+          const body =
+            state.item.kind === 'video'
+              ? { video: state.item.video, title: $('title').value.trim() }
+              : {
+                  images: state.item.images,
+                  title: $('title').value.trim(),
+                  description: $('description').value.trim(),
+                };
           if (direct)
             Object.assign(body, {
               privacyLevel: $('privacy').value,
@@ -632,7 +660,7 @@
             last = st.status || '';
             if (st.status === 'FAILED')
               return show(
-                `TikTok could not post this slideshow${st.failReason ? ` (${st.failReason})` : ''}.`,
+                `TikTok could not post this ${state.item.kind === 'video' ? 'video' : 'slideshow'}${st.failReason ? ` (${st.failReason})` : ''}.`,
                 true,
               );
             show(STATUS_TEXT[last] || `TikTok status: ${last || 'waiting'}…`);

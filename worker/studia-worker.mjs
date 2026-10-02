@@ -15,12 +15,15 @@ const TT = {
   token: 'https://open.tiktokapis.com/v2/oauth/token/',
   creator: 'https://open.tiktokapis.com/v2/post/publish/creator_info/query/',
   init: 'https://open.tiktokapis.com/v2/post/publish/content/init/',
+  videoInit: 'https://open.tiktokapis.com/v2/post/publish/video/init/',
+  videoInbox: 'https://open.tiktokapis.com/v2/post/publish/inbox/video/init/',
   status: 'https://open.tiktokapis.com/v2/post/publish/status/fetch/',
   videos: 'https://open.tiktokapis.com/v2/video/list/',
 };
 const VIDEO_FIELDS = 'id,create_time,title,video_description,view_count,like_count,comment_count,share_count';
 const PRIVACY_LEVELS = ['PUBLIC_TO_EVERYONE', 'MUTUAL_FOLLOW_FRIENDS', 'FOLLOWER_OF_CREATOR', 'SELF_ONLY'];
 const TITLE_MAX = 90;
+const VIDEO_CAPTION_MAX = 2200;
 const DESCRIPTION_MAX = 4000;
 const MAX_PHOTOS = 35;
 const REFRESH_MARGIN_MS = 60_000;
@@ -210,6 +213,46 @@ export function buildPost(input, creator, mode) {
   };
 }
 
+/**
+ * Validates a video post request and returns { url, body } for TikTok: Direct Post (video/init) or the inbox
+ * (inbox/video/init, no post_info). The file must be an MP4 or MOV under the verified Studia site prefix.
+ */
+export function buildVideoPost(input, creator, mode) {
+  const video = input?.video;
+  if (typeof video !== 'string' || !video.startsWith(PUBLIC_BASE) || !/\.(mp4|mov)$/i.test(video))
+    throw new HttpError(400, 'bad_video', 'The video must be an MP4 or MOV file on the verified Studia site');
+  const source_info = { source: 'PULL_FROM_URL', video_url: video };
+  if (mode === 'draft') return { url: TT.videoInbox, body: { source_info } };
+
+  const caption = String(input.title ?? '').trim();
+  if (!caption || utf16(caption) > VIDEO_CAPTION_MAX)
+    throw new HttpError(400, 'bad_title', `A caption is required, ${VIDEO_CAPTION_MAX} characters at most`);
+  const privacy = input.privacyLevel;
+  if (!PRIVACY_LEVELS.includes(privacy))
+    throw new HttpError(400, 'privacy_required', 'Choose who can view this post');
+  if (!creator.privacyLevelOptions.includes(privacy))
+    throw new HttpError(400, 'privacy_not_allowed', 'This visibility is not available for your account');
+  const brandContent = Boolean(input.brandContent);
+  const brandOrganic = Boolean(input.brandOrganic);
+  if (brandContent && privacy === 'SELF_ONLY')
+    throw new HttpError(400, 'branded_private', 'Branded content visibility cannot be set to private');
+  return {
+    url: TT.videoInit,
+    body: {
+      post_info: {
+        title: caption,
+        privacy_level: privacy,
+        disable_comment: creator.commentDisabled || Boolean(input.disableComment),
+        disable_duet: true,
+        disable_stitch: true,
+        brand_content_toggle: brandContent,
+        brand_organic_toggle: brandOrganic,
+      },
+      source_info,
+    },
+  };
+}
+
 async function route(request, env, cfg) {
   const { pathname } = new URL(request.url);
   const method = request.method;
@@ -247,8 +290,10 @@ async function route(request, env, cfg) {
     } else if (pathname === '/api/post') {
       const input = await request.json().catch(() => null);
       const creator = await creatorInfo(session);
-      const payload = buildPost(input, creator, cfg.mode);
-      const d = await tiktok(TT.init, session, payload);
+      const target = input?.video
+        ? buildVideoPost(input, creator, cfg.mode)
+        : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
+      const d = await tiktok(target.url, session, target.body);
       if (!d.publish_id) throw new HttpError(502, 'no_publish_id', 'TikTok did not return a publish id');
       body = { publishId: d.publish_id, mode: cfg.mode };
     } else if (pathname === '/api/status') {

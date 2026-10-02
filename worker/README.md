@@ -28,19 +28,19 @@ Never paste a secret into a chat. Secrets live only in the Cloudflare dashboard.
 | `GET /auth/url` | the TikTok consent URL (client key, scopes, redirect `…/tiktok/callback.html`, random `state`) |
 | `POST /auth/exchange` | trades the one-time code for tokens, answers with a sealed session only |
 | `POST /api/creator` | `creator_info/query`: nickname, avatar, privacy options, comment setting |
-| `POST /api/post` | validates and sends the photo post (`PULL_FROM_URL` from the verified prefix only) |
+| `POST /api/post` | validates and sends a photo post (`{images,title,description}`) or a video post (`{video,title}`; the title is the caption, up to 2,200 characters). `PULL_FROM_URL` from the verified prefix only. Photos: `content/init`. Videos: `video/init` in `direct` mode, `inbox/video/init` in `draft` mode |
 | `POST /api/status` | `publish/status/fetch` |
 | `POST /api/videos` | the account's recent posts and their four public counters |
 
-Only the origin `https://quentinfelice.github.io` may call it. Images must be JPEG or WebP files under
+Only the origin `https://quentinfelice.github.io` may call it. Images must be JPEG or WebP files and a video an MP4 or MOV file under
 `https://quentinfelice.github.io/tiktok/`. In direct mode the requested visibility must be one TikTok offers the account,
 and branded content cannot be private.
 
 ## Tests
 
 ```sh
-node --test departments/tiktok/worker/worker.test.mjs   # 20 tests, fake TikTok
-node --test departments/tiktok/worker/app.test.mjs      # 11 tests, Chromium against the real page, fake Worker
+node --test departments/tiktok/worker/worker.test.mjs   # 23 tests, fake TikTok
+node --test departments/tiktok/worker/app.test.mjs      # 12 tests, Chromium against the real page, fake Worker
 ```
 
 Not tested here (this container cannot reach TikTok or Cloudflare): the real TikTok responses, the real deployment, the
