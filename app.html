@@ -425,7 +425,10 @@
               'TikTok limits how many drafts can wait in your inbox (5 per 24 hours). Try again later.',
           };
           throw Object.assign(
-            new Error(known[json.error?.code] || json.error?.message || 'The request failed.'),
+            new Error(
+              (known[json.error?.code] || json.error?.message || 'The request failed.') +
+                (json.error?.code ? ` (code: ${json.error.code})` : ''),
+            ),
             {
               code: json.error?.code,
             },
