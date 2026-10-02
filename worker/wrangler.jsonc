@@ -1,6 +1,7 @@
 // Cloudflare Workers Builds / wrangler configuration for the Studia Worker (no secret here).
 // Secrets (TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, SESSION_KEY) are set once in the Cloudflare dashboard.
-// To switch to Direct Post for the audit demo: POST_MODE "direct" and SCOPES "user.info.basic,video.publish,video.list".
+// Direct Post mode (audit demo and, once approved, real posting). Back to inbox drafts: POST_MODE "draft" and
+// SCOPES "user.info.basic,video.upload,video.list" (then log in again).
 {
   "name": "tiktok",
   "main": "studia-worker.mjs",
@@ -8,7 +9,7 @@
   "workers_dev": true,
   "keep_vars": true,
   "vars": {
-    "POST_MODE": "draft",
-    "SCOPES": "user.info.basic,video.upload,video.list"
+    "POST_MODE": "direct",
+    "SCOPES": "user.info.basic,video.publish,video.list"
   }
 }
