@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-02T21:59:28.213Z",
+  "fetchedAt": "2026-10-02T22:19:22.667Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -27,6 +27,20 @@
     "view_count"
   ],
   "posts": [
+    {
+      "specId": null,
+      "tiktokId": "7692193595188645153",
+      "createTime": "2026-10-02T21:59:51.000Z",
+      "createTimeUnix": 1790978391,
+      "title": "Teeth falling in your sleep 😴 ",
+      "views": 75,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7692193595188645153?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 24,
+      "matchedBy": null
+    },
     {
       "specId": "1002-2",
       "tiktokId": "7692087789428542752",
