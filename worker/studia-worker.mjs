@@ -19,6 +19,7 @@ const TT = {
   videoInbox: 'https://open.tiktokapis.com/v2/post/publish/inbox/video/init/',
   status: 'https://open.tiktokapis.com/v2/post/publish/status/fetch/',
   videos: 'https://open.tiktokapis.com/v2/video/list/',
+  userInfo: 'https://open.tiktokapis.com/v2/user/info/?fields=open_id,avatar_url,display_name',
 };
 const VIDEO_FIELDS = 'id,create_time,title,video_description,view_count,like_count,comment_count,share_count';
 const PRIVACY_LEVELS = ['PUBLIC_TO_EVERYONE', 'MUTUAL_FOLLOW_FRIENDS', 'FOLLOWER_OF_CREATOR', 'SELF_ONLY'];
@@ -149,6 +150,32 @@ async function tiktok(url, session, body) {
     );
   return json.data ?? {};
 }
+
+/**
+ * Draft mode has only video.upload (+ user.info.basic): creator_info/query needs video.publish, so the account bar
+ * comes from user/info and no privacy options exist (the user picks them in TikTok). Direct mode asks creator_info.
+ */
+const creatorFor = async (session, mode) => {
+  if (mode !== 'draft') return creatorInfo(session);
+  const res = await fetch(TT.userInfo, { headers: { Authorization: `Bearer ${session.a}` } });
+  const json = await res.json().catch(() => null);
+  const err = json?.error ?? {};
+  if (!json || !res.ok || (err.code && err.code !== 'ok'))
+    throw new HttpError(
+      res.ok ? 400 : 502,
+      err.code || `http_${res.status}`,
+      err.message || 'TikTok request failed',
+    );
+  const u = json.data?.user ?? {};
+  return {
+    nickname: u.display_name ?? null,
+    username: null,
+    avatarUrl: u.avatar_url ?? null,
+    privacyLevelOptions: [],
+    commentDisabled: false,
+    maxPhotoCount: null,
+  };
+};
 
 const creatorInfo = async (session) => {
   const d = await tiktok(TT.creator, session, {});
@@ -286,10 +313,10 @@ async function route(request, env, cfg) {
     const { session, refreshed } = await openSession(request, env);
     let body;
     if (pathname === '/api/creator') {
-      body = { creator: await creatorInfo(session), mode: cfg.mode };
+      body = { creator: await creatorFor(session, cfg.mode), mode: cfg.mode };
     } else if (pathname === '/api/post') {
       const input = await request.json().catch(() => null);
-      const creator = await creatorInfo(session);
+      const creator = await creatorFor(session, cfg.mode);
       const target = input?.video
         ? buildVideoPost(input, creator, cfg.mode)
         : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
