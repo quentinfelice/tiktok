@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-01T22:45:09.087Z",
+  "fetchedAt": "2026-10-02T09:09:43.946Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,8 +33,8 @@
       "createTime": "2026-10-01T20:23:56.000Z",
       "createTimeUnix": 1790886236,
       "title": "Asleep, your nose is a poor alarm. Your ears aren't. In a small 2004 Brown University lab study (6 young adults), peppermint got no response in deeper sleep and harsh pyridine only some, while a tone got a response on at least 75% of trials. Smoke itself wasn't tested. #sleepscience #sleepfacts #brain #psychology #didyouknow",
-      "views": 174,
-      "likes": 0,
+      "views": 259,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7691797795799338273?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
@@ -47,7 +47,7 @@
       "createTime": "2026-10-01T15:53:40.000Z",
       "createTimeUnix": 1790870020,
       "title": "Falling asleep in under 5 minutes is not a flex. Normal sleep latency is around 10 to 20 minutes. Dropping off almost instantly, night after night, can be a sign of sleep debt rather than great sleep. If it's every night and you're tired by day, talk to a doctor. #sleepscience #fallingasleep #sleepdebt #brain #psychology ",
-      "views": 281,
+      "views": 295,
       "likes": 3,
       "comments": 0,
       "shares": 0,
