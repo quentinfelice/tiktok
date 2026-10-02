@@ -9,7 +9,7 @@ just this Worker can open.
 
 1. Cloudflare → Workers & Pages → **Create application** → **Connect GitHub** → authorise Cloudflare on the repository
    `quentinfelice/tiktok` → select it.
-2. Project name `studia-tiktok` (it must match `name` in `wrangler.jsonc`), **Root directory** `worker`, branch `main`,
+2. Project name `tiktok` (it must match `name` in `wrangler.jsonc`), **Root directory** `worker`, branch `main`,
    leave the build command empty and the deploy command at its default (`npx wrangler deploy`) → **Save and deploy**.
 3. Worker → **Settings → Variables and Secrets** → add the three **Secrets** only (step 3 below). `POST_MODE` and
    `SCOPES` come from `wrangler.jsonc`; changing them is a commit, not a dashboard edit.
@@ -17,7 +17,7 @@ just this Worker can open.
 
 ## Deploy by pasting (owner, in the Cloudflare dashboard)
 
-1. Workers & Pages → **Create** → **Create Worker** → name `studia-tiktok` → **Deploy**.
+1. Workers & Pages → **Create** → **Create Worker** → name `tiktok` → **Deploy**.
 2. **Edit code**: select everything, paste the content of `studia-worker.mjs`, **Deploy**.
 3. **Settings → Variables and Secrets** → add, type **Secret**:
    - `TIKTOK_CLIENT_KEY` and `TIKTOK_CLIENT_SECRET`: the Sandbox credentials of the app "Studia Drafts" (later the production ones).
@@ -25,8 +25,8 @@ just this Worker can open.
 4. Same page, add **Variables** (type Text):
    - `POST_MODE` = `draft` (inbox drafts, works today) or `direct` (Direct Post, needed for the audit demo).
    - `SCOPES` = `user.info.basic,video.upload,video.list` for `draft`; `user.info.basic,video.publish,video.list` for `direct`.
-5. Copy the Worker address (`https://studia-tiktok.<your-subdomain>.workers.dev`) and give it to the manager. It is public, not a secret. The manager puts it in `site/app-config.js` and publishes the site.
-6. Check `https://studia-tiktok.<your-subdomain>.workers.dev/health`: it must answer `{"ok":true,...}` with the mode and scopes.
+5. Copy the Worker address (`https://tiktok.<your-subdomain>.workers.dev`) and give it to the manager. It is public, not a secret. The manager puts it in `site/app-config.js` and publishes the site.
+6. Check `https://tiktok.<your-subdomain>.workers.dev/health`: it must answer `{"ok":true,...}` with the mode and scopes.
 
 Never paste a secret into a chat. Secrets live only in the Cloudflare dashboard.
 

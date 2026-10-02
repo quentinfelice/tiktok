@@ -2,7 +2,7 @@
 // Secrets (TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, SESSION_KEY) are set once in the Cloudflare dashboard.
 // To switch to Direct Post for the audit demo: POST_MODE "direct" and SCOPES "user.info.basic,video.publish,video.list".
 {
-  "name": "studia-tiktok",
+  "name": "tiktok",
   "main": "studia-worker.mjs",
   "compatibility_date": "2026-10-01",
   "workers_dev": true,
