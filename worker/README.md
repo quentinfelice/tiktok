@@ -5,7 +5,17 @@ Worker does both jobs: it exchanges the login code and relays the few calls the 
 `studia-worker.mjs` (one file, no build step, no dependencies). The browser only ever holds an encrypted session that
 just this Worker can open.
 
-## Deploy (owner, in the Cloudflare dashboard)
+## Deploy from GitHub (recommended: later updates deploy by themselves)
+
+1. Cloudflare → Workers & Pages → **Create application** → **Connect GitHub** → authorise Cloudflare on the repository
+   `quentinfelice/tiktok` → select it.
+2. Project name `studia-tiktok` (it must match `name` in `wrangler.jsonc`), **Root directory** `worker`, branch `main`,
+   leave the build command empty and the deploy command at its default (`npx wrangler deploy`) → **Save and deploy**.
+3. Worker → **Settings → Variables and Secrets** → add the three **Secrets** only (step 3 below). `POST_MODE` and
+   `SCOPES` come from `wrangler.jsonc`; changing them is a commit, not a dashboard edit.
+4. Check `/health` (step 6 below).
+
+## Deploy by pasting (owner, in the Cloudflare dashboard)
 
 1. Workers & Pages → **Create** → **Create Worker** → name `studia-tiktok` → **Deploy**.
 2. **Edit code**: select everything, paste the content of `studia-worker.mjs`, **Deploy**.
