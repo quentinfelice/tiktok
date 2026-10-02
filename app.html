@@ -418,9 +418,18 @@
         if (json.session) store.set(SESSION, json.session);
         if (!res.ok) {
           if (res.status === 401) showLogin('Your session ended. Log in with TikTok again.');
-          throw Object.assign(new Error(json.error?.message || 'The request failed.'), {
-            code: json.error?.code,
-          });
+          const known = {
+            unaudited_client_can_only_post_to_private_accounts:
+              'TikTok only lets an app that has not been approved yet post privately. Choose "Only me" (and, if it still fails, set your TikTok account to private while testing).',
+            spam_risk_too_many_pending_share:
+              'TikTok limits how many drafts can wait in your inbox (5 per 24 hours). Try again later.',
+          };
+          throw Object.assign(
+            new Error(known[json.error?.code] || json.error?.message || 'The request failed.'),
+            {
+              code: json.error?.code,
+            },
+          );
         }
         return json;
       }
