@@ -1,0 +1,25 @@
+name: keycheck
+# One-off diagnostic: compares the repository secret TIKTOK_CLIENT_KEY with the key the Cloudflare Worker sends.
+# The client key is a public identifier (it appears in every consent URL); only match/mismatch is printed.
+on:
+  workflow_dispatch:
+    inputs:
+      candidate:
+        description: Client key as seen in https://<worker>/auth/url
+        required: true
+jobs:
+  keycheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compare
+        env:
+          SECRET_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          CANDIDATE: ${{ inputs.candidate }}
+        run: |
+          if [ -z "$SECRET_KEY" ]; then echo "RESULT: the repository secret TIKTOK_CLIENT_KEY is empty or missing"; exit 0; fi
+          s="${SECRET_KEY//[[:space:]]/}"
+          echo "secret length (spaces removed): ${#s}; Worker length: ${#CANDIDATE}"
+          if [ "$s" = "$CANDIDATE" ]; then echo "RESULT: MATCH (same key as the connect workflow)"; exit 0; fi
+          n=0; max=${#s}; [ ${#CANDIDATE} -gt $max ] && max=${#CANDIDATE}
+          for ((i=0;i<max;i++)); do [ "${s:i:1}" != "${CANDIDATE:i:1}" ] && n=$((n+1)); done
+          echo "RESULT: DIFFERENT ($n characters differ)"
