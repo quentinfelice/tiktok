@@ -1,4 +1,53 @@
 {
   "date": "2026-10-09",
-  "items": []
+  "items": [
+    {
+      "id": "1009-V2",
+      "date": "2026-10-09",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated Night Brain.",
+      "derivedFrom": null,
+      "caption": "Can you know you're dreaming, inside a dream?\nAbout 55% of people say they've had a lucid dream, 23% monthly or more. In 2021, lucid dreamers in REM sleep answered simple questions with eye movements, but only about 18% of tries were right.\nHave you ever realized you were dreaming?",
+      "hashtags": [
+        "#luciddreaming",
+        "#luciddream",
+        "#dreams",
+        "#sleepscience"
+      ],
+      "title": "Can you know you're dreaming, inside a dream?",
+      "description": "Can you know you're dreaming, inside a dream?\nAbout 55% of people say they've had a lucid dream, 23% monthly or more. In 2021, lucid dreamers in REM sleep answered simple questions with eye movements, but only about 18% of tries were right.\nHave you ever realized you were dreaming?\n\n#luciddreaming #luciddream #dreams #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-09/1009-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 4998140,
+      "exportedAt": "2026-10-03T11:35:56.012Z"
+    },
+    {
+      "id": "1009-V3",
+      "date": "2026-10-09",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "control-silent",
+      "hypothesis": "R2 week 1 control: Night Brain without voice.",
+      "derivedFrom": null,
+      "caption": "What do people say in their sleep?\nIn one Paris sleep lab, 232 adults (mostly patients) were recorded: the top word was 'no', and about 1 in 10 clauses had swearing.\nWhat have you been told you say in your sleep?",
+      "hashtags": [
+        "#sleeptalking",
+        "#sleep",
+        "#sleepscience",
+        "#dreams"
+      ],
+      "title": "What do people say in their sleep?",
+      "description": "What do people say in their sleep?\nIn one Paris sleep lab, 232 adults (mostly patients) were recorded: the top word was 'no', and about 1 in 10 clauses had swearing.\nWhat have you been told you say in your sleep?\n\n#sleeptalking #sleep #sleepscience #dreams",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-09/1009-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3474488,
+      "exportedAt": "2026-10-03T11:35:56.013Z"
+    }
+  ]
 }

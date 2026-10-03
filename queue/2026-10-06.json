@@ -1,4 +1,53 @@
 {
   "date": "2026-10-06",
-  "items": []
+  "items": [
+    {
+      "id": "1006-V2",
+      "date": "2026-10-06",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "control-silent",
+      "hypothesis": "R2 week 1 control: Night Brain without voice (music + on-screen text). Isolates the voice effect against the narrated arm.",
+      "derivedFrom": null,
+      "caption": "Why do you hear a bang as you fall asleep?\nIt's exploding head syndrome: a sudden loud noise in your head as you drift off or wake. It's usually painless, and 18% of 211 US college students said they had it at least once. If it's frequent or worrying, talk to a doctor.\nHave you ever heard the bang?",
+      "hashtags": [
+        "#explodingheadsyndrome",
+        "#fallingasleep",
+        "#sleep",
+        "#sleepscience"
+      ],
+      "title": "Why do you hear a bang as you fall asleep?",
+      "description": "Why do you hear a bang as you fall asleep?\nIt's exploding head syndrome: a sudden loud noise in your head as you drift off or wake. It's usually painless, and 18% of 211 US college students said they had it at least once. If it's frequent or worrying, talk to a doctor.\nHave you ever heard the bang?\n\n#explodingheadsyndrome #fallingasleep #sleep #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 5043071,
+      "exportedAt": "2026-10-03T11:35:55.832Z"
+    },
+    {
+      "id": "1006-V3",
+      "date": "2026-10-06",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated Night Brain.",
+      "derivedFrom": null,
+      "caption": "Do you dream in color?\nIn one diary study of 60 people, about 4% of under-25s' dreams were black and white, vs about a quarter for over-55s raised on black-and-white TV. Small study: a link, not proof.\nWhat color do you remember from your last dream?",
+      "hashtags": [
+        "#dreams",
+        "#dreamincolor",
+        "#sleepscience",
+        "#psychology"
+      ],
+      "title": "Do you dream in color?",
+      "description": "Do you dream in color?\nIn one diary study of 60 people, about 4% of under-25s' dreams were black and white, vs about a quarter for over-55s raised on black-and-white TV. Small study: a link, not proof.\nWhat color do you remember from your last dream?\n\n#dreams #dreamincolor #sleepscience #psychology",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3904918,
+      "exportedAt": "2026-10-03T11:35:55.966Z"
+    }
+  ]
 }

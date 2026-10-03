@@ -1,4 +1,53 @@
 {
   "date": "2026-10-05",
-  "items": []
+  "items": [
+    {
+      "id": "1005-V2",
+      "date": "2026-10-05",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated Night Brain.",
+      "derivedFrom": null,
+      "caption": "Why can't you move when you wake up?\nIt's sleep paralysis: in REM sleep your muscles are switched off, and sometimes the mind wakes first. About 8% of people have had it. If it's frequent or worrying, talk to a doctor.\nHave you ever felt someone there?",
+      "hashtags": [
+        "#sleepparalysis",
+        "#dreams",
+        "#remsleep",
+        "#sleepscience"
+      ],
+      "title": "Why can't you move when you wake up?",
+      "description": "Why can't you move when you wake up?\nIt's sleep paralysis: in REM sleep your muscles are switched off, and sometimes the mind wakes first. About 8% of people have had it. If it's frequent or worrying, talk to a doctor.\nHave you ever felt someone there?\n\n#sleepparalysis #dreams #remsleep #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3832390,
+      "exportedAt": "2026-10-03T11:35:55.679Z"
+    },
+    {
+      "id": "1005-V3",
+      "date": "2026-10-05",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated Night Brain.",
+      "derivedFrom": null,
+      "caption": "Why do you twitch as you fall asleep?\nIt's a hypnic jerk, or sleep start. 60 to 70% of people report them, sometimes with a feeling of falling, and they're often not remembered (AASM).\nWhen you jolt awake, does it feel like falling?",
+      "hashtags": [
+        "#hypnicjerk",
+        "#fallingasleep",
+        "#sleepscience",
+        "#sleep"
+      ],
+      "title": "Why do you twitch as you fall asleep?",
+      "description": "Why do you twitch as you fall asleep?\nIt's a hypnic jerk, or sleep start. 60 to 70% of people report them, sometimes with a feeling of falling, and they're often not remembered (AASM).\nWhen you jolt awake, does it feel like falling?\n\n#hypnicjerk #fallingasleep #sleepscience #sleep",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 4262450,
+      "exportedAt": "2026-10-03T11:35:55.832Z"
+    }
+  ]
 }

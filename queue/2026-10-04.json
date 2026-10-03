@@ -1,4 +1,54 @@
 {
   "date": "2026-10-04",
-  "items": []
+  "items": [
+    {
+      "id": "1004-V2",
+      "date": "2026-10-04",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated Night Brain (af_heart). Judge on Studio average watch and watched-full at 48 h, pooled by arm.",
+      "derivedFrom": null,
+      "caption": "Why do dreams vanish by breakfast? Your brain enters REM sleep several times a night, but the sleeping brain is bad at saving new memories. In one study, frequent dream recallers spent about twice as long briefly awake at night. What's the last dream you remember?",
+      "hashtags": [
+        "#dreams",
+        "#sleep",
+        "#remsleep",
+        "#dreamrecall",
+        "#sleepscience"
+      ],
+      "title": "Why do dreams vanish by breakfast? Your brain enters REM sleep several times a night, but…",
+      "description": "Why do dreams vanish by breakfast? Your brain enters REM sleep several times a night, but the sleeping brain is bad at saving new memories. In one study, frequent dream recallers spent about twice as long briefly awake at night. What's the last dream you remember?\n\n#dreams #sleep #remsleep #dreamrecall #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-04/1004-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3153245,
+      "exportedAt": "2026-10-03T11:35:55.437Z"
+    },
+    {
+      "id": "1004-V3",
+      "date": "2026-10-04",
+      "kind": "video",
+      "series": "Your dream, explained",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated 'Your dream, explained' (recognition + question). Judge on comments and average watch at 48 h.",
+      "derivedFrom": null,
+      "caption": "Dreaming of being chased?\nIn a survey of 1,181 students, being chased was the most common of 55 dream themes: over 80% had dreamed it at least once. One idea is threat rehearsal, still debated.\nChased, falling, or late for an exam: which one comes back for you?",
+      "hashtags": [
+        "#dreammeaning",
+        "#dreams",
+        "#beingchased",
+        "#nightmares"
+      ],
+      "title": "Dreaming of being chased?",
+      "description": "Dreaming of being chased?\nIn a survey of 1,181 students, being chased was the most common of 55 dream themes: over 80% had dreamed it at least once. One idea is threat rehearsal, still debated.\nChased, falling, or late for an exam: which one comes back for you?\n\n#dreammeaning #dreams #beingchased #nightmares",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-04/1004-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 2828143,
+      "exportedAt": "2026-10-03T11:35:55.488Z"
+    }
+  ]
 }

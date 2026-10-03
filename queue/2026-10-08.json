@@ -1,4 +1,53 @@
 {
   "date": "2026-10-08",
-  "items": []
+  "items": [
+    {
+      "id": "1008-V2",
+      "date": "2026-10-08",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated Night Brain.",
+      "derivedFrom": null,
+      "caption": "Do your dreams replay your day?\nRarely in full: about 2 in 3 dreams borrowed pieces of recent life, but full replays were 1-2%. Another study found a second echo 5 to 7 days later, the dream-lag effect.\nWhat did last night's dream borrow from your week?",
+      "hashtags": [
+        "#dreams",
+        "#dreamlag",
+        "#memory",
+        "#sleepscience"
+      ],
+      "title": "Do your dreams replay your day?",
+      "description": "Do your dreams replay your day?\nRarely in full: about 2 in 3 dreams borrowed pieces of recent life, but full replays were 1-2%. Another study found a second echo 5 to 7 days later, the dream-lag effect.\nWhat did last night's dream borrow from your week?\n\n#dreams #dreamlag #memory #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3719990,
+      "exportedAt": "2026-10-03T11:35:56.011Z"
+    },
+    {
+      "id": "1008-V3",
+      "date": "2026-10-08",
+      "kind": "video",
+      "series": "Your dream, explained",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated 'Your dream, explained'.",
+      "derivedFrom": null,
+      "caption": "Dreaming of falling?\nIn a survey of 1,181 students, about 74% had dreamed of falling at least once. Separately, a falling feeling can come with the hypnic jerk, the jolt 60 to 70% of people report as they drift off.\nFalling, chased, or losing teeth: which one comes back for you?",
+      "hashtags": [
+        "#dreammeaning",
+        "#fallingdream",
+        "#dreams",
+        "#hypnicjerk"
+      ],
+      "title": "Dreaming of falling?",
+      "description": "Dreaming of falling?\nIn a survey of 1,181 students, about 74% had dreamed of falling at least once. Separately, a falling feeling can come with the hypnic jerk, the jolt 60 to 70% of people report as they drift off.\nFalling, chased, or losing teeth: which one comes back for you?\n\n#dreammeaning #fallingdream #dreams #hypnicjerk",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3961129,
+      "exportedAt": "2026-10-03T11:35:56.012Z"
+    }
+  ]
 }

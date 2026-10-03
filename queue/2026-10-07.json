@@ -1,4 +1,53 @@
 {
   "date": "2026-10-07",
-  "items": []
+  "items": [
+    {
+      "id": "1007-V2",
+      "date": "2026-10-07",
+      "kind": "video",
+      "series": "Your dream, explained",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated 'Your dream, explained'.",
+      "derivedFrom": null,
+      "caption": "Dreaming your teeth are falling out?\nIn one study of 210 students, teeth dreams weren't linked to distress or poor sleep, but went with tension in the teeth, gums or jaw on waking. Linked, not proven.\nTeeth, falling, or being chased: which one comes back for you?",
+      "hashtags": [
+        "#dreammeaning",
+        "#teethfallingout",
+        "#dreams",
+        "#sleepscience"
+      ],
+      "title": "Dreaming your teeth are falling out?",
+      "description": "Dreaming your teeth are falling out?\nIn one study of 210 students, teeth dreams weren't linked to distress or poor sleep, but went with tension in the teeth, gums or jaw on waking. Linked, not proven.\nTeeth, falling, or being chased: which one comes back for you?\n\n#dreammeaning #teethfallingout #dreams #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3203293,
+      "exportedAt": "2026-10-03T11:35:55.967Z"
+    },
+    {
+      "id": "1007-V3",
+      "date": "2026-10-07",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated Night Brain.",
+      "derivedFrom": null,
+      "caption": "Do blind people dream?\nYes. In a 4-week diary study, people blind from birth reported fewer pictures and more sound, touch, taste and smell, and about 25% of their reported dreams were nightmares (6% for sighted people).\nWhich sense shows up most in your dreams?",
+      "hashtags": [
+        "#dreams",
+        "#blind",
+        "#nightmares",
+        "#sleepscience"
+      ],
+      "title": "Do blind people dream?",
+      "description": "Do blind people dream?\nYes. In a 4-week diary study, people blind from birth reported fewer pictures and more sound, touch, taste and smell, and about 25% of their reported dreams were nightmares (6% for sighted people).\nWhich sense shows up most in your dreams?\n\n#dreams #blind #nightmares #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3556447,
+      "exportedAt": "2026-10-03T11:35:55.967Z"
+    }
+  ]
 }
