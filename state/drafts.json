@@ -278,6 +278,42 @@
       "logId": "20261002221854AE328D12DA54F42DEF8C",
       "updatedAt": "2026-10-02T22:19:21.781Z",
       "lastCheckedAt": "2026-10-02T22:19:21.781Z"
+    },
+    {
+      "createdAt": "2026-10-03T11:56:33.149Z",
+      "specId": "1004-V2",
+      "date": "2026-10-03",
+      "publishId": "v_inbox_url~v2.7692408949064927254",
+      "kind": "video",
+      "title": "Why do dreams vanish by breakfast? Your brain enters REM sleep several times a night, but…",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-04/1004-V2/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261003115632A4DA25F23ADED34676CD",
+      "updatedAt": "2026-10-03T11:57:05.394Z",
+      "lastCheckedAt": "2026-10-03T11:57:05.394Z"
+    },
+    {
+      "createdAt": "2026-10-03T11:57:06.019Z",
+      "specId": "1004-V3",
+      "date": "2026-10-03",
+      "publishId": "v_inbox_url~v2.7692409107336251414",
+      "kind": "video",
+      "title": "Dreaming of being chased?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-04/1004-V3/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "2026100311570505AAD94A55C30A253DA0",
+      "updatedAt": "2026-10-03T11:59:19.753Z",
+      "lastCheckedAt": "2026-10-03T11:59:19.753Z"
     }
   ]
 }
