@@ -1,30 +1,4 @@
 {
   "date": "2026-10-15",
-  "items": [
-    {
-      "id": "1015-V1",
-      "date": "2026-10-15",
-      "kind": "video",
-      "series": "Dream science",
-      "variant": "variant",
-      "hypothesis": "Long-length pool (30.5 s, unpaired): expected lower watched-full % and higher average watch seconds than the mid videos; pooled with V20-05 and V20-17.",
-      "derivedFrom": null,
-      "caption": "Can a dreamer answer your question?\nIn a 2021 study across 4 labs, some lucid dreamers (people who know they are dreaming) in lab-verified REM sleep answered simple questions with eye movements or facial-muscle signals. Only about 18% of 158 tries got a correct answer, most got none: it is rare and hard.",
-      "hashtags": [
-        "#luciddreaming",
-        "#dreams",
-        "#sleepscience",
-        "#neuroscience",
-        "#REMsleep"
-      ],
-      "title": "Can a dreamer answer your question?",
-      "description": "Can a dreamer answer your question?\nIn a 2021 study across 4 labs, some lucid dreamers (people who know they are dreaming) in lab-verified REM sleep answered simple questions with eye movements or facial-muscle signals. Only about 18% of 158 tries got a correct answer, most got none: it is rare and hard.\n\n#luciddreaming #dreams #sleepscience #neuroscience #REMsleep",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-15/1015-V1/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": 30.5,
-      "bytes": 4217408,
-      "exportedAt": "2026-10-02T09:09:09.392Z"
-    }
-  ]
+  "items": []
 }

@@ -1,30 +1,4 @@
 {
   "date": "2026-10-17",
-  "items": [
-    {
-      "id": "1017-V1",
-      "date": "2026-10-17",
-      "kind": "video",
-      "series": "Myth vs reality",
-      "variant": "variant",
-      "hypothesis": "Long-length pool (29 s, unpaired): expected lower watched-full % and higher average watch seconds than the mid videos.",
-      "derivedFrom": null,
-      "caption": "Before a full moon, people slept less.\nIn a 2021 field study, sleep started later and was shortest 3 to 5 days before a full moon. Total sleep varied by 46 to 58 minutes across the moon cycle in three communities in Argentina; the pattern appeared, but weaker, in 464 Seattle students. The authors suspect evening moonlight, and other studies are mixed. Next full moon: Mon Oct 26.",
-      "hashtags": [
-        "#fullmoon",
-        "#huntersmoon",
-        "#moon",
-        "#sleepscience",
-        "#mythbusting"
-      ],
-      "title": "Before a full moon, people slept less.",
-      "description": "Before a full moon, people slept less.\nIn a 2021 field study, sleep started later and was shortest 3 to 5 days before a full moon. Total sleep varied by 46 to 58 minutes across the moon cycle in three communities in Argentina; the pattern appeared, but weaker, in 464 Seattle students. The authors suspect evening moonlight, and other studies are mixed. Next full moon: Mon Oct 26.\n\n#fullmoon #huntersmoon #moon #sleepscience #mythbusting",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-17/1017-V1/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": 29,
-      "bytes": 4006317,
-      "exportedAt": "2026-10-02T09:09:09.392Z"
-    }
-  ]
+  "items": []
 }

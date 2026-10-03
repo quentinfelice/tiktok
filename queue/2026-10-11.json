@@ -1,30 +1,4 @@
 {
   "date": "2026-10-11",
-  "items": [
-    {
-      "id": "1011-V1",
-      "date": "2026-10-11",
-      "kind": "video",
-      "series": "Sleep zoo",
-      "variant": "variant",
-      "hypothesis": "P4 variant, variable = opener (blob with the bird as a prop vs V20-04's seal at frame 0): expected lower 3-s hold, so lower average watch time and watched-full %.",
-      "derivedFrom": null,
-      "caption": "Some birds sleep while flying.\nGreat frigatebirds wearing small brain-wave (EEG) recorders slept only about 41 minutes a day in flight (0.69 h), mostly while soaring, and often with one brain half at a time; back on land they sleep at least 9 hours a day (Nature Communications, 2016). One species, a small study.",
-      "hashtags": [
-        "#birds",
-        "#animalfacts",
-        "#sleepscience",
-        "#frigatebird",
-        "#nature"
-      ],
-      "title": "Some birds sleep while flying.",
-      "description": "Some birds sleep while flying.\nGreat frigatebirds wearing small brain-wave (EEG) recorders slept only about 41 minutes a day in flight (0.69 h), mostly while soaring, and often with one brain half at a time; back on land they sleep at least 9 hours a day (Nature Communications, 2016). One species, a small study.\n\n#birds #animalfacts #sleepscience #frigatebird #nature",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-11/1011-V1/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": 22.5,
-      "bytes": 2619374,
-      "exportedAt": "2026-10-02T09:09:09.392Z"
-    }
-  ]
+  "items": []
 }
