@@ -502,7 +502,10 @@ async function apiRoute(request, pathname, session, cfg, env) {
       );
     const r = await itemLock(env, itemIdOf(input))('release');
     if (r.rec?.publishId)
-      throw new HttpError(409, 'already_posted', 'TikTok accepted this item; it cannot be unlocked.');
+      throw Object.assign(
+        new HttpError(409, 'already_posted', 'TikTok accepted this item; it cannot be unlocked.'),
+        { details: { publishId: r.rec.publishId } },
+      );
     if (r.rec) {
       const after = new Date(Date.parse(r.rec.at) + UNLOCK_AFTER_MS).toISOString().slice(11, 16);
       throw new HttpError(

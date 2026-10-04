@@ -908,6 +908,13 @@
             // The button says to check TikTok first: pressing it is that confirmation.
             await api('/api/unlock', { body: { itemId: item.id, confirm: 'not_on_tiktok' } });
           } catch (err) {
+            // TikTok accepted it after all (this browser lost the answer): track that post; a FAILED status from
+            // TikTok then releases it for a new try (Codex review, PR #13).
+            if (err.code === 'already_posted' && err.publishId) {
+              state.sent[item.id] = { publishId: err.publishId, status: 'INIT' };
+              saveSent();
+              return $('recheck').click();
+            }
             if (err.code === 'already_posted') {
               state.sent[item.id] = { publishId: null, status: 'POSTED_ELSEWHERE' };
               saveSent();
