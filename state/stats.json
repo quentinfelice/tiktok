@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T07:36:27.563Z",
+  "fetchedAt": "2026-10-04T12:28:25.154Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,8 +33,8 @@
       "createTime": "2026-10-04T06:54:16.000Z",
       "createTimeUnix": 1791096856,
       "title": "#Studia #dreams #sleepscience #psychology ",
-      "views": 83,
-      "likes": 0,
+      "views": 259,
+      "likes": 5,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7692702370093976865?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
@@ -47,7 +47,7 @@
       "createTime": "2026-10-03T19:57:03.000Z",
       "createTimeUnix": 1791057423,
       "title": "#Studia #dreams #sleepscience #psychology ",
-      "views": 252,
+      "views": 254,
       "likes": 0,
       "comments": 0,
       "shares": 0,
