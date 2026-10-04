@@ -12,6 +12,7 @@ import {
   buildVideoInitPayload,
   initDraft,
   initVideoDraft,
+  fetchStatus,
   loadDrafts,
   pollStatus,
   queryCreatorInfo,
@@ -23,6 +24,52 @@ import { runStats } from './stats.mjs';
 const PENDING_WINDOW_MS = 24 * 60 * 60 * 1000;
 /** Drafts that still count against TikTok's pending-upload cap. */
 const PENDING_STATUSES = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'SEND_TO_USER_INBOX']);
+/** A queue item is done once a record delivered it or one is still on its way; FAILED ones are retried. */
+const DELIVERED = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE']);
+const IN_FLIGHT = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'PROCESSING_UPLOAD']);
+export const MAX_ATTEMPTS = 3;
+
+/** Spec ids that must not be sent again: delivered, in flight, or out of attempts (MAX_ATTEMPTS records). */
+export function doneSpecIds(drafts) {
+  const bySpec = new Map();
+  for (const d of drafts) bySpec.set(d.specId, [...(bySpec.get(d.specId) ?? []), d]);
+  const done = new Set();
+  for (const [id, recs] of bySpec)
+    if (recs.length >= MAX_ATTEMPTS || recs.some((d) => DELIVERED.has(d.status) || IN_FLIGHT.has(d.status)))
+      done.add(id);
+  return done;
+}
+
+/**
+ * Re-checks records a past run left in flight (polling timed out): TikTok may have delivered or failed them since.
+ * One still in flight after 24 h is marked EXPIRED, which counts as a failed attempt so the item is retried.
+ */
+export async function refreshInFlight(
+  state,
+  { accessToken, fetch, now = Date.now(), status = fetchStatus, log = defaultLog },
+) {
+  let changed = 0;
+  for (const d of state.drafts.filter((x) => IN_FLIGHT.has(x.status))) {
+    try {
+      const s = await status(d.publishId, { accessToken, fetch });
+      if (s.status && s.status !== d.status) {
+        Object.assign(d, {
+          status: s.status,
+          failReason: s.failReason ?? null,
+          lastCheckedAt: new Date(now).toISOString(),
+        });
+        changed++;
+      }
+    } catch (err) {
+      log.warn(`${d.specId}: status check failed (${err.message})`);
+    }
+    if (IN_FLIGHT.has(d.status) && now - new Date(d.createdAt).getTime() > PENDING_WINDOW_MS) {
+      Object.assign(d, { status: 'EXPIRED', failReason: 'still in flight after 24 h' });
+      changed++;
+    }
+  }
+  return changed;
+}
 
 /** All manifests in queue/, oldest date first. */
 export function loadQueue(paths = defaultPaths()) {
@@ -44,7 +91,7 @@ export function selectQueueItems(
   drafts,
   { max = PENDING_SHARE_CAP, now = Date.now(), today = todayBrussels(new Date(now)) } = {},
 ) {
-  const done = new Set(drafts.map((d) => d.specId));
+  const done = doneSpecIds(drafts);
   const pending = drafts.filter(
     (d) => PENDING_STATUSES.has(d.status) && now - new Date(d.createdAt).getTime() < PENDING_WINDOW_MS,
   ).length;
@@ -90,6 +137,12 @@ export async function runQueue({
   const level = undefined; // inbox drafts carry no privacy level
   const manifests = loadQueue(paths);
   const state = loadDrafts(paths);
+  let token = accessToken;
+  if (!dryRun && state.drafts.some((d) => IN_FLIGHT.has(d.status))) {
+    token ??= await getAccessToken({ env, paths, fetch, log });
+    if (await refreshInFlight(state, { accessToken: token, fetch, now: now(), log }))
+      saveDrafts(paths, state);
+  }
   const { selected, skipped, pending, scheduled } = selectQueueItems(manifests, state.drafts, { now: now() });
   log(
     `Queue (${mode}${level ? `, ${level}` : ''}): ${manifests.length} manifest(s), ${selected.length} to create, ${skipped.length} waiting (cap ${PENDING_SHARE_CAP}, ${pending} pending), ${scheduled.length} scheduled for later dates.`,
@@ -100,7 +153,7 @@ export async function runQueue({
     return { created: [], skipped, pending, scheduled, dryRun: true };
   }
   if (selected.length) {
-    const token = accessToken ?? (await getAccessToken({ env, paths, fetch, log }));
+    token ??= await getAccessToken({ env, paths, fetch, log });
     let creator = null;
     if (mode === 'direct') {
       creator = await queryCreatorInfo({ accessToken: token, fetch });
