@@ -149,37 +149,6 @@ export function checkSiteRepo(siteRepo) {
   };
 }
 
-/**
- * What the scheduled queue owns in the site clone: every id in a queue/<date>.json manifest, and the records in the
- * public state/drafts.json. With `refresh`, the clone is fast-forwarded first, so posts exported or sent from
- * elsewhere are seen; a failed refresh is an error (fail closed).
- */
-export function siteOwnership(paths, { refresh = false, env = process.env } = {}) {
-  const queued = new Map();
-  const drafts = [];
-  if (!existsSync(paths.siteRepo)) return { queued, drafts };
-  if (refresh) {
-    checkSiteRepo(paths.siteRepo);
-    try {
-      git(['pull', '-q', '--ff-only', 'origin', 'main'], { cwd: paths.siteRepo, env, identity: false });
-    } catch (err) {
-      throw new Error(
-        `Could not refresh the public repo (${String(err.stderr || err.message)
-          .trim()
-          .slice(0, 160)}); not sending, since the scheduled queue may own these posts.`,
-        { cause: err },
-      );
-    }
-  }
-  const queueDir = paths.queueDir ?? join(paths.siteRepo, 'queue');
-  if (existsSync(queueDir))
-    for (const f of readdirSync(queueDir).filter((x) => /^\d{4}-\d{2}-\d{2}\.json$/.test(x)))
-      for (const it of readJson(join(queueDir, f), { items: [] }).items ?? []) queued.set(it.id, f);
-  const siteDrafts = join(paths.siteRepo, 'state', 'drafts.json');
-  if (existsSync(siteDrafts)) drafts.push(...(readJson(siteDrafts, { drafts: [] }).drafts ?? []));
-  return { queued, drafts };
-}
-
 /** Stages media/, commits when there is a change, pushes main. Retries the push with GITHUB_TOKEN if it fails. */
 export function commitAndPush({
   siteRepo,

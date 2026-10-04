@@ -46,15 +46,15 @@ review, PR #13). Unaudited apps get private-only direct posts; see `../AUDIT_PAC
 
 ```sh
 node departments/tiktok/poster/cli.mjs media  --date 2026-09-28 [--id 0928-5] [--prune 14] [--no-wait]
-node departments/tiktok/poster/cli.mjs drafts --date 2026-09-28 [--id 0928-5] [--dry-run]
+node departments/tiktok/poster/cli.mjs drafts --date 2026-09-28 [--id 0928-5] --dry-run   # print payloads only
 node departments/tiktok/poster/cli.mjs drafts --check        # re-poll drafts that are not final
 node departments/tiktok/poster/cli.mjs stats                 # -> departments/tiktok/poster/state/stats.json
 ```
 
 - `media`: `out/<date>/<id>/NN.png` (spec slide count) -> JPEG q0.9 -> `media/<date>/<id>/NN.jpg` in the site clone, commit + push `main`, then HEAD-polls the URLs until 200 (up to 6 min).
-- `drafts`: runs `media` if needed, then `POST /v2/post/publish/content/init/` per post (`post_mode: MEDIA_UPLOAD`, `media_type: PHOTO`, `source: PULL_FROM_URL`, title = first caption line, max 90; description = caption + hashtags, max 4000), polls `/v2/post/publish/status/fetch/` and records `{specId, publishId, status, failReason, publicPostIds}` in `state/drafts.json`. TikTok allows 5 pending API uploads per 24 h. Same gates as the queue: a post whose fact-check is not `PASS` is refused, and a post already delivered, in flight, `SENDING`/`UNKNOWN` (answer lost) or out of attempts in `drafts.json` is never sent again.
+- `drafts --dry-run`: prints, per post, the `POST /v2/post/publish/content/init/` payload the queue would send (`post_mode: MEDIA_UPLOAD`, `media_type: PHOTO`, `source: PULL_FROM_URL`, title = first caption line, max 90; description = caption + hashtags, max 4000); a post whose fact-check is not `PASS` is refused. A live `drafts` run is refused: the scheduled queue (`export`, then the publish workflow) is the only sender, since a second sender keeps its own state and could deliver a post twice. TikTok allows 5 pending API uploads per 24 h.
+- `drafts --check`: re-polls `/v2/post/publish/status/fetch/` for recorded drafts that are not final and updates `state/drafts.json` (SENDING/UNKNOWN locks have no publish id and are skipped).
 - `media`/`export` commit only their own paths and refuse to run while something else is staged in the site clone, or while it holds local commits that are not on `origin/main`.
-- `drafts` first fast-forwards the site clone (it sends nothing if that fails) and never sends a post that is in a `queue/<date>.json` manifest or recorded in the public `state/drafts.json`: the scheduled queue owns those.
 - `stats`: `POST /v2/video/list/?fields=id,create_time,title,video_description,share_url,view_count,like_count,comment_count,share_count`, paginated; matches posts to spec ids by publish record, else by the first caption line; writes `state/stats.json` `{fetchedAt, posts:[{specId, tiktokId, createTime, views, likes, comments, shares, shareUrl}]}`. Claude's daily run merges it into the ledger.
 
 ## What the owner still does

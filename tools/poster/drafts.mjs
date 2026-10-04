@@ -4,7 +4,7 @@
 
 import { ENDPOINTS, PUBLIC_BASE, defaultLog, defaultPaths, readJson, writeJson } from './config.mjs';
 import { getAccessToken } from './auth.mjs';
-import { loadDay, mediaTargets, publishMedia, selectPosts, siteOwnership, slidePngs } from './media.mjs';
+import { loadDay, mediaTargets, selectPosts, slidePngs } from './media.mjs';
 
 /** Limits from the photo post reference (UTF-16 code units). */
 export const TITLE_MAX = 90;
@@ -250,130 +250,39 @@ export function upsertDraft(state, record) {
   return state;
 }
 
+/** Why a live standalone send is refused (the scheduled queue is the only sender). */
+export const ONE_SENDER =
+  'The scheduled queue is the only sender: export the day (cli.mjs export --date …) and the publish workflow sends ' +
+  'each item on its date. drafts --date only prints the payloads (--dry-run).';
+
 /**
- * Sends each post of the day (or one id) as a draft. With `dryRun`, prints the payloads and calls nothing.
- * `media`: [{ id, urls }] to reuse; otherwise publishMedia() runs first (unless dryRun, where URLs are derived).
+ * Prints the draft payload of each post of the day (or one id) and calls nothing. Sending is the scheduled queue's
+ * job alone: a second sender keeps its own state and could deliver a post twice, whatever lock it takes (Codex
+ * review, PR #13), so a live run is refused.
  */
 export async function runDrafts({
   date,
   id,
   dryRun = false,
-  wait = true,
   env = process.env,
   paths = defaultPaths(env),
-  fetch = globalThis.fetch,
   log = defaultLog,
-  accessToken,
-  media,
-  sleep,
   privacyLevel,
 } = {}) {
-  const day = loadDay(date, paths);
-  const selected = selectPosts(day, id);
-  // Same gates as the export and the queue (Codex review, PR #13): only fact-checked posts, never a second send.
-  const unchecked = selected.filter((p) => p.factCheck?.status !== 'PASS');
+  if (!dryRun) throw new Error(ONE_SENDER);
+  const posts = selectPosts(loadDay(date, paths), id);
+  const unchecked = posts.filter((p) => p.factCheck?.status !== 'PASS');
   if (unchecked.length)
     throw new Error(
       `${unchecked.map((p) => p.id).join(', ')}: fact-check is not PASS; fix or drop the post before sending it`,
     );
-  // The scheduled queue (GitHub Actions) keeps its own state in the public repo: a post it owns or has sent is never
-  // sent from here (Codex review, PR #13). A live run refreshes the clone first.
-  const site = siteOwnership(paths, { refresh: !dryRun, env });
-  const done = doneSpecIds([...loadDrafts(paths).drafts, ...site.drafts]);
-  for (const p of selected.filter((x) => site.queued.has(x.id) && !done.has(x.id)))
-    log.warn(
-      `${p.id}: in the scheduled queue (queue/${site.queued.get(p.id)}); the queue sends it, not this command`,
-    );
-  for (const p of selected.filter((x) => done.has(x.id)))
-    log.warn(
-      `${p.id}: already delivered, in flight, uncertain or out of attempts in drafts.json; not sent again`,
-    );
-  const posts = selected.filter((p) => !done.has(p.id) && !site.queued.has(p.id));
-  if (!posts.length) return [];
-  if (posts.length > PENDING_SHARE_CAP) {
-    log.warn(
-      `${posts.length} posts exceed TikTok's cap of ${PENDING_SHARE_CAP} pending API uploads per 24 h; use --id to split.`,
-    );
-  }
-  let mediaByPost = media ? new Map(media.map((m) => [m.id, m])) : null;
-  if (!mediaByPost) {
-    if (dryRun) {
-      mediaByPost = new Map(
-        posts.map((post) => {
-          const { pngs } = slidePngs(date, post, paths);
-          return [
-            post.id,
-            { id: post.id, urls: mediaTargets(date, post.id, pngs.length, paths.siteRepo).urls },
-          ];
-        }),
-      );
-    } else {
-      const published = await publishMedia({ date, id, env, paths, wait, fetch, log });
-      mediaByPost = new Map(published.map((m) => [m.id, m]));
-    }
-  }
-  const payloads = posts.map((post) => ({
-    post,
-    payload: buildInitPayload(post, mediaByPost.get(post.id).urls, { privacyLevel }),
-  }));
-  if (dryRun) {
-    for (const { post, payload } of payloads)
-      log(`[dry-run] ${post.id} -> POST ${ENDPOINTS.contentInit}\n${JSON.stringify(payload, null, 2)}`);
-    return payloads.map(({ post, payload }) => ({ specId: post.id, payload, dryRun: true }));
-  }
-  const token = accessToken ?? (await getAccessToken({ env, paths, fetch, log }));
-  const state = loadDrafts(paths);
-  const results = [];
-  for (const { post, payload } of payloads) {
-    log(`${post.id}: sending ${payload.source_info.photo_images.length} photo(s) as a draft…`);
-    // Lock first, as the queue does: if TikTok accepts the init but its answer is lost, a rerun must not send again.
-    const lock = `pending:${post.id}:${Date.now()}`;
-    upsertDraft(state, {
-      specId: post.id,
-      date,
-      publishId: lock,
-      title: payload.post_info.title,
-      urls: payload.source_info.photo_images,
-      status: 'SENDING',
-      failReason: null,
-      publicPostIds: [],
-      logId: null,
-    });
-    // upsertDraft stores a copy: work on the stored entry from here on.
-    const record = state.drafts.find((d) => d.publishId === lock);
-    saveDrafts(paths, state);
-    try {
-      const { publishId, logId } = await initDraft(payload, { accessToken: token, fetch });
-      Object.assign(record, {
-        publishId,
-        logId: logId ?? null,
-        status: 'INIT',
-        updatedAt: new Date().toISOString(),
-      });
-    } catch (err) {
-      // TikTok's own error code is a definite refusal (nothing was created); anything else leaves the fate UNKNOWN.
-      if (err instanceof TikTokApiError && err.code && err.code !== 'ok')
-        state.drafts.splice(state.drafts.indexOf(record), 1);
-      else Object.assign(record, { status: 'UNKNOWN', failReason: err.message.slice(0, 200) });
-      saveDrafts(paths, state);
-      throw err;
-    }
-    saveDrafts(paths, state);
-    const status = await pollStatus(record.publishId, { accessToken: token, fetch, log, sleep });
-    Object.assign(record, {
-      status: status.status,
-      failReason: status.failReason,
-      publicPostIds: status.publicPostIds,
-      lastCheckedAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    });
-    saveDrafts(paths, state);
-    results.push({ ...record, timedOut: status.timedOut });
-    log(
-      `${post.id}: ${status.status}${status.timedOut ? ' (still processing; run `drafts --check` later)' : ''}`,
-    );
-  }
-  return results;
+  return posts.map((post) => {
+    const { pngs } = slidePngs(date, post, paths);
+    const { urls } = mediaTargets(date, post.id, pngs.length, paths.siteRepo);
+    const payload = buildInitPayload(post, urls, { privacyLevel });
+    log(`[dry-run] ${post.id} -> POST ${ENDPOINTS.contentInit}\n${JSON.stringify(payload, null, 2)}`);
+    return { specId: post.id, payload, dryRun: true };
+  });
 }
 
 /** Re-polls every recorded draft that is not terminal yet and updates drafts.json. */

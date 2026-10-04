@@ -39,7 +39,7 @@ Commands
   exchange <code>      Exchange the code shown on callback.html for tokens (run within minutes)
   refresh              Refresh the access token; stores the rotated refresh token
   media                Convert the day's PNGs to JPEG, push them to the public site, wait until public
-  drafts               Send the day's posts to the owner's TikTok inbox as photo drafts (runs media first)
+  drafts --dry-run     Print the day's photo-draft payloads (sending is the scheduled queue's job: export)
   drafts --check       Re-poll the recorded drafts that are not final yet
   stats                Read the account's public post metrics into poster/state/stats.json
   export               Studio side: JPEGs + queue/<date>.json + runtime copy pushed to the public repo (no TikTok call)
@@ -209,14 +209,7 @@ export async function main(argv = process.argv.slice(2), { env = process.env, lo
         await checkDrafts({ env, paths, log });
         return 0;
       }
-      const results = await runDrafts({ date, id, dryRun, wait, env, paths, log });
-      if (!dryRun) {
-        for (const r of results)
-          log(
-            `${r.specId}: publish_id ${r.publishId} -> ${r.status}${r.failReason ? ` (${r.failReason})` : ''}`,
-          );
-        log(`Recorded in ${paths.draftsFile}. The owner now opens the TikTok inbox, adds a sound and posts.`);
-      }
+      await runDrafts({ date, id, dryRun, env, paths, log });
       return 0;
     }
     case 'stats': {
