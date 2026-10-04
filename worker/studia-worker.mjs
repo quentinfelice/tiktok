@@ -267,6 +267,8 @@ export function buildVideoPost(input, creator, mode) {
   if (brandContent && privacy === 'SELF_ONLY')
     throw new HttpError(400, 'branded_private', 'Branded content visibility cannot be set to private');
   const seconds = Number(input.durationSec);
+  if (creator.maxVideoPostDurationSec && !(Number.isFinite(seconds) && seconds > 0))
+    throw new HttpError(400, 'duration_required', 'The video length is needed to check your account limit');
   if (creator.maxVideoPostDurationSec && seconds > creator.maxVideoPostDurationSec)
     throw new HttpError(
       400,

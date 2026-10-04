@@ -668,12 +668,14 @@
         if (direct && !$('privacy').value) ok = false;
         // A video longer than the account may post cannot be sent (creator_info max_video_post_duration_sec).
         const maxSec = state.creator?.maxVideoPostDurationSec;
-        const tooLong = direct && state.item?.kind === 'video' && maxSec && state.duration > maxSec;
+        const limited = direct && state.item?.kind === 'video' && maxSec;
+        const measuring = limited && !(state.duration > 0);
+        const tooLong = limited && state.duration > maxSec;
         $('duration-note').hidden = !tooLong;
         $('duration-note').textContent = tooLong
           ? `This video is ${Math.round(state.duration)} s; your account can post up to ${maxSec} s.`
           : '';
-        if (tooLong) ok = false;
+        if (tooLong || measuring) ok = false;
         $('post').disabled = !ok;
         $('post').title = disclose && !organic && !branded ? DISCLOSE_MISSING : '';
         // consent line (Music Usage Confirmation, plus the Branded Content Policy when branded)
