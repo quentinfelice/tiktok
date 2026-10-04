@@ -134,11 +134,12 @@ async function openSession(request, env) {
   return { session, refreshed };
 }
 
-async function tiktok(url, session, body) {
+async function tiktok(url, session, body, { signal } = {}) {
   const res = await fetch(url, {
     method: 'POST',
     headers: { Authorization: `Bearer ${session.a}`, 'Content-Type': 'application/json; charset=UTF-8' },
     body: JSON.stringify(body ?? {}),
+    signal,
   });
   const json = await res.json().catch(() => null);
   const err = json?.error ?? {};
@@ -356,24 +357,28 @@ async function route(request, env, cfg) {
  * asked (SENDING); a definite TikTok refusal releases it; an unclear outcome keeps it (UNKNOWN) until the owner checks
  * TikTok and unlocks it; an accepted post keeps its publish id until TikTok reports it FAILED.
  */
-const STALE_SENDING_MS = 2 * 60 * 1000;
+/** The direct-post init call is cut after this; a SENDING record 4 times older belongs to a request that is gone. */
+export const TIKTOK_INIT_TIMEOUT_MS = 30 * 1000;
+const STALE_SENDING_MS = 4 * TIKTOK_INIT_TIMEOUT_MS;
 export class SentLock {
   constructor(state) {
     this.state = state;
   }
   async fetch(request) {
-    const { op, rec, publishId } = await request.json();
+    const { op, rec, publishId, token } = await request.json();
     // One operation at a time per item: read-then-write cannot interleave with another browser's request.
     const out = await this.state.blockConcurrencyWhile(async () => {
       const storage = this.state.storage;
       const cur = (await storage.get('rec')) ?? null;
       if (op === 'acquire') {
         if (cur) return { acquired: false, rec: cur };
-        await storage.put('rec', { status: 'SENDING', at: new Date().toISOString() });
+        await storage.put('rec', { status: 'SENDING', token, at: new Date().toISOString() });
         return { acquired: true };
       }
       if (op === 'settle') {
-        await storage.put('rec', { ...rec, at: new Date().toISOString() });
+        // Fencing: only the request holding the lock writes its outcome.
+        if (!token || cur?.token !== token) return { ok: false, rec: cur };
+        await storage.put('rec', { ...rec, token, at: new Date().toISOString() });
         return { ok: true };
       }
       if (op === 'release') {
@@ -383,9 +388,10 @@ export class SentLock {
             mine = cur.publishId === publishId; // TikTok reported this very post FAILED
           else if (cur.publishId)
             mine = false; // an accepted post is never released otherwise
-          else if (rec?.status === 'SENDING')
-            mine = cur.status === 'SENDING'; // the holder's own lock, refused by TikTok
-          // The owner's unlock: an unclear outcome, or a SENDING lock whose request died long ago.
+          else if (token)
+            mine = cur.status === 'SENDING' && cur.token === token; // the holder's own lock, refused by TikTok
+          // The owner's unlock: an unclear outcome, or a SENDING lock older than any request can live (the TikTok
+          // call is cut at TIKTOK_INIT_TIMEOUT_MS), so its holder is gone and can no longer settle.
           else mine = cur.status === 'UNKNOWN' || Date.now() - Date.parse(cur.at) > STALE_SENDING_MS;
         }
         if (mine) await storage.delete('rec');
@@ -425,7 +431,8 @@ async function postDirect(input, session, cfg, env) {
   const target = input?.video
     ? buildVideoPost(input, creator, cfg.mode)
     : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
-  const taken = await lock('acquire');
+  const token = crypto.randomUUID();
+  const taken = await lock('acquire', { token });
   if (!taken.acquired && taken.rec?.publishId)
     throw new HttpError(
       409,
@@ -440,17 +447,20 @@ async function postDirect(input, session, cfg, env) {
     );
   let d;
   try {
-    d = await tiktok(target.url, session, target.body);
+    // Bounded, so a SENDING record can only outlive its request when that request is gone (see SentLock).
+    d = await tiktok(target.url, session, target.body, {
+      signal: AbortSignal.timeout(TIKTOK_INIT_TIMEOUT_MS),
+    });
   } catch (err) {
-    if (err?.refused) await lock('release', { rec: { status: 'SENDING' } });
-    else await lock('settle', { rec: { status: 'UNKNOWN' } });
+    if (err?.refused) await lock('release', { token });
+    else await lock('settle', { token, rec: { status: 'UNKNOWN' } });
     throw err;
   }
   if (!d.publish_id) {
-    await lock('settle', { rec: { status: 'UNKNOWN' } });
+    await lock('settle', { token, rec: { status: 'UNKNOWN' } });
     throw new HttpError(502, 'no_publish_id', 'TikTok did not return a publish id');
   }
-  await lock('settle', { rec: { status: 'INIT', publishId: d.publish_id } });
+  await lock('settle', { token, rec: { status: 'INIT', publishId: d.publish_id } });
   return { publishId: d.publish_id, mode: cfg.mode };
 }
 
