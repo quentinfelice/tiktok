@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T21:23:41.000Z",
+  "fetchedAt": "2026-10-04T21:32:42.599Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-10-04T20:15:07.000Z",
       "createTimeUnix": 1791144907,
       "title": "Do you swallow spiders in your sleep? Myth check. A spider expert at the Burke Museum (University of Washington) says no case is on formal record, and a sleeper's vibrations tend to warn spiders away. An expert's view, not a study. #spiders #sleepmyths #mythbusting #sleep #didyouknow",
-      "views": 115,
+      "views": 119,
       "likes": 2,
       "comments": 0,
       "shares": 1,
