@@ -274,6 +274,9 @@ export function buildVideoPost(input, creator, mode) {
         disable_stitch: true,
         brand_content_toggle: brandContent,
         brand_organic_toggle: brandOrganic,
+        // AI-generated content label (synthetic narration). The field name follows TikTok's Direct Post reference as
+        // cited in the Codex review of 2026-10-04; it could not be read from here (egress-blocked).
+        is_aigc: Boolean(input.isAigc),
       },
       source_info,
     },
