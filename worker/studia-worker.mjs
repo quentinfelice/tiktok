@@ -185,7 +185,10 @@ const creatorInfo = async (session) => {
     avatarUrl: d.creator_avatar_url ?? null,
     privacyLevelOptions: d.privacy_level_options ?? [],
     commentDisabled: Boolean(d.comment_disabled),
+    duetDisabled: Boolean(d.duet_disabled),
+    stitchDisabled: Boolean(d.stitch_disabled),
     maxPhotoCount: d.max_photo_count ?? null,
+    maxVideoPostDurationSec: d.max_video_post_duration_sec ?? null,
   };
 };
 
@@ -263,6 +266,13 @@ export function buildVideoPost(input, creator, mode) {
   const brandOrganic = Boolean(input.brandOrganic);
   if (brandContent && privacy === 'SELF_ONLY')
     throw new HttpError(400, 'branded_private', 'Branded content visibility cannot be set to private');
+  const seconds = Number(input.durationSec);
+  if (creator.maxVideoPostDurationSec && seconds > creator.maxVideoPostDurationSec)
+    throw new HttpError(
+      400,
+      'video_too_long',
+      `This account can post videos up to ${creator.maxVideoPostDurationSec} seconds`,
+    );
   return {
     url: TT.videoInit,
     body: {
@@ -270,8 +280,9 @@ export function buildVideoPost(input, creator, mode) {
         title: caption,
         privacy_level: privacy,
         disable_comment: creator.commentDisabled || Boolean(input.disableComment),
-        disable_duet: true,
-        disable_stitch: true,
+        // Duet and Stitch follow the creator's own choice (off unless ticked), and stay off when the account forbids them.
+        disable_duet: Boolean(creator.duetDisabled) || !input.allowDuet,
+        disable_stitch: Boolean(creator.stitchDisabled) || !input.allowStitch,
         brand_content_toggle: brandContent,
         brand_organic_toggle: brandOrganic,
         // AI-generated content label (synthetic narration). The field name follows TikTok's Direct Post reference as

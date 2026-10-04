@@ -285,6 +285,21 @@
               </div>
               <p id="comments-note" class="note" hidden>Comments are turned off in your TikTok settings.</p>
 
+              <div id="video-opts" hidden>
+                <div class="row">
+                  <input id="allow-duet" type="checkbox" />
+                  <label for="allow-duet">Allow Duet</label>
+                </div>
+                <div class="row">
+                  <input id="allow-stitch" type="checkbox" />
+                  <label for="allow-stitch">Allow Stitch</label>
+                </div>
+                <p id="interact-note" class="note" hidden>
+                  Some interactions are turned off in your TikTok settings.
+                </p>
+                <p id="duration-note" class="warn" hidden></p>
+              </div>
+
               <div class="row">
                 <input id="ai-label" type="checkbox" />
                 <label for="ai-label">AI-generated content</label>
@@ -496,6 +511,9 @@
         fillPrivacy();
         $('allow-comments').disabled = creator.commentDisabled;
         $('comments-note').hidden = !creator.commentDisabled;
+        $('allow-duet').disabled = Boolean(creator.duetDisabled);
+        $('allow-stitch').disabled = Boolean(creator.stitchDisabled);
+        $('interact-note').hidden = !(creator.duetDisabled || creator.stitchDisabled);
         await loadSlideshows();
       }
 
@@ -598,6 +616,17 @@
         $('progress').hidden = true;
         $('privacy').value = '';
         $('allow-comments').checked = false;
+        $('allow-duet').checked = false;
+        $('allow-stitch').checked = false;
+        $('video-opts').hidden = !isVideo;
+        state.duration = null;
+        if (isVideo) {
+          const v = $('preview').querySelector('video');
+          v.addEventListener('loadedmetadata', () => {
+            state.duration = v.duration;
+            refresh();
+          });
+        }
         $('ai-label').checked = Boolean(item.aigc);
         $('disclose').checked = false;
         $('brand-organic').checked = false;
@@ -637,6 +666,14 @@
         $('privacy-note').hidden = !branded;
         $('privacy-note').textContent = 'Branded content visibility cannot be set to private.';
         if (direct && !$('privacy').value) ok = false;
+        // A video longer than the account may post cannot be sent (creator_info max_video_post_duration_sec).
+        const maxSec = state.creator?.maxVideoPostDurationSec;
+        const tooLong = direct && state.item?.kind === 'video' && maxSec && state.duration > maxSec;
+        $('duration-note').hidden = !tooLong;
+        $('duration-note').textContent = tooLong
+          ? `This video is ${Math.round(state.duration)} s; your account can post up to ${maxSec} s.`
+          : '';
+        if (tooLong) ok = false;
         $('post').disabled = !ok;
         $('post').title = disclose && !organic && !branded ? DISCLOSE_MISSING : '';
         // consent line (Music Usage Confirmation, plus the Branded Content Policy when branded)
@@ -715,6 +752,13 @@
               privacyLevel: $('privacy').value,
               disableComment: !$('allow-comments').checked,
               isAigc: $('ai-label').checked,
+              ...(state.item.kind === 'video'
+                ? {
+                    allowDuet: $('allow-duet').checked,
+                    allowStitch: $('allow-stitch').checked,
+                    durationSec: state.duration ?? undefined,
+                  }
+                : {}),
               brandOrganic: $('disclose').checked && $('brand-organic').checked,
               brandContent: $('disclose').checked && $('brand-content').checked,
             });
