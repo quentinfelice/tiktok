@@ -4,7 +4,7 @@
 
 import { ENDPOINTS, PUBLIC_BASE, defaultLog, defaultPaths, readJson, writeJson } from './config.mjs';
 import { getAccessToken } from './auth.mjs';
-import { loadDay, mediaTargets, publishMedia, selectPosts, slidePngs } from './media.mjs';
+import { loadDay, mediaTargets, publishMedia, selectPosts, siteOwnership, slidePngs } from './media.mjs';
 
 /** Limits from the photo post reference (UTF-16 code units). */
 export const TITLE_MAX = 90;
@@ -276,12 +276,19 @@ export async function runDrafts({
     throw new Error(
       `${unchecked.map((p) => p.id).join(', ')}: fact-check is not PASS; fix or drop the post before sending it`,
     );
-  const done = doneSpecIds(loadDrafts(paths).drafts);
+  // The scheduled queue (GitHub Actions) keeps its own state in the public repo: a post it owns or has sent is never
+  // sent from here (Codex review, PR #13). A live run refreshes the clone first.
+  const site = siteOwnership(paths, { refresh: !dryRun, env });
+  const done = doneSpecIds([...loadDrafts(paths).drafts, ...site.drafts]);
+  for (const p of selected.filter((x) => site.queued.has(x.id) && !done.has(x.id)))
+    log.warn(
+      `${p.id}: in the scheduled queue (queue/${site.queued.get(p.id)}); the queue sends it, not this command`,
+    );
   for (const p of selected.filter((x) => done.has(x.id)))
     log.warn(
       `${p.id}: already delivered, in flight, uncertain or out of attempts in drafts.json; not sent again`,
     );
-  const posts = selected.filter((p) => !done.has(p.id));
+  const posts = selected.filter((p) => !done.has(p.id) && !site.queued.has(p.id));
   if (!posts.length) return [];
   if (posts.length > PENDING_SHARE_CAP) {
     log.warn(
