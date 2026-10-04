@@ -15,6 +15,35 @@ export const PENDING_SHARE_CAP = 5;
 /** status/fetch: 30 requests per minute per user access token. */
 export const TERMINAL_STATUSES = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE', 'FAILED']);
 
+/**
+ * SENDING is written before the init call; UNKNOWN replaces it when the answer was lost or unclear (TikTok may have
+ * the post). Both block a resend: only a person who checked the TikTok inbox clears an UNKNOWN record.
+ */
+export const UNCERTAIN = new Set(['SENDING', 'UNKNOWN']);
+/** A post is done once a record delivered it or one is still on its way; some FAILED ones are retried. */
+export const DELIVERED = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE']);
+export const IN_FLIGHT = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'PROCESSING_UPLOAD']);
+export const MAX_ATTEMPTS = 3;
+/** Fail reasons TikTok's status reference treats as transient; any other FAILED record is final (no resend). */
+export const RETRYABLE_FAILS = new Set(['internal', 'video_pull_failed', 'photo_pull_failed']);
+const finalFail = (d) => d.status === 'FAILED' && !RETRYABLE_FAILS.has(d.failReason);
+
+/** Spec ids that must not be sent again: delivered, in flight, or out of attempts (MAX_ATTEMPTS records). */
+export function doneSpecIds(drafts) {
+  const bySpec = new Map();
+  for (const d of drafts) bySpec.set(d.specId, [...(bySpec.get(d.specId) ?? []), d]);
+  const done = new Set();
+  for (const [id, recs] of bySpec)
+    if (
+      recs.length >= MAX_ATTEMPTS ||
+      recs.some(
+        (d) => DELIVERED.has(d.status) || IN_FLIGHT.has(d.status) || UNCERTAIN.has(d.status) || finalFail(d),
+      )
+    )
+      done.add(id);
+  return done;
+}
+
 /** Cuts to `max` UTF-16 units without splitting a surrogate pair; adds an ellipsis when cut. */
 export function utf16Truncate(text, max) {
   const s = String(text ?? '');
@@ -240,7 +269,20 @@ export async function runDrafts({
   privacyLevel,
 } = {}) {
   const day = loadDay(date, paths);
-  const posts = selectPosts(day, id);
+  const selected = selectPosts(day, id);
+  // Same gates as the export and the queue (Codex review, PR #13): only fact-checked posts, never a second send.
+  const unchecked = selected.filter((p) => p.factCheck?.status !== 'PASS');
+  if (unchecked.length)
+    throw new Error(
+      `${unchecked.map((p) => p.id).join(', ')}: fact-check is not PASS; fix or drop the post before sending it`,
+    );
+  const done = doneSpecIds(loadDrafts(paths).drafts);
+  for (const p of selected.filter((x) => done.has(x.id)))
+    log.warn(
+      `${p.id}: already delivered, in flight, uncertain or out of attempts in drafts.json; not sent again`,
+    );
+  const posts = selected.filter((p) => !done.has(p.id));
+  if (!posts.length) return [];
   if (posts.length > PENDING_SHARE_CAP) {
     log.warn(
       `${posts.length} posts exceed TikTok's cap of ${PENDING_SHARE_CAP} pending API uploads per 24 h; use --id to split.`,
@@ -277,28 +319,47 @@ export async function runDrafts({
   const results = [];
   for (const { post, payload } of payloads) {
     log(`${post.id}: sending ${payload.source_info.photo_images.length} photo(s) as a draft…`);
-    const { publishId, logId } = await initDraft(payload, { accessToken: token, fetch });
-    const record = {
+    // Lock first, as the queue does: if TikTok accepts the init but its answer is lost, a rerun must not send again.
+    const lock = `pending:${post.id}:${Date.now()}`;
+    upsertDraft(state, {
       specId: post.id,
       date,
-      publishId,
+      publishId: lock,
       title: payload.post_info.title,
       urls: payload.source_info.photo_images,
-      status: 'INIT',
+      status: 'SENDING',
       failReason: null,
       publicPostIds: [],
-      logId: logId ?? null,
-    };
-    upsertDraft(state, record);
+      logId: null,
+    });
+    // upsertDraft stores a copy: work on the stored entry from here on.
+    const record = state.drafts.find((d) => d.publishId === lock);
     saveDrafts(paths, state);
-    const status = await pollStatus(publishId, { accessToken: token, fetch, log, sleep });
+    try {
+      const { publishId, logId } = await initDraft(payload, { accessToken: token, fetch });
+      Object.assign(record, {
+        publishId,
+        logId: logId ?? null,
+        status: 'INIT',
+        updatedAt: new Date().toISOString(),
+      });
+    } catch (err) {
+      // TikTok's own error code is a definite refusal (nothing was created); anything else leaves the fate UNKNOWN.
+      if (err instanceof TikTokApiError && err.code && err.code !== 'ok')
+        state.drafts.splice(state.drafts.indexOf(record), 1);
+      else Object.assign(record, { status: 'UNKNOWN', failReason: err.message.slice(0, 200) });
+      saveDrafts(paths, state);
+      throw err;
+    }
+    saveDrafts(paths, state);
+    const status = await pollStatus(record.publishId, { accessToken: token, fetch, log, sleep });
     Object.assign(record, {
       status: status.status,
       failReason: status.failReason,
       publicPostIds: status.publicPostIds,
       lastCheckedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     });
-    upsertDraft(state, record);
     saveDrafts(paths, state);
     results.push({ ...record, timedOut: status.timedOut });
     log(
@@ -317,8 +378,10 @@ export async function checkDrafts({
   accessToken,
 } = {}) {
   const state = loadDrafts(paths);
+  // A SENDING/UNKNOWN lock has no TikTok publish id to poll: only a person who checked the inbox clears it.
   const open = state.drafts.filter(
-    (d) => !TERMINAL_STATUSES.has(d.status) || d.status === 'SEND_TO_USER_INBOX',
+    (d) =>
+      !UNCERTAIN.has(d.status) && (!TERMINAL_STATUSES.has(d.status) || d.status === 'SEND_TO_USER_INBOX'),
   );
   if (!open.length) {
     log('No drafts to check.');

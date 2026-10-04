@@ -6,11 +6,13 @@ import { join } from 'node:path';
 import { defaultLog, defaultPaths, postMode, readJson, todayBrussels } from './config.mjs';
 import { getAccessToken } from './auth.mjs';
 import {
+  IN_FLIGHT,
   PENDING_SHARE_CAP,
   TikTokApiError,
   assertCreatorAllows,
   buildInitPayload,
   buildVideoInitPayload,
+  doneSpecIds,
   initDraft,
   initVideoDraft,
   fetchStatus,
@@ -25,34 +27,7 @@ import { runStats } from './stats.mjs';
 const PENDING_WINDOW_MS = 24 * 60 * 60 * 1000;
 /** Drafts that still count against TikTok's pending-upload cap (an UNKNOWN send may have reached TikTok). */
 const PENDING_STATUSES = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'SEND_TO_USER_INBOX', 'UNKNOWN']);
-/**
- * SENDING is written before the init call; UNKNOWN replaces it when the answer was lost or unclear (TikTok may have
- * the post). Both block a resend: only a person who checked the TikTok inbox clears an UNKNOWN record.
- */
-const UNCERTAIN = new Set(['SENDING', 'UNKNOWN']);
-/** A queue item is done once a record delivered it or one is still on its way; some FAILED ones are retried. */
-const DELIVERED = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE']);
-const IN_FLIGHT = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'PROCESSING_UPLOAD']);
-export const MAX_ATTEMPTS = 3;
-/** Fail reasons TikTok's status reference treats as transient; any other FAILED record is final (no resend). */
-export const RETRYABLE_FAILS = new Set(['internal', 'video_pull_failed', 'photo_pull_failed']);
-const finalFail = (d) => d.status === 'FAILED' && !RETRYABLE_FAILS.has(d.failReason);
-
-/** Spec ids that must not be sent again: delivered, in flight, or out of attempts (MAX_ATTEMPTS records). */
-export function doneSpecIds(drafts) {
-  const bySpec = new Map();
-  for (const d of drafts) bySpec.set(d.specId, [...(bySpec.get(d.specId) ?? []), d]);
-  const done = new Set();
-  for (const [id, recs] of bySpec)
-    if (
-      recs.length >= MAX_ATTEMPTS ||
-      recs.some(
-        (d) => DELIVERED.has(d.status) || IN_FLIGHT.has(d.status) || UNCERTAIN.has(d.status) || finalFail(d),
-      )
-    )
-      done.add(id);
-  return done;
-}
+export { MAX_ATTEMPTS, RETRYABLE_FAILS, doneSpecIds } from './drafts.mjs';
 
 /**
  * Re-checks records a past run left in flight (polling timed out): TikTok may have delivered or failed them since.

@@ -160,6 +160,19 @@ export function commitAndPush({
   dryRun = false,
 }) {
   checkSiteRepo(siteRepo);
+  // The commit below takes everything staged: a change someone staged by hand elsewhere in the public checkout would
+  // be pushed along with the export. Refuse instead (Codex review, PR #13).
+  const staged = (args) =>
+    git(['diff', '--cached', '--name-only', ...args], { cwd: siteRepo })
+      .split('\n')
+      .filter(Boolean);
+  const owned = new Set(staged(['--', ...pathspecs]));
+  const foreign = staged([]).filter((f) => !owned.has(f));
+  if (foreign.length)
+    throw new Error(
+      `The site repo has staged changes outside ${pathspecs.join(', ')}: ${foreign.slice(0, 5).join(', ')}. ` +
+        'Commit or unstage them first; the export commits only its own files.',
+    );
   git(['add', '-A', '--', ...pathspecs], { cwd: siteRepo });
   const changed = git(['status', '--porcelain', '--', ...pathspecs], { cwd: siteRepo });
   let committed = false;
