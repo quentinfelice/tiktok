@@ -14,7 +14,7 @@ import {
   readJson,
   writeJson,
 } from './config.mjs';
-import { buildDescription, buildTitle } from './drafts.mjs';
+import { HANDED_TO_APP, buildDescription, buildTitle } from './drafts.mjs';
 import {
   checkSiteRepo,
   commitAndPush,
@@ -112,10 +112,14 @@ export function writeManifest(paths, date, items) {
   return { file, manifest };
 }
 
-/** True once the public state/drafts.json holds a record for this item (the queue sent it or tried to). */
+/**
+ * True once the public state/drafts.json holds a send attempt for this item (the queue sent it or tried to). A
+ * HANDED_TO_APP record is a hand-over, not a send: the item can still be withdrawn (Codex review, PR #13).
+ */
 export function sentFromSite(paths, id) {
-  const drafts = readJson(join(paths.siteRepo ?? '', 'state', 'drafts.json'), { drafts: [] }).drafts ?? [];
-  return drafts.some((d) => d.specId === id);
+  if (!paths.siteRepo) return false;
+  const drafts = readJson(join(paths.siteRepo, 'state', 'drafts.json'), { drafts: [] }).drafts ?? [];
+  return drafts.some((d) => d.specId === id && d.status !== HANDED_TO_APP);
 }
 
 /**

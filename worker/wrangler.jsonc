@@ -1,7 +1,9 @@
 // Cloudflare Workers Builds / wrangler configuration for the Studia Worker (no secret here).
 // Secrets (TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, SESSION_KEY) are set once in the Cloudflare dashboard.
 // Inbox drafts: the operating mode while the Direct Post audit is on HOLD (AUDIT_PACK.md). Direct Post would be
-// POST_MODE "direct" and SCOPES "user.info.basic,video.publish,video.list" (then log in again).
+// POST_MODE "direct" and SCOPES "user.info.basic,video.publish,video.list" (then log in again), plus a KV namespace bound
+// as SENT (one record per posted item, shared by every browser): "kv_namespaces": [{ "binding": "SENT", "id": "<id>" }].
+// Without it, direct posts are refused (server_not_configured).
 {
   "name": "tiktok",
   "main": "studia-worker.mjs",

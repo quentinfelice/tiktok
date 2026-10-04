@@ -777,6 +777,7 @@
         UNKNOWN:
           'no answer from the server: it may have reached TikTok. Check your TikTok inbox or profile before trying again',
         FAILED: 'failed; the daily run decides whether to try again',
+        POSTED_ELSEWHERE: 'already posted from this app, here or on another device',
       };
       const POLL_MS = Number(window.STUDIA_POLL_MS) || 4000;
       const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -820,6 +821,8 @@
                 };
           if (direct)
             Object.assign(body, {
+              // The Worker keeps one record per item for every browser and device: an item is posted once.
+              itemId: item.id,
               privacyLevel: $('privacy').value,
               disableComment: !$('allow-comments').checked,
               isAigc: $('ai-label').checked,
@@ -845,7 +848,12 @@
           } catch (err) {
             // A 4xx is a refusal before or at initialization (validation, session, TikTok's own refusal): nothing was
             // created. A 5xx or no answer at all may come after TikTok accepted it: keep it locked until the owner checks.
-            if (err.status >= 400 && err.status < 500) delete state.sent[item.id];
+            // The Worker's shared record may know this item from another browser or device.
+            if (err.code === 'already_posted')
+              state.sent[item.id] = { publishId: null, status: 'POSTED_ELSEWHERE' };
+            else if (err.code === 'post_uncertain')
+              state.sent[item.id] = { publishId: null, status: 'UNKNOWN' };
+            else if (err.status >= 400 && err.status < 500) delete state.sent[item.id];
             else state.sent[item.id].status = 'UNKNOWN';
             saveSent();
             throw err;
@@ -886,9 +894,22 @@
         show('TikTok is still processing. Check your profile in a few minutes, or check the status again.');
       }
 
-      $('unlock').addEventListener('click', () => {
-        if (!state.item || state.sent[state.item.id]?.status !== 'UNKNOWN') return;
-        delete state.sent[state.item.id];
+      $('unlock').addEventListener('click', async () => {
+        const item = state.item;
+        if (!item || state.sent[item.id]?.status !== 'UNKNOWN') return;
+        if (state.mode === 'direct')
+          try {
+            // The Worker's record is shared by every browser: it is cleared there first.
+            await api('/api/unlock', { body: { itemId: item.id } });
+          } catch (err) {
+            if (err.code === 'already_posted') {
+              state.sent[item.id] = { publishId: null, status: 'POSTED_ELSEWHERE' };
+              saveSent();
+              refresh();
+            }
+            return show(err.message, true);
+          }
+        delete state.sent[item.id];
         saveSent();
         show('Unlocked. Send it again only if it is not in your TikTok inbox or on your profile.');
         refresh();

@@ -143,10 +143,14 @@ async function tiktok(url, session, body) {
   const json = await res.json().catch(() => null);
   const err = json?.error ?? {};
   if (!json || !res.ok || (err.code && err.code !== 'ok'))
-    throw new HttpError(
-      res.ok ? 400 : 502,
-      err.code || `http_${res.status}`,
-      err.message || 'TikTok request failed',
+    throw Object.assign(
+      new HttpError(
+        res.ok ? 400 : 502,
+        err.code || `http_${res.status}`,
+        err.message || 'TikTok request failed',
+      ),
+      // TikTok answered with its own error code: a definite refusal, nothing was created.
+      { refused: Boolean(json && err.code && err.code !== 'ok') },
     );
   return json.data ?? {};
 }
@@ -333,7 +337,7 @@ async function route(request, env, cfg) {
   if (method === 'POST' && pathname.startsWith('/api/')) {
     const { session, refreshed } = await openSession(request, env);
     try {
-      return { body: await apiRoute(request, pathname, session, cfg), refreshed };
+      return { body: await apiRoute(request, pathname, session, cfg, env), refreshed };
     } catch (err) {
       // TikTok may rotate the refresh token: a refreshed session goes back even when the call itself fails, or the
       // browser would keep a token that can no longer refresh (Codex review, PR #13).
@@ -344,7 +348,67 @@ async function route(request, env, cfg) {
   throw new HttpError(404, 'not_found');
 }
 
-async function apiRoute(request, pathname, session, cfg) {
+/**
+ * Direct mode: one record per queue item in the SENT KV namespace, shared by every browser and device, so an item is
+ * posted once even when another browser has no local record of it (Codex review, PR #13). Locked before TikTok is
+ * asked (SENDING); a definite TikTok refusal removes it; any unclear outcome keeps it (UNKNOWN) until the owner
+ * checks TikTok and unlocks it.
+ */
+const ITEM_ID = /^\d{4}-[VS]?\d+$/;
+function sentStore(env) {
+  if (!env.SENT)
+    throw new HttpError(
+      500,
+      'server_not_configured',
+      'Direct mode needs the SENT KV namespace (one record per posted item); see worker/README.md',
+    );
+  return env.SENT;
+}
+const itemIdOf = (input) => {
+  if (typeof input?.itemId !== 'string' || !ITEM_ID.test(input.itemId))
+    throw new HttpError(400, 'bad_item', 'The queue item id is required');
+  return input.itemId;
+};
+
+async function postDirect(input, session, cfg, env) {
+  const itemId = itemIdOf(input);
+  const sent = sentStore(env);
+  const creator = await creatorFor(session, cfg.mode);
+  const target = input?.video
+    ? buildVideoPost(input, creator, cfg.mode)
+    : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
+  const prior = await sent.get(itemId, 'json');
+  if (prior?.publishId)
+    throw new HttpError(
+      409,
+      'already_posted',
+      'This item was already posted from the app (here or on another device).',
+    );
+  if (prior)
+    throw new HttpError(
+      409,
+      'post_uncertain',
+      'An earlier post of this item got no clear answer. Check TikTok; if it is not there, unlock it and post again.',
+    );
+  const at = () => new Date().toISOString();
+  await sent.put(itemId, JSON.stringify({ status: 'SENDING', at: at() }));
+  let d;
+  try {
+    d = await tiktok(target.url, session, target.body);
+  } catch (err) {
+    if (err?.refused) await sent.delete(itemId);
+    else await sent.put(itemId, JSON.stringify({ status: 'UNKNOWN', at: at() }));
+    throw err;
+  }
+  if (!d.publish_id) {
+    await sent.put(itemId, JSON.stringify({ status: 'UNKNOWN', at: at() }));
+    throw new HttpError(502, 'no_publish_id', 'TikTok did not return a publish id');
+  }
+  await sent.put(itemId, JSON.stringify({ status: 'INIT', publishId: d.publish_id, at: at() }));
+  return { publishId: d.publish_id, mode: cfg.mode };
+}
+
+async function apiRoute(request, pathname, session, cfg, env) {
   let body;
   if (pathname === '/api/creator') {
     body = { creator: await creatorFor(session, cfg.mode), mode: cfg.mode };
@@ -357,14 +421,18 @@ async function apiRoute(request, pathname, session, cfg) {
         'draft_mode_viewer',
         'In draft mode the daily run sends every item to your TikTok inbox; the app does not post.',
       );
-    const input = await request.json().catch(() => null);
-    const creator = await creatorFor(session, cfg.mode);
-    const target = input?.video
-      ? buildVideoPost(input, creator, cfg.mode)
-      : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
-    const d = await tiktok(target.url, session, target.body);
-    if (!d.publish_id) throw new HttpError(502, 'no_publish_id', 'TikTok did not return a publish id');
-    body = { publishId: d.publish_id, mode: cfg.mode };
+    body = await postDirect(await request.json().catch(() => null), session, cfg, env);
+  } else if (pathname === '/api/unlock') {
+    // The owner checked TikTok after an unclear outcome: the item is not there, so it may be posted again.
+    if (cfg.mode !== 'direct')
+      throw new HttpError(409, 'draft_mode_viewer', 'Nothing to unlock in draft mode.');
+    const itemId = itemIdOf(await request.json().catch(() => null));
+    const sent = sentStore(env);
+    const rec = await sent.get(itemId, 'json');
+    if (rec?.publishId)
+      throw new HttpError(409, 'already_posted', 'TikTok accepted this item; it cannot be unlocked.');
+    if (rec) await sent.delete(itemId);
+    body = { unlocked: true };
   } else if (pathname === '/api/status') {
     const { publishId } = (await request.json().catch(() => ({}))) ?? {};
     if (typeof publishId !== 'string' || !/^[\w.~-]{4,200}$/.test(publishId))

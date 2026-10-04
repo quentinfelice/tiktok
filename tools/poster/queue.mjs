@@ -37,7 +37,8 @@ export { MAX_ATTEMPTS, RETRYABLE_FAILS, doneSpecIds } from './drafts.mjs';
  * A failed fetch is false: the item waits for the next run (fail closed).
  */
 export function stillQueued(paths, item, { env = process.env, log = defaultLog } = {}) {
-  if (!existsSync(join(paths.siteRepo ?? '', '.git'))) return true;
+  // No site repo given (unit tests pass partial paths): nothing to resolve against the working directory.
+  if (!paths.siteRepo || !existsSync(join(paths.siteRepo, '.git'))) return true;
   try {
     git(['fetch', '-q', 'origin', '+refs/heads/main:refs/remotes/origin/main'], {
       cwd: paths.siteRepo,
@@ -64,7 +65,8 @@ export function stillQueued(paths, item, { env = process.env, log = defaultLog }
  * builds from). No file means no web app is deployed from this repo: draft.
  */
 export function workerMode(paths) {
-  const file = join(paths.siteRepo ?? '', 'worker', 'wrangler.jsonc');
+  if (!paths.siteRepo) return 'draft';
+  const file = join(paths.siteRepo, 'worker', 'wrangler.jsonc');
   if (!existsSync(file)) return 'draft';
   const text = readFileSync(file, 'utf8').replace(/^\s*\/\/.*$/gm, '');
   return /"POST_MODE"\s*:\s*"direct"/.test(text) ? 'direct' : 'draft';
