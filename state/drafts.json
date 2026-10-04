@@ -314,6 +314,65 @@
       "logId": "2026100311570505AAD94A55C30A253DA0",
       "updatedAt": "2026-10-03T11:59:19.753Z",
       "lastCheckedAt": "2026-10-03T11:59:19.753Z"
+    },
+    {
+      "createdAt": "2026-10-04T20:13:35.790Z",
+      "specId": "1005-S1",
+      "date": "2026-10-04",
+      "publishId": "p_inbox_url~v2.7692907984489744386",
+      "kind": "photos",
+      "title": "Do you swallow spiders in your sleep? Myth check.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "202610042013351FF3A5BBFE5D05673B87",
+      "updatedAt": "2026-10-04T20:13:41.412Z",
+      "lastCheckedAt": "2026-10-04T20:13:41.412Z"
+    },
+    {
+      "createdAt": "2026-10-04T20:13:42.241Z",
+      "specId": "1005-V2",
+      "date": "2026-10-04",
+      "publishId": "v_inbox_url~v2.7692908260621551618",
+      "kind": "video",
+      "title": "Why can't you move when you wake up?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-V2/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "202610042013419EC3001BF2057628368A",
+      "updatedAt": "2026-10-04T20:14:16.152Z",
+      "lastCheckedAt": "2026-10-04T20:14:16.152Z"
+    },
+    {
+      "createdAt": "2026-10-04T20:14:16.688Z",
+      "specId": "1005-V3",
+      "date": "2026-10-04",
+      "publishId": "v_inbox_url~v2.7692908316200224790",
+      "kind": "video",
+      "title": "Why do you twitch as you fall asleep?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-V3/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "202610042014161E0E19D1D06BC2067C51",
+      "updatedAt": "2026-10-04T20:14:48.879Z",
+      "lastCheckedAt": "2026-10-04T20:14:48.878Z"
     }
   ]
 }
