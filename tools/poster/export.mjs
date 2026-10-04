@@ -76,13 +76,17 @@ export function buildVideoManifestItem(video, url, { date, seconds = null, bytes
   };
 }
 
-/** The rendered file of a video (out/<date>/<id>/video.mp4 or .webm). */
+/**
+ * The rendered file of a video (out/<date>/<id>/video.mp4, .mov or .webm). A render removes the other containers; if
+ * an older folder still holds several, the most recently written one is the latest render (Codex review, PR #13).
+ */
 export function renderedVideoFile(date, id, paths) {
-  for (const ext of ['mp4', 'mov', 'webm']) {
-    const f = join(paths.outDir, date, id, `video.${ext}`);
-    if (existsSync(f)) return { file: f, ext };
-  }
-  return null;
+  const found = ['mp4', 'mov', 'webm']
+    .map((ext) => ({ file: join(paths.outDir, date, id, `video.${ext}`), ext }))
+    .filter((r) => existsSync(r.file))
+    .map((r) => ({ ...r, mtime: statSync(r.file).mtimeMs }))
+    .sort((a, b) => b.mtime - a.mtime);
+  return found.length ? { file: found[0].file, ext: found[0].ext } : null;
 }
 
 /** queue/index.json: the dates that have a manifest, so the static web app can list them. */

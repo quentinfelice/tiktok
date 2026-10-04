@@ -332,56 +332,67 @@ async function route(request, env, cfg) {
 
   if (method === 'POST' && pathname.startsWith('/api/')) {
     const { session, refreshed } = await openSession(request, env);
-    let body;
-    if (pathname === '/api/creator') {
-      body = { creator: await creatorFor(session, cfg.mode), mode: cfg.mode };
-    } else if (pathname === '/api/post') {
-      // Draft mode: the scheduled queue is the only sender (it shares no lock with this Worker), so the app is a
-      // viewer and this route refuses, even for an old tab or a direct caller (Codex review, PR #13).
-      if (cfg.mode !== 'direct')
-        throw new HttpError(
-          409,
-          'draft_mode_viewer',
-          'In draft mode the daily run sends every item to your TikTok inbox; the app does not post.',
-        );
-      const input = await request.json().catch(() => null);
-      const creator = await creatorFor(session, cfg.mode);
-      const target = input?.video
-        ? buildVideoPost(input, creator, cfg.mode)
-        : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
-      const d = await tiktok(target.url, session, target.body);
-      if (!d.publish_id) throw new HttpError(502, 'no_publish_id', 'TikTok did not return a publish id');
-      body = { publishId: d.publish_id, mode: cfg.mode };
-    } else if (pathname === '/api/status') {
-      const { publishId } = (await request.json().catch(() => ({}))) ?? {};
-      if (typeof publishId !== 'string' || !/^[\w.~-]{4,200}$/.test(publishId))
-        throw new HttpError(400, 'bad_publish_id');
-      const d = await tiktok(TT.status, session, { publish_id: publishId });
-      body = {
-        status: d.status ?? null,
-        failReason: d.fail_reason ?? null,
-        publicPostIds: d.publicaly_available_post_id ?? [],
-      };
-    } else if (pathname === '/api/videos') {
-      const d = await tiktok(`${TT.videos}?fields=${VIDEO_FIELDS}`, session, { max_count: 20 });
-      body = {
-        videos: (d.videos ?? []).map((v) => ({
-          id: v.id,
-          createTime: v.create_time ?? null,
-          title: v.title ?? '',
-          description: v.video_description ?? '',
-          views: v.view_count ?? null,
-          likes: v.like_count ?? null,
-          comments: v.comment_count ?? null,
-          shares: v.share_count ?? null,
-        })),
-      };
-    } else {
-      throw new HttpError(404, 'not_found');
+    try {
+      return { body: await apiRoute(request, pathname, session, cfg), refreshed };
+    } catch (err) {
+      // TikTok may rotate the refresh token: a refreshed session goes back even when the call itself fails, or the
+      // browser would keep a token that can no longer refresh (Codex review, PR #13).
+      if (refreshed && err && typeof err === 'object') err.session = refreshed;
+      throw err;
     }
-    return { body, refreshed };
   }
   throw new HttpError(404, 'not_found');
+}
+
+async function apiRoute(request, pathname, session, cfg) {
+  let body;
+  if (pathname === '/api/creator') {
+    body = { creator: await creatorFor(session, cfg.mode), mode: cfg.mode };
+  } else if (pathname === '/api/post') {
+    // Draft mode: the scheduled queue is the only sender (it shares no lock with this Worker), so the app is a
+    // viewer and this route refuses, even for an old tab or a direct caller (Codex review, PR #13).
+    if (cfg.mode !== 'direct')
+      throw new HttpError(
+        409,
+        'draft_mode_viewer',
+        'In draft mode the daily run sends every item to your TikTok inbox; the app does not post.',
+      );
+    const input = await request.json().catch(() => null);
+    const creator = await creatorFor(session, cfg.mode);
+    const target = input?.video
+      ? buildVideoPost(input, creator, cfg.mode)
+      : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
+    const d = await tiktok(target.url, session, target.body);
+    if (!d.publish_id) throw new HttpError(502, 'no_publish_id', 'TikTok did not return a publish id');
+    body = { publishId: d.publish_id, mode: cfg.mode };
+  } else if (pathname === '/api/status') {
+    const { publishId } = (await request.json().catch(() => ({}))) ?? {};
+    if (typeof publishId !== 'string' || !/^[\w.~-]{4,200}$/.test(publishId))
+      throw new HttpError(400, 'bad_publish_id');
+    const d = await tiktok(TT.status, session, { publish_id: publishId });
+    body = {
+      status: d.status ?? null,
+      failReason: d.fail_reason ?? null,
+      publicPostIds: d.publicaly_available_post_id ?? [],
+    };
+  } else if (pathname === '/api/videos') {
+    const d = await tiktok(`${TT.videos}?fields=${VIDEO_FIELDS}`, session, { max_count: 20 });
+    body = {
+      videos: (d.videos ?? []).map((v) => ({
+        id: v.id,
+        createTime: v.create_time ?? null,
+        title: v.title ?? '',
+        description: v.video_description ?? '',
+        views: v.view_count ?? null,
+        likes: v.like_count ?? null,
+        comments: v.comment_count ?? null,
+        shares: v.share_count ?? null,
+      })),
+    };
+  } else {
+    throw new HttpError(404, 'not_found');
+  }
+  return body;
 }
 
 /** Secrets pasted into a dashboard often carry a stray space or newline: trim every text value. */
@@ -414,9 +425,10 @@ export default {
       const { body, refreshed } = await route(request, env, cfg);
       return reply(refreshed ? { ...body, session: refreshed } : body);
     } catch (err) {
+      const session = typeof err?.session === 'string' ? { session: err.session } : {};
       if (err instanceof HttpError)
-        return reply({ error: { code: err.code, message: err.message } }, err.status);
-      return reply({ error: { code: 'internal_error', message: 'Unexpected error' } }, 500);
+        return reply({ error: { code: err.code, message: err.message }, ...session }, err.status);
+      return reply({ error: { code: 'internal_error', message: 'Unexpected error' }, ...session }, 500);
     }
   },
 };
