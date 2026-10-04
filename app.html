@@ -900,7 +900,8 @@
         if (state.mode === 'direct')
           try {
             // The Worker's record is shared by every browser: it is cleared there first.
-            await api('/api/unlock', { body: { itemId: item.id } });
+            // The button says to check TikTok first: pressing it is that confirmation.
+            await api('/api/unlock', { body: { itemId: item.id, confirm: 'not_on_tiktok' } });
           } catch (err) {
             if (err.code === 'already_posted') {
               state.sent[item.id] = { publishId: null, status: 'POSTED_ELSEWHERE' };

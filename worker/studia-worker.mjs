@@ -357,9 +357,14 @@ async function route(request, env, cfg) {
  * asked (SENDING); a definite TikTok refusal releases it; an unclear outcome keeps it (UNKNOWN) until the owner checks
  * TikTok and unlocks it; an accepted post keeps its publish id until TikTok reports it FAILED.
  */
-/** The direct-post init call is cut after this; a SENDING record 4 times older belongs to a request that is gone. */
+/** The direct-post init call is cut after this, so the Worker never waits on TikTok longer. */
 export const TIKTOK_INIT_TIMEOUT_MS = 30 * 1000;
-const STALE_SENDING_MS = 4 * TIKTOK_INIT_TIMEOUT_MS;
+/**
+ * TikTok may still finish an init the Worker stopped waiting for, and offers neither an idempotent init nor a way to
+ * look a request up. So nothing is ever unlocked by time alone: the owner unlocks after checking TikTok, and a SENDING
+ * record (its request gone) only becomes unlockable once any post it made has had time to appear on the profile.
+ */
+export const STALE_SENDING_MS = 30 * 60 * 1000;
 export class SentLock {
   constructor(state) {
     this.state = state;
@@ -390,8 +395,8 @@ export class SentLock {
             mine = false; // an accepted post is never released otherwise
           else if (token)
             mine = cur.status === 'SENDING' && cur.token === token; // the holder's own lock, refused by TikTok
-          // The owner's unlock: an unclear outcome, or a SENDING lock older than any request can live (the TikTok
-          // call is cut at TIKTOK_INIT_TIMEOUT_MS), so its holder is gone and can no longer settle.
+          // The owner's unlock, after checking TikTok: an unclear outcome, or a SENDING lock whose request is long gone
+          // and whose post, had TikTok made one, would show by now.
           else mine = cur.status === 'UNKNOWN' || Date.now() - Date.parse(cur.at) > STALE_SENDING_MS;
         }
         if (mine) await storage.delete('rec');
@@ -482,7 +487,14 @@ async function apiRoute(request, pathname, session, cfg, env) {
     // The owner checked TikTok after an unclear outcome: the item is not there, so it may be posted again.
     if (cfg.mode !== 'direct')
       throw new HttpError(409, 'draft_mode_viewer', 'Nothing to unlock in draft mode.');
-    const r = await itemLock(env, itemIdOf(await request.json().catch(() => null)))('release');
+    const input = await request.json().catch(() => null);
+    if (input?.confirm !== 'not_on_tiktok')
+      throw new HttpError(
+        400,
+        'confirm_required',
+        'Unlock only after checking that the post is not on TikTok.',
+      );
+    const r = await itemLock(env, itemIdOf(input))('release');
     if (r.rec?.publishId)
       throw new HttpError(409, 'already_posted', 'TikTok accepted this item; it cannot be unlocked.');
     if (r.rec)
