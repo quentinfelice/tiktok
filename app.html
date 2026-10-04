@@ -345,6 +345,7 @@
             <p id="consent" class="note"></p>
             <button id="post" type="submit" disabled>Post to TikTok</button>
             <button id="recheck" type="button" hidden>Check status again</button>
+            <p id="sent-note" class="note" hidden></p>
             <p class="note" id="processing">
               It may take a few minutes for your post to appear on your profile after you confirm.
             </p>
@@ -394,6 +395,7 @@
       // TikTok reports FAILED: processing has no time limit, and a second init would make a second post.
       const state = { mode: 'draft', creator: null, item: null, busy: false, sent: {} };
       const DONE = new Set(['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX']);
+      const IN_FLIGHT = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'PROCESSING_UPLOAD']);
 
       const el = (tag, props = {}, kids = []) => {
         const node = Object.assign(document.createElement(tag), props);
@@ -426,6 +428,20 @@
             /* private mode */
           }
         },
+      };
+      // Accepted publish IDs survive a reload or a new tab (not secret: a publish ID only names a post).
+      const SENT_KEY = 'studia.sent';
+      try {
+        state.sent = JSON.parse(localStorage.getItem(SENT_KEY) || '{}') || {};
+      } catch {
+        state.sent = {};
+      }
+      const saveSent = () => {
+        try {
+          localStorage.setItem(SENT_KEY, JSON.stringify(state.sent));
+        } catch {
+          /* private mode: the lock then lasts for this page only */
+        }
       };
 
       async function api(path, { method = 'POST', body } = {}) {
@@ -540,6 +556,15 @@
         box.replaceChildren();
         try {
           const { dates } = await getJson('queue/index.json');
+          // Items the scheduled queue already sent (state/drafts.json) are locked here too: no second draft.
+          try {
+            const { drafts = [] } = await getJson('state/drafts.json');
+            for (const d of drafts)
+              if (!state.sent[d.specId] && (DONE.has(d.status) || IN_FLIGHT.has(d.status)))
+                state.sent[d.specId] = { publishId: d.publishId, status: d.status, by: 'queue' };
+          } catch {
+            /* no queue state published yet */
+          }
           // Released days first (newest first), then the next two scheduled days; "today" is Europe/Brussels.
           const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Brussels' });
           const sorted = [...dates].sort();
@@ -647,6 +672,12 @@
         const sent = state.item && state.sent[state.item.id];
         if (sent) ok = false;
         $('recheck').hidden = !sent || state.busy || DONE.has(sent.status);
+        $('sent-note').hidden = !sent || state.busy;
+        $('sent-note').textContent = sent
+          ? `Already sent to TikTok${sent.by === 'queue' ? ' by the daily run' : ''} (${STATUS_TEXT[sent.status] || sent.status}).`
+          : '';
+        // No switching items while a post is on its way: the answer must lock the item that was sent.
+        for (const b of document.querySelectorAll('.pick')) b.disabled = state.busy;
         const disclose = $('disclose').checked;
         $('disclose-opts').hidden = !disclose;
         const organic = disclose && $('brand-organic').checked;
@@ -739,20 +770,21 @@
       $('composer').addEventListener('submit', async (e) => {
         e.preventDefault();
         if ($('post').disabled) return;
+        const item = state.item;
         state.busy = true;
         refresh();
         $('caption-help').hidden = true;
-        const isVideoDraft = state.mode !== 'direct' && state.item.kind === 'video';
+        const isVideoDraft = state.mode !== 'direct' && item.kind === 'video';
         // Inside the click, so the browser still allows it; a failure only means the button below is needed.
         if (isVideoDraft) navigator.clipboard?.writeText($('title').value.trim()).catch(() => {});
         show('Sending to TikTok…');
         try {
           const direct = state.mode === 'direct';
           const body =
-            state.item.kind === 'video'
-              ? { video: state.item.video, title: $('title').value.trim() }
+            item.kind === 'video'
+              ? { video: item.video, title: $('title').value.trim() }
               : {
-                  images: state.item.images,
+                  images: item.images,
                   title: $('title').value.trim(),
                   description: $('description').value.trim(),
                 };
@@ -761,7 +793,7 @@
               privacyLevel: $('privacy').value,
               disableComment: !$('allow-comments').checked,
               isAigc: $('ai-label').checked,
-              ...(state.item.kind === 'video'
+              ...(item.kind === 'video'
                 ? {
                     allowDuet: $('allow-duet').checked,
                     allowStitch: $('allow-stitch').checked,
@@ -772,8 +804,9 @@
               brandContent: $('disclose').checked && $('brand-content').checked,
             });
           const { publishId } = await api('/api/post', { body });
-          state.sent[state.item.id] = { publishId, status: 'INIT' };
-          await track(state.item, isVideoDraft);
+          state.sent[item.id] = { publishId, status: 'INIT' };
+          saveSent();
+          await track(item, isVideoDraft);
         } catch (err) {
           show(err.message, true);
         } finally {
@@ -788,8 +821,10 @@
         for (let i = 0; i < 45; i++) {
           const st = await api('/api/status', { body: { publishId: rec.publishId } });
           rec.status = st.status || rec.status;
+          saveSent();
           if (st.status === 'FAILED') {
             delete state.sent[item.id];
+            saveSent();
             return show(
               `TikTok could not post this ${item.kind === 'video' ? 'video' : 'slideshow'}${st.failReason ? ` (${st.failReason})` : ''}.`,
               true,
