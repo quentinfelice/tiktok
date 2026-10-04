@@ -37,6 +37,7 @@
       "variant": "voice",
       "hypothesis": "R2 week 1: narrated Night Brain.",
       "derivedFrom": null,
+      "aigc": true,
       "caption": "Can you solve problems in your dreams?\nIn a 2026 study of 20 volunteers, puzzles that showed up in dreams were solved more often after waking: 42% vs 17%. Small and early, but intriguing.\nWhat problem would you take to bed tonight?",
       "hashtags": [
         "#dreams",
@@ -51,7 +52,7 @@
       "slides": 0,
       "seconds": null,
       "bytes": 4601346,
-      "exportedAt": "2026-10-04T07:35:48.799Z"
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     },
     {
       "id": "1010-V3",
@@ -61,6 +62,7 @@
       "variant": "voice",
       "hypothesis": "R2 week 1: narrated 'Your dream, explained'.",
       "derivedFrom": null,
+      "aigc": true,
       "caption": "Dreaming you're late for an exam?\n67% of students in one survey had dreamed about school. In France, about 700 medical students' exam dreams mostly went wrong, yet dreaming of the exam went with slightly better grades. A link, not proof.\nLate, unprepared, or chased: which one comes back?",
       "hashtags": [
         "#dreammeaning",
@@ -75,7 +77,7 @@
       "slides": 0,
       "seconds": null,
       "bytes": 3339287,
-      "exportedAt": "2026-10-04T07:35:48.799Z"
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     }
   ]
 }

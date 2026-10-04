@@ -37,6 +37,7 @@
       "variant": "voice",
       "hypothesis": "R2 week 1: narrated Night Brain.",
       "derivedFrom": null,
+      "aigc": true,
       "caption": "Do your dreams replay your day?\nRarely in full: about 2 in 3 dreams borrowed pieces of recent life, but full replays were 1-2%. Another study found a second echo 5 to 7 days later, the dream-lag effect.\nWhat did last night's dream borrow from your week?",
       "hashtags": [
         "#dreams",
@@ -51,7 +52,7 @@
       "slides": 0,
       "seconds": null,
       "bytes": 3882694,
-      "exportedAt": "2026-10-04T07:35:48.799Z"
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     },
     {
       "id": "1008-V3",
@@ -61,6 +62,7 @@
       "variant": "voice",
       "hypothesis": "R2 week 1: narrated 'Your dream, explained'.",
       "derivedFrom": null,
+      "aigc": true,
       "caption": "Dreaming of falling?\nIn a survey of 1,181 students, about 74% had dreamed of falling at least once. Separately, a falling feeling can come with the hypnic jerk, the jolt 60 to 70% of people report as they drift off.\nFalling, chased, or losing teeth: which one comes back for you?",
       "hashtags": [
         "#dreammeaning",
@@ -75,7 +77,7 @@
       "slides": 0,
       "seconds": null,
       "bytes": 4242169,
-      "exportedAt": "2026-10-04T07:35:48.799Z"
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     }
   ]
 }

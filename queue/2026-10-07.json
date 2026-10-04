@@ -37,6 +37,7 @@
       "variant": "voice",
       "hypothesis": "R2 week 1: narrated 'Your dream, explained'.",
       "derivedFrom": null,
+      "aigc": true,
       "caption": "Dreaming your teeth are falling out?\nIn one study of 210 students, teeth dreams weren't linked to distress or poor sleep, but went with tension in the teeth, gums or jaw on waking. Linked, not proven.\nTeeth, falling, or being chased: which one comes back for you?",
       "hashtags": [
         "#dreammeaning",
@@ -51,7 +52,7 @@
       "slides": 0,
       "seconds": null,
       "bytes": 3377560,
-      "exportedAt": "2026-10-04T07:35:48.798Z"
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     },
     {
       "id": "1007-V3",
@@ -61,6 +62,7 @@
       "variant": "voice",
       "hypothesis": "R2 week 1: narrated Night Brain.",
       "derivedFrom": null,
+      "aigc": true,
       "caption": "Do blind people dream?\nYes. In a 4-week diary study, people blind from birth reported fewer pictures and more sound, touch, taste and smell, and about 25% of their reported dreams were nightmares (6% for sighted people).\nWhich sense shows up most in your dreams?",
       "hashtags": [
         "#dreams",
@@ -75,7 +77,7 @@
       "slides": 0,
       "seconds": null,
       "bytes": 3639060,
-      "exportedAt": "2026-10-04T07:35:48.798Z"
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     }
   ]
 }

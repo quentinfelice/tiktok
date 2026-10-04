@@ -37,6 +37,7 @@
       "variant": "control-silent",
       "hypothesis": "R2 week 1 control: Night Brain without voice (music + on-screen text). Isolates the voice effect against the narrated arm.",
       "derivedFrom": null,
+      "aigc": false,
       "caption": "Why do you hear a bang as you fall asleep?\nIt's exploding head syndrome: a sudden loud noise in your head as you drift off or wake. It's usually painless, and 18% of 211 US college students said they had it at least once. If it's frequent or worrying, talk to a doctor.\nHave you ever heard the bang?",
       "hashtags": [
         "#explodingheadsyndrome",
@@ -51,7 +52,7 @@
       "slides": 0,
       "seconds": null,
       "bytes": 5180481,
-      "exportedAt": "2026-10-04T07:35:48.798Z"
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     },
     {
       "id": "1006-V3",
@@ -61,6 +62,7 @@
       "variant": "voice",
       "hypothesis": "R2 week 1: narrated Night Brain.",
       "derivedFrom": null,
+      "aigc": true,
       "caption": "Do you dream in color?\nIn one diary study of 60 people, about 4% of under-25s' dreams were black and white, vs about a quarter for over-55s raised on black-and-white TV. Small study: a link, not proof.\nWhat color do you remember from your last dream?",
       "hashtags": [
         "#dreams",
@@ -75,7 +77,7 @@
       "slides": 0,
       "seconds": null,
       "bytes": 4074542,
-      "exportedAt": "2026-10-04T07:35:48.798Z"
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     }
   ]
 }
