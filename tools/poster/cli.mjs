@@ -27,7 +27,14 @@ import { authorizeUrl, exchangeCode, readTokenCache, refresh, tokenSummary } fro
 import { checkSiteRepo, commitAndPush, publishMedia } from './media.mjs';
 import { checkDrafts, runDrafts } from './drafts.mjs';
 import { runStats } from './stats.mjs';
-import { exportDay, exportVideos, pullStats, sentFromSite, withdrawItem } from './export.mjs';
+import {
+  exportDay,
+  exportVideos,
+  pullStats,
+  releaseUncertain,
+  sentFromSite,
+  withdrawItem,
+} from './export.mjs';
 import { runQueue } from './queue.mjs';
 
 const USAGE = `Studia Poster — TikTok drafts and stats for the slideshow department
@@ -47,6 +54,8 @@ Commands
                        (--until YYYY-MM-DD: every date up to that day, one commit; each releases on its date)
   withdraw             Studio side: take --id out of queue/<date>.json before release (dropped on the review
                        desk), mark it withdrawn in days/<date>/videos.json, push. Refused once its draft exists
+  release              Studio side: the owner checked the TikTok inbox after an unclear send (--id, --confirm
+                       not_on_tiktok): the item is sent again on the next run. Refused within 30 min of the send
   queue                Actions side: create the drafts for queued items not created yet (max 5 pending), then stats
   pull-stats           Studio side: git pull the public repo and copy state/stats.json + drafts.json back
   doctor               Egress, credentials, token store and repo checks (names only, never values)
@@ -75,6 +84,7 @@ function parse(argv) {
       videos: { type: 'boolean', default: false },
       until: { type: 'string' },
       check: { type: 'boolean', default: false },
+      confirm: { type: 'string' },
       pages: { type: 'string' },
       help: { type: 'boolean', short: 'h', default: false },
     },
@@ -261,6 +271,29 @@ export async function main(argv = process.argv.slice(2), { env = process.env, lo
           return 1;
         }
       }
+      return 0;
+    }
+    case 'release': {
+      // The owner checked the TikTok inbox after an unclear send: the draft is not there, so the queue may resend it.
+      if (!id) throw new Error('release needs --id');
+      const r = releaseUncertain(paths, id, { confirm: values.confirm, refresh: !dryRun, dryRun, env });
+      if (!r.released) {
+        log(`${id}: no unclear send recorded; nothing to release.`);
+        return 0;
+      }
+      if (dryRun) {
+        log(`[dry-run] ${id}: would release ${r.released} record(s).`);
+        return 0;
+      }
+      commitAndPush({
+        siteRepo: paths.siteRepo,
+        pathspecs: ['state/drafts.json'],
+        message: `release ${id}: not in the TikTok inbox (owner checked)`,
+        githubToken: loadConfig(env).githubToken,
+        env,
+        log,
+      });
+      log(`${id}: released; the queue sends it again on its next run.`);
       return 0;
     }
     case 'queue': {

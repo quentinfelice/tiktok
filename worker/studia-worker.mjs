@@ -439,11 +439,16 @@ async function postDirect(input, session, cfg, env) {
     : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
   const token = crypto.randomUUID();
   const taken = await lock('acquire', { token });
+  // Already accepted (on another device, or this answer was lost on its way back): the publish id goes back so the
+  // app can track that post, and a FAILED status then releases the record (Codex review, PR #13).
   if (!taken.acquired && taken.rec?.publishId)
-    throw new HttpError(
-      409,
-      'already_posted',
-      'This item was already posted from the app (here or on another device).',
+    throw Object.assign(
+      new HttpError(
+        409,
+        'already_posted',
+        'This item was already posted from the app (here or on another device).',
+      ),
+      { details: { publishId: taken.rec.publishId } },
     );
   if (!taken.acquired)
     throw new HttpError(
@@ -573,7 +578,10 @@ export default {
     } catch (err) {
       const session = typeof err?.session === 'string' ? { session: err.session } : {};
       if (err instanceof HttpError)
-        return reply({ error: { code: err.code, message: err.message }, ...session }, err.status);
+        return reply(
+          { error: { code: err.code, message: err.message }, ...(err.details ?? {}), ...session },
+          err.status,
+        );
       return reply({ error: { code: 'internal_error', message: 'Unexpected error' }, ...session }, 500);
     }
   },

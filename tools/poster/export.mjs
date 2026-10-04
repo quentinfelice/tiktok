@@ -14,7 +14,14 @@ import {
   readJson,
   writeJson,
 } from './config.mjs';
-import { HANDED_TO_APP, buildDescription, buildTitle } from './drafts.mjs';
+import {
+  HANDED_TO_APP,
+  RELEASED,
+  RELEASE_AFTER_MS,
+  UNCERTAIN,
+  buildDescription,
+  buildTitle,
+} from './drafts.mjs';
 import {
   checkSiteRepo,
   commitAndPush,
@@ -119,7 +126,37 @@ export function writeManifest(paths, date, items) {
 export function sentFromSite(paths, id) {
   if (!paths.siteRepo) return false;
   const drafts = readJson(join(paths.siteRepo, 'state', 'drafts.json'), { drafts: [] }).drafts ?? [];
-  return drafts.some((d) => d.specId === id && d.status !== HANDED_TO_APP);
+  return drafts.some((d) => d.specId === id && d.status !== HANDED_TO_APP && d.status !== RELEASED);
+}
+
+/**
+ * The owner checked the TikTok inbox: the draft of an unclear send (UNKNOWN, or SENDING left by a run that died) is
+ * not there. Its records become RELEASED in the public state/drafts.json, so the queue sends the item again on its next
+ * run; they still count toward MAX_ATTEMPTS. Refused before RELEASE_AFTER_MS, while a draft could still arrive
+ * (Codex review, PR #13).
+ */
+export function releaseUncertain(
+  paths,
+  id,
+  { confirm, now = Date.now(), refresh = false, dryRun = false, env = process.env } = {},
+) {
+  if (confirm !== 'not_on_tiktok')
+    throw new Error('release needs --confirm not_on_tiktok: check the TikTok inbox first');
+  if (refresh) refreshSiteRepo(paths.siteRepo, { env });
+  const file = join(paths.siteRepo, 'state', 'drafts.json');
+  const state = readJson(file, { drafts: [] });
+  const recs = (state.drafts ?? []).filter((d) => d.specId === id && UNCERTAIN.has(d.status));
+  if (!recs.length) return { released: 0 };
+  const last = Math.max(...recs.map((d) => Date.parse(d.updatedAt ?? d.createdAt ?? 0) || 0));
+  if (now - last < RELEASE_AFTER_MS)
+    throw new Error(
+      `${id}: a draft from that send may still arrive; check the inbox again after ${new Date(last + RELEASE_AFTER_MS).toISOString().slice(11, 16)} UTC`,
+    );
+  if (dryRun) return { released: recs.length, dryRun: true };
+  const at = new Date(now).toISOString();
+  for (const d of recs) Object.assign(d, { status: RELEASED, releasedAt: at, updatedAt: at });
+  writeJson(file, state);
+  return { released: recs.length };
 }
 
 /**

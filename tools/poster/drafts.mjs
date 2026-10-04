@@ -27,6 +27,13 @@ export const DELIVERED = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE']);
  * are not sent again when draft mode resumes (direct posts are recorded only in the owner's browser).
  */
 export const HANDED_TO_APP = 'HANDED_TO_APP';
+/**
+ * The owner checked TikTok after an unclear send (UNKNOWN, or a SENDING lock a dead run left): the draft is not in the
+ * inbox. The record stays (it counts toward MAX_ATTEMPTS) and the queue may send the item again. Allowed only once a
+ * draft from that attempt would have arrived.
+ */
+export const RELEASED = 'RELEASED';
+export const RELEASE_AFTER_MS = 30 * 60 * 1000;
 export const IN_FLIGHT = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'PROCESSING_UPLOAD']);
 export const MAX_ATTEMPTS = 3;
 /** Fail reasons TikTok's status reference treats as transient; any other FAILED record is final (no resend). */
@@ -309,6 +316,7 @@ export async function checkDrafts({
     (d) =>
       !UNCERTAIN.has(d.status) &&
       d.status !== HANDED_TO_APP &&
+      d.status !== RELEASED &&
       (!TERMINAL_STATUSES.has(d.status) || d.status === 'SEND_TO_USER_INBOX'),
   );
   if (!open.length) {

@@ -480,6 +480,7 @@
             {
               code: json.error?.code,
               status: res.status,
+              publishId: json.publishId ?? null,
             },
           );
         }
@@ -846,17 +847,21 @@
           try {
             ({ publishId } = await api('/api/post', { body }));
           } catch (err) {
-            // A 4xx is a refusal before or at initialization (validation, session, TikTok's own refusal): nothing was
-            // created. A 5xx or no answer at all may come after TikTok accepted it: keep it locked until the owner checks.
-            // The Worker's shared record may know this item from another browser or device.
-            if (err.code === 'already_posted')
-              state.sent[item.id] = { publishId: null, status: 'POSTED_ELSEWHERE' };
-            else if (err.code === 'post_uncertain')
-              state.sent[item.id] = { publishId: null, status: 'UNKNOWN' };
-            else if (err.status >= 400 && err.status < 500) delete state.sent[item.id];
-            else state.sent[item.id].status = 'UNKNOWN';
-            saveSent();
-            throw err;
+            // TikTok accepted this item earlier (another device, or an answer lost on its way back): track that post.
+            if (err.code === 'already_posted' && err.publishId) publishId = err.publishId;
+            else {
+              // A 4xx is a refusal before or at initialization (validation, session, TikTok's own refusal): nothing was
+              // created. A 5xx or no answer at all may come after TikTok accepted it: keep it locked until the owner checks.
+              // The Worker's shared record may know this item from another browser or device.
+              if (err.code === 'already_posted')
+                state.sent[item.id] = { publishId: null, status: 'POSTED_ELSEWHERE' };
+              else if (err.code === 'post_uncertain')
+                state.sent[item.id] = { publishId: null, status: 'UNKNOWN' };
+              else if (err.status >= 400 && err.status < 500) delete state.sent[item.id];
+              else state.sent[item.id].status = 'UNKNOWN';
+              saveSent();
+              throw err;
+            }
           }
           state.sent[item.id] = { publishId, status: 'INIT' };
           saveSent();
