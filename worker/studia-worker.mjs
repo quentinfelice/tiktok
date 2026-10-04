@@ -249,8 +249,13 @@ export function buildPost(input, creator, mode) {
  */
 export function buildVideoPost(input, creator, mode) {
   const video = input?.video;
-  if (typeof video !== 'string' || !video.startsWith(PUBLIC_BASE) || !/\.(mp4|mov)$/i.test(video))
-    throw new HttpError(400, 'bad_video', 'The video must be an MP4 or MOV file on the verified Studia site');
+  // MP4, MOV or WebM (TikTok's supported formats; the renderer falls back to WebM without an H.264 encoder).
+  if (typeof video !== 'string' || !video.startsWith(PUBLIC_BASE) || !/\.(mp4|mov|webm)$/i.test(video))
+    throw new HttpError(
+      400,
+      'bad_video',
+      'The video must be an MP4, MOV or WebM file on the verified Studia site',
+    );
   const source_info = { source: 'PULL_FROM_URL', video_url: video };
   if (mode === 'draft') return { url: TT.videoInbox, body: { source_info } };
 

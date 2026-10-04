@@ -344,6 +344,7 @@
 
             <p id="consent" class="note"></p>
             <button id="post" type="submit" disabled>Post to TikTok</button>
+            <button id="recheck" type="button" hidden>Check status again</button>
             <p class="note" id="processing">
               It may take a few minutes for your post to appear on your profile after you confirm.
             </p>
@@ -389,7 +390,10 @@
         FOLLOWER_OF_CREATOR: 'Followers',
         SELF_ONLY: 'Only me',
       };
-      const state = { mode: 'draft', creator: null, item: null, busy: false };
+      // sent: item id -> { publishId, status } for posts TikTok accepted in this tab. Such an item stays locked until
+      // TikTok reports FAILED: processing has no time limit, and a second init would make a second post.
+      const state = { mode: 'draft', creator: null, item: null, busy: false, sent: {} };
+      const DONE = new Set(['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX']);
 
       const el = (tag, props = {}, kids = []) => {
         const node = Object.assign(document.createElement(tag), props);
@@ -640,6 +644,9 @@
         const direct = state.mode === 'direct';
         $('title-count').textContent = `${$('title').value.length}/${$('title').maxLength}`;
         let ok = state.item && $('title').value.trim() && !state.busy;
+        const sent = state.item && state.sent[state.item.id];
+        if (sent) ok = false;
+        $('recheck').hidden = !sent || state.busy || DONE.has(sent.status);
         const disclose = $('disclose').checked;
         $('disclose-opts').hidden = !disclose;
         const organic = disclose && $('brand-organic').checked;
@@ -765,25 +772,47 @@
               brandContent: $('disclose').checked && $('brand-content').checked,
             });
           const { publishId } = await api('/api/post', { body });
-          let last = '';
-          for (let i = 0; i < 45; i++) {
-            const st = await api('/api/status', { body: { publishId } });
-            last = st.status || '';
-            if (st.status === 'FAILED')
-              return show(
-                `TikTok could not post this ${state.item.kind === 'video' ? 'video' : 'slideshow'}${st.failReason ? ` (${st.failReason})` : ''}.`,
-                true,
-              );
-            show(STATUS_TEXT[last] || `TikTok status: ${last || 'waiting'}…`);
-            if (last === 'PUBLISH_COMPLETE' || last === 'SEND_TO_USER_INBOX') {
-              $('caption-help').hidden = !isVideoDraft;
-              return;
-            }
-            await sleep(POLL_MS);
-          }
-          show('TikTok is still processing. Check your profile in a few minutes.');
+          state.sent[state.item.id] = { publishId, status: 'INIT' };
+          await track(state.item, isVideoDraft);
         } catch (err) {
           show(err.message, true);
+        } finally {
+          state.busy = false;
+          refresh();
+        }
+      });
+
+      /** Polls one accepted post. FAILED unlocks the item; anything unresolved keeps it locked (no second upload). */
+      async function track(item, isVideoDraft) {
+        const rec = state.sent[item.id];
+        for (let i = 0; i < 45; i++) {
+          const st = await api('/api/status', { body: { publishId: rec.publishId } });
+          rec.status = st.status || rec.status;
+          if (st.status === 'FAILED') {
+            delete state.sent[item.id];
+            return show(
+              `TikTok could not post this ${item.kind === 'video' ? 'video' : 'slideshow'}${st.failReason ? ` (${st.failReason})` : ''}.`,
+              true,
+            );
+          }
+          show(STATUS_TEXT[rec.status] || `TikTok status: ${rec.status || 'waiting'}…`);
+          if (DONE.has(rec.status)) {
+            $('caption-help').hidden = !isVideoDraft;
+            return;
+          }
+          await sleep(POLL_MS);
+        }
+        show('TikTok is still processing. Check your profile in a few minutes, or check the status again.');
+      }
+
+      $('recheck').addEventListener('click', async () => {
+        if (!state.item || !state.sent[state.item.id]) return;
+        state.busy = true;
+        refresh();
+        try {
+          await track(state.item, state.mode !== 'direct' && state.item.kind === 'video');
+        } catch (err) {
+          show(`${err.message} The post is kept locked; check the status again later.`, true);
         } finally {
           state.busy = false;
           refresh();
