@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-24",
+  "items": [
+    {
+      "id": "1024-S1",
+      "date": "2026-10-24",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"clocks go back extra hour of sleep\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Clocks go back on Sunday Oct 25: do you get an extra hour of sleep?\nIn Central Europe 3:00 becomes 2:00 (UK 2:00 to 1:00; US and Canada Nov 1). A 2013 review found little sign of extra sleep, and earlier wake-ups for about five days.",
+      "hashtags": [
+        "#clocksgoback",
+        "#daylightsaving",
+        "#sleep",
+        "#bodyclock",
+        "#extrahour"
+      ],
+      "title": "Clocks go back on Sunday Oct 25: do you get an extra hour of sleep?",
+      "description": "Clocks go back on Sunday Oct 25: do you get an extra hour of sleep?\nIn Central Europe 3:00 becomes 2:00 (UK 2:00 to 1:00; US and Canada Nov 1). A 2013 review found little sign of extra sleep, and earlier wake-ups for about five days.\n\n#clocksgoback #daylightsaving #sleep #bodyclock #extrahour",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-24/1024-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-24/1024-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-24/1024-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-24/1024-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-24/1024-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-24/1024-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.048Z"
+    }
+  ]
+}

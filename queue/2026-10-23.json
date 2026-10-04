@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-23",
+  "items": [
+    {
+      "id": "1023-S1",
+      "date": "2026-10-23",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"sleepwalking\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Sleepwalking: how common is it?\nA review of 51 studies estimated 6.9% of people have sleepwalked at least once; in a year, about 5% of children and 1.5% of adults. It usually starts in deep non-REM sleep, not REM.",
+      "hashtags": [
+        "#sleepwalking",
+        "#sleep",
+        "#parasomnia",
+        "#sleepscience",
+        "#didyouknow"
+      ],
+      "title": "Sleepwalking: how common is it?",
+      "description": "Sleepwalking: how common is it?\nA review of 51 studies estimated 6.9% of people have sleepwalked at least once; in a year, about 5% of children and 1.5% of adults. It usually starts in deep non-REM sleep, not REM.\n\n#sleepwalking #sleep #parasomnia #sleepscience #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-23/1023-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-23/1023-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-23/1023-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-23/1023-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-23/1023-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-23/1023-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.048Z"
+    }
+  ]
+}

@@ -2,6 +2,34 @@
   "date": "2026-10-05",
   "items": [
     {
+      "id": "1005-S1",
+      "date": "2026-10-05",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"do you swallow spiders in your sleep\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Do you swallow spiders in your sleep? Myth check.\nA spider expert at the Burke Museum (University of Washington) says no case is on formal record, and a sleeper's vibrations tend to warn spiders away. An expert's view, not a study.",
+      "hashtags": [
+        "#spiders",
+        "#sleepmyths",
+        "#mythbusting",
+        "#sleep",
+        "#didyouknow"
+      ],
+      "title": "Do you swallow spiders in your sleep? Myth check.",
+      "description": "Do you swallow spiders in your sleep? Myth check.\nA spider expert at the Burke Museum (University of Washington) says no case is on formal record, and a sleeper's vibrations tend to warn spiders away. An expert's view, not a study.\n\n#spiders #sleepmyths #mythbusting #sleep #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-05/1005-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.046Z"
+    },
+    {
       "id": "1005-V2",
       "date": "2026-10-05",
       "kind": "video",

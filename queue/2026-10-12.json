@@ -1,4 +1,33 @@
 {
   "date": "2026-10-12",
-  "items": []
+  "items": [
+    {
+      "id": "1012-S1",
+      "date": "2026-10-12",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"dream about being chased meaning\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Dream about being chased meaning: what science says.\nIn a survey of 1,181 students, being chased was the most common of 55 dream themes (81.5% at least once). One idea is threat rehearsal, still debated.",
+      "hashtags": [
+        "#dreammeaning",
+        "#beingchased",
+        "#dreams",
+        "#nightmares",
+        "#sleepscience"
+      ],
+      "title": "Dream about being chased meaning: what science says.",
+      "description": "Dream about being chased meaning: what science says.\nIn a survey of 1,181 students, being chased was the most common of 55 dream themes (81.5% at least once). One idea is threat rehearsal, still debated.\n\n#dreammeaning #beingchased #dreams #nightmares #sleepscience",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-12/1012-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-12/1012-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-12/1012-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-12/1012-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-12/1012-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-12/1012-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.047Z"
+    }
+  ]
 }

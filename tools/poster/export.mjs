@@ -106,8 +106,8 @@ export function writeManifest(paths, date, items) {
 }
 
 /**
- * Takes a not-yet-sent item out of queue/<date>.json (the owner dropped it on the review desk) and marks the video
- * "withdrawn" in days/<date>/videos.json so a later export skips it. An item whose draft was already created (it is
+ * Takes a not-yet-sent item out of queue/<date>.json (the owner dropped it on the review desk) and marks the video or
+ * slideshow "withdrawn" in days/<date>/videos.json or slideshows.json so a later export skips it. An item whose draft was already created (it is
  * in the site's state/drafts.json) cannot be withdrawn: { sent: true } and nothing changes.
  */
 export function withdrawItem(
@@ -124,12 +124,20 @@ export function withdrawItem(
   const items = manifest.items.filter((it) => it.id !== id);
   const removed = items.length !== manifest.items.length;
   if (removed && !dryRun) writeJson(file, { ...manifest, items });
-  const specFile = join(paths.daysDir, date, 'videos.json');
-  const spec = readJson(specFile, null);
-  const v = spec?.videos?.find((x) => x.id === id);
-  if (v && !dryRun) {
-    v.withdrawn = { reason, at: at.toISOString() };
-    writeJson(specFile, spec);
+  let v = null;
+  for (const [name, key] of [
+    ['videos.json', 'videos'],
+    ['slideshows.json', 'slideshows'],
+  ]) {
+    const specFile = join(paths.daysDir, date, name);
+    const spec = readJson(specFile, null);
+    v = spec?.[key]?.find((x) => x.id === id) ?? null;
+    if (!v) continue;
+    if (!dryRun) {
+      v.withdrawn = { reason, at: at.toISOString() };
+      writeJson(specFile, spec);
+    }
+    break;
   }
   return { sent: false, removed, marked: Boolean(v) };
 }
@@ -145,10 +153,13 @@ export function copyRuntime(paths, { dryRun = false, log = defaultLog } = {}) {
 }
 
 /**
- * Export a day (or one id). Returns { manifest, urls } and pushes media/, queue/ and tools/ to the site repo.
+ * Export a day (or one id) of slideshows. With `until`, every date from `date` to `until` that has a slideshows.json
+ * is exported in one commit; the queue releases each on its own date. Withdrawn posts (`withdrawn` set in the spec,
+ * e.g. a paused formula) are skipped. Returns { manifest, urls } and pushes media/, queue/ and tools/ to the site repo.
  */
 export async function exportDay({
   date,
+  until,
   id,
   env = process.env,
   paths = defaultPaths(env),
@@ -158,41 +169,59 @@ export async function exportDay({
 } = {}) {
   assertDate(date);
   const config = loadConfig(env);
-  const day = loadDay(date, paths);
-  const posts = selectPosts(day, id);
+  const dates = until ? datesBetween(date, until) : [date];
   const pairs = [];
-  const items = [];
-  for (const post of posts) {
-    const { pngs, stale } = slidePngs(date, post, paths);
-    if (stale.length) log.warn(`${post.id}: ignoring ${stale.length} stale PNG(s) beyond the spec's slides`);
-    const { files, urls } = mediaTargets(date, post.id, pngs.length, paths.siteRepo);
-    pngs.forEach((png, i) => pairs.push({ png, jpg: files[i] }));
-    items.push(buildManifestItem(post, urls, { date }));
+  const byDate = new Map();
+  for (const d of dates) {
+    if (until && !existsSync(join(paths.daysDir, d, 'slideshows.json'))) continue;
+    const day = loadDay(d, paths);
+    const posts = (
+      until && id ? (day.slideshows ?? []).filter((p) => p.id === id) : selectPosts(day, id)
+    ).filter((p) => !p.withdrawn);
+    const items = [];
+    for (const post of posts) {
+      if (until && post.factCheck?.status !== 'PASS') throw new Error(`${post.id}: fact-check is not PASS`);
+      const { pngs, stale } = slidePngs(d, post, paths);
+      if (stale.length)
+        log.warn(`${post.id}: ignoring ${stale.length} stale PNG(s) beyond the spec's slides`);
+      const { files, urls } = mediaTargets(d, post.id, pngs.length, paths.siteRepo);
+      pngs.forEach((png, i) => pairs.push({ png, jpg: files[i] }));
+      items.push(buildManifestItem(post, urls, { date: d }));
+    }
+    if (items.length) byDate.set(d, items);
   }
+  const items = [...byDate.values()].flat();
+  if (!items.length) throw new Error(`No slideshows to export in ${until ? `${date}..${until}` : date}`);
   if (dryRun) {
     log(
-      `[dry-run] would convert ${pairs.length} PNG(s), write ${paths.queueDir}/${date}.json with ${items.length} item(s)`,
+      `[dry-run] would convert ${pairs.length} PNG(s), write ${[...byDate.keys()].map((d) => `${paths.queueDir}/${d}.json`).join(', ')} with ${items.length} item(s)`,
     );
     copyRuntime(paths, { dryRun, log });
-    for (const it of items) log(`  ${it.id}: ${it.slides} image(s), title "${it.title}"`);
+    for (const it of items) log(`  ${it.date} ${it.id}: ${it.slides} image(s), title "${it.title}"`);
     return { manifest: { date, items }, pushed: false };
   }
   checkSiteRepo(paths.siteRepo);
   const converted = await convert(pairs);
   const total = converted.reduce((s, r) => s + r.bytes, 0);
   log(`Converted ${converted.length} slide(s) to JPEG (${Math.round(total / 1024)} KB).`);
-  const { file, manifest } = writeManifest(paths, date, items);
-  log(`Queue manifest: ${file} (${manifest.items.length} item(s) for ${date}).`);
+  let manifest = { date, items: [] };
+  for (const [d, its] of byDate) {
+    const r = writeManifest(paths, d, its);
+    if (d === date) manifest = r.manifest;
+    log(`Queue manifest: ${r.file} (${r.manifest.items.length} item(s) for ${d}).`);
+  }
   copyRuntime(paths, { log });
   const result = commitAndPush({
     siteRepo: paths.siteRepo,
     pathspecs: ['media', 'queue', 'tools'],
-    message: `export ${date}: ${items.map((i) => i.id).join(', ')}`,
+    message: until
+      ? `export ${date}..${until}: ${items.map((i) => i.id).join(', ')}`
+      : `export ${date}: ${items.map((i) => i.id).join(', ')}`,
     githubToken: config.githubToken,
     env,
     log,
   });
-  return { manifest, ...result };
+  return { manifest: until ? { date, items } : manifest, ...result };
 }
 
 /** Every YYYY-MM-DD from `from` to `until` inclusive (UTC calendar arithmetic, no time zone involved). */

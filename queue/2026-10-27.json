@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-27",
+  "items": [
+    {
+      "id": "1027-S1",
+      "date": "2026-10-27",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"do dreams replay your day\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Do dreams replay your day? Pieces, not reruns.\nIn a 2003 study, about 65% of 299 dream reports reflected recent life, yet whole replays were 1 to 2%. A 2011 study found echoes from the day before and from 5 to 7 days before.",
+      "hashtags": [
+        "#dreams",
+        "#dreammeaning",
+        "#dreamscience",
+        "#memory",
+        "#sleepscience"
+      ],
+      "title": "Do dreams replay your day? Pieces, not reruns.",
+      "description": "Do dreams replay your day? Pieces, not reruns.\nIn a 2003 study, about 65% of 299 dream reports reflected recent life, yet whole replays were 1 to 2%. A 2011 study found echoes from the day before and from 5 to 7 days before.\n\n#dreams #dreammeaning #dreamscience #memory #sleepscience",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.049Z"
+    }
+  ]
+}

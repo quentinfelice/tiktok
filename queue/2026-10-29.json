@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-29",
+  "items": [
+    {
+      "id": "1029-S1",
+      "date": "2026-10-29",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"why do i wake up before my alarm\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Why do I wake up before my alarm? One small study's clue.\nIn a 1999 lab study, people expecting a 6 a.m. wake-up showed a rise in the hormone ACTH about an hour before. Those woken by surprise did not.",
+      "hashtags": [
+        "#alarm",
+        "#wakingup",
+        "#bodyclock",
+        "#sleepscience",
+        "#didyouknow"
+      ],
+      "title": "Why do I wake up before my alarm? One small study's clue.",
+      "description": "Why do I wake up before my alarm? One small study's clue.\nIn a 1999 lab study, people expecting a 6 a.m. wake-up showed a rise in the hormone ACTH about an hour before. Those woken by surprise did not.\n\n#alarm #wakingup #bodyclock #sleepscience #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-29/1029-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-29/1029-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-29/1029-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-29/1029-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-29/1029-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-29/1029-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.050Z"
+    }
+  ]
+}

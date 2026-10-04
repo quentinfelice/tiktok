@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-21",
+  "items": [
+    {
+      "id": "1021-S1",
+      "date": "2026-10-21",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"exploding head syndrome\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Exploding head syndrome: the loud bang as you fall asleep.\nA sudden noise in your head as you drift off or wake. Usually painless; 18% of 211 US college students said they had had it. If it is frequent or worrying, talk to a doctor.",
+      "hashtags": [
+        "#explodingheadsyndrome",
+        "#sleep",
+        "#weirdfacts",
+        "#sleepscience",
+        "#brain"
+      ],
+      "title": "Exploding head syndrome: the loud bang as you fall asleep.",
+      "description": "Exploding head syndrome: the loud bang as you fall asleep.\nA sudden noise in your head as you drift off or wake. Usually painless; 18% of 211 US college students said they had had it. If it is frequent or worrying, talk to a doctor.\n\n#explodingheadsyndrome #sleep #weirdfacts #sleepscience #brain",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-21/1021-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-21/1021-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-21/1021-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-21/1021-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-21/1021-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-21/1021-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.048Z"
+    }
+  ]
+}

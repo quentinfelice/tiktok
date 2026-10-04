@@ -1,4 +1,33 @@
 {
   "date": "2026-10-20",
-  "items": []
+  "items": [
+    {
+      "id": "1020-S1",
+      "date": "2026-10-20",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"do you dream in color\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Do you dream in color? Most people under 25 do.\nIn one diary study of 60 people, only 4.4% of under-25s' dreams were black and white, vs about a quarter for over-55s raised on black-and-white media. A link, not proof.",
+      "hashtags": [
+        "#dreams",
+        "#dreamincolor",
+        "#dreamscience",
+        "#sleep",
+        "#didyouknow"
+      ],
+      "title": "Do you dream in color? Most people under 25 do.",
+      "description": "Do you dream in color? Most people under 25 do.\nIn one diary study of 60 people, only 4.4% of under-25s' dreams were black and white, vs about a quarter for over-55s raised on black-and-white media. A link, not proof.\n\n#dreams #dreamincolor #dreamscience #sleep #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.048Z"
+    }
+  ]
 }

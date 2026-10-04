@@ -1,4 +1,33 @@
 {
   "date": "2026-10-16",
-  "items": []
+  "items": [
+    {
+      "id": "1016-S1",
+      "date": "2026-10-16",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"hypnic jerk\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Hypnic jerk: why you jolt awake as you fall asleep.\nIt is a sleep start: a sudden twitch at the border of sleep, sometimes with a feeling of falling. 60 to 70% of people report them (AASM).",
+      "hashtags": [
+        "#hypnicjerk",
+        "#sleep",
+        "#fallingasleep",
+        "#sleepscience",
+        "#didyouknow"
+      ],
+      "title": "Hypnic jerk: why you jolt awake as you fall asleep.",
+      "description": "Hypnic jerk: why you jolt awake as you fall asleep.\nIt is a sleep start: a sudden twitch at the border of sleep, sometimes with a feeling of falling. 60 to 70% of people report them (AASM).\n\n#hypnicjerk #sleep #fallingasleep #sleepscience #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-16/1016-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-16/1016-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-16/1016-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-16/1016-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-16/1016-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-16/1016-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.048Z"
+    }
+  ]
 }

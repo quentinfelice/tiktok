@@ -1,4 +1,33 @@
 {
   "date": "2026-10-14",
-  "items": []
+  "items": [
+    {
+      "id": "1014-S1",
+      "date": "2026-10-14",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"why can't i remember my dreams\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Why can't I remember my dreams? What sleep science says.\nYou dream every REM cycle, but the sleeping brain is bad at saving new memories. People who wake briefly more often tend to remember more, and a dream diary helps.",
+      "hashtags": [
+        "#dreams",
+        "#rememberdreams",
+        "#dreamjournal",
+        "#remsleep",
+        "#sleepscience"
+      ],
+      "title": "Why can't I remember my dreams? What sleep science says.",
+      "description": "Why can't I remember my dreams? What sleep science says.\nYou dream every REM cycle, but the sleeping brain is bad at saving new memories. People who wake briefly more often tend to remember more, and a dream diary helps.\n\n#dreams #rememberdreams #dreamjournal #remsleep #sleepscience",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-14/1014-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-14/1014-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-14/1014-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-14/1014-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-14/1014-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-14/1014-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.048Z"
+    }
+  ]
 }

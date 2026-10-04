@@ -1,4 +1,33 @@
 {
   "date": "2026-10-13",
-  "items": []
+  "items": [
+    {
+      "id": "1013-S1",
+      "date": "2026-10-13",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"dream about falling meaning\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "caption": "Dream about falling meaning: what science says.\nAbout 74% of 1,181 students had dreamed of falling at least once. Separately, a falling feeling can come with the hypnic jerk, the jolt 60 to 70% of people report as they drift off.",
+      "hashtags": [
+        "#dreammeaning",
+        "#fallingdream",
+        "#dreams",
+        "#hypnicjerk",
+        "#sleepscience"
+      ],
+      "title": "Dream about falling meaning: what science says.",
+      "description": "Dream about falling meaning: what science says.\nAbout 74% of 1,181 students had dreamed of falling at least once. Separately, a falling feeling can come with the hypnic jerk, the jolt 60 to 70% of people report as they drift off.\n\n#dreammeaning #fallingdream #dreams #hypnicjerk #sleepscience",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-13/1013-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-13/1013-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-13/1013-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-13/1013-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-13/1013-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-13/1013-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T07:13:33.048Z"
+    }
+  ]
 }
