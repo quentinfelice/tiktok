@@ -349,62 +349,108 @@ async function route(request, env, cfg) {
 }
 
 /**
- * Direct mode: one record per queue item in the SENT KV namespace, shared by every browser and device, so an item is
- * posted once even when another browser has no local record of it (Codex review, PR #13). Locked before TikTok is
- * asked (SENDING); a definite TikTok refusal removes it; any unclear outcome keeps it (UNKNOWN) until the owner
- * checks TikTok and unlocks it.
+ * Direct mode: one record per queue item, shared by every browser and device, so an item is posted once even when
+ * another browser has no local record of it (Codex review, PR #13). The record lives in a Durable Object (one
+ * instance per item): it is strongly consistent and handles one request at a time, so two browsers cannot both take
+ * the lock (Workers KV could not promise that, nor two writes to one key within a second). Taken before TikTok is
+ * asked (SENDING); a definite TikTok refusal releases it; an unclear outcome keeps it (UNKNOWN) until the owner checks
+ * TikTok and unlocks it; an accepted post keeps its publish id until TikTok reports it FAILED.
  */
-const ITEM_ID = /^\d{4}-[VS]?\d+$/;
-function sentStore(env) {
-  if (!env.SENT)
-    throw new HttpError(
-      500,
-      'server_not_configured',
-      'Direct mode needs the SENT KV namespace (one record per posted item); see worker/README.md',
-    );
-  return env.SENT;
+const STALE_SENDING_MS = 2 * 60 * 1000;
+export class SentLock {
+  constructor(state) {
+    this.state = state;
+  }
+  async fetch(request) {
+    const { op, rec, publishId } = await request.json();
+    // One operation at a time per item: read-then-write cannot interleave with another browser's request.
+    const out = await this.state.blockConcurrencyWhile(async () => {
+      const storage = this.state.storage;
+      const cur = (await storage.get('rec')) ?? null;
+      if (op === 'acquire') {
+        if (cur) return { acquired: false, rec: cur };
+        await storage.put('rec', { status: 'SENDING', at: new Date().toISOString() });
+        return { acquired: true };
+      }
+      if (op === 'settle') {
+        await storage.put('rec', { ...rec, at: new Date().toISOString() });
+        return { ok: true };
+      }
+      if (op === 'release') {
+        let mine = false;
+        if (cur) {
+          if (publishId)
+            mine = cur.publishId === publishId; // TikTok reported this very post FAILED
+          else if (cur.publishId)
+            mine = false; // an accepted post is never released otherwise
+          else if (rec?.status === 'SENDING')
+            mine = cur.status === 'SENDING'; // the holder's own lock, refused by TikTok
+          // The owner's unlock: an unclear outcome, or a SENDING lock whose request died long ago.
+          else mine = cur.status === 'UNKNOWN' || Date.now() - Date.parse(cur.at) > STALE_SENDING_MS;
+        }
+        if (mine) await storage.delete('rec');
+        return { released: mine, rec: mine ? null : cur };
+      }
+      return { rec: cur };
+    });
+    return new Response(JSON.stringify(out), { headers: { 'Content-Type': 'application/json' } });
+  }
 }
+
+const ITEM_ID = /^\d{4}-[VS]?\d+$/;
 const itemIdOf = (input) => {
   if (typeof input?.itemId !== 'string' || !ITEM_ID.test(input.itemId))
     throw new HttpError(400, 'bad_item', 'The queue item id is required');
   return input.itemId;
 };
+/** The item's lock: `lock(op, extra)` → the Durable Object's answer. Refused when the binding is missing. */
+function itemLock(env, itemId) {
+  if (!env.SENT_LOCK)
+    throw new HttpError(
+      500,
+      'server_not_configured',
+      'Direct mode needs the SENT_LOCK Durable Object (one record per posted item); see worker/README.md',
+    );
+  const stub = env.SENT_LOCK.get(env.SENT_LOCK.idFromName(itemId));
+  return async (op, extra = {}) =>
+    (
+      await stub.fetch('https://sent-lock/', { method: 'POST', body: JSON.stringify({ op, ...extra }) })
+    ).json();
+}
 
 async function postDirect(input, session, cfg, env) {
   const itemId = itemIdOf(input);
-  const sent = sentStore(env);
+  const lock = itemLock(env, itemId);
   const creator = await creatorFor(session, cfg.mode);
   const target = input?.video
     ? buildVideoPost(input, creator, cfg.mode)
     : { url: TT.init, body: buildPost(input, creator, cfg.mode) };
-  const prior = await sent.get(itemId, 'json');
-  if (prior?.publishId)
+  const taken = await lock('acquire');
+  if (!taken.acquired && taken.rec?.publishId)
     throw new HttpError(
       409,
       'already_posted',
       'This item was already posted from the app (here or on another device).',
     );
-  if (prior)
+  if (!taken.acquired)
     throw new HttpError(
       409,
       'post_uncertain',
-      'An earlier post of this item got no clear answer. Check TikTok; if it is not there, unlock it and post again.',
+      'An earlier post of this item is in progress or got no clear answer. Check TikTok; if it is not there, unlock it and post again.',
     );
-  const at = () => new Date().toISOString();
-  await sent.put(itemId, JSON.stringify({ status: 'SENDING', at: at() }));
   let d;
   try {
     d = await tiktok(target.url, session, target.body);
   } catch (err) {
-    if (err?.refused) await sent.delete(itemId);
-    else await sent.put(itemId, JSON.stringify({ status: 'UNKNOWN', at: at() }));
+    if (err?.refused) await lock('release', { rec: { status: 'SENDING' } });
+    else await lock('settle', { rec: { status: 'UNKNOWN' } });
     throw err;
   }
   if (!d.publish_id) {
-    await sent.put(itemId, JSON.stringify({ status: 'UNKNOWN', at: at() }));
+    await lock('settle', { rec: { status: 'UNKNOWN' } });
     throw new HttpError(502, 'no_publish_id', 'TikTok did not return a publish id');
   }
-  await sent.put(itemId, JSON.stringify({ status: 'INIT', publishId: d.publish_id, at: at() }));
+  await lock('settle', { rec: { status: 'INIT', publishId: d.publish_id } });
   return { publishId: d.publish_id, mode: cfg.mode };
 }
 
@@ -426,18 +472,25 @@ async function apiRoute(request, pathname, session, cfg, env) {
     // The owner checked TikTok after an unclear outcome: the item is not there, so it may be posted again.
     if (cfg.mode !== 'direct')
       throw new HttpError(409, 'draft_mode_viewer', 'Nothing to unlock in draft mode.');
-    const itemId = itemIdOf(await request.json().catch(() => null));
-    const sent = sentStore(env);
-    const rec = await sent.get(itemId, 'json');
-    if (rec?.publishId)
+    const r = await itemLock(env, itemIdOf(await request.json().catch(() => null)))('release');
+    if (r.rec?.publishId)
       throw new HttpError(409, 'already_posted', 'TikTok accepted this item; it cannot be unlocked.');
-    if (rec) await sent.delete(itemId);
+    if (r.rec)
+      throw new HttpError(
+        409,
+        'post_in_progress',
+        'This item is being posted right now (here or on another device).',
+      );
     body = { unlocked: true };
   } else if (pathname === '/api/status') {
-    const { publishId } = (await request.json().catch(() => ({}))) ?? {};
+    const { publishId, itemId } = (await request.json().catch(() => ({}))) ?? {};
     if (typeof publishId !== 'string' || !/^[\w.~-]{4,200}$/.test(publishId))
       throw new HttpError(400, 'bad_publish_id');
     const d = await tiktok(TT.status, session, { publish_id: publishId });
+    // TikTok itself reports this post FAILED: its item may be posted again, from any browser (only the record that
+    // holds this publish id is released).
+    if (cfg.mode === 'direct' && d.status === 'FAILED' && typeof itemId === 'string' && ITEM_ID.test(itemId))
+      await itemLock(env, itemId)('release', { publishId });
     body = {
       status: d.status ?? null,
       failReason: d.fail_reason ?? null,

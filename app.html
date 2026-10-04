@@ -873,7 +873,7 @@
       async function track(item, isVideoDraft) {
         const rec = state.sent[item.id];
         for (let i = 0; i < 45; i++) {
-          const st = await api('/api/status', { body: { publishId: rec.publishId } });
+          const st = await api('/api/status', { body: { publishId: rec.publishId, itemId: item.id } });
           rec.status = st.status || rec.status;
           saveSent();
           if (st.status === 'FAILED') {
