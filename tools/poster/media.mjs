@@ -205,18 +205,31 @@ export function commitAndPush({
         'Commit or unstage them first; the export commits only its own files.',
     );
   // `git push origin main` sends every local commit, not only the one made here: refuse a clone that already holds
-  // commits origin/main does not have (Codex review, PR #13).
-  let ahead;
-  try {
-    ahead = git(['rev-list', '--oneline', 'origin/main..HEAD'], { cwd: siteRepo, identity: false });
-  } catch (err) {
-    throw new Error('The site repo has no origin/main to compare with; fetch it first.', { cause: err });
+  // commits the remote main does not have (Codex review, PR #13). The remote main is fetched into origin/main
+  // explicitly, since a clone without a fetch refspec never updates that ref. A dry run pushes nothing: no check.
+  if (!dryRun) {
+    let ahead;
+    try {
+      git(['fetch', '-q', 'origin', '+refs/heads/main:refs/remotes/origin/main'], {
+        cwd: siteRepo,
+        env,
+        identity: false,
+      });
+      ahead = git(['rev-list', '--oneline', 'origin/main..HEAD'], { cwd: siteRepo, identity: false });
+    } catch (err) {
+      throw new Error(
+        `Could not compare the site repo with the remote main (${String(err.stderr || err.message)
+          .trim()
+          .slice(0, 160)}).`,
+        { cause: err },
+      );
+    }
+    if (ahead)
+      throw new Error(
+        `The site repo has local commits that are not on origin/main: ${ahead.split('\n').slice(0, 3).join('; ')}. ` +
+          'Push or drop them first; the export pushes only its own commit.',
+      );
   }
-  if (ahead)
-    throw new Error(
-      `The site repo has local commits that are not on origin/main: ${ahead.split('\n').slice(0, 3).join('; ')}. ` +
-        'Push or drop them first; the export pushes only its own commit.',
-    );
   git(['add', '-A', '--', ...pathspecs], { cwd: siteRepo });
   const changed = git(['status', '--porcelain', '--', ...pathspecs], { cwd: siteRepo });
   let committed = false;
