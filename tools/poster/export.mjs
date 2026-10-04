@@ -61,6 +61,8 @@ export function buildVideoManifestItem(video, url, { date, seconds = null, bytes
     variant: video.variant ?? null,
     hypothesis: video.hypothesis ?? null,
     derivedFrom: video.derivedFrom ?? null,
+    // Synthetic narration (Kokoro) is realistic AI audio: TikTok wants it labelled.
+    aigc: Boolean(video.aigc ?? (video.voice && video.voice !== 'none')),
     caption: video.caption ?? '',
     hashtags: video.hashtags ?? [],
     title: buildTitle(video),
@@ -180,7 +182,7 @@ export async function exportDay({
     ).filter((p) => !p.withdrawn);
     const items = [];
     for (const post of posts) {
-      if (until && post.factCheck?.status !== 'PASS') throw new Error(`${post.id}: fact-check is not PASS`);
+      if (post.factCheck?.status !== 'PASS') throw new Error(`${post.id}: fact-check is not PASS`);
       const { pngs, stale } = slidePngs(d, post, paths);
       if (stale.length)
         log.warn(`${post.id}: ignoring ${stale.length} stale PNG(s) beyond the spec's slides`);

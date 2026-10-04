@@ -3,7 +3,7 @@
 
 import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { defaultLog, defaultPaths, postMode, privacyLevel, readJson, todayBrussels } from './config.mjs';
+import { defaultLog, defaultPaths, postMode, readJson, todayBrussels } from './config.mjs';
 import { getAccessToken } from './auth.mjs';
 import {
   PENDING_SHARE_CAP,
@@ -79,7 +79,15 @@ export async function runQueue({
   stats = true,
 } = {}) {
   const mode = postMode(env);
-  const level = mode === 'direct' ? privacyLevel(env) : undefined;
+  // TikTok's Direct Post rules ask for the creator's explicit consent to each post, with the metadata in front of them
+  // (PLAYBOOK §9). An unattended queue run cannot give that, so it only ever makes inbox drafts; direct posts go
+  // through the web app (site/app.html), one confirmation per post.
+  if (mode === 'direct')
+    throw new Error(
+      'STUDIA_POST_MODE=direct is refused for the unattended queue: TikTok requires per-post consent. ' +
+        'Use draft mode here and post directly from the Studia web app.',
+    );
+  const level = undefined; // inbox drafts carry no privacy level
   const manifests = loadQueue(paths);
   const state = loadDrafts(paths);
   const { selected, skipped, pending, scheduled } = selectQueueItems(manifests, state.drafts, { now: now() });

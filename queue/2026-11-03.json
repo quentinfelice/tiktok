@@ -6,7 +6,7 @@
       "date": "2026-11-03",
       "series": "Search answers",
       "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"do animals dream\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "hypothesis": "S1 search carousel: the query \"do animals dream\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
       "caption": "Do animals dream? Octopuses might.\nIn lab studies, octopuses have a quiet sleep plus short bouts of active sleep in which skin patterns flash and brain activity looks wake-like (Nature, 2023). Dreaming is still unknown.",
       "hashtags": [
         "#octopus",
@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T07:13:33.050Z"
+      "exportedAt": "2026-10-04T21:23:03.366Z"
     }
   ]
 }

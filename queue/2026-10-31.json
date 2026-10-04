@@ -6,7 +6,7 @@
       "date": "2026-10-31",
       "series": "Search answers",
       "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"do scary movies give you nightmares\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "hypothesis": "S1 search carousel: the query \"do scary movies give you nightmares\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
       "caption": "Do scary movies give you nightmares? One survey found a link.\nOf 1,287 people, those who reported violent media within 90 minutes of bed were about 13 times more likely to report a violent dream that night. A link, not proof.",
       "hashtags": [
         "#halloween",
@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T07:13:33.050Z"
+      "exportedAt": "2026-10-04T21:23:03.366Z"
     }
   ]
 }

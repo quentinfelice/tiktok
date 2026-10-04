@@ -6,7 +6,7 @@
       "date": "2026-10-27",
       "series": "Search answers",
       "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"do dreams replay your day\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "hypothesis": "S1 search carousel: the query \"do dreams replay your day\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
       "caption": "Do dreams replay your day? Pieces, not reruns.\nIn a 2003 study, about 65% of 299 dream reports reflected recent life, yet whole replays were 1 to 2%. A 2011 study found echoes from the day before and from 5 to 7 days before.",
       "hashtags": [
         "#dreams",
@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T07:13:33.049Z"
+      "exportedAt": "2026-10-04T21:23:03.365Z"
     }
   ]
 }

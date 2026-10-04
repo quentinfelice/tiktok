@@ -135,7 +135,7 @@ export async function doctor({
   }
   const mode = postMode(env);
   log(
-    `Post mode: ${mode}${mode === 'direct' ? ` (${privacyLevel(env)}, auto_add_music)` : ' (inbox drafts; set STUDIA_POST_MODE=direct after TikTok audits the app)'}`,
+    `Post mode: ${mode}${mode === 'direct' ? ` (${privacyLevel(env)}, auto_add_music)` : ' (inbox drafts; direct posts go through the Studia web app after TikTok audits the app)'}`,
   );
   report.postMode = mode;
   report.token = tokenSummary(readTokenCache(paths));

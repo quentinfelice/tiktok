@@ -6,7 +6,7 @@
       "date": "2026-11-01",
       "series": "Search answers",
       "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"do you need 8 hours of sleep\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "hypothesis": "S1 search carousel: the query \"do you need 8 hours of sleep\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
       "caption": "Do you really need 8 hours of sleep? Experts say 7 to 9.\nThe National Sleep Foundation recommends a range for most adults. And in a 2-week lab study, people sleeping 6 hours got steadily worse on attention tests.",
       "hashtags": [
         "#8hoursofsleep",
@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T07:13:33.050Z"
+      "exportedAt": "2026-10-04T21:23:03.366Z"
     }
   ]
 }

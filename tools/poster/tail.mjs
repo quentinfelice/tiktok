@@ -1,10 +1,12 @@
 #!/usr/bin/env node
-// Search tail: do a post's views keep coming after its first days? A For You push is over in 1-3 days (the account's
-// plateau froze after day 1), while a post that answers a search query keeps being found. Every publish run commits
-// state/stats.json to the public repo, so its git history is a time series of the Display API's cumulative views.
+// Late views: do a post's views keep coming after its first days? A For You push is usually over in 1-3 days (the
+// account's plateau froze after day 1); a post that answers a search query should keep being found. The Display API
+// only gives total views, so late views are a proxy: their source (Search, For You, profile) stays UNKNOWN unless the
+// owner reads the traffic-source panel in TikTok Studio. Every publish run commits state/stats.json to the public
+// repo, so its git history is a time series of the Display API's cumulative views.
 //   node departments/tiktok/poster/tail.mjs [--site /home/user/tiktok] [--json out.json]
-// For each post: views at about 1, 3, 7 and 14 days old (first snapshot at or after that age), and the tail =
-// latest views minus views at 3 days. MEASURED (Display API); a missing age is null, never 0.
+// For each post: views at about 1, 3, 7 and 14 days old (first snapshot at or after that age), and late = latest views
+// minus views at 3 days. MEASURED (Display API); a missing age is null, never 0.
 
 import { execFileSync } from 'node:child_process';
 import { writeFileSync } from 'node:fs';
@@ -45,7 +47,7 @@ export function tailRows(snapshots, now = Date.now()) {
         ageDays: Math.round(((now - born) / DAY) * 10) / 10,
         latest: last.views,
         ...views,
-        tail: views.d3 == null ? null : last.views - views.d3,
+        late: views.d3 == null ? null : last.views - views.d3,
       };
     })
     .sort((a, b) => Date.parse(b.createTime) - Date.parse(a.createTime));
@@ -75,11 +77,13 @@ if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).
   const snaps = readSnapshots(site);
   const rows = tailRows(snaps);
   const cell = (v) => String(v ?? '-').padStart(6);
-  console.log(`${snaps.length} snapshots of state/stats.json (MEASURED, Display API, cumulative views)`);
-  console.log(`${'posted'.padEnd(17)} ${'spec'.padEnd(8)}   age     d1     d3     d7    d14 latest   tail`);
+  console.log(
+    `${snaps.length} snapshots of state/stats.json (MEASURED, Display API, cumulative views; source of late views UNKNOWN)`,
+  );
+  console.log(`${'posted'.padEnd(17)} ${'spec'.padEnd(8)}   age     d1     d3     d7    d14 latest   late`);
   for (const r of rows.filter((x) => x.createTime > '2026-09-25'))
     console.log(
-      `${r.createTime.slice(0, 16)} ${String(r.specId ?? '-').padEnd(8)} ${cell(r.ageDays)} ${AGES.map((d) => cell(r[`d${d}`])).join(' ')} ${cell(r.latest)} ${cell(r.tail)}`,
+      `${r.createTime.slice(0, 16)} ${String(r.specId ?? '-').padEnd(8)} ${cell(r.ageDays)} ${AGES.map((d) => cell(r[`d${d}`])).join(' ')} ${cell(r.latest)} ${cell(r.late)}`,
     );
   const json = opt('--json');
   if (json) writeFileSync(json, `${JSON.stringify({ label: 'MEASURED (Display API)', rows }, null, 2)}\n`);

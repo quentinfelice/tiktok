@@ -6,7 +6,7 @@
       "date": "2026-10-26",
       "series": "Search answers",
       "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"why do we dream\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "hypothesis": "S1 search carousel: the query \"why do we dream\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
       "caption": "Why do we dream? What science knows so far.\nNo settled answer: one review links dreams to mind wandering, threat rehearsal has mixed support, and a back-of-brain hot zone tracks dreaming in REM and non-REM sleep.",
       "hashtags": [
         "#whydowedream",
@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T07:13:33.049Z"
+      "exportedAt": "2026-10-04T21:23:03.365Z"
     }
   ]
 }

@@ -6,7 +6,7 @@
       "date": "2026-10-07",
       "series": "Search answers",
       "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"how long should it take to fall asleep\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "hypothesis": "S1 search carousel: the query \"how long should it take to fall asleep\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
       "caption": "How long should it take to fall asleep? About 10 to 20 minutes.\nDropping off almost instantly, night after night, can be a sign of sleep debt. Fine if you wake refreshed; if you are tired every day, talk to a doctor.",
       "hashtags": [
         "#fallasleep",
@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T07:13:33.047Z"
+      "exportedAt": "2026-10-04T21:23:03.363Z"
     },
     {
       "id": "1007-V2",

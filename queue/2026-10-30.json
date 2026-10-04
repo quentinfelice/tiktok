@@ -6,7 +6,7 @@
       "date": "2026-10-30",
       "series": "Search answers",
       "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"is hitting snooze bad\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "hypothesis": "S1 search carousel: the query \"is hitting snooze bad\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
       "caption": "Is hitting snooze bad for you? One study says maybe not.\nIn a lab study of 31 regular snoozers, a 30-minute snooze cost about 6 minutes of sleep and did not worsen morning test scores. Habitual snoozers only: a clue, not a rule.",
       "hashtags": [
         "#snooze",
@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T07:13:33.050Z"
+      "exportedAt": "2026-10-04T21:23:03.365Z"
     }
   ]
 }

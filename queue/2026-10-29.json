@@ -6,7 +6,7 @@
       "date": "2026-10-29",
       "series": "Search answers",
       "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"why do i wake up before my alarm\" sits in slide 1, the title, the description and the hashtags. Success = a search tail (views still growing after day 3, poster/tail.mjs, MEASURED) against the account's tail of 0-5 views.",
+      "hypothesis": "S1 search carousel: the query \"why do i wake up before my alarm\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
       "caption": "Why do I wake up before my alarm? One small study's clue.\nIn a 1999 lab study, people expecting a 6 a.m. wake-up showed a rise in the hormone ACTH about an hour before. Those woken by surprise did not.",
       "hashtags": [
         "#alarm",
@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T07:13:33.050Z"
+      "exportedAt": "2026-10-04T21:23:03.365Z"
     }
   ]
 }
