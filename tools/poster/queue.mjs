@@ -7,6 +7,7 @@ import { defaultLog, defaultPaths, postMode, readJson, todayBrussels } from './c
 import { getAccessToken } from './auth.mjs';
 import {
   PENDING_SHARE_CAP,
+  TikTokApiError,
   assertCreatorAllows,
   buildInitPayload,
   buildVideoInitPayload,
@@ -22,8 +23,13 @@ import {
 import { runStats } from './stats.mjs';
 
 const PENDING_WINDOW_MS = 24 * 60 * 60 * 1000;
-/** Drafts that still count against TikTok's pending-upload cap. */
-const PENDING_STATUSES = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'SEND_TO_USER_INBOX']);
+/** Drafts that still count against TikTok's pending-upload cap (an UNKNOWN send may have reached TikTok). */
+const PENDING_STATUSES = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'SEND_TO_USER_INBOX', 'UNKNOWN']);
+/**
+ * SENDING is written before the init call; UNKNOWN replaces it when the answer was lost or unclear (TikTok may have
+ * the post). Both block a resend: only a person who checked the TikTok inbox clears an UNKNOWN record.
+ */
+const UNCERTAIN = new Set(['SENDING', 'UNKNOWN']);
 /** A queue item is done once a record delivered it or one is still on its way; some FAILED ones are retried. */
 const DELIVERED = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE']);
 const IN_FLIGHT = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'PROCESSING_UPLOAD']);
@@ -40,7 +46,9 @@ export function doneSpecIds(drafts) {
   for (const [id, recs] of bySpec)
     if (
       recs.length >= MAX_ATTEMPTS ||
-      recs.some((d) => DELIVERED.has(d.status) || IN_FLIGHT.has(d.status) || finalFail(d))
+      recs.some(
+        (d) => DELIVERED.has(d.status) || IN_FLIGHT.has(d.status) || UNCERTAIN.has(d.status) || finalFail(d),
+      )
     )
       done.add(id);
   return done;
@@ -183,26 +191,42 @@ export async function runQueue({
           ? `${it.id}: sending the video to the inbox as a draft…`
           : `${it.id}: ${mode === 'direct' ? 'publishing' : 'creating draft with'} ${it.images.length} photo(s)…`,
       );
-      let record;
+      // Lock first: if TikTok accepts the init but its answer is lost, the next run must not send the item again.
+      const record = {
+        specId: it.id,
+        date: it.date,
+        publishId: `pending:${it.id}:${now()}`,
+        kind: isVideo(it) ? 'video' : 'photos',
+        title: isVideo(it) ? it.title : payload.post_info.title,
+        urls: isVideo(it) ? [it.video] : it.images,
+        mode,
+        status: 'SENDING',
+        failReason: null,
+        publicPostIds: [],
+        logId: null,
+      };
+      upsertDraft(state, record);
+      // upsertDraft stores a copy: work on the stored entry from here on.
+      const entry = state.drafts.find((d) => d.publishId === record.publishId);
+      saveDrafts(paths, state);
       try {
         const { publishId, logId } = await (isVideo(it) ? initVideoDraft : initDraft)(payload, {
           accessToken: token,
           fetch,
         });
-        record = {
-          specId: it.id,
-          date: it.date,
+        Object.assign(entry, {
           publishId,
-          kind: isVideo(it) ? 'video' : 'photos',
-          title: isVideo(it) ? it.title : payload.post_info.title,
-          urls: isVideo(it) ? [it.video] : it.images,
-          mode,
-          status: 'INIT',
-          failReason: null,
-          publicPostIds: [],
           logId: logId ?? null,
-        };
+          status: 'INIT',
+          updatedAt: new Date().toISOString(),
+        });
       } catch (err) {
+        // TikTok's own error code is a definite refusal: nothing was created, so the item may be sent later.
+        // Anything else (network failure, a non-JSON answer, no publish_id) leaves the post's fate UNKNOWN.
+        if (err instanceof TikTokApiError && err.code && err.code !== 'ok')
+          state.drafts.splice(state.drafts.indexOf(entry), 1);
+        else Object.assign(entry, { status: 'UNKNOWN', failReason: err.message.slice(0, 200) });
+        saveDrafts(paths, state);
         log.error(`${it.id}: ${err.message}`);
         if (err.code === 'spam_risk_too_many_pending_share') {
           log.warn('TikTok pending-upload cap reached; the rest of the queue waits for the next run.');
@@ -210,18 +234,17 @@ export async function runQueue({
         }
         continue;
       }
-      upsertDraft(state, record);
       saveDrafts(paths, state);
-      const status = await pollStatus(record.publishId, { accessToken: token, fetch, log, sleep });
-      Object.assign(record, {
+      const status = await pollStatus(entry.publishId, { accessToken: token, fetch, log, sleep });
+      Object.assign(entry, {
         status: status.status,
         failReason: status.failReason,
         publicPostIds: status.publicPostIds,
         lastCheckedAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
       });
-      upsertDraft(state, record);
       saveDrafts(paths, state);
-      results.push(record);
+      results.push(entry);
       log(`${it.id}: ${status.status}${status.failReason ? ` (${status.failReason})` : ''}`);
     }
   }

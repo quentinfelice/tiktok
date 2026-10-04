@@ -338,8 +338,8 @@
             </div>
 
             <p id="draft-note" class="note" hidden>
-              This sends the post to your TikTok inbox as a draft. You choose the sound and who can view it in
-              the TikTok app.
+              The daily run sends each item to your TikTok inbox on its date. Nothing is sent from here, so
+              nothing is sent twice: open the draft in the TikTok app, then post it.
             </p>
 
             <p id="consent" class="note"></p>
@@ -355,10 +355,10 @@
             <div id="progress" class="status" role="status" hidden></div>
             <div id="caption-help" hidden>
               <p class="note">
-                TikTok does not let an app attach a caption to a video draft. Your caption was copied: paste
-                it in the TikTok app when you open the draft.
+                TikTok does not let an app attach a caption to a video draft: copy it here and paste it in the
+                TikTok app when you open the draft.
               </p>
-              <button id="copy-caption" class="ghost" type="button">Copy the caption again</button>
+              <button id="copy-caption" class="ghost" type="button">Copy the caption</button>
             </div>
           </form>
         </div>
@@ -684,6 +684,11 @@
         const direct = state.mode === 'direct';
         $('title-count').textContent = `${$('title').value.length}/${$('title').maxLength}`;
         let ok = state.item && $('title').value.trim() && !state.busy;
+        // Draft mode is a viewer: the scheduled queue owns every item and sends it on its date, so the app never
+        // sends one (two senders would make two drafts). Only the dormant direct mode posts from here.
+        if (!direct) ok = false;
+        $('post').hidden = $('consent').hidden = $('processing').hidden = !direct;
+        $('caption-help').hidden = direct || state.item?.kind !== 'video';
         const sent = state.item && state.sent[state.item.id];
         if (sent) ok = false;
         $('recheck').hidden =
@@ -790,7 +795,7 @@
 
       $('composer').addEventListener('submit', async (e) => {
         e.preventDefault();
-        if ($('post').disabled) return;
+        if ($('post').disabled || state.mode !== 'direct') return;
         const item = state.item;
         state.busy = true;
         refresh();
