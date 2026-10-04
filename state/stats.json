@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-03T21:23:19.998Z",
+  "fetchedAt": "2026-10-04T07:14:13.049Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -29,11 +29,25 @@
   "posts": [
     {
       "specId": null,
+      "tiktokId": "7692702370093976865",
+      "createTime": "2026-10-04T06:54:16.000Z",
+      "createTimeUnix": 1791096856,
+      "title": "#Studia #dreams #sleepscience #psychology ",
+      "views": 77,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7692702370093976865?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 29,
+      "matchedBy": null
+    },
+    {
+      "specId": null,
       "tiktokId": "7692533041587064096",
       "createTime": "2026-10-03T19:57:03.000Z",
       "createTimeUnix": 1791057423,
       "title": "#Studia #dreams #sleepscience #psychology ",
-      "views": 89,
+      "views": 252,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -47,7 +61,7 @@
       "createTime": "2026-10-03T08:57:46.000Z",
       "createTimeUnix": 1791017866,
       "title": "Your dreams rarely replay your day. In a 2003 study, 29 people kept a daily log and wrote down dreams for 14 days. About 65% of 299 dream reports were judged to reflect recent life, yet whole-episode replays appeared in no more than 1 to 2%. Pieces, not reruns. #dreams #sleepscience #psychology #brain #didyouknow",
-      "views": 278,
+      "views": 281,
       "likes": 1,
       "comments": 0,
       "shares": 0,
