@@ -32,7 +32,8 @@ just this Worker can open.
      every browser and device, so an item is never posted twice; without it the Worker refuses direct posts.
      TikTok offers no idempotent post and no way to look up an unanswered one, so an item whose post got no clear answer
      stays locked until the owner checks TikTok and presses "I checked TikTok: it is not there" (an item stuck as
-     sending can be unlocked that way after 30 minutes, once any post it made would show on the profile).
+     sending, or with no clear answer, can be unlocked that way 30 minutes after the attempt, once any post it made would
+     show on the profile).
    - `SCOPES` = `user.info.basic,video.upload,video.list` for `draft`; `user.info.basic,video.publish,video.list` for `direct`.
 5. Copy the Worker address (`https://tiktok.<your-subdomain>.workers.dev`) and give it to the manager. It is public, not a secret. The manager puts it in `site/app-config.js` and publishes the site.
 6. Check `https://tiktok.<your-subdomain>.workers.dev/health`: it must answer `{"ok":true,...}` with the mode and scopes.
