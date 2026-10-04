@@ -217,6 +217,7 @@ export function assertDate(date) {
 }
 
 export function assertId(id) {
-  if (!/^\d{4}-V?\d+$/.test(id || '')) throw new Error(`--id must look like MMDD-N or MMDD-VN, got "${id}"`);
+  if (!/^\d{4}-[VS]?\d+$/.test(id || ''))
+    throw new Error(`--id must look like MMDD-N, MMDD-VN or MMDD-SN, got "${id}"`);
   return id;
 }

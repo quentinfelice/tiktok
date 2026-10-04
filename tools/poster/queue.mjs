@@ -50,8 +50,10 @@ export async function refreshInFlight(
 ) {
   let changed = 0;
   for (const d of state.drafts.filter((x) => IN_FLIGHT.has(x.status))) {
+    let checked = false;
     try {
       const s = await status(d.publishId, { accessToken, fetch });
+      checked = Boolean(s.status);
       if (s.status && s.status !== d.status) {
         Object.assign(d, {
           status: s.status,
@@ -63,7 +65,8 @@ export async function refreshInFlight(
     } catch (err) {
       log.warn(`${d.specId}: status check failed (${err.message})`);
     }
-    if (IN_FLIGHT.has(d.status) && now - new Date(d.createdAt).getTime() > PENDING_WINDOW_MS) {
+    // Expire only on TikTok's own word: a failed check leaves the record in flight, so no duplicate is sent.
+    if (checked && IN_FLIGHT.has(d.status) && now - new Date(d.createdAt).getTime() > PENDING_WINDOW_MS) {
       Object.assign(d, { status: 'EXPIRED', failReason: 'still in flight after 24 h' });
       changed++;
     }
