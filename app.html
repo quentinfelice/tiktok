@@ -521,13 +521,10 @@
           // Released days first (newest first), then the next two scheduled days; "today" is Europe/Brussels.
           const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Brussels' });
           const sorted = [...dates].sort();
-          const pick = [
-            ...sorted
-              .filter((d) => d <= today)
-              .reverse()
-              .slice(0, 3),
-            ...sorted.filter((d) => d > today).slice(0, 2),
-          ];
+          // The last three released days by default; "Show older days" reaches back so a missed day stays postable.
+          const released = sorted.filter((d) => d <= today).reverse();
+          const back = state.back || 3;
+          const pick = [...released.slice(0, back), ...sorted.filter((d) => d > today).slice(0, 2)];
           const items = [];
           for (const d of pick) {
             const m = await getJson(`queue/${d}.json`);
@@ -561,6 +558,18 @@
             b.setAttribute('aria-pressed', 'false');
             b.onclick = () => choose(it, b);
             box.append(b);
+          }
+          if (released.length > back) {
+            const more = el('button', {
+              type: 'button',
+              className: 'more',
+              textContent: `Show older days (${released.length - back} more)`,
+            });
+            more.onclick = () => {
+              state.back = back + 7;
+              loadSlideshows();
+            };
+            box.append(more);
           }
         } catch {
           box.append(
