@@ -565,7 +565,11 @@
         try {
           const { drafts = [] } = await getJson('state/drafts.json');
           for (const d of drafts)
-            if (!state.sent[d.specId] || state.sent[d.specId].by === 'queue')
+            // HANDED_TO_APP: the queue gave the item to this app (direct mode); it stays postable here.
+            if (
+              d.status !== 'HANDED_TO_APP' &&
+              (!state.sent[d.specId] || state.sent[d.specId].by === 'queue')
+            )
               state.sent[d.specId] = { publishId: d.publishId, status: d.status, by: 'queue' };
         } catch (err) {
           // 404: no queue state published yet. Anything else, just before sending: do not guess, send nothing.

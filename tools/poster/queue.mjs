@@ -5,7 +5,9 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { defaultLog, defaultPaths, postMode, readJson, todayBrussels } from './config.mjs';
 import { getAccessToken } from './auth.mjs';
+import { git } from './media.mjs';
 import {
+  HANDED_TO_APP,
   IN_FLIGHT,
   PENDING_SHARE_CAP,
   TikTokApiError,
@@ -28,6 +30,34 @@ const PENDING_WINDOW_MS = 24 * 60 * 60 * 1000;
 /** Drafts that still count against TikTok's pending-upload cap (an UNKNOWN send may have reached TikTok). */
 const PENDING_STATUSES = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'SEND_TO_USER_INBOX', 'UNKNOWN']);
 export { MAX_ATTEMPTS, RETRYABLE_FAILS, doneSpecIds } from './drafts.mjs';
+
+/**
+ * True when the item is still in its manifest on the remote main. A run loads the queue once, then sends for minutes;
+ * a withdrawal pushed meanwhile must stop the send. A site repo that is not a git clone (tests) has no remote: true.
+ * A failed fetch is false: the item waits for the next run (fail closed).
+ */
+export function stillQueued(paths, item, { env = process.env, log = defaultLog } = {}) {
+  if (!existsSync(join(paths.siteRepo ?? '', '.git'))) return true;
+  try {
+    git(['fetch', '-q', 'origin', '+refs/heads/main:refs/remotes/origin/main'], {
+      cwd: paths.siteRepo,
+      env,
+      identity: false,
+    });
+    const text = git(['show', `origin/main:queue/${item.date}.json`], {
+      cwd: paths.siteRepo,
+      identity: false,
+    });
+    if (JSON.parse(text).items?.some((x) => x.id === item.id)) return true;
+    log.warn(`${item.id}: withdrawn from queue/${item.date}.json since this run started; not sent.`);
+    return false;
+  } catch (err) {
+    log.warn(
+      `${item.id}: could not confirm it is still queued (${String(err.message).slice(0, 120)}); not sent now.`,
+    );
+    return false;
+  }
+}
 
 /**
  * The posting mode the Worker deploys with: POST_MODE in worker/wrangler.jsonc of the public repo (the file Cloudflare
@@ -153,6 +183,31 @@ export async function runQueue({
     log.warn(
       `The web app posts directly (worker/wrangler.jsonc POST_MODE "direct"): it is the only sender, so the queue sends none of the ${due.length} due item(s).`,
     );
+  // Every queued item is handed to the app while it posts directly: back in draft mode, the queue sends only what is
+  // exported afterwards, never an item the owner may already have posted (Codex review, PR #13).
+  if (appDirect && !dryRun) {
+    const owned = doneSpecIds(state.drafts);
+    const handed = manifests.flatMap((m) =>
+      (m.items ?? []).map((it) => ({ ...it, date: it.date ?? m.date })),
+    );
+    let n = 0;
+    for (const it of handed.filter((x) => !owned.has(x.id))) {
+      upsertDraft(state, {
+        specId: it.id,
+        date: it.date,
+        publishId: `app:${it.id}`,
+        status: HANDED_TO_APP,
+        failReason: null,
+        publicPostIds: [],
+        logId: null,
+      });
+      n++;
+    }
+    if (n) {
+      saveDrafts(paths, state);
+      log(`${n} queued item(s) handed to the web app (${HANDED_TO_APP}).`);
+    }
+  }
   const selected = appDirect ? [] : due;
   log(
     `Queue (${mode}${level ? `, ${level}` : ''}): ${manifests.length} manifest(s), ${selected.length} to create, ${skipped.length} waiting (cap ${PENDING_SHARE_CAP}, ${pending} pending), ${scheduled.length} scheduled for later dates.`,
@@ -190,6 +245,8 @@ export async function runQueue({
           ? `${it.id}: sending the video to the inbox as a draft…`
           : `${it.id}: ${mode === 'direct' ? 'publishing' : 'creating draft with'} ${it.images.length} photo(s)…`,
       );
+      // A withdrawal pushed while this run was going is honoured up to the moment of sending (Codex review, PR #13).
+      if (!stillQueued(paths, it, { env, log })) continue;
       // Lock first: if TikTok accepts the init but its answer is lost, the next run must not send the item again.
       const record = {
         specId: it.id,

@@ -22,6 +22,11 @@ export const TERMINAL_STATUSES = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLET
 export const UNCERTAIN = new Set(['SENDING', 'UNKNOWN']);
 /** A post is done once a record delivered it or one is still on its way; some FAILED ones are retried. */
 export const DELIVERED = new Set(['SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE']);
+/**
+ * Written by the queue for every queued item while the web app posts directly: those items belong to the app, so they
+ * are not sent again when draft mode resumes (direct posts are recorded only in the owner's browser).
+ */
+export const HANDED_TO_APP = 'HANDED_TO_APP';
 export const IN_FLIGHT = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'PROCESSING_UPLOAD']);
 export const MAX_ATTEMPTS = 3;
 /** Fail reasons TikTok's status reference treats as transient; any other FAILED record is final (no resend). */
@@ -37,7 +42,12 @@ export function doneSpecIds(drafts) {
     if (
       recs.length >= MAX_ATTEMPTS ||
       recs.some(
-        (d) => DELIVERED.has(d.status) || IN_FLIGHT.has(d.status) || UNCERTAIN.has(d.status) || finalFail(d),
+        (d) =>
+          DELIVERED.has(d.status) ||
+          IN_FLIGHT.has(d.status) ||
+          UNCERTAIN.has(d.status) ||
+          d.status === HANDED_TO_APP ||
+          finalFail(d),
       )
     )
       done.add(id);
@@ -294,10 +304,12 @@ export async function checkDrafts({
   accessToken,
 } = {}) {
   const state = loadDrafts(paths);
-  // A SENDING/UNKNOWN lock has no TikTok publish id to poll: only a person who checked the inbox clears it.
+  // A SENDING/UNKNOWN lock or a hand-over to the web app has no TikTok publish id to poll.
   const open = state.drafts.filter(
     (d) =>
-      !UNCERTAIN.has(d.status) && (!TERMINAL_STATUSES.has(d.status) || d.status === 'SEND_TO_USER_INBOX'),
+      !UNCERTAIN.has(d.status) &&
+      d.status !== HANDED_TO_APP &&
+      (!TERMINAL_STATUSES.has(d.status) || d.status === 'SEND_TO_USER_INBOX'),
   );
   if (!open.length) {
     log('No drafts to check.');
