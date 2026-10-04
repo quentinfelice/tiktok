@@ -39,8 +39,11 @@ In the public repo: `.github/workflows/connect.yml` (one-time OAuth, tokens encr
 
 Direct posts go through the Studia web app (`site/app.html`, served with the Worker in `../worker/`): the owner opens each
 item, chooses who can view it, the comment, disclosure and AI-content settings, and confirms that one post, as TikTok's
-Direct Post rules require. The unattended `queue` stays in draft mode: `STUDIA_POST_MODE=direct` is refused there (Codex
-review, PR #13). Unaudited apps get private-only direct posts; see `../AUDIT_PACK.md` for the audit.
+Direct Post rules require. The unattended `queue` never posts directly (`STUDIA_POST_MODE=direct` is refused there), and
+there is only one sender at a time: while `worker/wrangler.jsonc` in the public repo sets `POST_MODE` to `"direct"`, the
+queue sends nothing and the web app is the sender (its posts are recorded in the owner's browser, not in
+`state/drafts.json`). Switch the mode in that file only, not in the Cloudflare dashboard (Codex review, PR #13).
+Unaudited apps get private-only direct posts; see `../AUDIT_PACK.md` for the audit.
 
 ## Daily commands (direct mode, when a machine reaches TikTok)
 
@@ -54,6 +57,7 @@ node departments/tiktok/poster/cli.mjs stats                 # -> departments/ti
 - `media`: `out/<date>/<id>/NN.png` (spec slide count) -> JPEG q0.9 -> `media/<date>/<id>/NN.jpg` in the site clone, commit + push `main`, then HEAD-polls the URLs until 200 (up to 6 min).
 - `drafts --dry-run`: prints, per post, the `POST /v2/post/publish/content/init/` payload the queue would send (`post_mode: MEDIA_UPLOAD`, `media_type: PHOTO`, `source: PULL_FROM_URL`, title = first caption line, max 90; description = caption + hashtags, max 4000); a post whose fact-check is not `PASS` is refused. A live `drafts` run is refused: the scheduled queue (`export`, then the publish workflow) is the only sender, since a second sender keeps its own state and could deliver a post twice. TikTok allows 5 pending API uploads per 24 h.
 - `drafts --check`: re-polls `/v2/post/publish/status/fetch/` for recorded drafts that are not final and updates `state/drafts.json` (SENDING/UNKNOWN locks have no publish id and are skipped).
+- `withdraw` fast-forwards the site clone first (nothing changes if that fails), refuses an item the queue already sent, and warns if the queue sent it in the seconds before the withdrawal landed.
 - `media`/`export` commit only their own paths and refuse to run while something else is staged in the site clone, or while it holds local commits that are not on `origin/main`.
 - `stats`: `POST /v2/video/list/?fields=id,create_time,title,video_description,share_url,view_count,like_count,comment_count,share_count`, paginated; matches posts to spec ids by publish record, else by the first caption line; writes `state/stats.json` `{fetchedAt, posts:[{specId, tiktokId, createTime, views, likes, comments, shares, shareUrl}]}`. Claude's daily run merges it into the ledger.
 

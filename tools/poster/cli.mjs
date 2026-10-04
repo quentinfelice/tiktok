@@ -27,7 +27,7 @@ import { authorizeUrl, exchangeCode, readTokenCache, refresh, tokenSummary } fro
 import { checkSiteRepo, commitAndPush, publishMedia } from './media.mjs';
 import { checkDrafts, runDrafts } from './drafts.mjs';
 import { runStats } from './stats.mjs';
-import { exportDay, exportVideos, pullStats, withdrawItem } from './export.mjs';
+import { exportDay, exportVideos, pullStats, sentFromSite, withdrawItem } from './export.mjs';
 import { runQueue } from './queue.mjs';
 
 const USAGE = `Studia Poster — TikTok drafts and stats for the slideshow department
@@ -236,7 +236,7 @@ export async function main(argv = process.argv.slice(2), { env = process.env, lo
     case 'withdraw': {
       if (!id) throw new Error('withdraw needs --id');
       if (values.until) throw new Error('withdraw takes one --date, not --until');
-      const r = withdrawItem(paths, date, id, { dryRun });
+      const r = withdrawItem(paths, date, id, { dryRun, refresh: true, env });
       if (r.sent) {
         log.warn(`${id}: its draft was already sent to TikTok; nothing withdrawn (delete it in the inbox).`);
         return 1;
@@ -244,7 +244,7 @@ export async function main(argv = process.argv.slice(2), { env = process.env, lo
       log(
         `${dryRun ? '[dry-run] ' : ''}${id}: ${r.removed ? 'removed from the queue' : 'not in the queue'}${r.marked ? ', marked withdrawn' : ''}.`,
       );
-      if (r.removed && !dryRun)
+      if (r.removed && !dryRun) {
         commitAndPush({
           siteRepo: paths.siteRepo,
           pathspecs: ['queue'],
@@ -253,6 +253,14 @@ export async function main(argv = process.argv.slice(2), { env = process.env, lo
           env,
           log,
         });
+        // The push may have rebased on a publish commit made in the seconds since the refresh.
+        if (sentFromSite(paths, id)) {
+          log.warn(
+            `${id}: the queue sent it just before the withdrawal landed; delete the draft in the TikTok inbox.`,
+          );
+          return 1;
+        }
+      }
       return 0;
     }
     case 'queue': {

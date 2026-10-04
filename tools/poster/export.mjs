@@ -20,6 +20,7 @@ import {
   commitAndPush,
   convertPngsToJpegs,
   git,
+  refreshSiteRepo,
   loadDay,
   mediaTargets,
   publicUrl,
@@ -111,6 +112,12 @@ export function writeManifest(paths, date, items) {
   return { file, manifest };
 }
 
+/** True once the public state/drafts.json holds a record for this item (the queue sent it or tried to). */
+export function sentFromSite(paths, id) {
+  const drafts = readJson(join(paths.siteRepo ?? '', 'state', 'drafts.json'), { drafts: [] }).drafts ?? [];
+  return drafts.some((d) => d.specId === id);
+}
+
 /**
  * Takes a not-yet-sent item out of queue/<date>.json (the owner dropped it on the review desk) and marks the video or
  * slideshow "withdrawn" in days/<date>/videos.json or slideshows.json so a later export skips it. An item whose draft was already created (it is
@@ -120,13 +127,20 @@ export function withdrawItem(
   paths,
   date,
   id,
-  { reason = 'dropped on the review desk', at = new Date(), dryRun = false } = {},
+  {
+    reason = 'dropped on the review desk',
+    at = new Date(),
+    dryRun = false,
+    refresh = false,
+    env = process.env,
+  } = {},
 ) {
   assertDate(date);
+  // The CLI refreshes first: Actions may have sent the item since the last pull (Codex review, PR #13).
+  if (refresh) refreshSiteRepo(paths.siteRepo, { env });
   const file = join(paths.queueDir, `${date}.json`);
   const manifest = readJson(file, { date, items: [] });
-  const drafts = readJson(join(paths.siteRepo ?? '', 'state', 'drafts.json'), { drafts: [] }).drafts ?? [];
-  if (drafts.some((d) => d.specId === id)) return { sent: true, removed: false, marked: false };
+  if (sentFromSite(paths, id)) return { sent: true, removed: false, marked: false };
   const items = manifest.items.filter((it) => it.id !== id);
   const removed = items.length !== manifest.items.length;
   if (removed && !dryRun) writeJson(file, { ...manifest, items });

@@ -1,7 +1,7 @@
 // Studia Poster: the GitHub Actions side. Reads queue/<date>.json manifests exported from the studio,
 // creates the TikTok photo drafts that are not created yet (max 5 pending per 24 h), then refreshes stats.
 
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { defaultLog, defaultPaths, postMode, readJson, todayBrussels } from './config.mjs';
 import { getAccessToken } from './auth.mjs';
@@ -28,6 +28,17 @@ const PENDING_WINDOW_MS = 24 * 60 * 60 * 1000;
 /** Drafts that still count against TikTok's pending-upload cap (an UNKNOWN send may have reached TikTok). */
 const PENDING_STATUSES = new Set(['INIT', 'PROCESSING_DOWNLOAD', 'SEND_TO_USER_INBOX', 'UNKNOWN']);
 export { MAX_ATTEMPTS, RETRYABLE_FAILS, doneSpecIds } from './drafts.mjs';
+
+/**
+ * The posting mode the Worker deploys with: POST_MODE in worker/wrangler.jsonc of the public repo (the file Cloudflare
+ * builds from). No file means no web app is deployed from this repo: draft.
+ */
+export function workerMode(paths) {
+  const file = join(paths.siteRepo ?? '', 'worker', 'wrangler.jsonc');
+  if (!existsSync(file)) return 'draft';
+  const text = readFileSync(file, 'utf8').replace(/^\s*\/\/.*$/gm, '');
+  return /"POST_MODE"\s*:\s*"direct"/.test(text) ? 'direct' : 'draft';
+}
 
 /**
  * Re-checks records a past run left in flight (polling timed out): TikTok may have delivered or failed them since.
@@ -129,7 +140,20 @@ export async function runQueue({
     if (await refreshInFlight(state, { accessToken: token, fetch, now: now(), log }))
       saveDrafts(paths, state);
   }
-  const { selected, skipped, pending, scheduled } = selectQueueItems(manifests, state.drafts, { now: now() });
+  const {
+    selected: due,
+    skipped,
+    pending,
+    scheduled,
+  } = selectQueueItems(manifests, state.drafts, { now: now() });
+  // Phase C: when the Worker posts directly, the web app is the only sender; its posts live in the owner's browser,
+  // not in state/drafts.json, so the queue stands down instead of sending the same items again (Codex review, PR #13).
+  const appDirect = workerMode(paths) === 'direct';
+  if (appDirect && due.length)
+    log.warn(
+      `The web app posts directly (worker/wrangler.jsonc POST_MODE "direct"): it is the only sender, so the queue sends none of the ${due.length} due item(s).`,
+    );
+  const selected = appDirect ? [] : due;
   log(
     `Queue (${mode}${level ? `, ${level}` : ''}): ${manifests.length} manifest(s), ${selected.length} to create, ${skipped.length} waiting (cap ${PENDING_SHARE_CAP}, ${pending} pending), ${scheduled.length} scheduled for later dates.`,
   );

@@ -24,6 +24,8 @@ just this Worker can open.
    - `SESSION_KEY`: any random string of 32 characters or more (a password manager can generate it).
 4. Same page, add **Variables** (type Text):
    - `POST_MODE` = `draft` (inbox drafts, works today) or `direct` (Direct Post, needed for the audit demo).
+     Set the same value in `wrangler.jsonc` in the public repo: the scheduled queue reads it there and sends nothing while
+     the mode is `direct`, so the app and the queue never both send.
    - `SCOPES` = `user.info.basic,video.upload,video.list` for `draft`; `user.info.basic,video.publish,video.list` for `direct`.
 5. Copy the Worker address (`https://tiktok.<your-subdomain>.workers.dev`) and give it to the manager. It is public, not a secret. The manager puts it in `site/app-config.js` and publishes the site.
 6. Check `https://tiktok.<your-subdomain>.workers.dev/health`: it must answer `{"ok":true,...}` with the mode and scopes.

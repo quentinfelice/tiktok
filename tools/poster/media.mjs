@@ -149,6 +149,24 @@ export function checkSiteRepo(siteRepo) {
   };
 }
 
+/**
+ * Fast-forwards the site clone to the remote main, so state/ and queue/ show what GitHub Actions did since the last
+ * pull. Throws when that fails: a decision on stale state is not taken (Codex review, PR #13).
+ */
+export function refreshSiteRepo(siteRepo, { env = process.env } = {}) {
+  checkSiteRepo(siteRepo);
+  try {
+    git(['pull', '-q', '--ff-only', 'origin', 'main'], { cwd: siteRepo, env, identity: false });
+  } catch (err) {
+    throw new Error(
+      `Could not refresh the public repo (${String(err.stderr || err.message)
+        .trim()
+        .slice(0, 160)}); nothing changed.`,
+      { cause: err },
+    );
+  }
+}
+
 /** Stages media/, commits when there is a change, pushes main. Retries the push with GITHUB_TOKEN if it fails. */
 export function commitAndPush({
   siteRepo,
