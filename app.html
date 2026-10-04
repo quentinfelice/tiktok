@@ -439,6 +439,8 @@
       } catch {
         state.sent = {};
       }
+      // A fresh page has no request in flight: a saved SENDING means the answer was never seen.
+      for (const rec of Object.values(state.sent)) if (rec.status === 'SENDING') rec.status = 'UNKNOWN';
       const saveSent = () => {
         try {
           localStorage.setItem(SENT_KEY, JSON.stringify(state.sent));
@@ -552,21 +554,23 @@
       // ---- slideshows ---------------------------------------------------------------------------------------
       async function getJson(path) {
         const res = await fetch(path, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+        if (!res.ok) throw Object.assign(new Error(`${path}: HTTP ${res.status}`), { status: res.status });
         return res.json();
       }
       /**
        * Items the scheduled queue has handled (state/drafts.json, any status, failures included: the queue may retry
        * them) belong to the queue and are locked here, so the app never makes a second draft of them.
        */
-      async function syncQueueState() {
+      async function syncQueueState({ strict = false } = {}) {
         try {
           const { drafts = [] } = await getJson('state/drafts.json');
           for (const d of drafts)
             if (!state.sent[d.specId] || state.sent[d.specId].by === 'queue')
               state.sent[d.specId] = { publishId: d.publishId, status: d.status, by: 'queue' };
-        } catch {
-          /* no queue state published yet */
+        } catch (err) {
+          // 404: no queue state published yet. Anything else, just before sending: do not guess, send nothing.
+          if (strict && err.status !== 404)
+            throw new Error('Could not check what the daily run has already sent. Try again in a moment.');
         }
       }
 
@@ -821,7 +825,7 @@
               brandContent: $('disclose').checked && $('brand-content').checked,
             });
           // The daily run may have sent this item since the list was loaded.
-          await syncQueueState();
+          await syncQueueState({ strict: true });
           if (state.sent[item.id]) return show('The daily run has just sent this item to TikTok.', true);
           // Lock before asking: if the answer is lost, TikTok may have the post, and a retry would duplicate it.
           state.sent[item.id] = { publishId: null, status: 'SENDING' };
@@ -830,9 +834,10 @@
           try {
             ({ publishId } = await api('/api/post', { body }));
           } catch (err) {
-            if (err.status)
-              delete state.sent[item.id]; // the server answered with a refusal: nothing was created
-            else state.sent[item.id].status = 'UNKNOWN'; // no answer: keep it locked until the owner checks TikTok
+            // A 4xx is a refusal before or at initialization (validation, session, TikTok's own refusal): nothing was
+            // created. A 5xx or no answer at all may come after TikTok accepted it: keep it locked until the owner checks.
+            if (err.status >= 400 && err.status < 500) delete state.sent[item.id];
+            else state.sent[item.id].status = 'UNKNOWN';
             saveSent();
             throw err;
           }
