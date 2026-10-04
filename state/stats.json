@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T07:14:13.049Z",
+  "fetchedAt": "2026-10-04T07:36:27.563Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-10-04T06:54:16.000Z",
       "createTimeUnix": 1791096856,
       "title": "#Studia #dreams #sleepscience #psychology ",
-      "views": 77,
+      "views": 83,
       "likes": 0,
       "comments": 0,
       "shares": 0,
