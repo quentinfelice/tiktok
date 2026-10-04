@@ -285,6 +285,14 @@
               </div>
               <p id="comments-note" class="note" hidden>Comments are turned off in your TikTok settings.</p>
 
+              <div class="row">
+                <input id="ai-label" type="checkbox" />
+                <label for="ai-label">AI-generated content</label>
+              </div>
+              <p class="note">
+                On for videos with a synthetic voice: TikTok asks for realistic AI audio to be labelled.
+              </p>
+
               <div class="switch">
                 <input id="disclose" type="checkbox" role="switch" />
                 <label for="disclose">Disclose post content</label>
@@ -581,6 +589,7 @@
         $('progress').hidden = true;
         $('privacy').value = '';
         $('allow-comments').checked = false;
+        $('ai-label').checked = Boolean(item.aigc);
         $('disclose').checked = false;
         $('brand-organic').checked = false;
         $('brand-content').checked = false;
@@ -696,6 +705,7 @@
             Object.assign(body, {
               privacyLevel: $('privacy').value,
               disableComment: !$('allow-comments').checked,
+              isAigc: $('ai-label').checked,
               brandOrganic: $('disclose').checked && $('brand-organic').checked,
               brandContent: $('disclose').checked && $('brand-content').checked,
             });
