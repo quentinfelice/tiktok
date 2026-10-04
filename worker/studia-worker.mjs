@@ -336,6 +336,14 @@ async function route(request, env, cfg) {
     if (pathname === '/api/creator') {
       body = { creator: await creatorFor(session, cfg.mode), mode: cfg.mode };
     } else if (pathname === '/api/post') {
+      // Draft mode: the scheduled queue is the only sender (it shares no lock with this Worker), so the app is a
+      // viewer and this route refuses, even for an old tab or a direct caller (Codex review, PR #13).
+      if (cfg.mode !== 'direct')
+        throw new HttpError(
+          409,
+          'draft_mode_viewer',
+          'In draft mode the daily run sends every item to your TikTok inbox; the app does not post.',
+        );
       const input = await request.json().catch(() => null);
       const creator = await creatorFor(session, cfg.mode);
       const target = input?.video

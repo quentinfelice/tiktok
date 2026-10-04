@@ -235,7 +235,15 @@ export async function runQueue({
         continue;
       }
       saveDrafts(paths, state);
-      const status = await pollStatus(entry.publishId, { accessToken: token, fetch, log, sleep });
+      let status;
+      try {
+        status = await pollStatus(entry.publishId, { accessToken: token, fetch, log, sleep });
+      } catch (err) {
+        // TikTok accepted the init: the entry stays in flight (refreshInFlight checks it next run); go on.
+        log.warn(`${it.id}: status check failed (${err.message}); it stays in flight`);
+        results.push(entry);
+        continue;
+      }
       Object.assign(entry, {
         status: status.status,
         failReason: status.failReason,
