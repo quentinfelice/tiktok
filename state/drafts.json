@@ -414,6 +414,65 @@
       "logId": "2026100519580456CCBA83C7C85050D31F",
       "updatedAt": "2026-10-05T19:58:38.427Z",
       "lastCheckedAt": "2026-10-05T19:58:38.427Z"
+    },
+    {
+      "createdAt": "2026-10-05T20:17:32.741Z",
+      "specId": "1006-V3",
+      "date": "2026-10-05",
+      "publishId": "v_inbox_url~v2.7693280159684020246",
+      "kind": "video",
+      "title": "Do you dream in color?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-V3/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261005201732D908E45AA01BD731581D",
+      "updatedAt": "2026-10-05T20:18:07.276Z",
+      "lastCheckedAt": "2026-10-05T20:18:07.276Z"
+    },
+    {
+      "createdAt": "2026-10-05T20:18:07.575Z",
+      "specId": "1007-S1",
+      "date": "2026-10-05",
+      "publishId": "p_inbox_url~v2.7693280339779864598",
+      "kind": "photos",
+      "title": "How long should it take to fall asleep? About 10 to 20 minutes.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261005201808D8DCE649F498DB60E29F",
+      "updatedAt": "2026-10-05T20:18:14.368Z",
+      "lastCheckedAt": "2026-10-05T20:18:14.368Z"
+    },
+    {
+      "createdAt": "2026-10-05T20:18:14.670Z",
+      "specId": "1007-V2",
+      "date": "2026-10-05",
+      "publishId": "v_inbox_url~v2.7693280339779930134",
+      "kind": "video",
+      "title": "Dreaming your teeth are falling out?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-V2/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261005201815CD8BBB87A703C4C4DDAC",
+      "updatedAt": "2026-10-05T20:18:48.115Z",
+      "lastCheckedAt": "2026-10-05T20:18:48.115Z"
     }
   ]
 }
