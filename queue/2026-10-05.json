@@ -76,6 +76,137 @@
       "seconds": null,
       "bytes": 4560592,
       "exportedAt": "2026-10-04T07:35:48.798Z"
+    },
+    {
+      "id": "1006-S1",
+      "date": "2026-10-05",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"why do i wake up at 3am\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
+      "caption": "Why do I wake up at 3am? What sleep science says.\nBrief wake-ups are normal, 3 to 4 a.m. is a body-clock turning point, and a 2022 hypothesis says night tilts mood negative. If it keeps costing you sleep, talk to a doctor.",
+      "hashtags": [
+        "#3am",
+        "#cantsleep",
+        "#insomnia",
+        "#sleepscience",
+        "#sleep"
+      ],
+      "title": "Why do I wake up at 3am? What sleep science says.",
+      "description": "Why do I wake up at 3am? What sleep science says.\nBrief wake-ups are normal, 3 to 4 a.m. is a body-clock turning point, and a 2022 hypothesis says night tilts mood negative. If it keeps costing you sleep, talk to a doctor.\n\n#3am #cantsleep #insomnia #sleepscience #sleep",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T21:23:03.362Z"
+    },
+    {
+      "id": "1006-V2",
+      "date": "2026-10-05",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "control-silent",
+      "hypothesis": "R2 week 1 control: Night Brain without voice (music + on-screen text). Isolates the voice effect against the narrated arm.",
+      "derivedFrom": null,
+      "aigc": false,
+      "caption": "Why do you hear a bang as you fall asleep?\nIt's exploding head syndrome: a sudden loud noise in your head as you drift off or wake. It's usually painless, and 18% of 211 US college students said they had it at least once. If it's frequent or worrying, talk to a doctor.\nHave you ever heard the bang?",
+      "hashtags": [
+        "#explodingheadsyndrome",
+        "#fallingasleep",
+        "#sleep",
+        "#sleepscience"
+      ],
+      "title": "Why do you hear a bang as you fall asleep?",
+      "description": "Why do you hear a bang as you fall asleep?\nIt's exploding head syndrome: a sudden loud noise in your head as you drift off or wake. It's usually painless, and 18% of 211 US college students said they had it at least once. If it's frequent or worrying, talk to a doctor.\nHave you ever heard the bang?\n\n#explodingheadsyndrome #fallingasleep #sleep #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 5180481,
+      "exportedAt": "2026-10-04T21:23:26.727Z"
+    },
+    {
+      "id": "1006-V3",
+      "date": "2026-10-05",
+      "kind": "video",
+      "series": "Night Brain",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated Night Brain.",
+      "derivedFrom": null,
+      "aigc": true,
+      "caption": "Do you dream in color?\nIn one diary study of 60 people, about 4% of under-25s' dreams were black and white, vs about a quarter for over-55s raised on black-and-white TV. Small study: a link, not proof.\nWhat color do you remember from your last dream?",
+      "hashtags": [
+        "#dreams",
+        "#dreamincolor",
+        "#sleepscience",
+        "#psychology"
+      ],
+      "title": "Do you dream in color?",
+      "description": "Do you dream in color?\nIn one diary study of 60 people, about 4% of under-25s' dreams were black and white, vs about a quarter for over-55s raised on black-and-white TV. Small study: a link, not proof.\nWhat color do you remember from your last dream?\n\n#dreams #dreamincolor #sleepscience #psychology",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 4074542,
+      "exportedAt": "2026-10-04T21:23:26.727Z"
+    },
+    {
+      "id": "1007-S1",
+      "date": "2026-10-05",
+      "series": "Search answers",
+      "variant": "variant",
+      "hypothesis": "S1 search carousel: the query \"how long should it take to fall asleep\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
+      "caption": "How long should it take to fall asleep? About 10 to 20 minutes.\nDropping off almost instantly, night after night, can be a sign of sleep debt. Fine if you wake refreshed; if you are tired every day, talk to a doctor.",
+      "hashtags": [
+        "#fallasleep",
+        "#sleeptips",
+        "#sleepscience",
+        "#sleep",
+        "#tired"
+      ],
+      "title": "How long should it take to fall asleep? About 10 to 20 minutes.",
+      "description": "How long should it take to fall asleep? About 10 to 20 minutes.\nDropping off almost instantly, night after night, can be a sign of sleep debt. Fine if you wake refreshed; if you are tired every day, talk to a doctor.\n\n#fallasleep #sleeptips #sleepscience #sleep #tired",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-S1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-04T21:23:03.363Z"
+    },
+    {
+      "id": "1007-V2",
+      "date": "2026-10-05",
+      "kind": "video",
+      "series": "Your dream, explained",
+      "variant": "voice",
+      "hypothesis": "R2 week 1: narrated 'Your dream, explained'.",
+      "derivedFrom": null,
+      "aigc": true,
+      "caption": "Dreaming your teeth are falling out?\nIn one study of 210 students, teeth dreams weren't linked to distress or poor sleep, but went with tension in the teeth, gums or jaw on waking. Linked, not proven.\nTeeth, falling, or being chased: which one comes back for you?",
+      "hashtags": [
+        "#dreammeaning",
+        "#teethfallingout",
+        "#dreams",
+        "#sleepscience"
+      ],
+      "title": "Dreaming your teeth are falling out?",
+      "description": "Dreaming your teeth are falling out?\nIn one study of 210 students, teeth dreams weren't linked to distress or poor sleep, but went with tension in the teeth, gums or jaw on waking. Linked, not proven.\nTeeth, falling, or being chased: which one comes back for you?\n\n#dreammeaning #teethfallingout #dreams #sleepscience",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3377560,
+      "exportedAt": "2026-10-04T21:23:26.727Z"
     }
   ]
 }
