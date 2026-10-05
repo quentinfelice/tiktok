@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T21:34:32.070Z",
+  "fetchedAt": "2026-10-05T14:50:29.915Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,13 +28,27 @@
   ],
   "posts": [
     {
+      "specId": null,
+      "tiktokId": "7693142508049681696",
+      "createTime": "2026-10-05T11:22:08.000Z",
+      "createTimeUnix": 1791199328,
+      "title": "#Studia #sleepmyths #mythbusting #sleep ",
+      "views": 250,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7693142508049681696?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 35,
+      "matchedBy": null
+    },
+    {
       "specId": "1005-S1",
       "tiktokId": "7692908781172247841",
       "createTime": "2026-10-04T20:15:07.000Z",
       "createTimeUnix": 1791144907,
       "title": "Do you swallow spiders in your sleep? Myth check. A spider expert at the Burke Museum (University of Washington) says no case is on formal record, and a sleeper's vibrations tend to warn spiders away. An expert's view, not a study. #spiders #sleepmyths #mythbusting #sleep #didyouknow",
-      "views": 120,
-      "likes": 2,
+      "views": 301,
+      "likes": 4,
       "comments": 0,
       "shares": 1,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7692908781172247841?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
@@ -131,7 +145,7 @@
       "createTime": "2026-10-02T09:16:31.000Z",
       "createTimeUnix": 1790932591,
       "title": "You can dream outside REM sleep too. In a 2017 sleep-lab study using high-density EEG, people woken from REM and from non-REM sleep reported dreams, and activity in a back-of-brain hot zone tracked whether they dreamed. One lab, so treat it as a strong clue, not the last word. #dreams #sleepscience #neuroscience #brain #didyouknow",
-      "views": 269,
+      "views": 270,
       "likes": 3,
       "comments": 0,
       "shares": 0,
