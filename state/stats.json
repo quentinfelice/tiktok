@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-05T14:50:29.915Z",
+  "fetchedAt": "2026-10-05T19:58:39.562Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -29,12 +29,26 @@
   "posts": [
     {
       "specId": null,
+      "tiktokId": "7693239759690370336",
+      "createTime": "2026-10-05T17:39:28.000Z",
+      "createTimeUnix": 1791221968,
+      "title": "#Studia #sleepmyths #mythbusting #sleep #dreams ",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7693239759690370336?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 35,
+      "matchedBy": null
+    },
+    {
+      "specId": null,
       "tiktokId": "7693142508049681696",
       "createTime": "2026-10-05T11:22:08.000Z",
       "createTimeUnix": 1791199328,
       "title": "#Studia #sleepmyths #mythbusting #sleep ",
-      "views": 250,
-      "likes": 1,
+      "views": 253,
+      "likes": 2,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7693142508049681696?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
@@ -47,7 +61,7 @@
       "createTime": "2026-10-04T20:15:07.000Z",
       "createTimeUnix": 1791144907,
       "title": "Do you swallow spiders in your sleep? Myth check. A spider expert at the Burke Museum (University of Washington) says no case is on formal record, and a sleeper's vibrations tend to warn spiders away. An expert's view, not a study. #spiders #sleepmyths #mythbusting #sleep #didyouknow",
-      "views": 301,
+      "views": 395,
       "likes": 4,
       "comments": 0,
       "shares": 1,

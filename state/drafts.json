@@ -373,6 +373,47 @@
       "logId": "202610042014161E0E19D1D06BC2067C51",
       "updatedAt": "2026-10-04T20:14:48.879Z",
       "lastCheckedAt": "2026-10-04T20:14:48.878Z"
+    },
+    {
+      "createdAt": "2026-10-05T19:57:55.899Z",
+      "specId": "1006-S1",
+      "date": "2026-10-05",
+      "publishId": "p_inbox_url~v2.7693274952384792598",
+      "kind": "photos",
+      "title": "Why do I wake up at 3am? What sleep science says.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-S1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261005195756B2D6F98BCBCB0DFFD636",
+      "updatedAt": "2026-10-05T19:58:03.706Z",
+      "lastCheckedAt": "2026-10-05T19:58:03.706Z"
+    },
+    {
+      "createdAt": "2026-10-05T19:58:03.950Z",
+      "specId": "1006-V2",
+      "date": "2026-10-05",
+      "publishId": "v_inbox_url~v2.7693275143959447574",
+      "kind": "video",
+      "title": "Why do you hear a bang as you fall asleep?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-06/1006-V2/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "2026100519580456CCBA83C7C85050D31F",
+      "updatedAt": "2026-10-05T19:58:38.427Z",
+      "lastCheckedAt": "2026-10-05T19:58:38.427Z"
     }
   ]
 }
