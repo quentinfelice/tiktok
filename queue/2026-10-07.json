@@ -78,33 +78,6 @@
       "seconds": null,
       "bytes": 3639060,
       "exportedAt": "2026-10-04T21:23:26.727Z"
-    },
-    {
-      "id": "1007-X1",
-      "date": "2026-10-07",
-      "series": "Night files",
-      "variant": "variant",
-      "hypothesis": "X1: a high-arousal true story on a dark slide 1 stops more scrollers than the S1 soft question. Success = more photos viewed, likes, shares or saves per view than S1 on the same dates (Display API, MEASURED; Studio screenshots, USER_REPORTED).",
-      "caption": "He killed while asleep. Then he was acquitted.\nToronto, 1987: Ken Parks drove to his in-laws' house while sleepwalking. Canada's Supreme Court upheld his acquittal in 1992. Has anyone in your family sleepwalked?",
-      "hashtags": [
-        "#truestory",
-        "#sleepwalking",
-        "#truecrime",
-        "#sleepscience"
-      ],
-      "title": "He killed while asleep. Then he was acquitted.",
-      "description": "He killed while asleep. Then he was acquitted.\nToronto, 1987: Ken Parks drove to his in-laws' house while sleepwalking. Canada's Supreme Court upheld his acquittal in 1992. Has anyone in your family sleepwalked?\n\n#truestory #sleepwalking #truecrime #sleepscience",
-      "images": [
-        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/01.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/02.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/03.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/04.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/05.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/06.jpg"
-      ],
-      "coverIndex": 0,
-      "slides": 6,
-      "exportedAt": "2026-10-06T14:25:01.444Z"
     }
   ]
 }
