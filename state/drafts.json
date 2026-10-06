@@ -473,6 +473,47 @@
       "logId": "20261005201815CD8BBB87A703C4C4DDAC",
       "updatedAt": "2026-10-05T20:18:48.115Z",
       "lastCheckedAt": "2026-10-05T20:18:48.115Z"
+    },
+    {
+      "createdAt": "2026-10-06T22:41:08.693Z",
+      "specId": "1007-V3",
+      "date": "2026-10-07",
+      "publishId": "v_inbox_url~v2.7693688277739554838",
+      "kind": "video",
+      "title": "Do blind people dream?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-V3/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261006224109F2921E34B2186B3EFCD0",
+      "updatedAt": "2026-10-06T22:41:39.401Z",
+      "lastCheckedAt": "2026-10-06T22:41:39.401Z"
+    },
+    {
+      "createdAt": "2026-10-06T22:41:39.767Z",
+      "specId": "1007-X1",
+      "date": "2026-10-07",
+      "publishId": "p_inbox_url~v2.7693687870691018774",
+      "kind": "photos",
+      "title": "He killed while asleep. Then he was acquitted.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "2026100622414032CD7A814C5F741484E3",
+      "updatedAt": "2026-10-06T22:41:46.185Z",
+      "lastCheckedAt": "2026-10-06T22:41:46.185Z"
     }
   ]
 }
