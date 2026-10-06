@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T21:23:03.363Z"
+      "exportedAt": "2026-10-06T14:25:01.444Z"
     },
     {
       "id": "1008-V2",
@@ -78,6 +78,33 @@
       "seconds": null,
       "bytes": 4242169,
       "exportedAt": "2026-10-04T21:23:26.727Z"
+    },
+    {
+      "id": "1008-X1",
+      "date": "2026-10-08",
+      "series": "Night files",
+      "variant": "variant",
+      "hypothesis": "X1: a high-arousal true story on a dark slide 1 stops more scrollers than the S1 soft question. Success = more photos viewed, likes, shares or saves per view than S1 on the same dates (Display API, MEASURED; Studio screenshots, USER_REPORTED).",
+      "caption": "She was found asleep on a crane.\nLondon, 2005: a sleepwalking 15-year-old climbed a crane and was found asleep about 40 m up. Firefighters brought her down unharmed.",
+      "hashtags": [
+        "#truestory",
+        "#sleepwalking",
+        "#london",
+        "#sleepscience"
+      ],
+      "title": "She was found asleep on a crane.",
+      "description": "She was found asleep on a crane.\nLondon, 2005: a sleepwalking 15-year-old climbed a crane and was found asleep about 40 m up. Firefighters brought her down unharmed.\n\n#truestory #sleepwalking #london #sleepscience",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-06T14:25:01.444Z"
     }
   ]
 }

@@ -27,7 +27,7 @@
       ],
       "coverIndex": 0,
       "slides": 6,
-      "exportedAt": "2026-10-04T21:23:03.363Z"
+      "exportedAt": "2026-10-06T14:25:01.445Z"
     },
     {
       "id": "1009-V2",
@@ -78,6 +78,33 @@
       "seconds": null,
       "bytes": 3524715,
       "exportedAt": "2026-10-04T21:23:26.727Z"
+    },
+    {
+      "id": "1009-X1",
+      "date": "2026-10-09",
+      "series": "Night files",
+      "variant": "variant",
+      "hypothesis": "X1: a high-arousal true story on a dark slide 1 stops more scrollers than the S1 soft question. Success = more photos viewed, likes, shares or saves per view than S1 on the same dates (Display API, MEASURED; Studio screenshots, USER_REPORTED).",
+      "caption": "There is a disease that ends sleep.\nFatal familial insomnia is an inherited prion disease that takes away the ability to sleep. It is extremely rare, and ordinary insomnia does not turn into it.",
+      "hashtags": [
+        "#sleepscience",
+        "#insomnia",
+        "#brain",
+        "#didyouknow"
+      ],
+      "title": "There is a disease that ends sleep.",
+      "description": "There is a disease that ends sleep.\nFatal familial insomnia is an inherited prion disease that takes away the ability to sleep. It is extremely rare, and ordinary insomnia does not turn into it.\n\n#sleepscience #insomnia #brain #didyouknow",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-09/1009-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-09/1009-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-09/1009-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-09/1009-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-09/1009-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-09/1009-X1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-06T14:25:01.445Z"
     }
   ]
 }
