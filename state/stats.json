@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-07T15:48:44.077Z",
+  "fetchedAt": "2026-10-07T15:50:14.462Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,8 +33,8 @@
       "createTime": "2026-10-07T12:53:54.000Z",
       "createTimeUnix": 1791377634,
       "title": "He killed while asleep. Then he was acquitted. Toronto, 1987: Ken Parks drove to his in-laws' house while sleepwalking. Canada's Supreme Court upheld his acquittal in 1992. Has anyone in your family sleepwalked? #truestory #sleepwalking #truecrime #sleepscience",
-      "views": 233,
-      "likes": 2,
+      "views": 240,
+      "likes": 3,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7693908331672390945?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
