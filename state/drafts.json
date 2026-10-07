@@ -537,6 +537,88 @@
       "logId": "20261007191726992B69025522CE1AEBB5",
       "updatedAt": "2026-10-07T19:17:32.900Z",
       "lastCheckedAt": "2026-10-07T19:17:32.900Z"
+    },
+    {
+      "createdAt": "2026-10-07T23:09:26.432Z",
+      "specId": "1008-S1",
+      "date": "2026-10-08",
+      "publishId": "p_inbox_url~v2.7694066242109491222",
+      "kind": "photos",
+      "title": "Why can't I sleep in a new place? It's called the first-night effect.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-S1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "202610072309262E8E771544B8DE0F6DDD",
+      "updatedAt": "2026-10-07T23:09:33.783Z",
+      "lastCheckedAt": "2026-10-07T23:09:33.783Z"
+    },
+    {
+      "createdAt": "2026-10-07T23:09:34.033Z",
+      "specId": "1008-V2",
+      "date": "2026-10-08",
+      "publishId": "v_inbox_url~v2.7694066242109507606",
+      "kind": "video",
+      "title": "Do your dreams replay your day?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-V2/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261007230934A3EAC227627E3E667344",
+      "updatedAt": "2026-10-07T23:10:07.498Z",
+      "lastCheckedAt": "2026-10-07T23:10:07.498Z"
+    },
+    {
+      "createdAt": "2026-10-07T23:10:07.749Z",
+      "specId": "1008-V3",
+      "date": "2026-10-08",
+      "publishId": "v_inbox_url~v2.7694066581013268502",
+      "kind": "video",
+      "title": "Dreaming of falling?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-V3/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261007231008B413558DDE7C525DBD96",
+      "updatedAt": "2026-10-07T23:10:40.854Z",
+      "lastCheckedAt": "2026-10-07T23:10:40.854Z"
+    },
+    {
+      "createdAt": "2026-10-07T23:10:41.158Z",
+      "specId": "1008-X1",
+      "date": "2026-10-08",
+      "publishId": "p_inbox_url~v2.7694066586306545686",
+      "kind": "photos",
+      "title": "She was found asleep on a crane.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-08/1008-X1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261007231041BDCFF6743C849B6AEE6E",
+      "updatedAt": "2026-10-07T23:10:47.379Z",
+      "lastCheckedAt": "2026-10-07T23:10:47.379Z"
     }
   ]
 }
