@@ -514,6 +514,29 @@
       "logId": "2026100622414032CD7A814C5F741484E3",
       "updatedAt": "2026-10-06T22:41:46.185Z",
       "lastCheckedAt": "2026-10-06T22:41:46.185Z"
+    },
+    {
+      "createdAt": "2026-10-07T19:17:25.903Z",
+      "specId": "1007-X2",
+      "date": "2026-10-07",
+      "publishId": "p_inbox_url~v2.7694006894847805462",
+      "kind": "photos",
+      "title": "Does sleep need a central brain?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X2/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X2/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X2/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X2/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X2/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-07/1007-X2/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261007191726992B69025522CE1AEBB5",
+      "updatedAt": "2026-10-07T19:17:32.900Z",
+      "lastCheckedAt": "2026-10-07T19:17:32.900Z"
     }
   ]
 }
