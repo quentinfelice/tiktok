@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-08T13:38:30.224Z",
+  "fetchedAt": "2026-10-08T23:26:17.713Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,12 +28,40 @@
   ],
   "posts": [
     {
+      "specId": null,
+      "tiktokId": "7694418769703161121",
+      "createTime": "2026-10-08T21:54:40.000Z",
+      "createTimeUnix": 1791496480,
+      "title": "#sleep #sleepscience #nightmindrelax ###nightmind  ",
+      "views": 88,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7694418769703161121?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 28,
+      "matchedBy": null
+    },
+    {
+      "specId": null,
+      "tiktokId": "7694307327704337697",
+      "createTime": "2026-10-08T14:42:10.000Z",
+      "createTimeUnix": 1791470530,
+      "title": "#sleep #sleepscience #nightmindrelax  ",
+      "views": 265,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7694307327704337697?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 34,
+      "matchedBy": null
+    },
+    {
       "specId": "1007-X2",
       "tiktokId": "7694235875386985760",
       "createTime": "2026-10-08T10:05:00.000Z",
       "createTimeUnix": 1791453900,
       "title": "Does sleep need a central brain? Cassiopea jellyfish showed a sleep-like state without a centralized nervous system. Nath et al. · 2017. #sleep #sleepscience #nightmind #science",
-      "views": 221,
+      "views": 260,
       "likes": 0,
       "comments": 0,
       "shares": 0,
