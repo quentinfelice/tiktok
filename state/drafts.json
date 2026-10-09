@@ -701,6 +701,29 @@
       "logId": "202610082326100E887B88D84124ADA0F8",
       "updatedAt": "2026-10-08T23:26:16.561Z",
       "lastCheckedAt": "2026-10-08T23:26:16.561Z"
+    },
+    {
+      "createdAt": "2026-10-09T22:43:02.821Z",
+      "specId": "1010-S1",
+      "date": "2026-10-10",
+      "publishId": "p_inbox_url~v2.7694801507807545366",
+      "kind": "photos",
+      "title": "Night terrors vs nightmares: what's the difference?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-S1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "202610092243034C487A92FF53A48CE812",
+      "updatedAt": "2026-10-09T22:43:04.766Z",
+      "lastCheckedAt": "2026-10-09T22:43:04.766Z"
     }
   ]
 }
