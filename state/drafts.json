@@ -724,6 +724,65 @@
       "logId": "202610092243034C487A92FF53A48CE812",
       "updatedAt": "2026-10-09T22:43:04.766Z",
       "lastCheckedAt": "2026-10-09T22:43:04.766Z"
+    },
+    {
+      "createdAt": "2026-10-10T12:39:44.342Z",
+      "specId": "1010-V2",
+      "date": "2026-10-10",
+      "publishId": "v_inbox_url~v2.7695017728696076310",
+      "kind": "video",
+      "title": "Can you solve problems in your dreams?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-V2/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "2026101012394444973D650FC76CA01588",
+      "updatedAt": "2026-10-10T12:40:18.416Z",
+      "lastCheckedAt": "2026-10-10T12:40:18.416Z"
+    },
+    {
+      "createdAt": "2026-10-10T12:40:18.696Z",
+      "specId": "1010-V3",
+      "date": "2026-10-10",
+      "publishId": "v_inbox_url~v2.7695017883017398294",
+      "kind": "video",
+      "title": "Dreaming you're late for an exam?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-V3/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "2026101012401904EBF44659B5ADD54A62",
+      "updatedAt": "2026-10-10T12:40:57.805Z",
+      "lastCheckedAt": "2026-10-10T12:40:57.805Z"
+    },
+    {
+      "createdAt": "2026-10-10T12:40:58.053Z",
+      "specId": "1010-X1",
+      "date": "2026-10-10",
+      "publishId": "p_inbox_url~v2.7695018009357961238",
+      "kind": "photos",
+      "title": "People drove cars while fully asleep.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-10/1010-X1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261010124058C3A2641C10C900F77C0C",
+      "updatedAt": "2026-10-10T12:41:04.401Z",
+      "lastCheckedAt": "2026-10-10T12:41:04.401Z"
     }
   ]
 }
