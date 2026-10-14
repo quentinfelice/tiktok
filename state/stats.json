@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-14T12:01:29.194Z",
+  "fetchedAt": "2026-10-14T17:17:50.102Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,12 +28,26 @@
   ],
   "posts": [
     {
+      "specId": "1014-X2",
+      "tiktokId": "7696509521967009057",
+      "createTime": "2026-10-14T13:07:49.000Z",
+      "createTimeUnix": 1791983269,
+      "title": "Reindeer chewing cud: awake only? Brain recordings suggest reindeer can sleep during rumination. Furrer et al. · 2024. #sleep #sleepscience #nightmind #science",
+      "views": 375,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7696509521967009057?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
+    {
       "specId": "1014-X1",
       "tiktokId": "7696463322371099937",
       "createTime": "2026-10-14T10:08:34.000Z",
       "createTimeUnix": 1791972514,
       "title": "A tanker, a reef, and too little sleep. The NTSB found the Exxon Valdez ran aground in 1989 partly because the third mate was fatigued and overworked; it also cited the captain's alcohol impairment and a crew that was not rested. #truestory #exxonvaldez #sleepdeprivation #history",
-      "views": 120,
+      "views": 259,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -47,7 +61,7 @@
       "createTime": "2026-10-14T06:40:20.000Z",
       "createTimeUnix": 1791960020,
       "title": "Why can't I remember my dreams? What sleep science says. Your brain enters REM several times a night and most dreaming happens then, but the sleeping brain is bad at saving new memories. People who wake briefly more often tend to remember more. #dreams #rememberdreams #dreamjournal #remsleep #sleepscience",
-      "views": 740,
+      "views": 766,
       "likes": 3,
       "comments": 0,
       "shares": 0,
