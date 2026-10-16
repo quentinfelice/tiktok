@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-15T21:28:59.032Z",
+  "fetchedAt": "2026-10-16T11:32:11.501Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -27,6 +27,34 @@
     "view_count"
   ],
   "posts": [
+    {
+      "specId": "1015-X1",
+      "tiktokId": "7697157992852016417",
+      "createTime": "2026-10-16T07:04:22.000Z",
+      "createTimeUnix": 1792134262,
+      "title": "After 17 hours awake, you test like you drank. In a 2000 study, 17 to 19 hours without sleep left people as impaired as a 0.05% blood alcohol level on some tests (Williamson & Feyer). #sleepdeprivation #sleepscience #didyouknow #brain",
+      "views": 704,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7697157992852016417?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
+    {
+      "specId": "1015-S1",
+      "tiktokId": "7697012455637060897",
+      "createTime": "2026-10-15T21:39:28.000Z",
+      "createTimeUnix": 1792100368,
+      "title": "Sleep paralysis: why you can't move when you wake up. In REM sleep your muscles are switched off, and sometimes the mind wakes first. About 8% of people have had it. Scary but short; if it's frequent or worrying, talk to a doctor. #sleepparalysis #sleep #remsleep #scary #sleepscience",
+      "views": 286,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7697012455637060897?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
     {
       "specId": "1014-X2",
       "tiktokId": "7696509521967009057",
@@ -257,7 +285,7 @@
       "createTime": "2026-10-09T06:22:43.000Z",
       "createTimeUnix": 1791526963,
       "title": "She was found asleep on a crane. London, 2005: a sleepwalking 15-year-old climbed a crane and was found asleep about 40 m up. Firefighters brought her down unharmed. #truestory #sleepwalking #london #sleepscience",
-      "views": 496,
+      "views": 500,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -635,7 +663,7 @@
       "createTime": "2026-09-26T21:39:56.000Z",
       "createTimeUnix": 1790458796,
       "title": "It's hypnagogia: the drowsy border where images drift in. Over a third of people report it, and it may even be a creative sweet spot. #hypnagogia #sleepscience #fallingasleep #psychology #dreamy",
-      "views": 285,
+      "views": 286,
       "likes": 4,
       "comments": 0,
       "shares": 0,
