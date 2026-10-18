@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-18T15:56:34.588Z",
+  "fetchedAt": "2026-10-18T20:51:13.909Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,6 +28,20 @@
   ],
   "posts": [
     {
+      "specId": "1017-X2",
+      "tiktokId": "7698071660720688416",
+      "createTime": "2026-10-18T18:09:44.000Z",
+      "createTimeUnix": 1792346984,
+      "title": "Two wild elephants: two or eight hours? Two wild African elephant matriarchs averaged about two hours of daily estimated sleep. Gravett et al. · 2017. #sleep #sleepscience #nightmind #science",
+      "views": 376,
+      "likes": 4,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7698071660720688416?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
+    {
       "specId": "1017-X1",
       "tiktokId": "7697880098782973217",
       "createTime": "2026-10-18T05:46:38.000Z",
@@ -47,7 +61,7 @@
       "createTime": "2026-10-17T19:00:19.000Z",
       "createTimeUnix": 1792263619,
       "title": "Recurring dreams meaning: what science says. In a 2006 study of 212 recurrent dreams, about two thirds contained a threat, but under 2% fit every prediction of threat rehearsal theory. A hypothesis tested, not settled. #recurringdreams #dreammeaning #dreams #nightmares #psychology",
-      "views": 300,
+      "views": 309,
       "likes": 1,
       "comments": 0,
       "shares": 1,
@@ -705,7 +719,7 @@
       "createTime": "2026-09-27T12:35:50.000Z",
       "createTimeUnix": 1790512550,
       "title": "You dream every REM cycle, but the sleeping brain is bad at saving new memories. People who wake briefly more often tend to remember more. #dreams #dreamscience #sleepscience #remsleep #nightthoughts",
-      "views": 1379,
+      "views": 1380,
       "likes": 7,
       "comments": 0,
       "shares": 0,
