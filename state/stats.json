@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-18T11:17:12.513Z",
+  "fetchedAt": "2026-10-18T15:56:34.588Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-10-18T05:46:38.000Z",
       "createTimeUnix": 1792302398,
       "title": "Every night, your brain paralyses you. In REM sleep the brainstem switches off most voluntary muscles so you do not act out your dreams; eye and breathing muscles keep working. #remsleep #sleepscience #dreams #brain",
-      "views": 755,
+      "views": 759,
       "likes": 4,
       "comments": 0,
       "shares": 0,
@@ -47,7 +47,7 @@
       "createTime": "2026-10-17T19:00:19.000Z",
       "createTimeUnix": 1792263619,
       "title": "Recurring dreams meaning: what science says. In a 2006 study of 212 recurrent dreams, about two thirds contained a threat, but under 2% fit every prediction of threat rehearsal theory. A hypothesis tested, not settled. #recurringdreams #dreammeaning #dreams #nightmares #psychology",
-      "views": 294,
+      "views": 300,
       "likes": 1,
       "comments": 0,
       "shares": 1,
@@ -103,7 +103,7 @@
       "createTime": "2026-10-15T21:39:28.000Z",
       "createTimeUnix": 1792100368,
       "title": "Sleep paralysis: why you can't move when you wake up. In REM sleep your muscles are switched off, and sometimes the mind wakes first. About 8% of people have had it. Scary but short; if it's frequent or worrying, talk to a doctor. #sleepparalysis #sleep #remsleep #scary #sleepscience",
-      "views": 329,
+      "views": 330,
       "likes": 2,
       "comments": 0,
       "shares": 0,
