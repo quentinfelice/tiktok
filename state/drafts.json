@@ -1243,6 +1243,75 @@
       "logId": "2026101715410345E510FD270815A4B6FA",
       "updatedAt": "2026-10-17T15:41:10.156Z",
       "lastCheckedAt": "2026-10-17T15:41:10.156Z"
+    },
+    {
+      "createdAt": "2026-10-18T11:16:49.556Z",
+      "specId": "1018-S1",
+      "date": "2026-10-18",
+      "publishId": "p_inbox_url~v2.7697965183192303638",
+      "kind": "photos",
+      "title": "Lucid dreaming: can you know you're dreaming?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-S1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "202610181116506F08AC7416172D2384C7",
+      "updatedAt": "2026-10-18T11:16:57.264Z",
+      "lastCheckedAt": "2026-10-18T11:16:57.264Z"
+    },
+    {
+      "createdAt": "2026-10-18T11:16:57.548Z",
+      "specId": "1018-X1",
+      "date": "2026-10-18",
+      "publishId": "p_inbox_url~v2.7697965210237224982",
+      "kind": "photos",
+      "title": "\"Nightmare\" comes from a demon on your chest.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261018111657B9A5971B094F00F7E3C8",
+      "updatedAt": "2026-10-18T11:17:04.075Z",
+      "lastCheckedAt": "2026-10-18T11:17:04.075Z"
+    },
+    {
+      "createdAt": "2026-10-18T11:17:04.358Z",
+      "specId": "1018-X2",
+      "date": "2026-10-18",
+      "publishId": "p_inbox_url~v2.7697965195704092694",
+      "kind": "photos",
+      "title": "Dolphin vigilance: hours or fifteen days?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X2/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X2/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X2/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X2/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X2/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-18/1018-X2/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "2026101811170436FF9A8908B99F6FA1DB",
+      "updatedAt": "2026-10-18T11:17:10.460Z",
+      "lastCheckedAt": "2026-10-18T11:17:10.460Z"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-17T20:40:59.599Z",
+  "fetchedAt": "2026-10-18T11:17:12.513Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,15 +28,29 @@
   ],
   "posts": [
     {
+      "specId": "1017-X1",
+      "tiktokId": "7697880098782973217",
+      "createTime": "2026-10-18T05:46:38.000Z",
+      "createTimeUnix": 1792302398,
+      "title": "Every night, your brain paralyses you. In REM sleep the brainstem switches off most voluntary muscles so you do not act out your dreams; eye and breathing muscles keep working. #remsleep #sleepscience #dreams #brain",
+      "views": 755,
+      "likes": 4,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7697880098782973217?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
+    {
       "specId": "1017-S1",
       "tiktokId": "7697713613678677280",
       "createTime": "2026-10-17T19:00:19.000Z",
       "createTimeUnix": 1792263619,
       "title": "Recurring dreams meaning: what science says. In a 2006 study of 212 recurrent dreams, about two thirds contained a threat, but under 2% fit every prediction of threat rehearsal theory. A hypothesis tested, not settled. #recurringdreams #dreammeaning #dreams #nightmares #psychology",
-      "views": 137,
+      "views": 294,
       "likes": 1,
       "comments": 0,
-      "shares": 0,
+      "shares": 1,
       "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7697713613678677280?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
       "duration": 0,
       "matchedBy": "description_prefix"
@@ -327,7 +341,7 @@
       "createTime": "2026-10-09T06:22:43.000Z",
       "createTimeUnix": 1791526963,
       "title": "She was found asleep on a crane. London, 2005: a sleepwalking 15-year-old climbed a crane and was found asleep about 40 m up. Firefighters brought her down unharmed. #truestory #sleepwalking #london #sleepscience",
-      "views": 505,
+      "views": 512,
       "likes": 2,
       "comments": 0,
       "shares": 0,
