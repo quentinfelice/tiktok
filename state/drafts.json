@@ -1381,6 +1381,52 @@
       "logId": "20261019132919132FCF0ABC52DF1CB930",
       "updatedAt": "2026-10-19T13:29:25.402Z",
       "lastCheckedAt": "2026-10-19T13:29:25.402Z"
+    },
+    {
+      "createdAt": "2026-10-19T22:25:39.395Z",
+      "specId": "1020-S1",
+      "date": "2026-10-20",
+      "publishId": "p_inbox_url~v2.7698507913690499094",
+      "kind": "photos",
+      "title": "Do you dream in color? Most people under 25 do.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-S1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "202610192225390939E847BB08CC4E3EA8",
+      "updatedAt": "2026-10-19T22:25:46.133Z",
+      "lastCheckedAt": "2026-10-19T22:25:46.133Z"
+    },
+    {
+      "createdAt": "2026-10-19T22:25:46.393Z",
+      "specId": "1020-X1",
+      "date": "2026-10-20",
+      "publishId": "p_inbox_url~v2.7698507913690515478",
+      "kind": "photos",
+      "title": "Cameras caught drivers falling asleep before crashes.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-20/1020-X1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261019222546CAEF36FFC24F3AA87F7E",
+      "updatedAt": "2026-10-19T22:25:52.855Z",
+      "lastCheckedAt": "2026-10-19T22:25:52.854Z"
     }
   ]
 }
