@@ -28,6 +28,33 @@
       "coverIndex": 0,
       "slides": 6,
       "exportedAt": "2026-10-04T21:23:03.365Z"
+    },
+    {
+      "id": "1025-X1",
+      "date": "2026-10-25",
+      "series": "Night files",
+      "variant": "variant",
+      "hypothesis": "H-XB2-1: true human sleep stories with a statement hook of 9 words or fewer on the noir slide 1 keep the X1 step. Success = median views at 48 h >= 765 (X1 median, n=12, MEASURED 2026-10-21) over the 13 X1 posts of the batch, and at least one post >= 10x the account median or >= 5 000 views (mission line). Display API, MEASURED.",
+      "caption": "Two months in a cave. He thought one.\nIn 1962 Michel Siffre lived alone in a cave with no clock and no daylight. When his team came for him on September 14, he thought it was August 20.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.",
+      "hashtags": [
+        "#truestory",
+        "#chronobiology",
+        "#sleepscience",
+        "#experiment"
+      ],
+      "title": "Two months in a cave. He thought one.",
+      "description": "Two months in a cave. He thought one.\nIn 1962 Michel Siffre lived alone in a cave with no clock and no daylight. When his team came for him on September 14, he thought it was August 20.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.\n\n#truestory #chronobiology #sleepscience #experiment",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-25/1025-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-25/1025-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-25/1025-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-25/1025-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-25/1025-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-25/1025-X1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-21T20:27:37.631Z"
     }
   ]
 }
