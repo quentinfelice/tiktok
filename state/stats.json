@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-21T20:28:07.226Z",
+  "fetchedAt": "2026-10-21T20:28:46.053Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-10-21T20:19:17.000Z",
       "createTimeUnix": 1792613957,
       "title": "Exploding head syndrome: the loud bang as you fall asleep. A sudden noise in your head as you drift off or wake. Usually painless; 18% of 211 US college students said they had had it. If it is frequent or worrying, talk to a doctor. #explodingheadsyndrome #sleep #weirdfacts #sleepscience #brain",
-      "views": 17,
+      "views": 19,
       "likes": 0,
       "comments": 0,
       "shares": 0,
