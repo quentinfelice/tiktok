@@ -28,6 +28,33 @@
       "coverIndex": 0,
       "slides": 6,
       "exportedAt": "2026-10-04T21:23:03.366Z"
+    },
+    {
+      "id": "1102-X1",
+      "date": "2026-11-02",
+      "series": "Night files",
+      "variant": "variant",
+      "hypothesis": "H-XB2-1: true human sleep stories with a statement hook of 9 words or fewer on the noir slide 1 keep the X1 step. Success = median views at 48 h >= 765 (X1 median, n=12, MEASURED 2026-10-21) over the 13 X1 posts of the batch, and at least one post >= 10x the account median or >= 5 000 views (mission line). Display API, MEASURED.",
+      "caption": "He watched his son sleep and found REM.\nIn Chicago, Eugene Aserinsky recorded his 8-year-old son asleep and saw fast eye movements. In 1953 he and Nathaniel Kleitman published REM sleep in Science.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.",
+      "hashtags": [
+        "#truestory",
+        "#history",
+        "#dreams",
+        "#sleepscience"
+      ],
+      "title": "He watched his son sleep and found REM.",
+      "description": "He watched his son sleep and found REM.\nIn Chicago, Eugene Aserinsky recorded his 8-year-old son asleep and saw fast eye movements. In 1953 he and Nathaniel Kleitman published REM sleep in Science.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.\n\n#truestory #history #dreams #sleepscience",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-11-02/1102-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-11-02/1102-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-11-02/1102-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-11-02/1102-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-11-02/1102-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-11-02/1102-X1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-21T20:29:16.515Z"
     }
   ]
 }
