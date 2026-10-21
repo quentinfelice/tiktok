@@ -28,6 +28,33 @@
       "coverIndex": 0,
       "slides": 6,
       "exportedAt": "2026-10-04T21:23:03.365Z"
+    },
+    {
+      "id": "1026-X1",
+      "date": "2026-10-26",
+      "series": "Night files",
+      "variant": "variant",
+      "hypothesis": "H-XB2-1: true human sleep stories with a statement hook of 9 words or fewer on the noir slide 1 keep the X1 step. Success = median views at 48 h >= 765 (X1 median, n=12, MEASURED 2026-10-21) over the 13 X1 posts of the batch, and at least one post >= 10x the account median or >= 5 000 views (mission line). Display API, MEASURED.",
+      "caption": "An epidemic left people frozen for decades.\nEncephalitis lethargica, the \"sleeping sickness\" of the 1910s and 1920s, left some survivors motionless for decades. In 1969 Oliver Sacks treated them with L-dopa, the story of his book Awakenings.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.",
+      "hashtags": [
+        "#truestory",
+        "#history",
+        "#medicalhistory",
+        "#sleepscience"
+      ],
+      "title": "An epidemic left people frozen for decades.",
+      "description": "An epidemic left people frozen for decades.\nEncephalitis lethargica, the \"sleeping sickness\" of the 1910s and 1920s, left some survivors motionless for decades. In 1969 Oliver Sacks treated them with L-dopa, the story of his book Awakenings.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.\n\n#truestory #history #medicalhistory #sleepscience",
+      "images": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-26/1026-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-26/1026-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-26/1026-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-26/1026-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-26/1026-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-26/1026-X1/06.jpg"
+      ],
+      "coverIndex": 0,
+      "slides": 6,
+      "exportedAt": "2026-10-21T20:28:00.672Z"
     }
   ]
 }
