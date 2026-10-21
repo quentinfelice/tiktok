@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-21T17:18:05.668Z",
+  "fetchedAt": "2026-10-21T20:28:07.226Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,12 +28,26 @@
   ],
   "posts": [
     {
+      "specId": "1021-S1",
+      "tiktokId": "7699218304329665824",
+      "createTime": "2026-10-21T20:19:17.000Z",
+      "createTimeUnix": 1792613957,
+      "title": "Exploding head syndrome: the loud bang as you fall asleep. A sudden noise in your head as you drift off or wake. Usually painless; 18% of 211 US college students said they had had it. If it is frequent or worrying, talk to a doctor. #explodingheadsyndrome #sleep #weirdfacts #sleepscience #brain",
+      "views": 17,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7699218304329665824?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
+    {
       "specId": "1020-X2",
       "tiktokId": "7699096617906965793",
       "createTime": "2026-10-21T12:27:05.000Z",
       "createTimeUnix": 1792585625,
       "title": "Isolated flies: more sleep or less? Chronic social isolation reduced sleep in the studied fruit flies. Li et al. · 2021. #sleep #sleepscience #nightmind #science",
-      "views": 512,
+      "views": 738,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -47,7 +61,7 @@
       "createTime": "2026-10-20T22:33:00.000Z",
       "createTimeUnix": 1792535580,
       "title": "Do you dream in color? Most people under 25 do. In one diary study of 60 people, only 4.4% of under-25s' dreams were black and white, vs about a quarter for over-55s raised on black-and-white media. A link, not proof. #dreams #dreamincolor #dreamscience #sleep #didyouknow",
-      "views": 759,
+      "views": 760,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -271,7 +285,7 @@
       "createTime": "2026-10-13T14:41:56.000Z",
       "createTimeUnix": 1791902516,
       "title": "Penguin sleep: one block or fragments? Studied nesting chinstrap penguins slept in bouts averaging about four seconds. Libourel et al. · 2023. #sleep #sleepscience #nightmind #science",
-      "views": 765,
+      "views": 766,
       "likes": 1,
       "comments": 0,
       "shares": 0,
