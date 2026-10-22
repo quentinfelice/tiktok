@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-22T17:16:13.167Z",
+  "fetchedAt": "2026-10-22T21:42:06.321Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,12 +28,26 @@
   ],
   "posts": [
     {
+      "specId": "1022-S1",
+      "tiktokId": "7699591015266569505",
+      "createTime": "2026-10-22T20:25:35.000Z",
+      "createTimeUnix": 1792700735,
+      "title": "Can't sleep before a full moon? One study says it's not just you. In a 2021 field study, sleep was shortest 3 to 5 days before a full moon, varying by 46 to 58 minutes across the cycle. Other studies are mixed. Next full moon: Mon Oct 26. #fullmoon #cantsleep #moon #sleepscience #sleep",
+      "views": 103,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7699591015266569505?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
+    {
       "specId": "1021-X2",
       "tiktokId": "7699394173421571360",
       "createTime": "2026-10-22T07:41:47.000Z",
       "createTimeUnix": 1792654907,
       "title": "Sleeping songbird: silent brain or replay? Some neurons in sleeping adult zebra finches replayed activity patterns linked to daytime singing. Dave & Margoliash · 2000. #sleep #sleepscience #nightmind #science",
-      "views": 250,
+      "views": 251,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -243,7 +257,7 @@
       "createTime": "2026-10-15T21:39:28.000Z",
       "createTimeUnix": 1792100368,
       "title": "Sleep paralysis: why you can't move when you wake up. In REM sleep your muscles are switched off, and sometimes the mind wakes first. About 8% of people have had it. Scary but short; if it's frequent or worrying, talk to a doctor. #sleepparalysis #sleep #remsleep #scary #sleepscience",
-      "views": 330,
+      "views": 331,
       "likes": 2,
       "comments": 0,
       "shares": 0,
