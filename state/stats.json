@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-23T11:46:50.487Z",
+  "fetchedAt": "2026-10-23T12:56:38.557Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -28,12 +28,26 @@
   ],
   "posts": [
     {
+      "specId": "1023-S1",
+      "tiktokId": "7699842628237397281",
+      "createTime": "2026-10-23T12:42:03.000Z",
+      "createTimeUnix": 1792759323,
+      "title": "Sleepwalking: how common is it? A review of 51 studies estimated 6.9% of people have sleepwalked at least once; in a year, about 5% of children and 1.5% of adults. It usually starts in deep non-REM sleep, not REM. #sleepwalking #sleep #parasomnia #sleepscience #didyouknow",
+      "views": 69,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@visualdopeamine/video/7699842628237397281?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 0,
+      "matchedBy": "description_prefix"
+    },
+    {
       "specId": "1022-S1",
       "tiktokId": "7699591015266569505",
       "createTime": "2026-10-22T20:25:35.000Z",
       "createTimeUnix": 1792700735,
       "title": "Can't sleep before a full moon? One study says it's not just you. In a 2021 field study, sleep was shortest 3 to 5 days before a full moon, varying by 46 to 58 minutes across the cycle. Other studies are mixed. Next full moon: Mon Oct 26. #fullmoon #cantsleep #moon #sleepscience #sleep",
-      "views": 268,
+      "views": 269,
       "likes": 2,
       "comments": 0,
       "shares": 0,
