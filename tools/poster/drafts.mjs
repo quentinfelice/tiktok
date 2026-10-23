@@ -92,6 +92,8 @@ export function buildDescription(post) {
  * mode `draft` -> MEDIA_UPLOAD (inbox draft; the owner adds a sound and posts).
  * mode `direct` -> DIRECT_POST with privacy_level, auto_add_music and the disclosure fields TikTok requires
  * (comments on, no branded content by default). Direct posts need the app audit to be publicly visible.
+ * is_aigc (top-level body field of the photo route, TikTok reference "Photo", updated 2026-08-24): every carousel has
+ * AI-written text and AI art, so TikTok adds its AI-generated tag to the description (TT-FIX-003).
  */
 export function buildInitPayload(post, urls, { privacyLevel, mode = 'draft', autoAddMusic = true } = {}) {
   if (!Array.isArray(urls) || urls.length < 1) throw new Error(`${post.id}: no photo URLs`);
@@ -119,6 +121,7 @@ export function buildInitPayload(post, urls, { privacyLevel, mode = 'draft', aut
     source_info: { source: 'PULL_FROM_URL', photo_cover_index: 0, photo_images: urls },
     post_mode: mode === 'direct' ? 'DIRECT_POST' : 'MEDIA_UPLOAD',
     media_type: 'PHOTO',
+    is_aigc: true,
   };
 }
 
