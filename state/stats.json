@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-24T16:02:00.867Z",
+  "fetchedAt": "2026-10-24T20:55:26.192Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-10-23T20:08:58.000Z",
       "createTimeUnix": 1792786138,
       "title": "A smell changes dreams: scent or mood? In fifteen volunteers, odors during REM shifted the emotional tone of reported dreams. Schredl et al. · 2009. #sleep #sleepscience #nightmind #science",
-      "views": 233,
+      "views": 237,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -355,7 +355,7 @@
       "createTime": "2026-10-13T07:24:27.000Z",
       "createTimeUnix": 1791876267,
       "title": "Some people punch their partner in their dreams. In REM sleep behaviour disorder the body acts out dreams. In a large study, 73.5% developed Parkinson's or a related disorder within 12 years (Postuma et al., 2019). #remsleep #sleepdisorder #parkinsons #sleepscience",
-      "views": 809,
+      "views": 810,
       "likes": 5,
       "comments": 0,
       "shares": 1,
