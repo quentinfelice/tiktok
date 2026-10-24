@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-23T21:28:59.509Z",
+  "fetchedAt": "2026-10-24T11:11:26.972Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-10-23T20:08:58.000Z",
       "createTimeUnix": 1792786138,
       "title": "A smell changes dreams: scent or mood? In fifteen volunteers, odors during REM shifted the emotional tone of reported dreams. Schredl et al. · 2009. #sleep #sleepscience #nightmind #science",
-      "views": 72,
+      "views": 233,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -47,7 +47,7 @@
       "createTime": "2026-10-23T12:42:03.000Z",
       "createTimeUnix": 1792759323,
       "title": "Sleepwalking: how common is it? A review of 51 studies estimated 6.9% of people have sleepwalked at least once; in a year, about 5% of children and 1.5% of adults. It usually starts in deep non-REM sleep, not REM. #sleepwalking #sleep #parasomnia #sleepscience #didyouknow",
-      "views": 763,
+      "views": 764,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -523,7 +523,7 @@
       "createTime": "2026-10-09T06:22:43.000Z",
       "createTimeUnix": 1791526963,
       "title": "She was found asleep on a crane. London, 2005: a sleepwalking 15-year-old climbed a crane and was found asleep about 40 m up. Firefighters brought her down unharmed. #truestory #sleepwalking #london #sleepscience",
-      "views": 545,
+      "views": 548,
       "likes": 2,
       "comments": 0,
       "shares": 0,
