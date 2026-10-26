@@ -1,32 +1,4 @@
 {
   "date": "2026-10-30",
-  "items": [
-    {
-      "id": "1030-X2",
-      "date": "2026-10-30",
-      "series": "Night files: animals",
-      "variant": "variant",
-      "hypothesis": "H-XB2-2: animal sleep facts told as true stories in the X1 noir art and a statement hook earn more likes than X2 Night Lab questions. Success = likes per 1k views >= 5 (X2 2.5, n=8) with median views at 48 h >= 727 (X2 median) over the 14 X2 posts of the batch. Display API, MEASURED.",
-      "caption": "Captive sloths sleep 16 hours. Wild ones don’t.\nThe first brain recordings of wild three-toed sloths, in Panama, found about 9.6 hours of sleep a day, some six hours less than in captivity.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.",
-      "hashtags": [
-        "#animalfacts",
-        "#sloth",
-        "#nature",
-        "#sleepscience"
-      ],
-      "title": "Captive sloths sleep 16 hours. Wild ones don’t.",
-      "description": "Captive sloths sleep 16 hours. Wild ones don’t.\nThe first brain recordings of wild three-toed sloths, in Panama, found about 9.6 hours of sleep a day, some six hours less than in captivity.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.\n\n#animalfacts #sloth #nature #sleepscience",
-      "images": [
-        "https://quentinfelice.github.io/tiktok/media/2026-10-30/1030-X2/01.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-30/1030-X2/02.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-30/1030-X2/03.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-30/1030-X2/04.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-30/1030-X2/05.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-30/1030-X2/06.jpg"
-      ],
-      "coverIndex": 0,
-      "slides": 6,
-      "exportedAt": "2026-10-21T20:28:54.834Z"
-    }
-  ]
+  "items": []
 }
