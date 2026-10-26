@@ -1,32 +1,4 @@
 {
   "date": "2026-10-31",
-  "items": [
-    {
-      "id": "1031-X2",
-      "date": "2026-10-31",
-      "series": "Night files: animals",
-      "variant": "variant",
-      "hypothesis": "H-XB2-2: animal sleep facts told as true stories in the X1 noir art and a statement hook earn more likes than X2 Night Lab questions. Success = likes per 1k views >= 5 (X2 2.5, n=8) with median views at 48 h >= 727 (X2 median) over the 14 X2 posts of the batch. Display API, MEASURED.",
-      "caption": "Rats seem to rerun the maze in their sleep.\nAt MIT, neurons that fired as rats ran a track fired again in the same order during REM sleep, at about the same speed.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.",
-      "hashtags": [
-        "#animalfacts",
-        "#neuroscience",
-        "#dreams",
-        "#sleepscience"
-      ],
-      "title": "Rats seem to rerun the maze in their sleep.",
-      "description": "Rats seem to rerun the maze in their sleep.\nAt MIT, neurons that fired as rats ran a track fired again in the same order during REM sleep, at about the same speed.\nMade by Studia with AI tools (text and art); facts checked against the sources on the slides.\n\n#animalfacts #neuroscience #dreams #sleepscience",
-      "images": [
-        "https://quentinfelice.github.io/tiktok/media/2026-10-31/1031-X2/01.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-31/1031-X2/02.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-31/1031-X2/03.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-31/1031-X2/04.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-31/1031-X2/05.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-10-31/1031-X2/06.jpg"
-      ],
-      "coverIndex": 0,
-      "slides": 6,
-      "exportedAt": "2026-10-21T20:29:06.375Z"
-    }
-  ]
+  "items": []
 }
