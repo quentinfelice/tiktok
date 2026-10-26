@@ -2,34 +2,6 @@
   "date": "2026-11-03",
   "items": [
     {
-      "id": "1103-S1",
-      "date": "2026-11-03",
-      "series": "Search answers",
-      "variant": "variant",
-      "hypothesis": "S1 search carousel: the query \"do animals dream\" sits in slide 1, the title, the description and the hashtags. Success = late views (still growing after day 3, poster/tail.mjs, MEASURED; source UNKNOWN without Studio) against the account's 0-5.",
-      "caption": "Do animals dream? Octopuses might.\nIn lab studies, octopuses have a quiet sleep plus short bouts of active sleep in which skin patterns flash and brain activity looks wake-like (Nature, 2023). Dreaming is still unknown.",
-      "hashtags": [
-        "#octopus",
-        "#animals",
-        "#doanimalsdream",
-        "#dreams",
-        "#science"
-      ],
-      "title": "Do animals dream? Octopuses might.",
-      "description": "Do animals dream? Octopuses might.\nIn lab studies, octopuses have a quiet sleep plus short bouts of active sleep in which skin patterns flash and brain activity looks wake-like (Nature, 2023). Dreaming is still unknown.\n\n#octopus #animals #doanimalsdream #dreams #science",
-      "images": [
-        "https://quentinfelice.github.io/tiktok/media/2026-11-03/1103-S1/01.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-11-03/1103-S1/02.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-11-03/1103-S1/03.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-11-03/1103-S1/04.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-11-03/1103-S1/05.jpg",
-        "https://quentinfelice.github.io/tiktok/media/2026-11-03/1103-S1/06.jpg"
-      ],
-      "coverIndex": 0,
-      "slides": 6,
-      "exportedAt": "2026-10-04T21:23:03.366Z"
-    },
-    {
       "id": "1103-X1",
       "date": "2026-11-03",
       "series": "Night files",
