@@ -1795,6 +1795,29 @@
       "logId": "20261026232921FC89E59488C55374410D",
       "updatedAt": "2026-10-26T23:29:27.425Z",
       "lastCheckedAt": "2026-10-26T23:29:27.425Z"
+    },
+    {
+      "createdAt": "2026-10-27T12:21:05.671Z",
+      "specId": "1027-X1",
+      "date": "2026-10-27",
+      "publishId": "p_inbox_url~v2.7701321494735030294",
+      "kind": "photos",
+      "title": "Freddy Krueger was inspired by a true story.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-X1/01.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-X1/02.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-X1/03.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-X1/04.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-X1/05.jpg",
+        "https://quentinfelice.github.io/tiktok/media/2026-10-27/1027-X1/06.jpg"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261027122105939E11CA890ADC9F1C63",
+      "updatedAt": "2026-10-27T12:21:12.066Z",
+      "lastCheckedAt": "2026-10-27T12:21:12.066Z"
     }
   ]
 }
