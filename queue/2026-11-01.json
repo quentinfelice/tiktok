@@ -1,4 +1,30 @@
 {
   "date": "2026-11-01",
-  "items": []
+  "items": [
+    {
+      "id": "1101-V1",
+      "date": "2026-11-01",
+      "kind": "video",
+      "series": "T-PLUS P2 It really happened, on the clock",
+      "variant": "v1",
+      "hypothesis": "TP-B1 P2 slot 1: DOCUMENTARY on the live clock; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C03-baumgartner/v1/export",
+      "aigc": true,
+      "caption": "He jumped from 39 km up and fell faster than sound.\n14 Oct 2012: Mach 1 at 0:34, 1,357.6 km/h at 0:50, 4:20 of free fall (FAI records, Red Bull mission data). Redrawn, not footage.\nAI-made animation by Studia.",
+      "hashtags": [
+        "#space",
+        "#records",
+        "#physics",
+        "#truestory"
+      ],
+      "title": "He jumped from 39 km up and fell faster than sound.",
+      "description": "He jumped from 39 km up and fell faster than sound.\n14 Oct 2012: Mach 1 at 0:34, 1,357.6 km/h at 0:50, 4:20 of free fall (FAI records, Red Bull mission data). Redrawn, not footage.\nAI-made animation by Studia.\n\n#space #records #physics #truestory",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-01/1101-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 4822299,
+      "exportedAt": "2026-10-28T14:33:16.618Z"
+    }
+  ]
 }
