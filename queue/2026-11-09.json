@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-09",
+  "items": [
+    {
+      "id": "1109-V1",
+      "date": "2026-11-09",
+      "kind": "video",
+      "series": "T-PLUS P1 What if, on the clock",
+      "variant": "v1",
+      "hypothesis": "TP-B1 P1 slot 3: MODEL on the live gauge; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C02-earth-stops/v1/export",
+      "aigc": true,
+      "caption": "Earth stops spinning. You don't.\nStanding in Brussels you already move at about 1,057 km/h; at the equator 1,674. A thought experiment (speeds: NASA Earth fact sheet).\nAI-made animation by Studia.",
+      "hashtags": [
+        "#whatif",
+        "#earth",
+        "#physics",
+        "#science"
+      ],
+      "title": "Earth stops spinning. You don't.",
+      "description": "Earth stops spinning. You don't.\nStanding in Brussels you already move at about 1,057 km/h; at the equator 1,674. A thought experiment (speeds: NASA Earth fact sheet).\nAI-made animation by Studia.\n\n#whatif #earth #physics #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-09/1109-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3733692,
+      "exportedAt": "2026-10-28T14:38:08.653Z"
+    }
+  ]
+}
