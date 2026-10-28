@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-28T14:34:15.278Z",
+  "fetchedAt": "2026-10-28T14:38:35.884Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-10-28T08:49:25.000Z",
       "createTimeUnix": 1793177365,
       "title": "This seal sleeps while sinking. Brain recordings of wild northern elephant seals showed short naps deep in their dives, drifting down in a spiral: about 2 hours of sleep a day at sea, about 10 on land. Made by Studia with AI tools (text and art); facts checked against the sources on the slides. #animalfacts #seals #ocean #sleepscience",
-      "views": 221,
+      "views": 223,
       "likes": 0,
       "comments": 0,
       "shares": 0,
