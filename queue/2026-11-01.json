@@ -2,29 +2,29 @@
   "date": "2026-11-01",
   "items": [
     {
-      "id": "1101-V1",
+      "id": "1109-V1",
       "date": "2026-11-01",
       "kind": "video",
-      "series": "T-PLUS P2 It really happened, on the clock",
+      "series": "T-PLUS P1 What if, on the clock",
       "variant": "v1",
-      "hypothesis": "TP-B1 P2 slot 1: DOCUMENTARY on the live clock; primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/C03-baumgartner/v1/export",
+      "hypothesis": "TP-B1 P1 slot 3: MODEL on the live gauge; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C02-earth-stops/v1/export",
       "aigc": true,
-      "caption": "He jumped from 39 km up and fell faster than sound.\n14 Oct 2012: Mach 1 at 0:34, 1,357.6 km/h at 0:50, 4:20 of free fall (FAI records, Red Bull mission data). Redrawn, not footage.\nAI-made animation by Studia.",
+      "caption": "Earth stops spinning. You don't.\nStanding in Brussels you already move at about 1,057 km/h; at the equator 1,674. A thought experiment (speeds: NASA Earth fact sheet).\nAI-made animation by Studia.",
       "hashtags": [
-        "#space",
-        "#records",
+        "#whatif",
+        "#earth",
         "#physics",
-        "#truestory"
+        "#science"
       ],
-      "title": "He jumped from 39 km up and fell faster than sound.",
-      "description": "He jumped from 39 km up and fell faster than sound.\n14 Oct 2012: Mach 1 at 0:34, 1,357.6 km/h at 0:50, 4:20 of free fall (FAI records, Red Bull mission data). Redrawn, not footage.\nAI-made animation by Studia.\n\n#space #records #physics #truestory",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-01/1101-V1/video.mp4",
+      "title": "Earth stops spinning. You don't.",
+      "description": "Earth stops spinning. You don't.\nStanding in Brussels you already move at about 1,057 km/h; at the equator 1,674. A thought experiment (speeds: NASA Earth fact sheet).\nAI-made animation by Studia.\n\n#whatif #earth #physics #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-09/1109-V1/video.mp4",
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 4822299,
-      "exportedAt": "2026-10-28T14:33:16.618Z"
+      "bytes": 3733692,
+      "exportedAt": "2026-10-28T14:38:08.653Z"
     }
   ]
 }
