@@ -1928,6 +1928,24 @@
       "logId": "20261030130417BBC4F15306CA01995AEC",
       "updatedAt": "2026-10-30T13:04:50.667Z",
       "lastCheckedAt": "2026-10-30T13:04:50.667Z"
+    },
+    {
+      "createdAt": "2026-10-31T12:42:45.269Z",
+      "specId": "1103-V1",
+      "date": "2026-10-31",
+      "publishId": "v_inbox_url~v2.7702811178573449238",
+      "kind": "video",
+      "title": "Jump in Spain. When do you pop out in New Zealand?",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-11-03/1103-V1/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261031124245E97958A6128F1D97F581",
+      "updatedAt": "2026-10-31T12:43:13.314Z",
+      "lastCheckedAt": "2026-10-31T12:43:13.314Z"
     }
   ]
 }
