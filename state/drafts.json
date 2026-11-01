@@ -1946,6 +1946,24 @@
       "logId": "20261031124245E97958A6128F1D97F581",
       "updatedAt": "2026-10-31T12:43:13.314Z",
       "lastCheckedAt": "2026-10-31T12:43:13.314Z"
+    },
+    {
+      "createdAt": "2026-11-01T13:33:06.759Z",
+      "specId": "1109-V1",
+      "date": "2026-11-01",
+      "publishId": "v_inbox_url~v2.7703195309446760470",
+      "kind": "video",
+      "title": "Earth stops spinning. You don't.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-11-09/1109-V1/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261101133308EE05FB0DF534DFB471D2",
+      "updatedAt": "2026-11-01T13:33:41.714Z",
+      "lastCheckedAt": "2026-11-01T13:33:41.714Z"
     }
   ]
 }
