@@ -1,4 +1,30 @@
 {
   "date": "2026-11-07",
-  "items": []
+  "items": [
+    {
+      "id": "1107-V1",
+      "date": "2026-11-07",
+      "kind": "video",
+      "series": "T-PLUS P2 It really happened, on the clock",
+      "variant": "v1",
+      "hypothesis": "TP-B1 P2: DOCUMENTARY_STORY on the live clock; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C10-chicxulub-day/v1/export",
+      "aigc": true,
+      "caption": "66 million years ago, an asteroid 10–15 km wide hit Mexico. Its first day, on the clock.\nA 200 km crater in minutes; by nightfall ~130 m of rock inside it, sealed by tsunami sand full of charcoal (Gulick et al., PNAS 2019).",
+      "hashtags": [
+        "#dinosaurs",
+        "#asteroid",
+        "#science",
+        "#history"
+      ],
+      "title": "66 million years ago, an asteroid 10–15 km wide hit Mexico. Its first day, on the clock.",
+      "description": "66 million years ago, an asteroid 10–15 km wide hit Mexico. Its first day, on the clock.\nA 200 km crater in minutes; by nightfall ~130 m of rock inside it, sealed by tsunami sand full of charcoal (Gulick et al., PNAS 2019).\n\n#dinosaurs #asteroid #science #history",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-07/1107-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 2087180,
+      "exportedAt": "2026-11-05T10:17:58.320Z"
+    }
+  ]
 }
