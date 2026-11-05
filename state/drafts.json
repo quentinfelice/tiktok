@@ -1976,11 +1976,12 @@
         "https://quentinfelice.github.io/tiktok/media/2026-11-05/1105-V2/video.mp4"
       ],
       "mode": "draft",
-      "status": "INIT",
+      "status": "PUBLISH_COMPLETE",
       "failReason": null,
       "publicPostIds": [],
       "logId": "20261105101813F37BC74AB5EF303870A9",
-      "updatedAt": "2026-11-05T10:18:13.622Z"
+      "updatedAt": "2026-11-05T10:18:13.622Z",
+      "lastCheckedAt": "2026-11-05T10:29:44.212Z"
     }
   ]
 }
