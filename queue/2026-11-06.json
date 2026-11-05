@@ -1,4 +1,30 @@
 {
   "date": "2026-11-06",
-  "items": []
+  "items": [
+    {
+      "id": "1106-V1",
+      "date": "2026-11-06",
+      "kind": "video",
+      "series": "T-PLUS P2 It really happened, on the clock",
+      "variant": "v1",
+      "hypothesis": "TP-B1 P2: DOCUMENTARY_STORY on the live clock; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C08-krakatoa/v1/export",
+      "aigc": true,
+      "caption": "The loudest sound in history, heard nearly 4,800 km away.\nKrakatoa, 27 Aug 1883: a gauge 160 km away went off its scale; barometers recorded the wave up to 7 times (Royal Society, 1888). Times computed.",
+      "hashtags": [
+        "#history",
+        "#volcano",
+        "#science",
+        "#truestory"
+      ],
+      "title": "The loudest sound in history, heard nearly 4,800 km away.",
+      "description": "The loudest sound in history, heard nearly 4,800 km away.\nKrakatoa, 27 Aug 1883: a gauge 160 km away went off its scale; barometers recorded the wave up to 7 times (Royal Society, 1888). Times computed.\n\n#history #volcano #science #truestory",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-06/1106-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 3134022,
+      "exportedAt": "2026-11-05T10:17:54.754Z"
+    }
+  ]
 }
