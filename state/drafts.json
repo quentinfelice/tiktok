@@ -1964,6 +1964,23 @@
       "logId": "20261101133308EE05FB0DF534DFB471D2",
       "updatedAt": "2026-11-01T13:33:41.714Z",
       "lastCheckedAt": "2026-11-01T13:33:41.714Z"
+    },
+    {
+      "createdAt": "2026-11-05T10:18:12.620Z",
+      "specId": "1105-V2",
+      "date": "2026-11-05",
+      "publishId": "v_inbox_url~v2.7704629460842170390",
+      "kind": "video",
+      "title": "Send Voyager 1 a message today. It arrives tomorrow.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-11-05/1105-V2/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "INIT",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261105101813F37BC74AB5EF303870A9",
+      "updatedAt": "2026-11-05T10:18:13.622Z"
     }
   ]
 }
