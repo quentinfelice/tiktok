@@ -1,4 +1,30 @@
 {
   "date": "2026-11-05",
-  "items": []
+  "items": [
+    {
+      "id": "1105-V2",
+      "date": "2026-11-05",
+      "kind": "video",
+      "series": "T-PLUS P2 It really happened, on the clock",
+      "variant": "v1",
+      "hypothesis": "TP-B1 P2: DOCUMENTARY true now, on the live clock; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C05-voyager-message/v1/export",
+      "aigc": true,
+      "caption": "Send Voyager 1 a message today. It arrives tomorrow.\nToday the one-way trip at light speed takes 23 h 58 min (JPL Horizons). On 18 Nov it becomes the first spacecraft one light-day from Earth (NASA).",
+      "hashtags": [
+        "#space",
+        "#voyager",
+        "#nasa",
+        "#science"
+      ],
+      "title": "Send Voyager 1 a message today. It arrives tomorrow.",
+      "description": "Send Voyager 1 a message today. It arrives tomorrow.\nToday the one-way trip at light speed takes 23 h 58 min (JPL Horizons). On 18 Nov it becomes the first spacecraft one light-day from Earth (NASA).\n\n#space #voyager #nasa #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-05/1105-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 2452642,
+      "exportedAt": "2026-11-05T10:17:50.626Z"
+    }
+  ]
 }
