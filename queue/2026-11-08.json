@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-08",
+  "items": [
+    {
+      "id": "1108-V1",
+      "date": "2026-11-08",
+      "kind": "video",
+      "series": "T-PLUS P1 What if, on the clock",
+      "variant": "v1",
+      "hypothesis": "TP-B1 P1: MODEL on the T+ clock; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C04-moon-vanishes/v1/export",
+      "aigc": true,
+      "caption": "If the Moon vanished, you'd still see it for 1.3 seconds.\nThen the biggest tides shrink to about a third (estimate), and over millions of years Earth's tilt could wander up to 85° (NASA, NOAA, Laskar et al. 1993). A thought experiment.",
+      "hashtags": [
+        "#moon",
+        "#whatif",
+        "#space",
+        "#science"
+      ],
+      "title": "If the Moon vanished, you'd still see it for 1.3 seconds.",
+      "description": "If the Moon vanished, you'd still see it for 1.3 seconds.\nThen the biggest tides shrink to about a third (estimate), and over millions of years Earth's tilt could wander up to 85° (NASA, NOAA, Laskar et al. 1993). A thought experiment.\n\n#moon #whatif #space #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-08/1108-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 2076724,
+      "exportedAt": "2026-11-05T10:18:01.598Z"
+    }
+  ]
+}
