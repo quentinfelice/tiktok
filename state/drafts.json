@@ -2000,6 +2000,24 @@
       "logId": "20261105234135DF654EB1F4F3B1EAB0CD",
       "updatedAt": "2026-11-05T23:42:09.603Z",
       "lastCheckedAt": "2026-11-05T23:42:09.603Z"
+    },
+    {
+      "createdAt": "2026-11-06T23:14:22.167Z",
+      "specId": "1107-V1",
+      "date": "2026-11-07",
+      "publishId": "v_inbox_url~v2.7705200221793323030",
+      "kind": "video",
+      "title": "CGI reconstruction, not footage. 66 million years ago, an asteroid ~10–15 km wide hit what is now Mexico. Its first day, on the clock.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-11-07/1107-V1/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "2026110623142241DA7CC7478F12ED46F0",
+      "updatedAt": "2026-11-06T23:15:00.364Z",
+      "lastCheckedAt": "2026-11-06T23:15:00.364Z"
     }
   ]
 }
