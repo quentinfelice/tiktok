@@ -2018,6 +2018,24 @@
       "logId": "2026110623142241DA7CC7478F12ED46F0",
       "updatedAt": "2026-11-06T23:15:00.364Z",
       "lastCheckedAt": "2026-11-06T23:15:00.364Z"
+    },
+    {
+      "createdAt": "2026-11-07T21:05:18.162Z",
+      "specId": "1108-V1",
+      "date": "2026-11-07",
+      "publishId": "v_inbox_url~v2.7705538429324658710",
+      "kind": "video",
+      "title": "What if the Moon just vanished? You'd still see it for 1.3 seconds.",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-11-08/1108-V1/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261107210518E691FE17EB0E8FEE6F7F",
+      "updatedAt": "2026-11-07T21:06:03.083Z",
+      "lastCheckedAt": "2026-11-07T21:06:03.083Z"
     }
   ]
 }
