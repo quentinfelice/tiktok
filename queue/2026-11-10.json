@@ -1,30 +1,4 @@
 {
   "date": "2026-11-10",
-  "items": [
-    {
-      "id": "1110-V1",
-      "date": "2026-11-10",
-      "kind": "video",
-      "series": "T-PLUS P1 What if, on the clock",
-      "variant": "v1",
-      "hypothesis": "Outside TP-B2 (COORD O-2026-11-07-i re-registered TP-B2 to start at the first extraordinary-fact post, 11-11); 20.3 s; primary = public views at 48 h, logged for the record.",
-      "derivedFrom": "accounts/tt-tplus/episodes/C13-light-laps/v1/draft",
-      "aigc": true,
-      "caption": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The light of the next nearest star left it over four years ago: every star you see is the past. Textures: Solar System Scope.",
-      "hashtags": [
-        "#light",
-        "#space",
-        "#physics",
-        "#science"
-      ],
-      "title": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The…",
-      "description": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The light of the next nearest star left it over four years ago: every star you see is the past. Textures: Solar System Scope.\n\n#light #space #physics #science",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V1/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 7806130,
-      "exportedAt": "2026-11-07T22:23:33.730Z"
-    }
-  ]
+  "items": []
 }
