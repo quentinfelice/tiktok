@@ -1,30 +1,4 @@
 {
   "date": "2026-11-11",
-  "items": [
-    {
-      "id": "1111-V2",
-      "date": "2026-11-11",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts",
-      "variant": "v1",
-      "hypothesis": "TP-B2 (re-registered, O-2026-11-07-i) arm S (18.5 s), post 2 of the facts family; primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F01-sharks-trees/v1/draft",
-      "aigc": true,
-      "caption": "Sharks are older than trees. The oldest shark scales are about 450 million years old; the oldest known forest, about 390 million. For about 60 million years there were sharks, and not one tree.",
-      "hashtags": [
-        "#sharks",
-        "#facts",
-        "#science",
-        "#learnontiktok"
-      ],
-      "title": "Sharks are older than trees. The oldest shark scales are about 450 million years old; the…",
-      "description": "Sharks are older than trees. The oldest shark scales are about 450 million years old; the oldest known forest, about 390 million. For about 60 million years there were sharks, and not one tree.\n\n#sharks #facts #science #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V2/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 5261961,
-      "exportedAt": "2026-11-07T22:59:33.662Z"
-    }
-  ]
+  "items": []
 }
