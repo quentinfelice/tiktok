@@ -1,30 +1,4 @@
 {
   "date": "2026-11-09",
-  "items": [
-    {
-      "id": "1109-V2",
-      "date": "2026-11-09",
-      "kind": "video",
-      "series": "T-PLUS P1 What if, on the clock",
-      "variant": "v1",
-      "hypothesis": "TP-B2 arm L (standard length, 41.6 s); primary = public views at 48 h (proposed to COORD 2026-11-07, TT-PUSH-001).",
-      "derivedFrom": "accounts/tt-tplus/episodes/C12-shortcut/v1/draft",
-      "aigc": true,
-      "caption": "What if a new shortcut made everyone's drive longer? A simple model: 20 drivers take 70 minutes each, then 80 once they all use the free shortcut. Braess's paradox, 1968. Stars: Solar System Scope.",
-      "hashtags": [
-        "#whatif",
-        "#traffic",
-        "#math",
-        "#science"
-      ],
-      "title": "What if a new shortcut made everyone's drive longer? A simple model: 20 drivers take 70 m…",
-      "description": "What if a new shortcut made everyone's drive longer? A simple model: 20 drivers take 70 minutes each, then 80 once they all use the free shortcut. Braess's paradox, 1968. Stars: Solar System Scope.\n\n#whatif #traffic #math #science",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-09/1109-V2/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 13171255,
-      "exportedAt": "2026-11-07T21:12:10.163Z"
-    }
-  ]
+  "items": []
 }
