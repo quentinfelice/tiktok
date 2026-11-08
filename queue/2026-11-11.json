@@ -2,6 +2,81 @@
   "date": "2026-11-11",
   "items": [
     {
+      "id": "1111-V3",
+      "date": "2026-11-11",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock number (270,000 KM WIDE / ~10 M THICK), length 23-45 (33.4 s), format one fact, topic space, voice male, visual photos with moves, caption call none; third post on 11-11 after TP-B2's pair (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F16-saturn-rings-thin/v4/draft",
+      "aigc": true,
+      "caption": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estimate). Images: NASA/JPL-Caltech/Space Science Institute; NASA, ESA, A. Simon (GSFC), M.H. Wong (UC Berkeley); NASA, ESA, Hubble Heritage Team (STScI/AURA), CC BY 4.0. No NASA endorsement implied.",
+      "hashtags": [
+        "#saturn",
+        "#space",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estim…",
+      "description": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estimate). Images: NASA/JPL-Caltech/Space Science Institute; NASA, ESA, A. Simon (GSFC), M.H. Wong (UC Berkeley); NASA, ESA, Hubble Heritage Team (STScI/AURA), CC BY 4.0. No NASA endorsement implied.\n\n#saturn #space #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 9103226,
+      "exportedAt": "2026-11-08T19:52:47.454Z"
+    },
+    {
+      "id": "1111-V4",
+      "date": "2026-11-11",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook myth busted (HOLDING HANDS? / IN THE WILD? ALMOST NEVER), length 13-22 (21.9 s), format one fact, topic animals, voice male, visual photos with moves, caption call none; fourth post on 11-11 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F15-otters-kelp/v4/draft",
+      "aigc": true,
+      "caption": "Sea otters almost never hold hands in the wild: the famous hand-holders live in aquariums. Wild otters often wrap themselves in kelp so they don't drift. Photos: Pburka (Wikimedia Commons, public domain), Lilian Carswell/USFWS, Amity Wood/NOAA.",
+      "hashtags": [
+        "#seaotter",
+        "#ocean",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "Sea otters almost never hold hands in the wild: the famous hand-holders live in aquariums…",
+      "description": "Sea otters almost never hold hands in the wild: the famous hand-holders live in aquariums. Wild otters often wrap themselves in kelp so they don't drift. Photos: Pburka (Wikimedia Commons, public domain), Lilian Carswell/USFWS, Amity Wood/NOAA.\n\n#seaotter #ocean #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V4/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 11277618,
+      "exportedAt": "2026-11-08T20:16:50.235Z"
+    },
+    {
+      "id": "1111-V5",
+      "date": "2026-11-11",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook quiz with the answer at the end (NEPTUNE, FOUND 1846 · QUIZ: ITS FIRST FULL ORBIT SINCE THEN?), length 13-22 (22.0 s), format one fact, topic space, voice female, visual photos with moves, caption call guess in comments; fifth post on 11-11 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F21-neptune-first-orbit/v4/draft",
+      "aigc": true,
+      "caption": "Quick quiz: Neptune was found in 1846. When did it finish its first full orbit since then? Guess in the comments, the answer is at the end. Images: NASA/JPL (Voyager 2); NASA, ESA, Hubble Heritage Team (STScI/AURA); NASA, ESA, CSA, STScI (Webb).",
+      "hashtags": [
+        "#neptune",
+        "#space",
+        "#quiz",
+        "#learnontiktok"
+      ],
+      "title": "Quick quiz: Neptune was found in 1846. When did it finish its first full orbit since then…",
+      "description": "Quick quiz: Neptune was found in 1846. When did it finish its first full orbit since then? Guess in the comments, the answer is at the end. Images: NASA/JPL (Voyager 2); NASA, ESA, Hubble Heritage Team (STScI/AURA); NASA, ESA, CSA, STScI (Webb).\n\n#neptune #space #quiz #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V5/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 5693682,
+      "exportedAt": "2026-11-08T20:44:37.488Z"
+    },
+    {
       "id": "1116-V1",
       "date": "2026-11-11",
       "kind": "video",
@@ -52,56 +127,6 @@
       "bytes": 17789182,
       "exportedAt": "2026-11-08T05:41:31.058Z",
       "note": "Was 2026-11-16: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
-    },
-    {
-      "id": "1111-V3",
-      "date": "2026-11-11",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images)",
-      "variant": "v1",
-      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock number (270,000 KM WIDE / ~10 M THICK), length 23-45 (33.4 s), format one fact, topic space, voice male, visual photos with moves, caption call none; third post on 11-11 after TP-B2's pair (O-2026-11-08-e); primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F16-saturn-rings-thin/v4/draft",
-      "aigc": true,
-      "caption": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estimate). Images: NASA/JPL-Caltech/Space Science Institute; NASA, ESA, A. Simon (GSFC), M.H. Wong (UC Berkeley); NASA, ESA, Hubble Heritage Team (STScI/AURA), CC BY 4.0. No NASA endorsement implied.",
-      "hashtags": [
-        "#saturn",
-        "#space",
-        "#facts",
-        "#learnontiktok"
-      ],
-      "title": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estim…",
-      "description": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estimate). Images: NASA/JPL-Caltech/Space Science Institute; NASA, ESA, A. Simon (GSFC), M.H. Wong (UC Berkeley); NASA, ESA, Hubble Heritage Team (STScI/AURA), CC BY 4.0. No NASA endorsement implied.\n\n#saturn #space #facts #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V3/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 9103226,
-      "exportedAt": "2026-11-08T19:52:47.454Z"
-    },
-    {
-      "id": "1111-V4",
-      "date": "2026-11-11",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images)",
-      "variant": "v1",
-      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook myth busted (HOLDING HANDS? / IN THE WILD? ALMOST NEVER), length 13-22 (21.9 s), format one fact, topic animals, voice male, visual photos with moves, caption call none; fourth post on 11-11 (O-2026-11-08-e); primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F15-otters-kelp/v4/draft",
-      "aigc": true,
-      "caption": "Sea otters almost never hold hands in the wild: the famous hand-holders live in aquariums. Wild otters often wrap themselves in kelp so they don't drift. Photos: Pburka (Wikimedia Commons, public domain), Lilian Carswell/USFWS, Amity Wood/NOAA.",
-      "hashtags": [
-        "#seaotter",
-        "#ocean",
-        "#facts",
-        "#learnontiktok"
-      ],
-      "title": "Sea otters almost never hold hands in the wild: the famous hand-holders live in aquariums…",
-      "description": "Sea otters almost never hold hands in the wild: the famous hand-holders live in aquariums. Wild otters often wrap themselves in kelp so they don't drift. Photos: Pburka (Wikimedia Commons, public domain), Lilian Carswell/USFWS, Amity Wood/NOAA.\n\n#seaotter #ocean #facts #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V4/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 11277618,
-      "exportedAt": "2026-11-08T20:16:50.235Z"
     }
   ]
 }
