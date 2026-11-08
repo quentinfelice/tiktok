@@ -1,4 +1,30 @@
 {
   "date": "2026-11-13",
-  "items": []
+  "items": [
+    {
+      "id": "1113-V2",
+      "date": "2026-11-13",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock number (~300 KM/H · PART 1: THE FASTEST ANIMAL ON EARTH), length 23-45 (26.3 s), format series part 1/2 (part 2 = F25, queued right after), topic animals, voice male, visual photos with moves, caption call guess in comments; first post on 11-13 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F24-peregrine-dive/v4/draft",
+      "aigc": true,
+      "caption": "The fastest animal on Earth? The peregrine falcon, but only in a dive: up to around 300 km/h. Part 1 of the fastest things. Guess in the comments what's even faster (part 2 next)! Photos: USFWS, Peter Pearsall/USFWS.",
+      "hashtags": [
+        "#peregrinefalcon",
+        "#birds",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "The fastest animal on Earth? The peregrine falcon, but only in a dive: up to around 300 k…",
+      "description": "The fastest animal on Earth? The peregrine falcon, but only in a dive: up to around 300 km/h. Part 1 of the fastest things. Guess in the comments what's even faster (part 2 next)! Photos: USFWS, Peter Pearsall/USFWS.\n\n#peregrinefalcon #birds #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 7806792,
+      "exportedAt": "2026-11-08T23:52:35.847Z"
+    }
+  ]
 }
