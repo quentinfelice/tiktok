@@ -1,4 +1,30 @@
 {
   "date": "2026-11-12",
-  "items": []
+  "items": [
+    {
+      "id": "1112-V2",
+      "date": "2026-11-12",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook myth busted (EMPTY SKY? · NEARLY 10,000 GALAXIES INSIDE), length 23-45 (25.4 s), format before/after (split at frame 0 and the last line), topic space, voice male, visual photos with moves, caption call save; first post on 11-12 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F20-hubble-deep-field/v4/draft",
+      "aigc": true,
+      "caption": "Empty sky? Hubble stared at one tiny patch for 11 days and found nearly 10,000 galaxies. Save this for your next starry night. Images: NASA, ESA, S. Beckwith (STScI) & HUDF Team; ESO/Digitized Sky Survey 2 (ack. D. De Martin), CC BY 4.0; NASA.",
+      "hashtags": [
+        "#hubble",
+        "#space",
+        "#galaxies",
+        "#learnontiktok"
+      ],
+      "title": "Empty sky? Hubble stared at one tiny patch for 11 days and found nearly 10,000 galaxies. …",
+      "description": "Empty sky? Hubble stared at one tiny patch for 11 days and found nearly 10,000 galaxies. Save this for your next starry night. Images: NASA, ESA, S. Beckwith (STScI) & HUDF Team; ESO/Digitized Sky Survey 2 (ack. D. De Martin), CC BY 4.0; NASA.\n\n#hubble #space #galaxies #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-12/1112-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 15684103,
+      "exportedAt": "2026-11-08T22:10:29.261Z"
+    }
+  ]
 }
