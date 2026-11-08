@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-08T05:13:49.751Z",
+  "fetchedAt": "2026-11-08T05:42:13.561Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-07T21:45:43.000Z",
       "createTimeUnix": 1794087943,
       "title": "What happens if the moon disappears ? ",
-      "views": 781,
+      "views": 782,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -187,7 +187,7 @@
       "createTime": "2026-10-28T08:49:25.000Z",
       "createTimeUnix": 1793177365,
       "title": "This seal sleeps while sinking. Brain recordings of wild northern elephant seals showed short naps deep in their dives, drifting down in a spiral: about 2 hours of sleep a day at sea, about 10 on land. Made by Studia with AI tools (text and art); facts checked against the sources on the slides. #animalfacts #seals #ocean #sleepscience",
-      "views": 256,
+      "views": 257,
       "likes": 0,
       "comments": 0,
       "shares": 0,
