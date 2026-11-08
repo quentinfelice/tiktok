@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-18",
+  "items": [
+    {
+      "id": "1118-V1",
+      "date": "2026-11-18",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 11, arm L (39.3 s); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F10-bristlecone-pyramid/v4/draft",
+      "aigc": true,
+      "caption": "There's a tree alive today that was already growing when the Great Pyramid was built: Methuselah, a bristlecone pine in California, more than 4,600 years old. Photos: Alan Schmierer, Z3lvs, Gary Todd, Mustang Joe (CC0); NPS; \"Woodgrain brcone\" by Dcrjsr, CC BY 3.0, cropped.",
+      "hashtags": [
+        "#trees",
+        "#facts",
+        "#history",
+        "#learnontiktok"
+      ],
+      "title": "There's a tree alive today that was already growing when the Great Pyramid was built: Met…",
+      "description": "There's a tree alive today that was already growing when the Great Pyramid was built: Methuselah, a bristlecone pine in California, more than 4,600 years old. Photos: Alan Schmierer, Z3lvs, Gary Todd, Mustang Joe (CC0); NPS; \"Woodgrain brcone\" by Dcrjsr, CC BY 3.0, cropped.\n\n#trees #facts #history #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-18/1118-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 32538582,
+      "exportedAt": "2026-11-08T08:17:24.067Z"
+    }
+  ]
+}
