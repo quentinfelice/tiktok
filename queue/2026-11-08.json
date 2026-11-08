@@ -1,4 +1,109 @@
 {
   "date": "2026-11-08",
-  "items": []
+  "items": [
+    {
+      "id": "1110-V2",
+      "date": "2026-11-08",
+      "kind": "video",
+      "series": "T-PLUS design v4 (real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2 (re-registered to start at the first fact post); design v4 (real photographs, O-2026-11-08-b); 20.3 s; primary = public views at 48 h, logged for the record.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C13-light-laps/v4/draft",
+      "aigc": true,
+      "caption": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The next nearest star's light left it over 4 years ago: every star you see is the past. Images: NASA (Apollo 17, ISS), NASA/Bill Ingalls, NASA/SDO, ESA/Hubble & NASA (CC BY 4.0). Light's path: illustration.",
+      "hashtags": [
+        "#light",
+        "#space",
+        "#physics",
+        "#science"
+      ],
+      "title": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The…",
+      "description": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The next nearest star's light left it over 4 years ago: every star you see is the past. Images: NASA (Apollo 17, ISS), NASA/Bill Ingalls, NASA/SDO, ESA/Hubble & NASA (CC BY 4.0). Light's path: illustration.\n\n#light #space #physics #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 13446421,
+      "exportedAt": "2026-11-08T00:08:42.801Z",
+      "note": "Moved a day early to 2026-11-09 on COORD's TT-PUSH-001 cadence order (at least one post a day from 11-09; 2026-11-08 ~05:12Z); file unchanged (sha256 a1f1fb4f…). Was 2026-11-09: released on the owner's « Pousse les suivantes et produit !!! » (2026-11-08 ~17:15Z); file unchanged."
+    },
+    {
+      "id": "1110-V3",
+      "date": "2026-11-08",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images) — GAMES line",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2 (it starts 11-11 with F03); GAMES line G07 (spare S, 19.3 s), design v4; COORD's TT-PUSH-001 cadence order 2026-11-08 ~05:12Z; primary = public views at 48 h, logged for the record.",
+      "derivedFrom": "claude/games/TT-PUSH-001 5099c5bd8: tplus-line2/episodes/G07-saturn-floats/v1/draft",
+      "aigc": true,
+      "caption": "What if you dropped Saturn in water? It would float: on average it's lighter than water for its size, under 700 g a litre (NASA). You'd just need a bathtub bigger than the planet. Photos: NASA/JPL/Space Science Institute (Cassini), NOAA Ocean Exploration.",
+      "hashtags": [
+        "#space",
+        "#saturn",
+        "#facts",
+        "#science"
+      ],
+      "title": "What if you dropped Saturn in water? It would float: on average it's lighter than water f…",
+      "description": "What if you dropped Saturn in water? It would float: on average it's lighter than water for its size, under 700 g a litre (NASA). You'd just need a bathtub bigger than the planet. Photos: NASA/JPL/Space Science Institute (Cassini), NOAA Ocean Exploration.\n\n#space #saturn #facts #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 8278589,
+      "exportedAt": "2026-11-08T05:13:13.589Z",
+      "note": "Was 2026-11-10: released on the owner's « Pousse les suivantes et produit !!! » (2026-11-08 ~17:15Z); file unchanged."
+    },
+    {
+      "id": "1111-V1",
+      "date": "2026-11-08",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 1, arm L (35.8 s); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F03-lightning-sun/v4/draft",
+      "aigc": true,
+      "caption": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against 5,500 °C. Count the seconds from flash to thunder and divide by 3: that's how many km away it struck. Images: B. Morgan (CC0); A. Parlette, Rollingskyphoto (CC BY 4.0, cropped); M. Madau, Grand Canyon NPS (public domain); NASA/SDO & HMI team; NSO/NSF/AURA (CC BY 4.0, cropped); NASA; NASA Earth Observatory.",
+      "hashtags": [
+        "#lightning",
+        "#facts",
+        "#science",
+        "#learnontiktok"
+      ],
+      "title": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against…",
+      "description": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against 5,500 °C. Count the seconds from flash to thunder and divide by 3: that's how many km away it struck. Images: B. Morgan (CC0); A. Parlette, Rollingskyphoto (CC BY 4.0, cropped); M. Madau, Grand Canyon NPS (public domain); NASA/SDO & HMI team; NSO/NSF/AURA (CC BY 4.0, cropped); NASA; NASA Earth Observatory.\n\n#lightning #facts #science #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 31011554,
+      "exportedAt": "2026-11-08T00:19:54.638Z",
+      "note": "Was 2026-11-11: released on the owner's « Pousse les suivantes et produit !!! » (2026-11-08 ~17:15Z); file unchanged."
+    },
+    {
+      "id": "1112-V1",
+      "date": "2026-11-08",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 2, arm S (17.2 s); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F06-octopus-hearts/v4/draft",
+      "aigc": true,
+      "caption": "An octopus has three hearts and blue blood. Two hearts pump blood through the gills, the third around the body, and its blood carries oxygen on copper, not iron like ours. That's why it's blue. Footage: NOAA Ocean Exploration (public domain).",
+      "hashtags": [
+        "#octopus",
+        "#facts",
+        "#science",
+        "#learnontiktok"
+      ],
+      "title": "An octopus has three hearts and blue blood. Two hearts pump blood through the gills, the …",
+      "description": "An octopus has three hearts and blue blood. Two hearts pump blood through the gills, the third around the body, and its blood carries oxygen on copper, not iron like ours. That's why it's blue. Footage: NOAA Ocean Exploration (public domain).\n\n#octopus #facts #science #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-12/1112-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 13541579,
+      "exportedAt": "2026-11-08T01:19:35.498Z",
+      "note": "Was 2026-11-12: released on the owner's « Pousse les suivantes et produit !!! » (2026-11-08 ~17:15Z); file unchanged."
+    }
+  ]
 }

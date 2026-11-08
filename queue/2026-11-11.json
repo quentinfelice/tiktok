@@ -2,29 +2,56 @@
   "date": "2026-11-11",
   "items": [
     {
-      "id": "1111-V1",
+      "id": "1116-V1",
       "date": "2026-11-11",
       "kind": "video",
       "series": "T-PLUS Extraordinary facts (design v4, real images)",
       "variant": "v1",
-      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 1, arm L (35.8 s); primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F03-lightning-sun/v4/draft",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 7, arm L (37.5 s), first of two posts on 11-16; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F08-trex-stegosaurus/v4/draft",
       "aigc": true,
-      "caption": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against 5,500 °C. Count the seconds from flash to thunder and divide by 3: that's how many km away it struck. Images: B. Morgan (CC0); A. Parlette, Rollingskyphoto (CC BY 4.0, cropped); M. Madau, Grand Canyon NPS (public domain); NASA/SDO & HMI team; NSO/NSF/AURA (CC BY 4.0, cropped); NASA; NASA Earth Observatory.",
+      "caption": "T. rex lived closer in time to you than to Stegosaurus: Stegosaurus ~150 million years ago, T. rex ~68–66 million, about 80 million years apart. Photos: \"Stegosaurus stenops (Sophie)\" by Pablo Cabezos, CC BY 2.0, cropped; Gary Todd (CC0); NPS. Mural: Charles R. Knight, c. 1927.",
       "hashtags": [
-        "#lightning",
+        "#dinosaurs",
         "#facts",
-        "#science",
+        "#trex",
         "#learnontiktok"
       ],
-      "title": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against…",
-      "description": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against 5,500 °C. Count the seconds from flash to thunder and divide by 3: that's how many km away it struck. Images: B. Morgan (CC0); A. Parlette, Rollingskyphoto (CC BY 4.0, cropped); M. Madau, Grand Canyon NPS (public domain); NASA/SDO & HMI team; NSO/NSF/AURA (CC BY 4.0, cropped); NASA; NASA Earth Observatory.\n\n#lightning #facts #science #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V1/video.mp4",
+      "title": "T. rex lived closer in time to you than to Stegosaurus: Stegosaurus ~150 million years ag…",
+      "description": "T. rex lived closer in time to you than to Stegosaurus: Stegosaurus ~150 million years ago, T. rex ~68–66 million, about 80 million years apart. Photos: \"Stegosaurus stenops (Sophie)\" by Pablo Cabezos, CC BY 2.0, cropped; Gary Todd (CC0); NPS. Mural: Charles R. Knight, c. 1927.\n\n#dinosaurs #facts #trex #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-16/1116-V1/video.mp4",
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 31011554,
-      "exportedAt": "2026-11-08T00:19:54.638Z"
+      "bytes": 17886590,
+      "exportedAt": "2026-11-08T05:41:31.058Z",
+      "note": "Was 2026-11-16: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
+    },
+    {
+      "id": "1116-V2",
+      "date": "2026-11-11",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 8, arm S (20.8 s), second of two posts on 11-16, a few hours after post 7 (L); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F05-mammoths-pyramid/v4/draft",
+      "aigc": true,
+      "caption": "Woolly mammoths were still alive when the Great Pyramid was built: the last ones lived on Wrangel Island until about 4,000 years ago. Photos: Gary Todd, Mustang Joe (CC0); Monoram (CC BY 2.0), Grichanov & Khruleva (CC BY 4.0), cropped. Satellite: NASA. Painting: Charles R. Knight, 1915.",
+      "hashtags": [
+        "#mammoth",
+        "#facts",
+        "#history",
+        "#learnontiktok"
+      ],
+      "title": "Woolly mammoths were still alive when the Great Pyramid was built: the last ones lived on…",
+      "description": "Woolly mammoths were still alive when the Great Pyramid was built: the last ones lived on Wrangel Island until about 4,000 years ago. Photos: Gary Todd, Mustang Joe (CC0); Monoram (CC BY 2.0), Grichanov & Khruleva (CC BY 4.0), cropped. Satellite: NASA. Painting: Charles R. Knight, 1915.\n\n#mammoth #facts #history #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-16/1116-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 17789182,
+      "exportedAt": "2026-11-08T05:41:31.058Z",
+      "note": "Was 2026-11-16: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
     }
   ]
 }

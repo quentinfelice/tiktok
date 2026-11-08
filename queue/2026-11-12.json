@@ -2,29 +2,56 @@
   "date": "2026-11-12",
   "items": [
     {
-      "id": "1112-V1",
+      "id": "1117-V1",
       "date": "2026-11-12",
       "kind": "video",
       "series": "T-PLUS Extraordinary facts (design v4, real images)",
       "variant": "v1",
-      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 2, arm S (17.2 s); primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F06-octopus-hearts/v4/draft",
+      "hypothesis": "Outside any test (TP-B2 has exactly 8 posts, F03 on 11-11 to F08 + F05 on 11-16, COORD 2026-11-08 12:13 Brussels); facts family, design v4, length 36.0 s (L), first of two posts on 11-17; primary = public views at 48 h, logged for the record.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F11-moon-recession/v4/draft",
       "aigc": true,
-      "caption": "An octopus has three hearts and blue blood. Two hearts pump blood through the gills, the third around the body, and its blood carries oxygen on copper, not iron like ours. That's why it's blue. Footage: NOAA Ocean Exploration (public domain).",
+      "caption": "The Moon drifts about 3.8 cm farther from Earth every year (NASA). We measure it by firing lasers at mirrors the Apollo astronauts left there: the light's round trip takes about 2.5 seconds. Photos: NASA (Apollo 11, 14, 15; Artemis I), NASA/GSFC/Debbie McCallum. No NASA endorsement implied.",
       "hashtags": [
-        "#octopus",
+        "#moon",
+        "#space",
         "#facts",
-        "#science",
         "#learnontiktok"
       ],
-      "title": "An octopus has three hearts and blue blood. Two hearts pump blood through the gills, the …",
-      "description": "An octopus has three hearts and blue blood. Two hearts pump blood through the gills, the third around the body, and its blood carries oxygen on copper, not iron like ours. That's why it's blue. Footage: NOAA Ocean Exploration (public domain).\n\n#octopus #facts #science #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-12/1112-V1/video.mp4",
+      "title": "The Moon drifts about 3.8 cm farther from Earth every year (NASA). We measure it by firin…",
+      "description": "The Moon drifts about 3.8 cm farther from Earth every year (NASA). We measure it by firing lasers at mirrors the Apollo astronauts left there: the light's round trip takes about 2.5 seconds. Photos: NASA (Apollo 11, 14, 15; Artemis I), NASA/GSFC/Debbie McCallum. No NASA endorsement implied.\n\n#moon #space #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-17/1117-V1/video.mp4",
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 13541579,
-      "exportedAt": "2026-11-08T01:19:35.498Z"
+      "bytes": 19241625,
+      "exportedAt": "2026-11-08T11:12:57.021Z",
+      "note": "Was 2026-11-17: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
+    },
+    {
+      "id": "1117-V2",
+      "date": "2026-11-12",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside any test (TP-B2 has exactly 8 posts, COORD 2026-11-08 12:13 Brussels); facts family, design v4, length 20.4 s (S), second of two posts on 11-17, a few hours after F11; primary = public views at 48 h, logged for the record.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F07-oxford-aztecs/v4/draft",
+      "aigc": true,
+      "caption": "Oxford University is older than the Aztec Empire: teaching at Oxford by 1096, Tenochtitlan founded c. 1325, the empire from 1428. Photos: Gary Campbell-Hall, Danny Chapman, Meraj Chhaya, Hernán García Crespo (CC BY 2.0, cropped). 1524 map: Newberry Library (PD). Temple model: The Met (CC0).",
+      "hashtags": [
+        "#history",
+        "#facts",
+        "#oxford",
+        "#learnontiktok"
+      ],
+      "title": "Oxford University is older than the Aztec Empire: teaching at Oxford by 1096, Tenochtitla…",
+      "description": "Oxford University is older than the Aztec Empire: teaching at Oxford by 1096, Tenochtitlan founded c. 1325, the empire from 1428. Photos: Gary Campbell-Hall, Danny Chapman, Meraj Chhaya, Hernán García Crespo (CC BY 2.0, cropped). 1524 map: Newberry Library (PD). Temple model: The Met (CC0).\n\n#history #facts #oxford #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-17/1117-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 21893324,
+      "exportedAt": "2026-11-08T11:12:57.021Z",
+      "note": "Was 2026-11-17: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
     }
   ]
 }

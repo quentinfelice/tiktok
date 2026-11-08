@@ -2,29 +2,56 @@
   "date": "2026-11-10",
   "items": [
     {
-      "id": "1110-V3",
+      "id": "1115-V1",
       "date": "2026-11-10",
       "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images) — GAMES line",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
       "variant": "v1",
-      "hypothesis": "Outside TP-B2 (it starts 11-11 with F03); GAMES line G07 (spare S, 19.3 s), design v4; COORD's TT-PUSH-001 cadence order 2026-11-08 ~05:12Z; primary = public views at 48 h, logged for the record.",
-      "derivedFrom": "claude/games/TT-PUSH-001 5099c5bd8: tplus-line2/episodes/G07-saturn-floats/v1/draft",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 5, arm L (35.8 s), first of two posts on 11-15 (TT-PUSH-001: two a day once three judged drafts are ahead); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F02-cleopatra-moon/v4/draft",
       "aigc": true,
-      "caption": "What if you dropped Saturn in water? It would float: on average it's lighter than water for its size, under 700 g a litre (NASA). You'd just need a bathtub bigger than the planet. Photos: NASA/JPL/Space Science Institute (Cassini), NOAA Ocean Exploration.",
+      "caption": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyramid: pyramid c. 2560 BC, Cleopatra queen 51 BC, Apollo 11 in 1969. Images: Monoram, Ben Sutherland (CC BY 2.0, cropped); Gary Todd, The Met (CC0); Berlin Cleopatra: Marco21274 (PD); Apollo 11: NASA.",
       "hashtags": [
-        "#space",
-        "#saturn",
+        "#history",
         "#facts",
-        "#science"
+        "#egypt",
+        "#learnontiktok"
       ],
-      "title": "What if you dropped Saturn in water? It would float: on average it's lighter than water f…",
-      "description": "What if you dropped Saturn in water? It would float: on average it's lighter than water for its size, under 700 g a litre (NASA). You'd just need a bathtub bigger than the planet. Photos: NASA/JPL/Space Science Institute (Cassini), NOAA Ocean Exploration.\n\n#space #saturn #facts #science",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V3/video.mp4",
+      "title": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyra…",
+      "description": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyramid: pyramid c. 2560 BC, Cleopatra queen 51 BC, Apollo 11 in 1969. Images: Monoram, Ben Sutherland (CC BY 2.0, cropped); Gary Todd, The Met (CC0); Berlin Cleopatra: Marco21274 (PD); Apollo 11: NASA.\n\n#history #facts #egypt #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-15/1115-V1/video.mp4",
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 8278589,
-      "exportedAt": "2026-11-08T05:13:13.589Z"
+      "bytes": 20431553,
+      "exportedAt": "2026-11-08T04:32:47.098Z",
+      "note": "Was 2026-11-15: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
+    },
+    {
+      "id": "1115-V2",
+      "date": "2026-11-10",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 6, arm S (18.5 s), second of two posts on 11-15, a few hours after post 5 (L); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F01-sharks-trees/v4/draft",
+      "aigc": true,
+      "caption": "Sharks are older than trees: the first sharks about 450 million years ago (their scales), the first trees about 390 million. Footage/photos: Christian Townsend, Gremly Media (CC BY 3.0); Viana & Carvalho 2020, Graeme Churchard (CC BY 4.0); James St. John (CC BY 2.0). All cropped and colour-graded.",
+      "hashtags": [
+        "#sharks",
+        "#facts",
+        "#science",
+        "#learnontiktok"
+      ],
+      "title": "Sharks are older than trees: the first sharks about 450 million years ago (their scales),…",
+      "description": "Sharks are older than trees: the first sharks about 450 million years ago (their scales), the first trees about 390 million. Footage/photos: Christian Townsend, Gremly Media (CC BY 3.0); Viana & Carvalho 2020, Graeme Churchard (CC BY 4.0); James St. John (CC BY 2.0). All cropped and colour-graded.\n\n#sharks #facts #science #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-15/1115-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 12800388,
+      "exportedAt": "2026-11-08T04:32:47.098Z",
+      "note": "Was 2026-11-15: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
     }
   ]
 }

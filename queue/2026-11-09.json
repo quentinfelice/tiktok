@@ -2,30 +2,56 @@
   "date": "2026-11-09",
   "items": [
     {
-      "id": "1110-V2",
+      "id": "1113-V1",
       "date": "2026-11-09",
       "kind": "video",
-      "series": "T-PLUS design v4 (real images)",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
       "variant": "v1",
-      "hypothesis": "Outside TP-B2 (re-registered to start at the first fact post); design v4 (real photographs, O-2026-11-08-b); 20.3 s; primary = public views at 48 h, logged for the record.",
-      "derivedFrom": "accounts/tt-tplus/episodes/C13-light-laps/v4/draft",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 3, arm L (34.3 s), after post 2 (S) on 11-12; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F09-ocean-oxygen/v4/draft",
       "aigc": true,
-      "caption": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The next nearest star's light left it over 4 years ago: every star you see is the past. Images: NASA (Apollo 17, ISS), NASA/Bill Ingalls, NASA/SDO, ESA/Hubble & NASA (CC BY 4.0). Light's path: illustration.",
+      "caption": "About half of Earth's oxygen is made in the ocean, by phytoplankton too small to see. One microbe, Prochlorococcus, makes up to a fifth of the oxygen in the whole living world (NOAA). Images: USGS/NASA Landsat, NASA MODIS, NOAA, Apollo 17 (NASA); Prochlorococcus: L. Thompson & N. Watson (MIT).",
       "hashtags": [
-        "#light",
-        "#space",
-        "#physics",
-        "#science"
+        "#ocean",
+        "#facts",
+        "#science",
+        "#learnontiktok"
       ],
-      "title": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The…",
-      "description": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The next nearest star's light left it over 4 years ago: every star you see is the past. Images: NASA (Apollo 17, ISS), NASA/Bill Ingalls, NASA/SDO, ESA/Hubble & NASA (CC BY 4.0). Light's path: illustration.\n\n#light #space #physics #science",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V2/video.mp4",
+      "title": "About half of Earth's oxygen is made in the ocean, by phytoplankton too small to see. One…",
+      "description": "About half of Earth's oxygen is made in the ocean, by phytoplankton too small to see. One microbe, Prochlorococcus, makes up to a fifth of the oxygen in the whole living world (NOAA). Images: USGS/NASA Landsat, NASA MODIS, NOAA, Apollo 17 (NASA); Prochlorococcus: L. Thompson & N. Watson (MIT).\n\n#ocean #facts #science #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V1/video.mp4",
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 13446421,
-      "exportedAt": "2026-11-08T00:08:42.801Z",
-      "note": "Moved a day early to 2026-11-09 on COORD's TT-PUSH-001 cadence order (at least one post a day from 11-09; 2026-11-08 ~05:12Z); file unchanged (sha256 a1f1fb4f…)."
+      "bytes": 30415820,
+      "exportedAt": "2026-11-08T04:28:44.182Z",
+      "note": "Was 2026-11-13: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
+    },
+    {
+      "id": "1114-V1",
+      "date": "2026-11-09",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 4, arm S (19.6 s), after post 3 (L) on 11-13; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F04-venus-day/v4/draft",
+      "aigc": true,
+      "caption": "A day on Venus is longer than its year: 243 Earth days to spin once, only 225 to go around the Sun. And it spins backwards, so the Sun rises in the west. Images: NASA/JPL-Caltech, NASA/JPL, NASA/SDO, NASA Goddard SVS, NASA/Bill Ingalls. Surface view: reconstruction from Magellan radar.",
+      "hashtags": [
+        "#venus",
+        "#facts",
+        "#space",
+        "#learnontiktok"
+      ],
+      "title": "A day on Venus is longer than its year: 243 Earth days to spin once, only 225 to go aroun…",
+      "description": "A day on Venus is longer than its year: 243 Earth days to spin once, only 225 to go around the Sun. And it spins backwards, so the Sun rises in the west. Images: NASA/JPL-Caltech, NASA/JPL, NASA/SDO, NASA Goddard SVS, NASA/Bill Ingalls. Surface view: reconstruction from Magellan radar.\n\n#venus #facts #space #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 6623485,
+      "exportedAt": "2026-11-08T01:36:05.911Z",
+      "note": "Was 2026-11-14: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
     }
   ]
 }
