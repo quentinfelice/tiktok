@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-08T22:13:47.002Z",
+  "fetchedAt": "2026-11-08T22:43:39.107Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-08T18:26:50.000Z",
       "createTimeUnix": 1794162410,
       "title": "Have you ever looked in the past ?  ",
-      "views": 779,
+      "views": 783,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -817,7 +817,7 @@
       "createTime": "2026-10-09T06:22:43.000Z",
       "createTimeUnix": 1791526963,
       "title": "She was found asleep on a crane. London, 2005: a sleepwalking 15-year-old climbed a crane and was found asleep about 40 m up. Firefighters brought her down unharmed. #truestory #sleepwalking #london #sleepscience",
-      "views": 629,
+      "views": 630,
       "likes": 2,
       "comments": 0,
       "shares": 0,
