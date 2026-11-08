@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-08T20:45:22.616Z",
+  "fetchedAt": "2026-11-08T20:52:27.277Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-08T18:26:50.000Z",
       "createTimeUnix": 1794162410,
       "title": "Have you ever looked in the past ?  ",
-      "views": 467,
+      "views": 516,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -383,7 +383,7 @@
       "createTime": "2026-10-21T20:19:17.000Z",
       "createTimeUnix": 1792613957,
       "title": "Exploding head syndrome: the loud bang as you fall asleep. A sudden noise in your head as you drift off or wake. Usually painless; 18% of 211 US college students said they had had it. If it is frequent or worrying, talk to a doctor. #explodingheadsyndrome #sleep #weirdfacts #sleepscience #brain",
-      "views": 843,
+      "views": 844,
       "likes": 3,
       "comments": 0,
       "shares": 0,
