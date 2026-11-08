@@ -75,6 +75,31 @@
       "seconds": null,
       "bytes": 4326175,
       "exportedAt": "2026-11-08T23:23:09.695Z"
+    },
+    {
+      "id": "1112-V5",
+      "date": "2026-11-12",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock number (1.75 BILLION YEARS · THE CANYON'S BOTTOM: OLDER THAN ANIMAL LIFE), length 23-45 (35.4 s), format one fact, topic Earth, voice male, visual photos with moves + one short footage cut, caption call none; fourth post on 11-12 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F18-grand-canyon-rocks/v4/draft",
+      "aigc": true,
+      "caption": "The rock at the bottom of the Grand Canyon is about 1.75 billion years old: older than animal life itself. Photos: NPS/M. Quinn, NPS/E. Whittaker, Chris M Morris; NPS footage. All CC BY 2.0 (creativecommons.org/licenses/by/2.0), cropped.",
+      "hashtags": [
+        "#grandcanyon",
+        "#geology",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "The rock at the bottom of the Grand Canyon is about 1.75 billion years old: older than an…",
+      "description": "The rock at the bottom of the Grand Canyon is about 1.75 billion years old: older than animal life itself. Photos: NPS/M. Quinn, NPS/E. Whittaker, Chris M Morris; NPS footage. All CC BY 2.0 (creativecommons.org/licenses/by/2.0), cropped.\n\n#grandcanyon #geology #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-12/1112-V5/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 34741943,
+      "exportedAt": "2026-11-08T23:44:06.847Z"
     }
   ]
 }
