@@ -2,6 +2,31 @@
   "date": "2026-11-11",
   "items": [
     {
+      "id": "1111-V3",
+      "date": "2026-11-11",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock number (270,000 KM WIDE / ~10 M THICK), length 23-45 (33.4 s), format one fact, topic space, voice male, visual photos with moves, caption call none; third post on 11-11 after TP-B2's pair (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F16-saturn-rings-thin/v4/draft",
+      "aigc": true,
+      "caption": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estimate). Images: NASA/JPL-Caltech/Space Science Institute; NASA, ESA, A. Simon (GSFC), M.H. Wong (UC Berkeley); NASA, ESA, Hubble Heritage Team (STScI/AURA), CC BY 4.0. No NASA endorsement implied.",
+      "hashtags": [
+        "#saturn",
+        "#space",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estim…",
+      "description": "Saturn's main rings are about 270,000 km across but mostly only ~10 m thick (a NASA estimate). Images: NASA/JPL-Caltech/Space Science Institute; NASA, ESA, A. Simon (GSFC), M.H. Wong (UC Berkeley); NASA, ESA, Hubble Heritage Team (STScI/AURA), CC BY 4.0. No NASA endorsement implied.\n\n#saturn #space #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 9103226,
+      "exportedAt": "2026-11-08T19:52:47.454Z"
+    },
+    {
       "id": "1116-V1",
       "date": "2026-11-11",
       "kind": "video",
