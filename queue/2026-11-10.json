@@ -1,4 +1,30 @@
 {
   "date": "2026-11-10",
-  "items": []
+  "items": [
+    {
+      "id": "1110-V3",
+      "date": "2026-11-10",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images) — GAMES line",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2 (it starts 11-11 with F03); GAMES line G07 (spare S, 19.3 s), design v4; COORD's TT-PUSH-001 cadence order 2026-11-08 ~05:12Z; primary = public views at 48 h, logged for the record.",
+      "derivedFrom": "claude/games/TT-PUSH-001 5099c5bd8: tplus-line2/episodes/G07-saturn-floats/v1/draft",
+      "aigc": true,
+      "caption": "What if you dropped Saturn in water? It would float: on average it's lighter than water for its size, under 700 g a litre (NASA). You'd just need a bathtub bigger than the planet. Photos: NASA/JPL/Space Science Institute (Cassini), NOAA Ocean Exploration.",
+      "hashtags": [
+        "#space",
+        "#saturn",
+        "#facts",
+        "#science"
+      ],
+      "title": "What if you dropped Saturn in water? It would float: on average it's lighter than water f…",
+      "description": "What if you dropped Saturn in water? It would float: on average it's lighter than water for its size, under 700 g a litre (NASA). You'd just need a bathtub bigger than the planet. Photos: NASA/JPL/Space Science Institute (Cassini), NOAA Ocean Exploration.\n\n#space #saturn #facts #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 8278589,
+      "exportedAt": "2026-11-08T05:13:13.589Z"
+    }
+  ]
 }
