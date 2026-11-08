@@ -1,4 +1,30 @@
 {
   "date": "2026-11-11",
-  "items": []
+  "items": [
+    {
+      "id": "1111-V1",
+      "date": "2026-11-11",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 1, arm L (35.8 s); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F03-lightning-sun/v4/draft",
+      "aigc": true,
+      "caption": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against 5,500 °C. Count the seconds from flash to thunder and divide by 3: that's how many km away it struck. Images: B. Morgan (CC0); A. Parlette, Rollingskyphoto (CC BY 4.0, cropped); M. Madau, Grand Canyon NPS (public domain); NASA/SDO & HMI team; NSO/NSF/AURA (CC BY 4.0, cropped); NASA; NASA Earth Observatory.",
+      "hashtags": [
+        "#lightning",
+        "#facts",
+        "#science",
+        "#learnontiktok"
+      ],
+      "title": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against…",
+      "description": "Lightning is about five times hotter than the surface of the Sun: about 27,800 °C against 5,500 °C. Count the seconds from flash to thunder and divide by 3: that's how many km away it struck. Images: B. Morgan (CC0); A. Parlette, Rollingskyphoto (CC BY 4.0, cropped); M. Madau, Grand Canyon NPS (public domain); NASA/SDO & HMI team; NSO/NSF/AURA (CC BY 4.0, cropped); NASA; NASA Earth Observatory.\n\n#lightning #facts #science #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-11/1111-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 31011554,
+      "exportedAt": "2026-11-08T00:19:54.638Z"
+    }
+  ]
 }
