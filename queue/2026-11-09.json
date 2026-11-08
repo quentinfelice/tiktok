@@ -1,4 +1,31 @@
 {
   "date": "2026-11-09",
-  "items": []
+  "items": [
+    {
+      "id": "1110-V2",
+      "date": "2026-11-09",
+      "kind": "video",
+      "series": "T-PLUS design v4 (real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2 (re-registered to start at the first fact post); design v4 (real photographs, O-2026-11-08-b); 20.3 s; primary = public views at 48 h, logged for the record.",
+      "derivedFrom": "accounts/tt-tplus/episodes/C13-light-laps/v4/draft",
+      "aigc": true,
+      "caption": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The next nearest star's light left it over 4 years ago: every star you see is the past. Images: NASA (Apollo 17, ISS), NASA/Bill Ingalls, NASA/SDO, ESA/Hubble & NASA (CC BY 4.0). Light's path: illustration.",
+      "hashtags": [
+        "#light",
+        "#space",
+        "#physics",
+        "#science"
+      ],
+      "title": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The…",
+      "description": "If light could follow the equator, it would circle the Earth 7.5 times in one second. The next nearest star's light left it over 4 years ago: every star you see is the past. Images: NASA (Apollo 17, ISS), NASA/Bill Ingalls, NASA/SDO, ESA/Hubble & NASA (CC BY 4.0). Light's path: illustration.\n\n#light #space #physics #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 13446421,
+      "exportedAt": "2026-11-08T00:08:42.801Z",
+      "note": "Moved a day early to 2026-11-09 on COORD's TT-PUSH-001 cadence order (at least one post a day from 11-09; 2026-11-08 ~05:12Z); file unchanged (sha256 a1f1fb4f…)."
+    }
+  ]
 }
