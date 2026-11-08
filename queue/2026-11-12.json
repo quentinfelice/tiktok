@@ -25,6 +25,31 @@
       "seconds": null,
       "bytes": 15684103,
       "exportedAt": "2026-11-08T22:10:29.261Z"
+    },
+    {
+      "id": "1112-V3",
+      "date": "2026-11-12",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook countdown (3 BEE FACTS · COUNTDOWN · #1 IS ABOUT HONEY), length 13-22 (17.9 s), format three facts, topic animals, voice male, visual photos with moves + 3.6 s footage, caption call guess in comments; second post on 11-12 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F22-honeybee-honey/v4/draft",
+      "aigc": true,
+      "caption": "3 honeybee facts, counting down. Guess #1 in the comments before it lands! Photos: USDA ARS (J. Dykinga, P. Greb, S. Bauer). Hive clip: OakleyOriginals, CC BY 2.0 (creativecommons.org/licenses/by/2.0), cut and cropped. Honey figure is an estimate.",
+      "hashtags": [
+        "#bees",
+        "#honey",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "3 honeybee facts, counting down. Guess #1 in the comments before it lands! Photos: USDA A…",
+      "description": "3 honeybee facts, counting down. Guess #1 in the comments before it lands! Photos: USDA ARS (J. Dykinga, P. Greb, S. Bauer). Hive clip: OakleyOriginals, CC BY 2.0 (creativecommons.org/licenses/by/2.0), cut and cropped. Honey figure is an estimate.\n\n#bees #honey #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-12/1112-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 12931571,
+      "exportedAt": "2026-11-08T22:42:43.888Z"
     }
   ]
 }
