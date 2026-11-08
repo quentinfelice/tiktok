@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-08T00:09:12.960Z",
+  "fetchedAt": "2026-11-08T00:20:25.430Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-07T21:45:43.000Z",
       "createTimeUnix": 1794087943,
       "title": "What happens if the moon disappears ? ",
-      "views": 548,
+      "views": 581,
       "likes": 2,
       "comments": 0,
       "shares": 0,
