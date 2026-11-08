@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-08T07:38:51.953Z",
+  "fetchedAt": "2026-11-08T08:18:09.755Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-07T21:45:43.000Z",
       "createTimeUnix": 1794087943,
       "title": "What happens if the moon disappears ? ",
-      "views": 791,
+      "views": 797,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -565,7 +565,7 @@
       "createTime": "2026-10-15T21:39:28.000Z",
       "createTimeUnix": 1792100368,
       "title": "Sleep paralysis: why you can't move when you wake up. In REM sleep your muscles are switched off, and sometimes the mind wakes first. About 8% of people have had it. Scary but short; if it's frequent or worrying, talk to a doctor. #sleepparalysis #sleep #remsleep #scary #sleepscience",
-      "views": 355,
+      "views": 356,
       "likes": 2,
       "comments": 0,
       "shares": 0,
