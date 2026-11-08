@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-08T16:59:19.056Z",
+  "fetchedAt": "2026-11-08T17:05:28.356Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-07T21:45:43.000Z",
       "createTimeUnix": 1794087943,
       "title": "What happens if the moon disappears ? ",
-      "views": 827,
+      "views": 828,
       "likes": 3,
       "comments": 0,
       "shares": 0,
@@ -187,7 +187,7 @@
       "createTime": "2026-10-28T08:49:25.000Z",
       "createTimeUnix": 1793177365,
       "title": "This seal sleeps while sinking. Brain recordings of wild northern elephant seals showed short naps deep in their dives, drifting down in a spiral: about 2 hours of sleep a day at sea, about 10 on land. Made by Studia with AI tools (text and art); facts checked against the sources on the slides. #animalfacts #seals #ocean #sleepscience",
-      "views": 258,
+      "views": 259,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -1125,7 +1125,7 @@
       "createTime": "2026-09-30T16:29:21.000Z",
       "createTimeUnix": 1790785761,
       "title": "Your brain stays on guard in a new bed. In a 35-person Brown University study, a network in the left half of the brain slept lighter on night one and woke people faster to odd sounds. By night two, the difference was gone. #sleepscience #firstnighteffect #travel #brain #fallingasleep",
-      "views": 269,
+      "views": 270,
       "likes": 1,
       "comments": 0,
       "shares": 0,
