@@ -75,8 +75,9 @@
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 9103226,
-      "exportedAt": "2026-11-08T19:52:47.454Z"
+      "bytes": 9110512,
+      "exportedAt": "2026-11-08T19:52:47.454Z",
+      "note": "Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
     },
     {
       "id": "1111-V4",
@@ -100,8 +101,9 @@
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 11277618,
-      "exportedAt": "2026-11-08T20:16:50.235Z"
+      "bytes": 11286405,
+      "exportedAt": "2026-11-08T20:16:50.235Z",
+      "note": "Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
     },
     {
       "id": "1111-V5",

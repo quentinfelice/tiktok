@@ -75,9 +75,9 @@
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 19241625,
+      "bytes": 19249363,
       "exportedAt": "2026-11-08T11:12:57.021Z",
-      "note": "Was 2026-11-12: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged."
+      "note": "Was 2026-11-12: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged. Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
     },
     {
       "id": "1117-V2",
@@ -101,9 +101,9 @@
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 21893324,
+      "bytes": 21901743,
       "exportedAt": "2026-11-08T11:12:57.021Z",
-      "note": "Was 2026-11-12: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged."
+      "note": "Was 2026-11-12: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged. Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
     },
     {
       "id": "1118-V1",
@@ -127,9 +127,9 @@
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 32538582,
+      "bytes": 32547702,
       "exportedAt": "2026-11-08T11:12:57.022Z",
-      "note": "Was 2026-11-13: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged."
+      "note": "Was 2026-11-13: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged. Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
     }
   ]
 }
