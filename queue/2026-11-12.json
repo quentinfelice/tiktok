@@ -50,6 +50,31 @@
       "seconds": null,
       "bytes": 12931571,
       "exportedAt": "2026-11-08T22:42:43.888Z"
+    },
+    {
+      "id": "1112-V4",
+      "date": "2026-11-12",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook question (HOW SLOW? · AS LOW AS 2 BEATS A MINUTE), length ≤12 (9.4 s), format one fact, topic animals, voice female, visual photos with moves, caption call save; third post on 11-12 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F19-blue-whale-heart/v4/draft",
+      "aigc": true,
+      "caption": "How slow can a heart beat? A diving blue whale's dropped as low as 2 beats a minute (one tagged whale, PNAS 2019). Save it! Photos: J. Morten/NOAA, Seabass London (CC BY 2.0, creativecommons.org/licenses/by/2.0); NOAA Fisheries permit 775-1600-10.",
+      "hashtags": [
+        "#bluewhale",
+        "#ocean",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "How slow can a heart beat? A diving blue whale's dropped as low as 2 beats a minute (one …",
+      "description": "How slow can a heart beat? A diving blue whale's dropped as low as 2 beats a minute (one tagged whale, PNAS 2019). Save it! Photos: J. Morten/NOAA, Seabass London (CC BY 2.0, creativecommons.org/licenses/by/2.0); NOAA Fisheries permit 775-1600-10.\n\n#bluewhale #ocean #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-12/1112-V4/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 4326175,
+      "exportedAt": "2026-11-08T23:23:09.695Z"
     }
   ]
 }
