@@ -48,9 +48,8 @@
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 11286405,
-      "exportedAt": "2026-11-08T20:16:50.235Z",
-      "note": "Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
+      "bytes": 11152129,
+      "exportedAt": "2026-11-09T10:22:35.464Z"
     },
     {
       "id": "1111-V5",
