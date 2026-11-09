@@ -100,6 +100,30 @@
       "seconds": null,
       "bytes": 34741943,
       "exportedAt": "2026-11-08T23:44:06.847Z"
+    },
+    {
+      "id": "1112-V6",
+      "date": "2026-11-12",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook myth busted with «you» (NOT 10 TO 1 · BACTERIA VS YOUR CELLS: ABOUT 1 OR 2 TO 1), length 23-45 (31.0 s), format one fact, topic body, voice male, visual photos with moves (micrographs), caption call none; fifth post on 11-12 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F23-bacteria-one-to-one/v4/draft",
+      "aigc": true,
+      "caption": "You carry about as many bacterial cells as human cells: roughly 1 or 2 to 1, not 10 to 1 (Sender 2016). Images: Wellcome (D. Gregory & D. Marshall; M. Daniels), CC BY 4.0; Sleator/P. Casey, CC BY 2.0; CDC (D. Stalons, L. K. Georg); USDA ARS (E. Erbe, C. Pooley).",
+      "hashtags": [
+        "#bacteria",
+        "#science",
+        "#learnontiktok"
+      ],
+      "title": "You carry about as many bacterial cells as human cells: roughly 1 or 2 to 1, not 10 to 1 …",
+      "description": "You carry about as many bacterial cells as human cells: roughly 1 or 2 to 1, not 10 to 1 (Sender 2016). Images: Wellcome (D. Gregory & D. Marshall; M. Daniels), CC BY 4.0; Sleator/P. Casey, CC BY 2.0; CDC (D. Stalons, L. K. Georg); USDA ARS (E. Erbe, C. Pooley).\n\n#bacteria #science #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-12/1112-V6/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 19964189,
+      "exportedAt": "2026-11-09T00:17:17.951Z"
     }
   ]
 }
