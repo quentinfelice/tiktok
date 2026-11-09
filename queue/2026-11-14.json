@@ -50,6 +50,31 @@
       "seconds": null,
       "bytes": 11574239,
       "exportedAt": "2026-11-09T02:44:57.678Z"
+    },
+    {
+      "id": "1114-V5",
+      "date": "2026-11-14",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock statement (BLUE SUNSETS · ON MARS · A REAL PHOTO, CURIOSITY ROVER, 2015), length 23-45 (31.6 s), format one fact, topic space, voice female, visual photos with moves, caption call save; third post on 11-14 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F30-mars-blue-sunset/v4/draft",
+      "aigc": true,
+      "caption": "On Mars, the sky around the setting Sun glows blue: fine dust scatters blue light forwards. Real rover photos: Curiosity 2015, Spirit 2005, Perseverance 2021. Save it! Images: NASA/JPL-Caltech/MSSS/Texas A&M, NASA/JPL/Texas A&M/Cornell, NASA/JPL-Caltech/ASU/MSSS.",
+      "hashtags": [
+        "#mars",
+        "#space",
+        "#sunset",
+        "#learnontiktok"
+      ],
+      "title": "On Mars, the sky around the setting Sun glows blue: fine dust scatters blue light forward…",
+      "description": "On Mars, the sky around the setting Sun glows blue: fine dust scatters blue light forwards. Real rover photos: Curiosity 2015, Spirit 2005, Perseverance 2021. Save it! Images: NASA/JPL-Caltech/MSSS/Texas A&M, NASA/JPL/Texas A&M/Cornell, NASA/JPL-Caltech/ASU/MSSS.\n\n#mars #space #sunset #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V5/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 7669380,
+      "exportedAt": "2026-11-09T02:46:32.448Z"
     }
   ]
 }
