@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T11:13:11.481Z",
+  "fetchedAt": "2026-11-09T11:21:24.880Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,8 +33,8 @@
       "createTime": "2026-11-09T08:07:01.000Z",
       "createTimeUnix": 1794211621,
       "title": "Saturn would float ! ",
-      "views": 680,
-      "likes": 4,
+      "views": 717,
+      "likes": 5,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@funfactstplus/video/7706080183756885281?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
