@@ -1,4 +1,30 @@
 {
   "date": "2026-11-17",
-  "items": []
+  "items": [
+    {
+      "id": "1117-V3",
+      "date": "2026-11-17",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock statement (THE MOON HAS QUAKES · SOME SHOOK FOR MORE THAN 10 MINUTES), length 23-45 (29.4 s), format one fact, topic space, voice male, visual photos with moves (and one labelled LRO-data visualisation), caption call save; post on 11-17 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F33-moonquakes/v4/draft",
+      "aigc": true,
+      "caption": "The Moon has quakes. Apollo seismometers recorded 28 shallow moonquakes (1969-1977), some shaking for more than 10 minutes; most quakes on Earth are over in under a minute (NASA; Notre Dame). Save it! Images: NASA (Apollo), NASA/GSFC/ASU (LRO), NASA SVS.",
+      "hashtags": [
+        "#moon",
+        "#space",
+        "#nasa",
+        "#learnontiktok"
+      ],
+      "title": "The Moon has quakes. Apollo seismometers recorded 28 shallow moonquakes (1969-1977), some…",
+      "description": "The Moon has quakes. Apollo seismometers recorded 28 shallow moonquakes (1969-1977), some shaking for more than 10 minutes; most quakes on Earth are over in under a minute (NASA; Notre Dame). Save it! Images: NASA (Apollo), NASA/GSFC/ASU (LRO), NASA SVS.\n\n#moon #space #nasa #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-17/1117-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 11775272,
+      "exportedAt": "2026-11-09T06:07:26.977Z"
+    }
+  ]
 }
