@@ -1,4 +1,29 @@
 {
   "date": "2026-11-18",
-  "items": []
+  "items": [
+    {
+      "id": "1118-V3",
+      "date": "2026-11-18",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images) — GAMES line",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; GAMES line G06 (arm L, 36.4 s); TP-X1 (O-2026-11-08-g) tags: hook shock statement (MORE TREES · THAN STARS IN OUR GALAXY), length 23-45 (36.4 s), format split-screen comparison (frame 0 and the loop), topic Earth, voice male, visual photos with moves, caption call none; post on 11-18 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "claude/games/TT-PUSH-001 b91e75f9a: tplus-line2/episodes/G06-trees-stars/v1/draft (r3, audio rebuilt by GAMES 2026-11-09; GAMES's file unchanged)",
+      "aigc": true,
+      "caption": "There are more trees on Earth than stars in our galaxy 🌳✨ About 3 trillion trees vs about 100 billion stars (Crowther et al., Nature 2015; NASA). Photos: NASA (Apollo 17, ISS, Terra/ASTER), NASA/Carla Thomas (AfriSAR, Gabon).",
+      "hashtags": [
+        "#trees",
+        "#space",
+        "#learnontiktok"
+      ],
+      "title": "There are more trees on Earth than stars in our galaxy 🌳✨ About 3 trillion trees vs abou…",
+      "description": "There are more trees on Earth than stars in our galaxy 🌳✨ About 3 trillion trees vs about 100 billion stars (Crowther et al., Nature 2015; NASA). Photos: NASA (Apollo 17, ISS, Terra/ASTER), NASA/Carla Thomas (AfriSAR, Gabon).\n\n#trees #space #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-18/1118-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 40415470,
+      "exportedAt": "2026-11-09T07:31:01.231Z"
+    }
+  ]
 }
