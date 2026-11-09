@@ -100,6 +100,31 @@
       "seconds": null,
       "bytes": 9354935,
       "exportedAt": "2026-11-09T03:05:51.303Z"
+    },
+    {
+      "id": "1114-V7",
+      "date": "2026-11-14",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook myth busted (CLOSEST IN NORTHERN WINTER · EARTH IS NEAREST THE SUN IN EARLY JANUARY), length ≤22 (16.3 s), format one fact, topic space, voice female, visual photos with moves, caption call guess in comments; fifth post on 11-14 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F34-earth-closest-january/v4/draft",
+      "aigc": true,
+      "caption": "Earth is closest to the Sun in early January, in northern winter: ~147 million km vs ~152 million in July. So distance doesn't make the seasons; the tilt does. Did you guess right? 👇 Images: NASA EPIC Team (DSCOVR), NASA/SDO and the HMI team.",
+      "hashtags": [
+        "#earth",
+        "#space",
+        "#seasons",
+        "#learnontiktok"
+      ],
+      "title": "Earth is closest to the Sun in early January, in northern winter: ~147 million km vs ~152…",
+      "description": "Earth is closest to the Sun in early January, in northern winter: ~147 million km vs ~152 million in July. So distance doesn't make the seasons; the tilt does. Did you guess right? 👇 Images: NASA EPIC Team (DSCOVR), NASA/SDO and the HMI team.\n\n#earth #space #seasons #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V7/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 4496990,
+      "exportedAt": "2026-11-09T03:44:02.497Z"
     }
   ]
 }
