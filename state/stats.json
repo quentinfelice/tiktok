@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T07:38:50.747Z",
+  "fetchedAt": "2026-11-09T08:23:08.553Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -29,11 +29,25 @@
   "posts": [
     {
       "specId": null,
+      "tiktokId": "7706080183756885281",
+      "createTime": "2026-11-09T08:07:01.000Z",
+      "createTimeUnix": 1794211621,
+      "title": "Saturn would float ! ",
+      "views": 130,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@funfactstplus/video/7706080183756885281?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 19,
+      "matchedBy": null
+    },
+    {
+      "specId": null,
       "tiktokId": "7705868851640093985",
       "createTime": "2026-11-08T18:26:50.000Z",
       "createTimeUnix": 1794162410,
       "title": "Have you ever looked in the past ?  ",
-      "views": 786,
+      "views": 787,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -383,7 +397,7 @@
       "createTime": "2026-10-21T20:19:17.000Z",
       "createTimeUnix": 1792613957,
       "title": "Exploding head syndrome: the loud bang as you fall asleep. A sudden noise in your head as you drift off or wake. Usually painless; 18% of 211 US college students said they had had it. If it is frequent or worrying, talk to a doctor. #explodingheadsyndrome #sleep #weirdfacts #sleepscience #brain",
-      "views": 848,
+      "views": 849,
       "likes": 3,
       "comments": 0,
       "shares": 0,
