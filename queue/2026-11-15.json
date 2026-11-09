@@ -98,6 +98,30 @@
       "seconds": null,
       "bytes": 6304243,
       "exportedAt": "2026-11-09T06:52:25.609Z"
+    },
+    {
+      "id": "1115-V7",
+      "date": "2026-11-15",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock statement (MOSTLY ALIVE · THE RAINBOW AT GRAND PRISMATIC SPRING), length 23-45 (30.4 s), format one fact, topic Earth, voice male, visual photos with moves (and NPS footage of the mats), caption call save; fifth post on 11-15 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F35-grand-prismatic-microbes/v4/draft",
+      "aigc": true,
+      "caption": "Most of the rainbow at Yellowstone's Grand Prismatic Spring is alive: orange, yellow and green mats of heat-loving microbes, sorted by temperature. The deep blue middle is the water itself (NPS). Save it! Images: NPS/Jim Peaco, USGS, NPS footage.",
+      "hashtags": [
+        "#yellowstone",
+        "#nature",
+        "#learnontiktok"
+      ],
+      "title": "Most of the rainbow at Yellowstone's Grand Prismatic Spring is alive: orange, yellow and …",
+      "description": "Most of the rainbow at Yellowstone's Grand Prismatic Spring is alive: orange, yellow and green mats of heat-loving microbes, sorted by temperature. The deep blue middle is the water itself (NPS). Save it! Images: NPS/Jim Peaco, USGS, NPS footage.\n\n#yellowstone #nature #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-15/1115-V7/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 12118096,
+      "exportedAt": "2026-11-09T07:37:38.773Z"
     }
   ]
 }
