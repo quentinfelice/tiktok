@@ -2,6 +2,31 @@
   "date": "2026-11-16",
   "items": [
     {
+      "id": "1116-V1",
+      "date": "2026-11-16",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 7, arm L (37.5 s), first of two posts on 11-16; primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F08-trex-stegosaurus/v4/draft",
+      "aigc": true,
+      "caption": "T. rex lived closer in time to you than to Stegosaurus: Stegosaurus ~150 million years ago, T. rex ~68–66 million, about 80 million years apart. Photos: \"Stegosaurus stenops (Sophie)\" by Pablo Cabezos, CC BY 2.0, cropped; Gary Todd (CC0); NPS. Mural: Charles R. Knight, c. 1927.",
+      "hashtags": [
+        "#dinosaurs",
+        "#facts",
+        "#trex",
+        "#learnontiktok"
+      ],
+      "title": "T. rex lived closer in time to you than to Stegosaurus: Stegosaurus ~150 million years ag…",
+      "description": "T. rex lived closer in time to you than to Stegosaurus: Stegosaurus ~150 million years ago, T. rex ~68–66 million, about 80 million years apart. Photos: \"Stegosaurus stenops (Sophie)\" by Pablo Cabezos, CC BY 2.0, cropped; Gary Todd (CC0); NPS. Mural: Charles R. Knight, c. 1927.\n\n#dinosaurs #facts #trex #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-16/1116-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 17733217,
+      "exportedAt": "2026-11-09T10:22:27.500Z"
+    },
+    {
       "id": "1116-V3",
       "date": "2026-11-16",
       "kind": "video",
