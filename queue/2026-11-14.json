@@ -1,4 +1,30 @@
 {
   "date": "2026-11-14",
-  "items": []
+  "items": [
+    {
+      "id": "1114-V3",
+      "date": "2026-11-14",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images) — GAMES line",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; GAMES line G08 (arm L, 39.4 s); TP-X1 (O-2026-11-08-g) tags: hook statement (MORE CHESS GAMES · THAN ATOMS IN THE OBSERVABLE UNIVERSE), length 23-45 (39.4 s), format one fact (split of two photos at frame 0 and the end), topic maths, voice male, visual photos with moves, caption call none; first post on 11-14 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "claude/games/TT-PUSH-001 6a13dab10: tplus-line2/episodes/G08-chess-atoms/v1/draft",
+      "aigc": true,
+      "caption": "There are more possible chess games than atoms in the observable universe ♟️ Shannon (1950) estimated ~10^120 ways a game can go; atoms: ~10^78–10^82. Photos: The Metropolitan Museum of Art (Open Access), NASA, ESA.",
+      "hashtags": [
+        "#chess",
+        "#space",
+        "#facts",
+        "#math"
+      ],
+      "title": "There are more possible chess games than atoms in the observable universe ♟️ Shannon (195…",
+      "description": "There are more possible chess games than atoms in the observable universe ♟️ Shannon (1950) estimated ~10^120 ways a game can go; atoms: ~10^78–10^82. Photos: The Metropolitan Museum of Art (Open Access), NASA, ESA.\n\n#chess #space #facts #math",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 24623947,
+      "exportedAt": "2026-11-09T01:42:37.051Z"
+    }
+  ]
 }
