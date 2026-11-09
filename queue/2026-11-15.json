@@ -1,4 +1,30 @@
 {
   "date": "2026-11-15",
-  "items": []
+  "items": [
+    {
+      "id": "1115-V3",
+      "date": "2026-11-15",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images) — SAAS line",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; SAAS line S01 (arm L, 37.1 s); TP-X1 (O-2026-11-08-g) tags: hook «you» (DROP MOUNT EVEREST INTO THE DEEPEST PART OF THE OCEAN · EVEREST WOULD DISAPPEAR UNDER THE SEA, WHAT IF?), length 23-45 (37.1 s), format split-screen comparison, topic Earth, voice male, visual photos with moves, caption call guess in comments; first post on 11-15, two days after F28 (also Everest) (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "claude/saas/TT-PUSH-001 b1dfbbb49: tplus-line3/episodes/S01-deeper-than-everest/v1/draft (audio rebuilt by TIKTOK-RUNNER, video stream identical)",
+      "aigc": true,
+      "caption": "Drop Everest into the Challenger Deep and over 2 km of water would still cover its peak 🌊🏔️ How deep do you think the deepest dive went? 👇 Sources: NOAA, Guinness World Records. Photos: NASA, NOAA Ocean Exploration. Map: NOAA Ocean Exploration.",
+      "hashtags": [
+        "#ocean",
+        "#everest",
+        "#facts",
+        "#science"
+      ],
+      "title": "Drop Everest into the Challenger Deep and over 2 km of water would still cover its peak …",
+      "description": "Drop Everest into the Challenger Deep and over 2 km of water would still cover its peak 🌊🏔️ How deep do you think the deepest dive went? 👇 Sources: NOAA, Guinness World Records. Photos: NASA, NOAA Ocean Exploration. Map: NOAA Ocean Exploration.\n\n#ocean #everest #facts #science",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-15/1115-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 24709079,
+      "exportedAt": "2026-11-09T01:33:51.973Z"
+    }
+  ]
 }
