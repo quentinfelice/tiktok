@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T09:09:41.106Z",
+  "fetchedAt": "2026-11-09T09:44:06.784Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,8 +33,8 @@
       "createTime": "2026-11-09T08:07:01.000Z",
       "createTimeUnix": 1794211621,
       "title": "Saturn would float ! ",
-      "views": 251,
-      "likes": 1,
+      "views": 337,
+      "likes": 2,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@funfactstplus/video/7706080183756885281?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
@@ -47,7 +47,7 @@
       "createTime": "2026-11-08T18:26:50.000Z",
       "createTimeUnix": 1794162410,
       "title": "Have you ever looked in the past ?  ",
-      "views": 787,
+      "views": 788,
       "likes": 2,
       "comments": 0,
       "shares": 0,
