@@ -25,6 +25,31 @@
       "seconds": null,
       "bytes": 24623947,
       "exportedAt": "2026-11-09T01:42:37.051Z"
+    },
+    {
+      "id": "1114-V4",
+      "date": "2026-11-14",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock statement (ABOUT AS WIDE AS EARTH · JUPITER’S GREAT RED SPOT: 3 FACTS), length 23-45 (34.6 s), format three facts, topic space, voice male, visual photos + time-lapse footage, caption call save; second post on 11-14 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F29-great-red-spot/v4/draft",
+      "aigc": true,
+      "caption": "Jupiter's Great Red Spot: a storm about as wide as Earth. Watched since at least 1831, it was ~39,000 km long in 1879; today ~14,000. Save it! Images: NASA, ESA (Hubble), NASA/JPL (Voyager 1), NASA/JPL-Caltech/SwRI/MSSS and Kevin M. Gill (Juno, CC BY 2.0).",
+      "hashtags": [
+        "#jupiter",
+        "#space",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "Jupiter's Great Red Spot: a storm about as wide as Earth. Watched since at least 1831, it…",
+      "description": "Jupiter's Great Red Spot: a storm about as wide as Earth. Watched since at least 1831, it was ~39,000 km long in 1879; today ~14,000. Save it! Images: NASA, ESA (Hubble), NASA/JPL (Voyager 1), NASA/JPL-Caltech/SwRI/MSSS and Kevin M. Gill (Juno, CC BY 2.0).\n\n#jupiter #space #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V4/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 11574239,
+      "exportedAt": "2026-11-09T02:44:57.678Z"
     }
   ]
 }
