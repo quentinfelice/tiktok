@@ -2,31 +2,6 @@
   "date": "2026-11-17",
   "items": [
     {
-      "id": "1117-V1",
-      "date": "2026-11-17",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images)",
-      "variant": "v1",
-      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 9, arm L (36.0 s), first of two posts on 11-17; primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F11-moon-recession/v4/draft",
-      "aigc": true,
-      "caption": "The Moon drifts about 3.8 cm farther from Earth every year (NASA). We measure it by firing lasers at mirrors the Apollo astronauts left there: the light's round trip takes about 2.5 seconds. Photos: NASA (Apollo 11, 14, 15; Artemis I), NASA/GSFC/Debbie McCallum. No NASA endorsement implied.",
-      "hashtags": [
-        "#moon",
-        "#space",
-        "#facts",
-        "#learnontiktok"
-      ],
-      "title": "The Moon drifts about 3.8 cm farther from Earth every year (NASA). We measure it by firin…",
-      "description": "The Moon drifts about 3.8 cm farther from Earth every year (NASA). We measure it by firing lasers at mirrors the Apollo astronauts left there: the light's round trip takes about 2.5 seconds. Photos: NASA (Apollo 11, 14, 15; Artemis I), NASA/GSFC/Debbie McCallum. No NASA endorsement implied.\n\n#moon #space #facts #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-17/1117-V1/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 19541063,
-      "exportedAt": "2026-11-09T09:45:47.691Z"
-    },
-    {
       "id": "1117-V3",
       "date": "2026-11-17",
       "kind": "video",

@@ -75,7 +75,7 @@
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 19249363,
+      "bytes": 19541063,
       "exportedAt": "2026-11-08T11:12:57.021Z",
       "note": "Was 2026-11-12: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged. Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
     },
