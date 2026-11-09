@@ -25,6 +25,31 @@
       "seconds": null,
       "bytes": 24709079,
       "exportedAt": "2026-11-09T01:33:51.973Z"
+    },
+    {
+      "id": "1115-V4",
+      "date": "2026-11-15",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook myth busted (NOT MILLIONS OF YEARS · HOW LONG THE APOLLO FOOTPRINTS WILL LAST), length ≤22 (17.6 s), format one fact, topic space, voice female, visual photos with moves, caption call save; second post on 11-15 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F31-apollo-footprints-fade/v4/draft",
+      "aigc": true,
+      "caption": "The Apollo footprints won't last millions of years: tiny impacts keep churning the Moon's dust, so scientists now expect the tracks to fade within tens of thousands (NASA, 2016). Save it! Images: NASA (Apollo 11), NASA SVS/GSFC/ASU (LRO).",
+      "hashtags": [
+        "#moon",
+        "#space",
+        "#apollo",
+        "#learnontiktok"
+      ],
+      "title": "The Apollo footprints won't last millions of years: tiny impacts keep churning the Moon's…",
+      "description": "The Apollo footprints won't last millions of years: tiny impacts keep churning the Moon's dust, so scientists now expect the tracks to fade within tens of thousands (NASA, 2016). Save it! Images: NASA (Apollo 11), NASA SVS/GSFC/ASU (LRO).\n\n#moon #space #apollo #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-15/1115-V4/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 7398804,
+      "exportedAt": "2026-11-09T05:22:26.161Z"
     }
   ]
 }
