@@ -8,7 +8,7 @@
       "series": "T-PLUS Extraordinary facts (design v4, real images) — GAMES line",
       "variant": "v1",
       "hypothesis": "Outside TP-B2; GAMES line G05 (spare S, 19.1 s); TP-X1 (O-2026-11-08-g) tags: hook shock number (~1 BILLION TONNES · ONE SUGAR CUBE OF NEUTRON STAR), length ≤22 (19.1 s), format one fact, topic space, voice male, visual photos with moves, caption call none; first post on 11-16, three days after F25 (also the SDO Sun) (O-2026-11-08-e); primary = public views at 48 h.",
-      "derivedFrom": "claude/games/TT-PUSH-001 705a0e914: tplus-line2/episodes/G05-neutron-sugar/v1/draft",
+      "derivedFrom": "claude/games/TT-PUSH-001 b91e75f9a: tplus-line2/episodes/G05-neutron-sugar/v1/draft (audio-only rebuild 2026-11-09 with render/remix-audio.mjs: closing whoosh kept; video stream identical to the first export, checked by md5)",
       "aigc": true,
       "caption": "A sugar cube of neutron star would weigh about a billion tonnes (NASA) 🌌 More mass than the Sun in a ball ~20 km wide. Images: NASA, ESA (Hubble), NASA/SDO.",
       "hashtags": [
@@ -23,8 +23,8 @@
       "images": [],
       "slides": 0,
       "seconds": null,
-      "bytes": 8978168,
-      "exportedAt": "2026-11-09T01:42:44.796Z"
+      "bytes": 8989108,
+      "exportedAt": "2026-11-09T07:18:55.015Z"
     },
     {
       "id": "1116-V4",
