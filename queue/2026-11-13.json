@@ -100,6 +100,31 @@
       "seconds": null,
       "bytes": 10816530,
       "exportedAt": "2026-11-09T01:13:55.919Z"
+    },
+    {
+      "id": "1113-V6",
+      "date": "2026-11-13",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook «you» (IT CAN REMEMBER YOUR FACE · FOR YEARS, AND OTHER CROWS LEARN IT), length ≤22 s (21.8 s), format one fact, topic animals, voice female, visual photos with moves, caption call none; fifth post on 11-13 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F27-crows-faces/v4/draft",
+      "aigc": true,
+      "caption": "A crow can remember your face for years, and other crows learn it too 🐦‍⬛ In a Seattle study begun in 2006, crows still scolded a 'dangerous' mask 5 years later. Photos: Ben/iNaturalist (CC0), Peter Pearsall/USFWS, Jonathan Layman/iNaturalist (CC BY 4.0). None from the study.",
+      "hashtags": [
+        "#crows",
+        "#animals",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "A crow can remember your face for years, and other crows learn it too 🐦‍⬛ In a Seattle s…",
+      "description": "A crow can remember your face for years, and other crows learn it too 🐦‍⬛ In a Seattle study begun in 2006, crows still scolded a 'dangerous' mask 5 years later. Photos: Ben/iNaturalist (CC0), Peter Pearsall/USFWS, Jonathan Layman/iNaturalist (CC BY 4.0). None from the study.\n\n#crows #animals #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V6/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 12092695,
+      "exportedAt": "2026-11-09T01:38:43.628Z"
     }
   ]
 }
