@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T08:23:08.553Z",
+  "fetchedAt": "2026-11-09T09:05:02.049Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-09T08:07:01.000Z",
       "createTimeUnix": 1794211621,
       "title": "Saturn would float ! ",
-      "views": 130,
+      "views": 246,
       "likes": 1,
       "comments": 0,
       "shares": 0,
