@@ -2,31 +2,6 @@
   "date": "2026-11-17",
   "items": [
     {
-      "id": "1117-V2",
-      "date": "2026-11-17",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images)",
-      "variant": "v1",
-      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 10, arm S (20.4 s), second of two posts on 11-17, a few hours after post 9 (L); primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F07-oxford-aztecs/v4/draft",
-      "aigc": true,
-      "caption": "Oxford University is older than the Aztec Empire: teaching at Oxford by 1096, Tenochtitlan founded c. 1325, the empire from 1428. Photos: Gary Campbell-Hall, Danny Chapman, Meraj Chhaya, Hernán García Crespo (CC BY 2.0, cropped). 1524 map: Newberry Library (PD). Temple model: The Met (CC0).",
-      "hashtags": [
-        "#history",
-        "#facts",
-        "#oxford",
-        "#learnontiktok"
-      ],
-      "title": "Oxford University is older than the Aztec Empire: teaching at Oxford by 1096, Tenochtitla…",
-      "description": "Oxford University is older than the Aztec Empire: teaching at Oxford by 1096, Tenochtitlan founded c. 1325, the empire from 1428. Photos: Gary Campbell-Hall, Danny Chapman, Meraj Chhaya, Hernán García Crespo (CC BY 2.0, cropped). 1524 map: Newberry Library (PD). Temple model: The Met (CC0).\n\n#history #facts #oxford #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-17/1117-V2/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 20767831,
-      "exportedAt": "2026-11-09T10:13:02.773Z"
-    },
-    {
       "id": "1117-V3",
       "date": "2026-11-17",
       "kind": "video",

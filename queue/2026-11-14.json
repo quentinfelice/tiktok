@@ -2,56 +2,6 @@
   "date": "2026-11-14",
   "items": [
     {
-      "id": "1114-V1",
-      "date": "2026-11-14",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images)",
-      "variant": "v1",
-      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 4, arm S (19.6 s), after post 3 (L) on 11-13; primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F04-venus-day/v4/draft",
-      "aigc": true,
-      "caption": "A day on Venus is longer than its year: 243 Earth days to spin once, only 225 to go around the Sun. And it spins backwards, so the Sun rises in the west. Images: NASA/JPL-Caltech, NASA/JPL, NASA/SDO, NASA Goddard SVS, NASA/Bill Ingalls. Surface view: reconstruction from Magellan radar.",
-      "hashtags": [
-        "#venus",
-        "#facts",
-        "#space",
-        "#learnontiktok"
-      ],
-      "title": "A day on Venus is longer than its year: 243 Earth days to spin once, only 225 to go aroun…",
-      "description": "A day on Venus is longer than its year: 243 Earth days to spin once, only 225 to go around the Sun. And it spins backwards, so the Sun rises in the west. Images: NASA/JPL-Caltech, NASA/JPL, NASA/SDO, NASA Goddard SVS, NASA/Bill Ingalls. Surface view: reconstruction from Magellan radar.\n\n#venus #facts #space #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V1/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 6161381,
-      "exportedAt": "2026-11-09T10:12:49.537Z"
-    },
-    {
-      "id": "1114-V2",
-      "date": "2026-11-14",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images)",
-      "variant": "v1",
-      "hypothesis": "Outside any test (TP-B2 is exactly 8 posts; COORD 2026-11-08); facts family, design v4, length 21.6 s (S), second of two posts on 11-14, a few hours after the day's L post; primary = public views at 48 h, logged for the record.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F13-banana-berry/v4/draft",
-      "aigc": true,
-      "caption": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower with its seeds inside; a strawberry's \"seeds\" are tiny fruits. Photos: Forest & Kim Starr (CC BY 3.0 US), Reji Jacob (CC BY 3.0), rich caulton (CC BY 4.0), all cropped; USDA ARS (public domain).",
-      "hashtags": [
-        "#banana",
-        "#facts",
-        "#nature",
-        "#learnontiktok"
-      ],
-      "title": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower wi…",
-      "description": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower with its seeds inside; a strawberry's \"seeds\" are tiny fruits. Photos: Forest & Kim Starr (CC BY 3.0 US), Reji Jacob (CC BY 3.0), rich caulton (CC BY 4.0), all cropped; USDA ARS (public domain).\n\n#banana #facts #nature #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V2/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 16525339,
-      "exportedAt": "2026-11-09T10:13:45.827Z"
-    },
-    {
       "id": "1114-V3",
       "date": "2026-11-14",
       "kind": "video",
