@@ -2,6 +2,31 @@
   "date": "2026-11-15",
   "items": [
     {
+      "id": "1115-V1",
+      "date": "2026-11-15",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-B2 (re-registered O-2026-11-07-i, amended O-2026-11-08-b: design v4 constant) post 5, arm L (35.8 s), first of two posts on 11-15 (TT-PUSH-001: two a day once three judged drafts are ahead); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F02-cleopatra-moon/v4/draft",
+      "aigc": true,
+      "caption": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyramid: pyramid c. 2560 BC, Cleopatra queen 51 BC, Apollo 11 in 1969. Images: Monoram, Ben Sutherland (CC BY 2.0, cropped); Gary Todd, The Met (CC0); Berlin Cleopatra: Marco21274 (PD); Apollo 11: NASA.",
+      "hashtags": [
+        "#history",
+        "#facts",
+        "#egypt",
+        "#learnontiktok"
+      ],
+      "title": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyra…",
+      "description": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyramid: pyramid c. 2560 BC, Cleopatra queen 51 BC, Apollo 11 in 1969. Images: Monoram, Ben Sutherland (CC BY 2.0, cropped); Gary Todd, The Met (CC0); Berlin Cleopatra: Marco21274 (PD); Apollo 11: NASA.\n\n#history #facts #egypt #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-15/1115-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 19869515,
+      "exportedAt": "2026-11-09T10:13:25.558Z"
+    },
+    {
       "id": "1115-V3",
       "date": "2026-11-15",
       "kind": "video",
