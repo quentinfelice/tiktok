@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T09:44:06.784Z",
+  "fetchedAt": "2026-11-09T09:47:57.595Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-09T08:07:01.000Z",
       "createTimeUnix": 1794211621,
       "title": "Saturn would float ! ",
-      "views": 337,
+      "views": 347,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -831,7 +831,7 @@
       "createTime": "2026-10-09T06:22:43.000Z",
       "createTimeUnix": 1791526963,
       "title": "She was found asleep on a crane. London, 2005: a sleepwalking 15-year-old climbed a crane and was found asleep about 40 m up. Firefighters brought her down unharmed. #truestory #sleepwalking #london #sleepscience",
-      "views": 630,
+      "views": 631,
       "likes": 2,
       "comments": 0,
       "shares": 0,
