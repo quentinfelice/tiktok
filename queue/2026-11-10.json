@@ -2,6 +2,57 @@
   "date": "2026-11-10",
   "items": [
     {
+      "id": "1110-V4",
+      "date": "2026-11-10",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock number (+7 CM A YEAR), length 23-45 (35.7 s), format one fact, topic Earth, voice male, visual photos with moves + a 2.5 s footage cut, caption call none; fifth post on 11-10 (owner « Il fait 5 vidéos TikTok par jour ! », O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F14-hawaii-japan/v4/draft",
+      "aigc": true,
+      "caption": "Hawaii is moving toward Japan, about 7 cm a year: the Pacific Plate slides northwest over a hotspot, and GPS stations measure it (USGS, NASA JPL). Photos and footage: USGS (public domain); NASA, NASA/Chris Cassidy. No NASA endorsement implied.",
+      "hashtags": [
+        "#hawaii",
+        "#volcano",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "Hawaii is moving toward Japan, about 7 cm a year: the Pacific Plate slides northwest over…",
+      "description": "Hawaii is moving toward Japan, about 7 cm a year: the Pacific Plate slides northwest over a hotspot, and GPS stations measure it (USGS, NASA JPL). Photos and footage: USGS (public domain); NASA, NASA/Chris Cassidy. No NASA endorsement implied.\n\n#hawaii #volcano #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V4/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 20582226,
+      "exportedAt": "2026-11-09T10:13:33.688Z"
+    },
+    {
+      "id": "1114-V2",
+      "date": "2026-11-10",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside any test (TP-B2 is exactly 8 posts; COORD 2026-11-08); facts family, design v4, length 21.6 s (S), second of two posts on 11-14, a few hours after the day's L post; primary = public views at 48 h, logged for the record.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F13-banana-berry/v4/draft",
+      "aigc": true,
+      "caption": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower with its seeds inside; a strawberry's \"seeds\" are tiny fruits. Photos: Forest & Kim Starr (CC BY 3.0 US), Reji Jacob (CC BY 3.0), rich caulton (CC BY 4.0), all cropped; USDA ARS (public domain).",
+      "hashtags": [
+        "#banana",
+        "#facts",
+        "#nature",
+        "#learnontiktok"
+      ],
+      "title": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower wi…",
+      "description": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower with its seeds inside; a strawberry's \"seeds\" are tiny fruits. Photos: Forest & Kim Starr (CC BY 3.0 US), Reji Jacob (CC BY 3.0), rich caulton (CC BY 4.0), all cropped; USDA ARS (public domain).\n\n#banana #facts #nature #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V2/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 16973771,
+      "exportedAt": "2026-11-08T18:20:55.469Z",
+      "note": "Was 2026-11-14: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged. Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
+    },
+    {
       "id": "1115-V1",
       "date": "2026-11-10",
       "kind": "video",
@@ -54,32 +105,6 @@
       "note": "Was 2026-11-15: moved earlier on the owner's « Pousse les suivantes et produit !!! » (2026-11-08): the queue tightened to two a day from 11-09; file unchanged."
     },
     {
-      "id": "1110-V4",
-      "date": "2026-11-10",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images)",
-      "variant": "v1",
-      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock number (+7 CM A YEAR), length 23-45 (35.7 s), format one fact, topic Earth, voice male, visual photos with moves + a 2.5 s footage cut, caption call none; fifth post on 11-10 (owner « Il fait 5 vidéos TikTok par jour ! », O-2026-11-08-e); primary = public views at 48 h.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F14-hawaii-japan/v4/draft",
-      "aigc": true,
-      "caption": "Hawaii is moving toward Japan, about 7 cm a year: the Pacific Plate slides northwest over a hotspot, and GPS stations measure it (USGS, NASA JPL). Photos and footage: USGS (public domain); NASA, NASA/Chris Cassidy. No NASA endorsement implied.",
-      "hashtags": [
-        "#hawaii",
-        "#volcano",
-        "#facts",
-        "#learnontiktok"
-      ],
-      "title": "Hawaii is moving toward Japan, about 7 cm a year: the Pacific Plate slides northwest over…",
-      "description": "Hawaii is moving toward Japan, about 7 cm a year: the Pacific Plate slides northwest over a hotspot, and GPS stations measure it (USGS, NASA JPL). Photos and footage: USGS (public domain); NASA, NASA/Chris Cassidy. No NASA endorsement implied.\n\n#hawaii #volcano #facts #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-10/1110-V4/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 20605089,
-      "exportedAt": "2026-11-08T18:59:41.336Z",
-      "note": "Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
-    },
-    {
       "id": "1118-V2",
       "date": "2026-11-10",
       "kind": "video",
@@ -104,32 +129,6 @@
       "bytes": 11418656,
       "exportedAt": "2026-11-08T16:58:33.533Z",
       "note": "Was 2026-11-13: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged. Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
-    },
-    {
-      "id": "1114-V2",
-      "date": "2026-11-10",
-      "kind": "video",
-      "series": "T-PLUS Extraordinary facts (design v4, real images)",
-      "variant": "v1",
-      "hypothesis": "Outside any test (TP-B2 is exactly 8 posts; COORD 2026-11-08); facts family, design v4, length 21.6 s (S), second of two posts on 11-14, a few hours after the day's L post; primary = public views at 48 h, logged for the record.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F13-banana-berry/v4/draft",
-      "aigc": true,
-      "caption": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower with its seeds inside; a strawberry's \"seeds\" are tiny fruits. Photos: Forest & Kim Starr (CC BY 3.0 US), Reji Jacob (CC BY 3.0), rich caulton (CC BY 4.0), all cropped; USDA ARS (public domain).",
-      "hashtags": [
-        "#banana",
-        "#facts",
-        "#nature",
-        "#learnontiktok"
-      ],
-      "title": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower wi…",
-      "description": "Botanically, a banana is a berry and a strawberry isn't: a berry grows from one flower with its seeds inside; a strawberry's \"seeds\" are tiny fruits. Photos: Forest & Kim Starr (CC BY 3.0 US), Reji Jacob (CC BY 3.0), rich caulton (CC BY 4.0), all cropped; USDA ARS (public domain).\n\n#banana #facts #nature #learnontiktok",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V2/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 16973771,
-      "exportedAt": "2026-11-08T18:20:55.469Z",
-      "note": "Was 2026-11-14: moved earlier on the owner's « Il fait 5 vidéos TikTok par jour ! » (2026-11-08 ~18:31Z, relayed by COORD as O-2026-11-08-e): five a day from 11-09, TP-B2's two posts first each day; file unchanged. Audio rebuilt 2026-11-08 (the closing whoosh was cut at the voice file's end; voice padded before mixing; video stream unchanged; qa.py, capchk, flashchk re-run PASS)."
     }
   ]
 }
