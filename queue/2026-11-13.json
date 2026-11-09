@@ -75,6 +75,31 @@
       "seconds": null,
       "bytes": 24896598,
       "exportedAt": "2026-11-09T00:57:29.856Z"
+    },
+    {
+      "id": "1113-V5",
+      "date": "2026-11-13",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook question (WOULD YOU RATHER? · CLIMB EVEREST, OR OLYMPUS MONS ON MARS?), length 23-45 (23.2 s), format would you rather (split of two images at frame 0 and the end), topic space, voice female, visual photos with moves, caption call guess in comments; fourth post on 11-13 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F28-everest-olympus-mons/v4/draft",
+      "aigc": true,
+      "caption": "Would you rather climb Everest (8,849 m) or Olympus Mons on Mars, about 22 km above its plains? Tell us in the comments! Images: NASA (ISS crew photo), NASA/JPL/USGS (Viking 1), NASA/JPL-Caltech/ASU (Mars Odyssey). Not to scale; Mars colours approximate.",
+      "hashtags": [
+        "#mars",
+        "#everest",
+        "#space",
+        "#learnontiktok"
+      ],
+      "title": "Would you rather climb Everest (8,849 m) or Olympus Mons on Mars, about 22 km above its p…",
+      "description": "Would you rather climb Everest (8,849 m) or Olympus Mons on Mars, about 22 km above its plains? Tell us in the comments! Images: NASA (ISS crew photo), NASA/JPL/USGS (Viking 1), NASA/JPL-Caltech/ASU (Mars Odyssey). Not to scale; Mars colours approximate.\n\n#mars #everest #space #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V5/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 10816530,
+      "exportedAt": "2026-11-09T01:13:55.919Z"
     }
   ]
 }
