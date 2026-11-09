@@ -50,6 +50,30 @@
       "seconds": null,
       "bytes": 7398804,
       "exportedAt": "2026-11-09T05:22:26.161Z"
+    },
+    {
+      "id": "1115-V5",
+      "date": "2026-11-15",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock statement (DAD GETS PREGNANT · IN SEAHORSES, THE FATHER GIVES BIRTH), length ≤22 (15.4 s), format one fact, topic animals, voice female, visual photos with moves, caption call guess in comments; third post on 11-15 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F36-seahorse-dads/v4/draft",
+      "aigc": true,
+      "caption": "In seahorses, the father gets pregnant: the female puts her eggs in his pouch and he carries them for 2 to 4 weeks (NOAA). How many babies can one dad give birth to? Your guess? Tell us in the comments. Photos: C. Mark, ATMEC Team (iNaturalist, CC BY).",
+      "hashtags": [
+        "#animals",
+        "#ocean",
+        "#learnontiktok"
+      ],
+      "title": "In seahorses, the father gets pregnant: the female puts her eggs in his pouch and he carr…",
+      "description": "In seahorses, the father gets pregnant: the female puts her eggs in his pouch and he carries them for 2 to 4 weeks (NOAA). How many babies can one dad give birth to? Your guess? Tell us in the comments. Photos: C. Mark, ATMEC Team (iNaturalist, CC BY).\n\n#animals #ocean #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-15/1115-V5/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 7389964,
+      "exportedAt": "2026-11-09T06:25:45.390Z"
     }
   ]
 }
