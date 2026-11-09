@@ -25,6 +25,31 @@
       "seconds": null,
       "bytes": 7806792,
       "exportedAt": "2026-11-08T23:52:35.847Z"
+    },
+    {
+      "id": "1113-V3",
+      "date": "2026-11-13",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock number (~690,000 KM/H · PART 2: THE FASTEST THING HUMANS EVER BUILT), length 23-45 (23.7 s), format series part 2/2 (after F24, 1113-V2), topic space, voice male, visual photos + the probe's own time-lapse footage, caption call save; second post on 11-13 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F25-parker-solar-probe/v4/draft",
+      "aigc": true,
+      "caption": "Part 2: the fastest thing humans ever built. NASA's Parker Solar Probe hit ~690,000 km/h near the Sun (24 Dec 2024), New York to Tokyo in under a minute. Save it! Images: NASA/G. Benson, NASA/B. Ingalls, NASA/APL/NRL (WISPR), NASA/SDO.",
+      "hashtags": [
+        "#space",
+        "#nasa",
+        "#parkersolarprobe",
+        "#learnontiktok"
+      ],
+      "title": "Part 2: the fastest thing humans ever built. NASA's Parker Solar Probe hit ~690,000 km/h …",
+      "description": "Part 2: the fastest thing humans ever built. NASA's Parker Solar Probe hit ~690,000 km/h near the Sun (24 Dec 2024), New York to Tokyo in under a minute. Save it! Images: NASA/G. Benson, NASA/B. Ingalls, NASA/APL/NRL (WISPR), NASA/SDO.\n\n#space #nasa #parkersolarprobe #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V3/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 10934172,
+      "exportedAt": "2026-11-09T00:51:37.825Z"
     }
   ]
 }
