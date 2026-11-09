@@ -49,6 +49,31 @@
       "seconds": null,
       "bytes": 16252950,
       "exportedAt": "2026-11-09T07:00:05.533Z"
+    },
+    {
+      "id": "1117-V5",
+      "date": "2026-11-17",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images) — SAAS line",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; SAAS line S06 (arm L, 36.2 s); TP-X1 (O-2026-11-08-g) tags: hook quiz, answer at the end (WHICH ANIMAL · SURVIVED OPEN SPACE WITH NO SPACESUIT?), length 23-45 (36.2 s), format one fact, topic animals, voice female, visual photos with moves, caption call save; third post on 11-17 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "claude/saas/TT-PUSH-001 9d92fbb07: tplus-line3/episodes/S06-tardigrades-space/v1/draft (SAAS's file unchanged)",
+      "aigc": true,
+      "caption": "Which animal survived open space with no spacesuit? 🚀 Tardigrades: dried out, on ESA's FOTON-M3 in 2007, and some even survived raw sunlight. Save this for your next quiz night. Sources: Jönsson et al., Current Biology 2008; Space.com. Photos: NASA.",
+      "hashtags": [
+        "#science",
+        "#space",
+        "#animals",
+        "#learnontiktok"
+      ],
+      "title": "Which animal survived open space with no spacesuit? 🚀 Tardigrades: dried out, on ESA's F…",
+      "description": "Which animal survived open space with no spacesuit? 🚀 Tardigrades: dried out, on ESA's FOTON-M3 in 2007, and some even survived raw sunlight. Save this for your next quiz night. Sources: Jönsson et al., Current Biology 2008; Space.com. Photos: NASA.\n\n#science #space #animals #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-17/1117-V5/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 14928231,
+      "exportedAt": "2026-11-09T07:27:07.618Z"
     }
   ]
 }
