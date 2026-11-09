@@ -24,6 +24,30 @@
       "seconds": null,
       "bytes": 40415470,
       "exportedAt": "2026-11-09T07:31:01.231Z"
+    },
+    {
+      "id": "1118-V4",
+      "date": "2026-11-18",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-X1 matrix row 7 (GROWTH v2.2), series part 2 of 2 (part 1 F42 the day before; recorded, not counted: the series is scored on part 1), outside TP-B2: same tags as F42 (hook myth with a guess: CARROTS FOR NIGHT VISION? · ANY TRUTH IN IT? PART 2 · GUESS BEFORE THE END; length 23-45; format series; topic food; voice female; visual photos with moves; caption call guess in comments); post on 11-18 (O-2026-11-08-e).",
+      "derivedFrom": "accounts/tt-tplus/episodes/F43-carrots-night-vision-p2/v4/draft",
+      "aigc": true,
+      "caption": "Carrots for night vision: any truth in it? Your guess? Tell us in the comments, then watch to the end. Part 2 of 2 (MedlinePlus; Scientific American; Smithsonian). Photos: S. Ausmus/USDA ARS, R. Lee/FSA-OWI (LOC), US Army Air Forces (NARA), NASA/R. Wiseman.",
+      "hashtags": [
+        "#food",
+        "#health",
+        "#learnontiktok"
+      ],
+      "title": "Carrots for night vision: any truth in it? Your guess? Tell us in the comments, then watc…",
+      "description": "Carrots for night vision: any truth in it? Your guess? Tell us in the comments, then watch to the end. Part 2 of 2 (MedlinePlus; Scientific American; Smithsonian). Photos: S. Ausmus/USDA ARS, R. Lee/FSA-OWI (LOC), US Army Air Forces (NARA), NASA/R. Wiseman.\n\n#food #health #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-18/1118-V4/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 16927744,
+      "exportedAt": "2026-11-09T08:22:02.889Z"
     }
   ]
 }
