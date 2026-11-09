@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T01:14:49.815Z",
+  "fetchedAt": "2026-11-09T01:34:58.652Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-08T18:26:50.000Z",
       "createTimeUnix": 1794162410,
       "title": "Have you ever looked in the past ?  ",
-      "views": 783,
+      "views": 785,
       "likes": 2,
       "comments": 0,
       "shares": 0,
