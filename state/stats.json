@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T10:14:02.925Z",
+  "fetchedAt": "2026-11-09T10:17:09.457Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-09T08:07:01.000Z",
       "createTimeUnix": 1794211621,
       "title": "Saturn would float ! ",
-      "views": 440,
+      "views": 455,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -173,7 +173,7 @@
       "createTime": "2026-10-28T23:21:06.000Z",
       "createTimeUnix": 1793229666,
       "title": "A village kept falling asleep. From 2013, people in Kalachi, Kazakhstan, fell asleep suddenly, some for days. In 2015 officials blamed gases from a nearby old uranium mine, though the cause is disputed. Made by Studia with AI tools (text and art); facts checked against the sources on the slides. #truestory #mystery #kazakhstan #sleepscience",
-      "views": 789,
+      "views": 790,
       "likes": 6,
       "comments": 0,
       "shares": 0,
@@ -1153,7 +1153,7 @@
       "createTime": "2026-09-30T16:29:21.000Z",
       "createTimeUnix": 1790785761,
       "title": "Your brain stays on guard in a new bed. In a 35-person Brown University study, a network in the left half of the brain slept lighter on night one and woke people faster to odd sounds. By night two, the difference was gone. #sleepscience #firstnighteffect #travel #brain #fallingasleep",
-      "views": 270,
+      "views": 272,
       "likes": 1,
       "comments": 0,
       "shares": 0,
