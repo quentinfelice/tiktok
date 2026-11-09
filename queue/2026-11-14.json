@@ -75,6 +75,31 @@
       "seconds": null,
       "bytes": 7669380,
       "exportedAt": "2026-11-09T02:46:32.448Z"
+    },
+    {
+      "id": "1114-V6",
+      "date": "2026-11-14",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook question (HALF A BRAIN AT A TIME · HOW DOES A DOLPHIN SLEEP?), length ≤22 (18.8 s), format one fact, topic animals, voice male, visual photos with moves, caption call none; fourth post on 11-14 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F32-dolphins-half-brain/v4/draft",
+      "aigc": true,
+      "caption": "How does a dolphin sleep? One half of its brain at a time: brainwave studies of bottlenose dolphins show one side in deep sleep while the other stays awake. Photos: NASA, NASA/George Shelton, NASA/Jim Grossmann (wild dolphins, not asleep).",
+      "hashtags": [
+        "#dolphins",
+        "#animals",
+        "#facts",
+        "#learnontiktok"
+      ],
+      "title": "How does a dolphin sleep? One half of its brain at a time: brainwave studies of bottlenos…",
+      "description": "How does a dolphin sleep? One half of its brain at a time: brainwave studies of bottlenose dolphins show one side in deep sleep while the other stays awake. Photos: NASA, NASA/George Shelton, NASA/Jim Grossmann (wild dolphins, not asleep).\n\n#dolphins #animals #facts #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-14/1114-V6/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 9354935,
+      "exportedAt": "2026-11-09T03:05:51.303Z"
     }
   ]
 }
