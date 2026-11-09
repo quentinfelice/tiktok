@@ -98,6 +98,30 @@
       "seconds": null,
       "bytes": 4469553,
       "exportedAt": "2026-11-09T06:32:20.392Z"
+    },
+    {
+      "id": "1116-V7",
+      "date": "2026-11-16",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-X1 matrix row 10 (GROWTH v2.2), outside TP-B2: hook countdown (#3 FAX BEFORE PHONE at frame 0, line 1 states fact three), length 23-45, format three facts, topic history, voice male, visual photos with moves, caption call none; post on 11-16 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F44-earlier-than-you-think/v4/draft",
+      "aigc": true,
+      "caption": "Three things older than you think: a fax patent in 1843, 33 years before Bell's telephone; a video game in 1958; a coin-operated vessel about 2,000 years ago (U. of Houston; NBC News; MacTutor). Images: Smithsonian (CC0), A7N8X (CC0), Library of Congress.",
+      "hashtags": [
+        "#history",
+        "#inventions",
+        "#learnontiktok"
+      ],
+      "title": "Three things older than you think: a fax patent in 1843, 33 years before Bell's telephone…",
+      "description": "Three things older than you think: a fax patent in 1843, 33 years before Bell's telephone; a video game in 1958; a coin-operated vessel about 2,000 years ago (U. of Houston; NBC News; MacTutor). Images: Smithsonian (CC0), A7N8X (CC0), Library of Congress.\n\n#history #inventions #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-16/1116-V7/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 15223653,
+      "exportedAt": "2026-11-09T09:03:52.118Z"
     }
   ]
 }
