@@ -25,6 +25,31 @@
       "seconds": null,
       "bytes": 8978168,
       "exportedAt": "2026-11-09T01:42:44.796Z"
+    },
+    {
+      "id": "1116-V4",
+      "date": "2026-11-16",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock statement (SPRAYING INTO SPACE · SATURN'S MOON ENCELADUS: ICE AND WATER VAPOUR), length 23-45 (28.0 s), format one fact, topic space, voice male, visual photos with moves, caption call save; second post on 11-16 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F37-enceladus-jets/v4/draft",
+      "aigc": true,
+      "caption": "Saturn's moon Enceladus sprays ice and water vapour into space: Cassini counted 101 geysers near its south pole, and a salty ocean lies under the ice. Most falls back as snow; some forms one of Saturn's rings. Save it! Images: Cassini, NASA/JPL/SSI.",
+      "hashtags": [
+        "#space",
+        "#saturn",
+        "#nasa",
+        "#learnontiktok"
+      ],
+      "title": "Saturn's moon Enceladus sprays ice and water vapour into space: Cassini counted 101 geyse…",
+      "description": "Saturn's moon Enceladus sprays ice and water vapour into space: Cassini counted 101 geysers near its south pole, and a salty ocean lies under the ice. Most falls back as snow; some forms one of Saturn's rings. Save it! Images: Cassini, NASA/JPL/SSI.\n\n#space #saturn #nasa #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-16/1116-V4/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 8772670,
+      "exportedAt": "2026-11-09T05:53:03.690Z"
     }
   ]
 }
