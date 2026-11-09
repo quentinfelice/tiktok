@@ -74,6 +74,30 @@
       "seconds": null,
       "bytes": 7389964,
       "exportedAt": "2026-11-09T06:25:45.390Z"
+    },
+    {
+      "id": "1115-V6",
+      "date": "2026-11-15",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "Outside TP-B2; TP-X1 (O-2026-11-08-g) tags: hook shock statement (LONGEST MIGRATION · EVER TRACKED: THE ARCTIC TERN), length ≤22 (21.0 s), format one fact, topic animals, voice female, visual photos with moves, caption call guess in comments; fourth post on 11-15 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F38-arctic-tern-migration/v4/draft",
+      "aigc": true,
+      "caption": "How far does one Arctic tern fly in its life? Your guess? Tell us in the comments. Tracked terns averaged 70,000-90,000 km a year, Arctic to Antarctica and back (PNAS 2010; Ardea 2013). Photos: B. Gratwicke, M. Neswold (CC BY), steve b (CC0); P. Pearsall/USFWS.",
+      "hashtags": [
+        "#animals",
+        "#birds",
+        "#learnontiktok"
+      ],
+      "title": "How far does one Arctic tern fly in its life? Your guess? Tell us in the comments. Tracke…",
+      "description": "How far does one Arctic tern fly in its life? Your guess? Tell us in the comments. Tracked terns averaged 70,000-90,000 km a year, Arctic to Antarctica and back (PNAS 2010; Ardea 2013). Photos: B. Gratwicke, M. Neswold (CC BY), steve b (CC0); P. Pearsall/USFWS.\n\n#animals #birds #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-15/1115-V6/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 6304243,
+      "exportedAt": "2026-11-09T06:52:25.609Z"
     }
   ]
 }
