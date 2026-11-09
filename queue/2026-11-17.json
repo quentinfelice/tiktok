@@ -74,6 +74,30 @@
       "seconds": null,
       "bytes": 14928231,
       "exportedAt": "2026-11-09T07:27:07.618Z"
+    },
+    {
+      "id": "1117-V6",
+      "date": "2026-11-17",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-X1 matrix row 16 (GROWTH v2.2), outside TP-B2: hook myth busted (10 % BRAIN: A MYTH · GUESS HOW MUCH OF IT YOU REALLY USE), length ≤12 (11.6 s), format split-screen comparison, topic body, voice none (on-screen text; the owner adds a TikTok library sound at publish), visual photos with moves, caption call guess in comments; post on 11-17 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F45-ten-percent-brain-myth/v4/draft",
+      "aigc": true,
+      "caption": "Myth: you only use 10 % of your brain. How much do you really use? Guess in the comments, then watch the answer (Scientific American; Univ. of Washington). Scans, false colour: Limb & Braun 2008, NIDCD/NIH; National Institute on Aging/NIH.",
+      "hashtags": [
+        "#brain",
+        "#science",
+        "#learnontiktok"
+      ],
+      "title": "Myth: you only use 10 % of your brain. How much do you really use? Guess in the comments,…",
+      "description": "Myth: you only use 10 % of your brain. How much do you really use? Guess in the comments, then watch the answer (Scientific American; Univ. of Washington). Scans, false colour: Limb & Braun 2008, NIDCD/NIH; National Institute on Aging/NIH.\n\n#brain #science #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-17/1117-V6/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 2329461,
+      "exportedAt": "2026-11-09T09:08:08.781Z"
     }
   ]
 }
