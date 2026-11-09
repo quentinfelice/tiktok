@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-19",
+  "items": [
+    {
+      "id": "1119-V1",
+      "date": "2026-11-19",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-X1 matrix row 22 (GROWTH v2.2; its carrot fact swapped: F42/F43 aired carrots), outside TP-B2: hook you (ONE PLANT SPECIES; line 1 « Your broccoli, cauliflower, cabbage and Brussels sprouts… »), length ≤12 (9.0 s), format one fact, topic food, voice female, visual photos with moves, caption call save; post on 11-19 (food spaced from the carrot pair of 11-17/11-18); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F46-brassica-one-species/v4/draft",
+      "aigc": true,
+      "caption": "Your broccoli, cauliflower, cabbage and Brussels sprouts are all one plant species: Brassica oleracea. Farmers bred wild cabbage to enlarge different parts. Save this for your next shop! (UF IFAS; NC State Extension). Photos: USDA ARS; rainerburkard/iNaturalist, CC BY.",
+      "hashtags": [
+        "#food",
+        "#plants",
+        "#learnontiktok"
+      ],
+      "title": "Your broccoli, cauliflower, cabbage and Brussels sprouts are all one plant species: Brass…",
+      "description": "Your broccoli, cauliflower, cabbage and Brussels sprouts are all one plant species: Brassica oleracea. Farmers bred wild cabbage to enlarge different parts. Save this for your next shop! (UF IFAS; NC State Extension). Photos: USDA ARS; rainerburkard/iNaturalist, CC BY.\n\n#food #plants #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-19/1119-V1/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 5822875,
+      "exportedAt": "2026-11-09T09:42:44.721Z"
+    }
+  ]
+}
