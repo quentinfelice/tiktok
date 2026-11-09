@@ -74,6 +74,30 @@
       "seconds": null,
       "bytes": 20640724,
       "exportedAt": "2026-11-09T06:22:29.501Z"
+    },
+    {
+      "id": "1116-V6",
+      "date": "2026-11-16",
+      "kind": "video",
+      "series": "T-PLUS Extraordinary facts (design v4, real images)",
+      "variant": "v1",
+      "hypothesis": "TP-X1 matrix row 1 (GROWTH v2.2), outside TP-B2: hook shock number (ABOUT 68,000 KM² · THE ARAL SEA IN 1960), length ≤12 (11.6 s), format before/after, topic Earth, voice none (on-screen text; the owner adds a TikTok library sound at publish), visual photos with moves, caption call none; post on 11-16 (O-2026-11-08-e); primary = public views at 48 h.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F41-aral-sea/v4/draft",
+      "aigc": true,
+      "caption": "The Aral Sea covered about 68,000 km² in 1960, once the 4th-largest lake on Earth (NASA; Micklin et al. 2020). Most of it has dried up since. Images: NASA Earth Observatory/USGS (1964), NASA JSC (1985), NASA Worldview/GIBS (Terra MODIS, 1 Nov 2026).",
+      "hashtags": [
+        "#earth",
+        "#nasa",
+        "#learnontiktok"
+      ],
+      "title": "The Aral Sea covered about 68,000 km² in 1960, once the 4th-largest lake on Earth (NASA; …",
+      "description": "The Aral Sea covered about 68,000 km² in 1960, once the 4th-largest lake on Earth (NASA; Micklin et al. 2020). Most of it has dried up since. Images: NASA Earth Observatory/USGS (1964), NASA JSC (1985), NASA Worldview/GIBS (Terra MODIS, 1 Nov 2026).\n\n#earth #nasa #learnontiktok",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-16/1116-V6/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 4469553,
+      "exportedAt": "2026-11-09T06:32:20.392Z"
     }
   ]
 }
