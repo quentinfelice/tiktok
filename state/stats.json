@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T13:40:53.186Z",
+  "fetchedAt": "2026-11-12T15:29:03.971Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,8 +33,8 @@
       "createTime": "2026-11-12T10:43:31.000Z",
       "createTimeUnix": 1794480211,
       "title": "Do you know what is a berry ?  ",
-      "views": 438,
-      "likes": 5,
+      "views": 730,
+      "likes": 7,
       "comments": 0,
       "shares": 0,
       "shareUrl": "https://www.tiktok.com/@funfactstplus/video/7707233789809904929?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
