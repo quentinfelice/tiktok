@@ -2,6 +2,30 @@
   "date": "2026-11-13",
   "items": [
     {
+      "id": "1113-V10",
+      "date": "2026-11-13",
+      "kind": "video",
+      "series": "T-PLUS Fun facts (design v5: hook, story, real footage)",
+      "variant": "v1",
+      "hypothesis": "Design v5 with real footage (owner 2026-11-12: « cherche de vraies séquences vidéo plutôt que des photos »): a real punch on the word « punch » in the first second, « this is real footage » next, 15 cuts in 25 s, two slowed replays, loop. Baseline: the 16 T-PLUS posts sit at 720-838 views, 0 shares (MEASURED 2026-11-12). Primary = public views at 48 h against that band; secondary = shares. Compared with the v5 photo videos (1113-V6 to V9): does footage do better than photos?",
+      "derivedFrom": "accounts/tt-tplus/episodes/F53-octopus-punch-fish/v5/draft",
+      "aigc": true,
+      "caption": "Octopuses punch fish 👊 Real footage from the Red Sea: day octopuses hunt with fish and hit partners that get in the way. Sometimes with nothing to gain right away; one explanation scientists offer is spite. Video: Sampaio et al. 2024, Nat. Ecol. Evol., CC BY 4.0, cropped.",
+      "hashtags": [
+        "#octopus",
+        "#funfacts",
+        "#fyp"
+      ],
+      "title": "Octopuses punch fish 👊 Real footage from the Red Sea: day octopuses hunt with fish and h…",
+      "description": "Octopuses punch fish 👊 Real footage from the Red Sea: day octopuses hunt with fish and hit partners that get in the way. Sometimes with nothing to gain right away; one explanation scientists offer is spite. Video: Sampaio et al. 2024, Nat. Ecol. Evol., CC BY 4.0, cropped.\n\n#octopus #funfacts #fyp",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V10/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 32559266,
+      "exportedAt": "2026-11-12T17:33:53.196Z"
+    },
+    {
       "id": "1113-V2",
       "date": "2026-11-13",
       "kind": "video",
