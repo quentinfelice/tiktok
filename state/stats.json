@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T17:36:13.757Z",
+  "fetchedAt": "2026-11-12T18:02:29.375Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -33,7 +33,7 @@
       "createTime": "2026-11-12T10:43:31.000Z",
       "createTimeUnix": 1794480211,
       "title": "Do you know what is a berry ?  ",
-      "views": 775,
+      "views": 776,
       "likes": 8,
       "comments": 0,
       "shares": 0,
