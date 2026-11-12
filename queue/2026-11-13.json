@@ -100,30 +100,6 @@
       "seconds": null,
       "bytes": 10499293,
       "exportedAt": "2026-11-09T11:12:24.007Z"
-    },
-    {
-      "id": "1113-V9",
-      "date": "2026-11-13",
-      "kind": "video",
-      "series": "T-PLUS Fun facts (design v5: hook, story, real photos)",
-      "variant": "v1",
-      "hypothesis": "Design v5, story 5 of the bank: the result in the hook (first 2.5 s), a twist kept for the last third (a Monet upside down confused them, a Picasso did not), 16 cuts in 30 s, loop. Baseline: the 16 T-PLUS posts sit at 720-838 views, 0 shares (MEASURED 2026-11-12). Primary = public views at 48 h against that band; secondary = shares.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F52-pigeons-picasso-monet/v5/draft",
-      "aigc": true,
-      "caption": "A pigeon can tell a Picasso from a Monet 🎨 Keio University, 1995: trained on slides, the birds also sorted paintings they had never seen. A Monet upside down confused them; a Picasso didn’t. Photos: Ben, E. Lazzaretti (iNaturalist, CC0). Monets: Art Institute of Chicago.",
-      "hashtags": [
-        "#pigeons",
-        "#funfacts",
-        "#fyp"
-      ],
-      "title": "A pigeon can tell a Picasso from a Monet 🎨 Keio University, 1995: trained on slides, the…",
-      "description": "A pigeon can tell a Picasso from a Monet 🎨 Keio University, 1995: trained on slides, the birds also sorted paintings they had never seen. A Monet upside down confused them; a Picasso didn’t. Photos: Ben, E. Lazzaretti (iNaturalist, CC0). Monets: Art Institute of Chicago.\n\n#pigeons #funfacts #fyp",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V9/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 19160630,
-      "exportedAt": "2026-11-12T15:57:58.638Z"
     }
   ]
 }
