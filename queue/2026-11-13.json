@@ -100,31 +100,6 @@
       "seconds": null,
       "bytes": 10499293,
       "exportedAt": "2026-11-09T11:12:24.007Z"
-    },
-    {
-      "id": "1113-V6",
-      "date": "2026-11-13",
-      "kind": "video",
-      "series": "T-PLUS Fun facts (design v5: hook, story, real photos)",
-      "variant": "v1",
-      "hypothesis": "Design v5 (owner 2026-11-12: no hook, more beautiful, more dynamic; handoffs/TT-PUSH-001/DESIGN_V5.md): the same judged facts as F27 v4, which this replaces in place as 1113-V6, retold with a slammed hook, the result in the second sentence, 15 cuts in 26 s, colour captions and stickers. Baseline: the 13 posts of 2-11 Nov sit at 720-838 views, 0 shares (MEASURED). Primary = public views at 48 h against that band; secondary = shares.",
-      "derivedFrom": "accounts/tt-tplus/episodes/F27-crows-faces/v5/draft",
-      "aigc": true,
-      "caption": "Never be mean to a crow 🐦‍⬛ It can remember your face for years, and crows that never met you learn it too (Seattle study, 2006–2012). Photos: iNaturalist (Ben, funvill, icaswell, CC0; J. Layman, CC BY 4.0, darkened, inaturalist.org/observations/100156074); USFWS.",
-      "hashtags": [
-        "#crows",
-        "#funfacts",
-        "#didyouknow",
-        "#fyp"
-      ],
-      "title": "Never be mean to a crow 🐦‍⬛ It can remember your face for years, and crows that never me…",
-      "description": "Never be mean to a crow 🐦‍⬛ It can remember your face for years, and crows that never met you learn it too (Seattle study, 2006–2012). Photos: iNaturalist (Ben, funvill, icaswell, CC0; J. Layman, CC BY 4.0, darkened, inaturalist.org/observations/100156074); USFWS.\n\n#crows #funfacts #didyouknow #fyp",
-      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V6/video.mp4",
-      "images": [],
-      "slides": 0,
-      "seconds": null,
-      "bytes": 16309723,
-      "exportedAt": "2026-11-12T12:46:22.970Z"
     }
   ]
 }
