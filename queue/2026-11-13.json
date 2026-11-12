@@ -2,6 +2,30 @@
   "date": "2026-11-13",
   "items": [
     {
+      "id": "1113-V11",
+      "date": "2026-11-13",
+      "kind": "video",
+      "series": "T-PLUS Fun facts (design v5: hook, story, real footage)",
+      "variant": "v1",
+      "hypothesis": "Design v5 with real footage, second of the kind: a real throw on the word « throw » in the first second, 14 cuts in 25 s, slowed replays, loop. Baseline: the 16 T-PLUS posts sit at 720-838 views, 0 shares (MEASURED 2026-11-12). Primary = public views at 48 h against that band; secondary = shares.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F54-octopus-throwing/v5/draft",
+      "aigc": true,
+      "caption": "Octopuses throw things at each other 💥 Real footage: gloomy octopuses in Jervis Bay, Australia. 102 throws counted (shells, silt, algae), most by females; some hit a neighbour, and nobody was seen throwing back. Video: Godfrey-Smith et al. 2022, PLoS ONE, CC BY 4.0, cropped.",
+      "hashtags": [
+        "#octopus",
+        "#funfacts",
+        "#fyp"
+      ],
+      "title": "Octopuses throw things at each other 💥 Real footage: gloomy octopuses in Jervis Bay, Aus…",
+      "description": "Octopuses throw things at each other 💥 Real footage: gloomy octopuses in Jervis Bay, Australia. 102 throws counted (shells, silt, algae), most by females; some hit a neighbour, and nobody was seen throwing back. Video: Godfrey-Smith et al. 2022, PLoS ONE, CC BY 4.0, cropped.\n\n#octopus #funfacts #fyp",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V11/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 17942029,
+      "exportedAt": "2026-11-12T18:00:17.394Z"
+    },
+    {
       "id": "1113-V2",
       "date": "2026-11-13",
       "kind": "video",
