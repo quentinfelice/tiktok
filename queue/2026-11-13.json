@@ -100,6 +100,31 @@
       "seconds": null,
       "bytes": 10499293,
       "exportedAt": "2026-11-09T11:12:24.007Z"
+    },
+    {
+      "id": "1113-V7",
+      "date": "2026-11-13",
+      "kind": "video",
+      "series": "T-PLUS Fun facts (design v5: hook, story, real photos)",
+      "variant": "v1",
+      "hypothesis": "Design v5, story 3 of the bank (handoffs/TT-PUSH-001/DESIGN_V5.md): the cubes on screen and the number in the first 4 s, 14 cuts in 24 s, loop. Baseline: the 13 posts of 2-11 Nov sit at 720-838 views, 0 shares (MEASURED). Primary = public views at 48 h against that band; secondary = shares.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F51-wombat-cubes/v5/draft",
+      "aigc": true,
+      "caption": "This animal poops cubes 🧊 Up to 100 a day: the wombat's gut squeezes the corners into shape (Soft Matter, 2021). Photos, iNaturalist, CC BY: C. Catto, P. Dufour, P. Crowcroft, B. Stewart, J. Sullivan, D. Hester, N. Kearney, pimelea; CC0: E. Schiff, jstarspots.",
+      "hashtags": [
+        "#wombat",
+        "#funfacts",
+        "#didyouknow",
+        "#fyp"
+      ],
+      "title": "This animal poops cubes 🧊 Up to 100 a day: the wombat's gut squeezes the corners into sh…",
+      "description": "This animal poops cubes 🧊 Up to 100 a day: the wombat's gut squeezes the corners into shape (Soft Matter, 2021). Photos, iNaturalist, CC BY: C. Catto, P. Dufour, P. Crowcroft, B. Stewart, J. Sullivan, D. Hester, N. Kearney, pimelea; CC0: E. Schiff, jstarspots.\n\n#wombat #funfacts #didyouknow #fyp",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V7/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 25930427,
+      "exportedAt": "2026-11-12T13:38:08.236Z"
     }
   ]
 }
