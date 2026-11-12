@@ -100,6 +100,30 @@
       "seconds": null,
       "bytes": 10499293,
       "exportedAt": "2026-11-09T11:12:24.007Z"
+    },
+    {
+      "id": "1113-V8",
+      "date": "2026-11-13",
+      "kind": "video",
+      "series": "T-PLUS Fun facts (design v5: hook, story, real photos)",
+      "variant": "v1",
+      "hypothesis": "Design v5, story 2 of the bank: the hook and the result (« The birds won ») in the first 4 s, 17 cuts in 31 s, loop. Baseline: the 13 posts of 2-11 Nov sit at 720-838 views, 0 shares (MEASURED). Primary = public views at 48 h against that band; secondary = shares.",
+      "derivedFrom": "accounts/tt-tplus/episodes/F50-emu-war/v5/draft",
+      "aigc": true,
+      "caption": "Australia once sent its army to fight birds. The birds won 🏆 The 1932 “Emu War”: the troops left after a week, came back days later; bounties ended it. Emu photos, iNaturalist, CC BY: D. Davesne, grampianshiker, B. Langdon-Lassagne, J. Ebr & I. Ebrová, S. Kljucanin.",
+      "hashtags": [
+        "#emuwar",
+        "#funfacts",
+        "#fyp"
+      ],
+      "title": "Australia once sent its army to fight birds. The birds won 🏆 The 1932 “Emu War”: the tro…",
+      "description": "Australia once sent its army to fight birds. The birds won 🏆 The 1932 “Emu War”: the troops left after a week, came back days later; bounties ended it. Emu photos, iNaturalist, CC BY: D. Davesne, grampianshiker, B. Langdon-Lassagne, J. Ebr & I. Ebrová, S. Kljucanin.\n\n#emuwar #funfacts #fyp",
+      "video": "https://quentinfelice.github.io/tiktok/media/2026-11-13/1113-V8/video.mp4",
+      "images": [],
+      "slides": 0,
+      "seconds": null,
+      "bytes": 26086306,
+      "exportedAt": "2026-11-12T15:27:08.859Z"
     }
   ]
 }
