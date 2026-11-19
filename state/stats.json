@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-18T15:47:40.293Z",
+  "fetchedAt": "2026-11-19T00:32:11.696Z",
   "source": "TikTok Display API /v2/video/list/ (public posts of the connected account)",
   "label": "MEASURED",
   "fieldsRequested": [
@@ -27,6 +27,20 @@
     "view_count"
   ],
   "posts": [
+    {
+      "specId": null,
+      "tiktokId": "7709633020164099361",
+      "createTime": "2026-11-18T21:53:43.000Z",
+      "createTimeUnix": 1795038823,
+      "title": "What if Mount Everest would disappear under water ?  ",
+      "views": 430,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "shareUrl": "https://www.tiktok.com/@funfactstplus/video/7709633020164099361?utm_campaign=tt4d_open_api&utm_source=sbawpp2q2kgqkm4yp4",
+      "duration": 37,
+      "matchedBy": null
+    },
     {
       "specId": null,
       "tiktokId": "7709044803123547424",
@@ -411,7 +425,7 @@
       "createTime": "2026-10-28T19:05:05.000Z",
       "createTimeUnix": 1793214305,
       "title": "Sleep talking: what do people say in their sleep? In one Paris sleep lab, 232 adults (mostly patients) were recorded: the top word was 'no', and about 1 in 10 clauses had swearing. #sleeptalking #sleep #funnyfacts #sleepscience #didyouknow",
-      "views": 821,
+      "views": 823,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -537,7 +551,7 @@
       "createTime": "2026-10-25T19:36:12.000Z",
       "createTimeUnix": 1792956972,
       "title": "Dream about being late for an exam: what science says. 67% of students in one survey had dreamed about school. In France, about 700 medical students' exam dreams mostly went wrong, yet dreaming of the exam went with slightly better grades. #dreammeaning #examdream #dreams #students #sleepscience",
-      "views": 373,
+      "views": 374,
       "likes": 4,
       "comments": 0,
       "shares": 1,
@@ -621,7 +635,7 @@
       "createTime": "2026-10-21T20:19:17.000Z",
       "createTimeUnix": 1792613957,
       "title": "Exploding head syndrome: the loud bang as you fall asleep. A sudden noise in your head as you drift off or wake. Usually painless; 18% of 211 US college students said they had had it. If it is frequent or worrying, talk to a doctor. #explodingheadsyndrome #sleep #weirdfacts #sleepscience #brain",
-      "views": 920,
+      "views": 921,
       "likes": 3,
       "comments": 0,
       "shares": 0,
@@ -817,7 +831,7 @@
       "createTime": "2026-10-15T21:39:28.000Z",
       "createTimeUnix": 1792100368,
       "title": "Sleep paralysis: why you can't move when you wake up. In REM sleep your muscles are switched off, and sometimes the mind wakes first. About 8% of people have had it. Scary but short; if it's frequent or worrying, talk to a doctor. #sleepparalysis #sleep #remsleep #scary #sleepscience",
-      "views": 370,
+      "views": 371,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -1055,7 +1069,7 @@
       "createTime": "2026-10-09T06:22:43.000Z",
       "createTimeUnix": 1791526963,
       "title": "She was found asleep on a crane. London, 2005: a sleepwalking 15-year-old climbed a crane and was found asleep about 40 m up. Firefighters brought her down unharmed. #truestory #sleepwalking #london #sleepscience",
-      "views": 747,
+      "views": 751,
       "likes": 2,
       "comments": 0,
       "shares": 0,
