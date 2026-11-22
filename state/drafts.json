@@ -3026,6 +3026,24 @@
       "logId": "20261121144806DF9DF1FF9FDE304EEC0A",
       "updatedAt": "2026-11-21T14:48:44.440Z",
       "lastCheckedAt": "2026-11-21T14:48:44.440Z"
+    },
+    {
+      "createdAt": "2026-11-22T23:39:29.597Z",
+      "specId": "1119-V1",
+      "date": "2026-11-19",
+      "publishId": "v_inbox_url~v2.7711144071133317142",
+      "kind": "video",
+      "title": "Your broccoli, cauliflower, cabbage and Brussels sprouts are all one plant species: Brass…",
+      "urls": [
+        "https://quentinfelice.github.io/tiktok/media/2026-11-19/1119-V1/video.mp4"
+      ],
+      "mode": "draft",
+      "status": "SEND_TO_USER_INBOX",
+      "failReason": null,
+      "publicPostIds": [],
+      "logId": "20261122233930EFD2F5C09DF233F872C6",
+      "updatedAt": "2026-11-22T23:40:02.970Z",
+      "lastCheckedAt": "2026-11-22T23:40:02.970Z"
     }
   ]
 }
